@@ -203,7 +203,7 @@
 						
 
 			<!-- Botões HTML -->
-<div style="text-align: center; margin-top: 20px;">
+<div class="button-container">
     <!-- Botão para aceitar -->
     <button class="kirvano-payment-trigger btn-accept">
         OBTER ACESSO
@@ -217,6 +217,12 @@
 
 <!-- Estilos CSS -->
 <style>
+    /* Contêiner para centralizar os botões */
+    .button-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
     /* Estilo do botão de aceitação */
     .btn-accept {
         background-color: #28a745;
@@ -229,6 +235,9 @@
         cursor: pointer;
         transition: background-color 0.3s ease;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        margin-bottom: 20px; /* Espaçamento entre os botões */
+        width: 80%; /* Responsivo no mobile */
+        max-width: 400px; /* Limite no desktop */
     }
 
     .btn-accept:hover {
@@ -244,11 +253,18 @@
         font-family: sans-serif;
         text-decoration: underline;
         cursor: pointer;
-        margin-top: 20px; /* Espaçamento entre os botões */
+        width: auto;
     }
 
     .btn-refuse:hover {
         color: #b02a37;
+    }
+
+    /* Responsividade */
+    @media (min-width: 768px) {
+        .btn-accept {
+            width: auto;
+        }
     }
 </style>
 		</section>
