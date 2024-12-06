@@ -283,13 +283,27 @@
         color: #b02a37;
     }
 
-    /* Responsividade */
+    /* Ajustes responsivos para mobile */
+    @media (max-width: 767px) {
+        .btn-accept {
+            width: 90%; /* Botão ocupa quase toda a largura no mobile */
+            padding: 15px 20px; /* Ajuste de padding no mobile */
+            font-size: 18px; /* Texto menor no mobile */
+        }
+
+        .btn-refuse {
+            font-size: 14px; /* Texto menor no mobile */
+        }
+    }
+
+    /* Ajustes responsivos para desktop */
     @media (min-width: 768px) {
         .btn-accept {
-            width: auto;
+            width: auto; /* Botão com largura automática no desktop */
         }
     }
 </style>
+					</div>
 		</section>
 				<section class="elementor-section elementor-top-section elementor-element elementor-element-7c1a3e9e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7c1a3e9e" data-element_type="section" data-settings="{" _ha_eqh_enable":false}"="">
 						<div class="elementor-container elementor-column-gap-default">
