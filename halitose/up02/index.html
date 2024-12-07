@@ -198,7 +198,7 @@
 			<div class="elementor-widget-wrap elementor-element-populated">
 						<div class="elementor-element elementor-element-2489136 elementor-widget elementor-widget-payt_upsell" data-id="2489136" data-element_type="widget" data-widget_type="payt_upsell.default">
 				<div class="elementor-widget-container">
-						
+<div class="esconder">						
 <!-- Botões HTML -->
 			<div class="button-container">
     <!-- Botão para aceitar -->
@@ -272,6 +272,54 @@
         }
     }
 </style>
+
+					  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style>.esconder { display: none }</style>
+          <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function() {
+
+            /* Altere o valor de em SECONDS_TO_DISPLAY = 00 para o tempo em segundo que a ação irá acontecer */
+            var SECONDS_TO_DISPLAY = 186;
+            var CLASS_TO_DISPLAY = ".esconder";
+
+            /* Comando de conexão do player do vturb */
+            var attempts = 0;
+            var elsHiddenList = [];
+            var elsDisplayed = false;
+            var elsHidden = document.querySelectorAll(CLASS_TO_DISPLAY);
+            var alreadyDisplayedKey =`alreadyElsDisplayed${SECONDS_TO_DISPLAY}`
+            var alreadyElsDisplayed = localStorage.getItem(alreadyDisplayedKey);
+
+            setTimeout(function () { elsHiddenList = Array.prototype.slice.call(elsHidden); }, 0);
+
+            var showHiddenElements = function () {
+              elsDisplayed = true;
+              elsHiddenList.forEach((e) => e.style.display = "block");
+              localStorage.setItem(alreadyDisplayedKey, true)
+            }
+
+            var startWatchVideoProgress = function () {
+              if (typeof smartplayer === 'undefined' || !(smartplayer.instances && smartplayer.instances.length)) {
+                if (attempts >= 10) return;
+                attempts += 1;
+                return setTimeout(function () { startWatchVideoProgress() }, 1000);
+            }
+
+            smartplayer.instances[0].on('timeupdate', () => {
+              if (elsDisplayed || smartplayer.instances[0].smartAutoPlay) return;
+              if (smartplayer.instances[0].video.currentTime < SECONDS_TO_DISPLAY) return;
+              showHiddenElements();
+            })
+            }
+
+            if (alreadyElsDisplayed === 'true') {
+              setTimeout(function () { showHiddenElements(); }, 100);
+            } else {
+              startWatchVideoProgress()
+            }
+            });
+          </script>
 		</section>
 				<section class="elementor-section elementor-top-section elementor-element elementor-element-3ede8dc6 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3ede8dc6" data-element_type="section" data-settings="{" _ha_eqh_enable":false}"="">
 						<div class="elementor-container elementor-column-gap-default">
