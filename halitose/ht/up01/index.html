@@ -174,79 +174,16 @@
 				<div class="elementor-widget-container">
 						
 <div class="esconder">
-			<!-- Botões HTML -->
-<div class="button-container">
-    <!-- Botão para aceitar -->
-    <button class="kirvano-payment-trigger btn-accept">
-        OBTER ACESSO
-    </button>
+<!-- HOTMART - Sales Funnel Widget -->
+<!--- sales funnel container --->
+<div id="hotmart-sales-funnel"></div>
 
-    <!-- Botão para recusar -->
-    <button class="kirvano-refuse-trigger btn-refuse">
-        Não, vou perder essa oportunidade.
-    </button>
-</div>
-
-<!-- Script de integração -->
+<!--- script load and setup --->
+<script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
 <script>
-    var offer = "34891cab-94a1-421b-b5ce-5124e6bf4062";
-    var nextPageURL = "https://vitalwellnessguide.site/halitose/up02";
-    var refusePageURL = "https://vitalwellnessguide.site/halitose/down01";
+checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
 </script>
-<script src="https://snippets.kirvano.com/upsell.min.js"></script>
-
-<!-- Estilos CSS -->
-<style>
-    /* Contêiner para centralizar os botões */
-    .button-container {
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    /* Estilo do botão de aceitação */
-    .btn-accept {
-        background-color: #28a745;
-        color: #FFFFFF;
-        padding: 20px 40px;
-        font-size: 22px;
-        font-family: sans-serif;
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        margin-bottom: 20px; /* Espaçamento entre os botões */
-        width: 80%; /* Responsivo no mobile */
-        max-width: 400px; /* Limite no desktop */
-    }
-
-    .btn-accept:hover {
-        background-color: #218838;
-    }
-
-    /* Estilo do botão de recusa */
-    .btn-refuse {
-        background: none;
-        color: #dc3545;
-        border: none;
-        font-size: 16px;
-        font-family: sans-serif;
-        text-decoration: underline;
-        cursor: pointer;
-        width: auto;
-    }
-
-    .btn-refuse:hover {
-        color: #b02a37;
-    }
-
-    /* Responsividade */
-    @media (min-width: 768px) {
-        .btn-accept {
-            width: auto;
-        }
-    }
-</style>
+<!-- HOTMART - Sales Funnel Widget -->
 
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
