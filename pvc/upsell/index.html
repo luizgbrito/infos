@@ -52,46 +52,7 @@
     padding: 2px 0;
   }
 </style>
-    
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JCB5C9B1BD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-JCB5C9B1BD');
-</script>
-    
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HKZZD3KFVT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HKZZD3KFVT');
-</script>
-    
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11114533979"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-11114533979');
-</script>
-    
-    <!-- Event snippet for Compra - PVC conversion page -->
-<script>
-  gtag('event', 'conversion', {
-      'send_to': 'AW-11114533979/cvCnCMydl5EYENuo6bMp',
-      'value': 25.86,
-      'currency': 'USD',
-      'transaction_id': ''
-  });
-</script>
 
     
   </head>
@@ -111,19 +72,16 @@
     <br>
 
 <div class="esconder">
-<!-- HOTMART - Upsell Widget -->
-<div id="box_hotmart"></div>
-<script src="https://pay.hotmart.com/assets/js/hotmart.upsell_checkout.js"></script>
+<!-- HOTMART - Sales Funnel Widget -->
+<!--- sales funnel container --->
+<div id="hotmart-sales-funnel"></div>
 
+<!--- script load and setup --->
+<script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
 <script>
-opts = {
-key: 'USL-105174-319803-1ee4dddd6c39a3d5a99c97ec3b9bfa03',
-width: '650' ,
-height: '420'
-};
-Upsell.Widget.show(opts);
+checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
 </script>
-<!-- HOTMART - Upsell Widget [end] -->
+<!-- HOTMART - Sales Funnel Widget -->
 </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
