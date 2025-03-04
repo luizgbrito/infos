@@ -133,25 +133,16 @@
 
     <section class="content-book">
 
-    <!-- HOTMART - Upsell Widget -->
-<span class="anchor" id="oferta"></span>
-        <div class="d-flex justify-content-center">
-            <div class="box" id="box">
-                <div id="box_hotmart"></div>
-            </div>
-        </div>
+   <!-- HOTMART - Sales Funnel Widget -->
+<!--- sales funnel container --->
+<div id="hotmart-sales-funnel"></div>
 
-<script src="https://pay.hotmart.com/assets/js/hotmart.upsell_checkout.js"></script>
-
+<!--- script load and setup --->
+<script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
 <script>
-opts = {
-key: 'USL-105174-319805-963329f120b48efc2aafd88ce645ff88',
-width: '650' ,
-height: '420'
-};
-Upsell.Widget.show(opts);
+checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
 </script>
-<!-- HOTMART - Upsell Widget [end] -->
+<!-- HOTMART - Sales Funnel Widget -->
 
             <div class="d-flex justify-content-center">
                 <table>
