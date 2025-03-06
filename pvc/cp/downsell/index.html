@@ -50,6 +50,15 @@
 		}
 	</style>
 
+                    <script
+                src="https://omni-digital.mycartpanda.com/js/libs/ocu-external.js">
+                </script>
+
+                <script>
+                new OcuExternal();
+                </script>
+            
+
 </head>
 
 <body>
@@ -132,17 +141,50 @@
     </section>
 
     <section class="content-book">
+<section id="oferta">
+   <div class="esconder">
+  <style>
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px auto;
+      gap: 10px;
+    }
+    .button-container a {
+      text-decoration: none;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .button-sim {
+      background-color: green;
+      color: white;
+      font-size: 24px; /* Tamanho da fonte */
+      padding: 20px 40px; /* Tamanho do botão */
+      line-height: 26px; /* Espaçamento de 2px na altura do texto */
+    }
+    .button-nao {
+      color: #555;
+      font-size: 16px;
+      padding: 10px 20px;
+    }
+    @media (max-width: 600px) {
+      .button-container a {
+        width: 90%;
+        margin: 5px 0;
+      }
+    }
+  </style>
 
-   <!-- HOTMART - Sales Funnel Widget -->
-<!--- sales funnel container --->
-<div id="hotmart-sales-funnel"></div>
-
-<!--- script load and setup --->
-<script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
-<script>
-checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
-</script>
-<!-- HOTMART - Sales Funnel Widget -->
+  <div class="button-container">
+    <a href="https://omni-digital.mycartpanda.com/ex-ocu/next-offer/AljJAgDYyW?accepted=yes" class="button-sim">
+      Sí, quiero aprovechar la ultima oportunidad!
+    </a>
+    <a href="https://omni-digital.mycartpanda.com/ex-ocu/next-offer/AljJAgDYyW?accepted=no" class="button-nao">
+      No, quiero...
+    </a>
+  </div>
+</div>
 
             <div class="d-flex justify-content-center">
                 <table>
