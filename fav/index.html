@@ -49,12 +49,12 @@ if (localStorage.getItem('userRedirected') === 'true') {
  // Redireciona o usuário para outra página (por exemplo, página inicial)
  window.location.href = "https://www.mujerhoy.com/relaciones";
 } else if (localStorage.getItem('userAccessed') === 'true') {
- // Remove o parâmetro '1892*057295&739395$830#2490rtk' da URL sem recarregar a página
- var cleanURL = removeURLParameter(window.location.href, '1892*057295&739395$830#2490rtk');
+ // Remove o parâmetro 'vazarato' da URL sem recarregar a página
+ var cleanURL = removeURLParameter(window.location.href, 'vazarato');
  history.replaceState(null, null, cleanURL);
 } else {
  // Verifica se a página foi acessada com o parâmetro correto
- if (getURLParameter('1892*057295&739395$830#2490rtk') !== 'true') {
+ if (getURLParameter('vazarato') !== 'true') {
   // Armazena no localStorage que o usuário foi redirecionado
   localStorage.setItem('userRedirected', 'true');
   // Redireciona o usuário para outra página (por exemplo, página inicial)
@@ -62,8 +62,8 @@ if (localStorage.getItem('userRedirected') === 'true') {
  } else {
   // Armazena no localStorage que o usuário acessou a página corretamente
   localStorage.setItem('userAccessed', 'true');
-  // Remove o parâmetro '1892*057295&739395$830#2490rtk' da URL sem recarregar a página
-  var cleanURL = removeURLParameter(window.location.href, '1892*057295&739395$830#2490rtk');
+  // Remove o parâmetro 'vazarato' da URL sem recarregar a página
+  var cleanURL = removeURLParameter(window.location.href, 'vazarato');
   history.replaceState(null, null, cleanURL);
  }
 }
