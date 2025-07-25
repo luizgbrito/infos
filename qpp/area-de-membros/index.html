@@ -1,0 +1,978 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Quaresma do Padre Pio - 7 Dias de Oração</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(135deg, #1a365d 0%, #0f2042 100%);
+            background-attachment: fixed;
+            color: white;
+            min-height: 100vh;
+            position: relative;
+            font-size: 18px;
+        }
+
+        /* Typography */
+        .title-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        .body-font {
+            font-family: 'Lato', sans-serif;
+        }
+
+        .golden-text {
+            color: #d4af37;
+        }
+
+        /* Overlay Pattern */
+        .overlay-pattern {
+            background-image: url('https://www.transparenttextures.com/patterns/crosses.png');
+            opacity: 0.1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Header */
+        .site-header {
+            padding: 15px 0;
+            background-color: rgba(15, 32, 66, 0.95);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            font-size: 16px;
+            margin: 0 3px;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+        }
+
+        .nav-link:hover {
+            color: #d4af37 !important;
+        }
+
+        .audio-nav-button {
+            color: #d4af37 !important;
+            font-weight: bold;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+            padding: 5px 10px !important;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            font-size: 11px;
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+            }
+        }
+
+        .audio-nav-button i {
+            margin-right: 3px;
+        }
+
+        .navbar-toggler {
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            padding: 4px 8px;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+        }
+
+        .dropdown-menu {
+            background-color: rgba(15, 32, 66, 0.98);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            padding: 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .dropdown-item {
+            color: white;
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            font-size: 17px;
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover, .dropdown-item:focus {
+            background-color: rgba(212, 175, 55, 0.15);
+            color: #d4af37;
+        }
+
+        /* Hero Section */
+        .hero-image-container {
+            max-width: 320px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #d4af37;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            margin: 0 auto 30px;
+            height: 320px;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .quote-box {
+            background: rgba(15, 32, 66, 0.8);
+            border: 3px solid rgba(212, 175, 55, 0.4);
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 700px;
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .quote-box::before {
+            content: '"';
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            font-size: 80px;
+            color: rgba(212, 175, 55, 0.2);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(to right, #d4af37, #f2d675);
+            color: #0f2042;
+            border: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+            padding: 16px 32px;
+            font-size: 20px;
+            border-radius: 30px;
+        }
+
+        .btn-primary:hover, .btn-primary:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(212, 175, 55, 0.4);
+            background: linear-gradient(to right, #e5be4a, #f5e290);
+            color: #0f2042;
+        }
+
+        .btn-outline-light {
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            border-radius: 25px;
+        }
+
+        .btn-outline-light:hover, .btn-outline-light:focus {
+            background-color: rgba(212, 175, 55, 0.3);
+            border-color: #d4af37;
+            color: #d4af37;
+        }
+
+        /* Day Cards */
+        .day-card {
+            background: rgba(10, 22, 46, 0.9);
+            border: 3px solid rgba(212, 175, 55, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            height: 100%;
+            margin-bottom: 20px;
+        }
+
+        .day-card:hover, .day-card:focus {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+            border-color: rgba(212, 175, 55, 0.9);
+        }
+
+        .day-badge {
+            background: #d4af37;
+            color: #0f2042;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .day-icon {
+            font-size: 60px;
+            color: #d4af37;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            margin-bottom: 15px;
+        }
+
+        .day-title {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .day-description {
+            font-family: 'Lato', sans-serif;
+            color: white;
+            font-size: 18px;
+            line-height: 1.5;
+            background: rgba(10, 22, 46, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Special Day 7 Card */
+        .special-day-card {
+            background: linear-gradient(135deg, rgba(10, 22, 46, 0.9), rgba(20, 40, 80, 0.9));
+            border: 3px solid rgba(212, 175, 55, 0.8);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Audio CTA */
+        .audio-cta-container {
+            background: rgba(10, 22, 46, 0.9);
+            border: 3px solid rgba(212, 175, 55, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 900px;
+        }
+
+        .cta-button {
+            background: linear-gradient(to right, #d4af37, #f2d675);
+            color: #0f2042;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
+            text-decoration: none;
+            border: 2px solid #f8e9b0;
+            margin: 10px 0;
+        }
+
+        .cta-button:hover, .cta-button:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(212, 175, 55, 0.6);
+            color: #0f2042;
+            text-decoration: none;
+        }
+
+        .cta-button i {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+
+        /* Fact Boxes */
+        .fact-box {
+            background: rgba(15, 32, 66, 0.8);
+            border-left: 4px solid #d4af37;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .fact-box h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .fact-box p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Instruction Cards */
+        .instruction-card {
+            background: rgba(15, 32, 66, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            height: 100%;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .instruction-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.7);
+        }
+
+        .instruction-icon {
+            font-size: 40px;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        .benefit-icon {
+            font-size: 40px;
+            color: #d4af37;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Section Divider */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            margin: 50px 0;
+        }
+
+        .divider-line {
+            flex-grow: 1;
+            height: 2px;
+            background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.7), transparent);
+        }
+
+        .divider-icon {
+            font-size: 30px;
+            color: #d4af37;
+            margin: 0 20px;
+        }
+
+        /* Page Section Spacing */
+        section {
+            padding: 60px 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: rgba(15, 32, 66, 0.95);
+            border-top: 2px solid rgba(212, 175, 55, 0.5);
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        .site-footer p {
+            font-size: 18px;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(212, 175, 55, 0.9);
+            color: #0f2042;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background: rgba(212, 175, 55, 1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Section Headings */
+        .section-heading {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+
+        .section-heading::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #d4af37;
+            border-radius: 3px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 991px) {
+            .hero-image-container {
+                max-width: 280px;
+                height: 280px;
+            }
+            
+            .day-card {
+                padding: 20px;
+            }
+            
+            .day-icon {
+                font-size: 50px;
+            }
+            
+            .fact-box {
+                padding: 15px;
+            }
+            
+            .navbar-collapse {
+                background-color: rgba(15, 32, 66, 0.98);
+                padding: 20px;
+                border-radius: 0 0 15px 15px;
+                margin-top: 10px;
+                border: 1px solid rgba(212, 175, 55, 0.3);
+            }
+        }
+
+        @media (max-width: 767px) {
+            body {
+                font-size: 16px;
+            }
+            
+            h1 {
+                font-size: 32px !important;
+            }
+            
+            h2 {
+                font-size: 28px !important;
+            }
+            
+            h3 {
+                font-size: 22px !important;
+            }
+
+            .hero-image-container {
+                max-width: 240px;
+                height: 240px;
+            }
+            
+            .day-card {
+                margin-bottom: 20px;
+            }
+            
+            .btn-primary {
+                font-size: 18px;
+                padding: 14px 28px;
+            }
+            
+            .section-divider {
+                margin: 30px 0;
+            }
+            
+            .cta-button {
+                width: 100%;
+                justify-content: center;
+                font-size: 20px;
+            }
+            
+            .day-description {
+                font-size: 16px;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+            
+            .quote-box {
+                padding: 20px;
+                margin: 20px auto;
+            }
+            
+            .quote-box::before {
+                font-size: 60px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .hero-image-container {
+                max-width: 200px;
+                height: 200px;
+            }
+            
+            .day-icon {
+                font-size: 45px;
+            }
+            
+            .day-title {
+                font-size: 20px;
+            }
+            
+            .btn-outline-light {
+                display: block;
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            .back-to-top {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+            
+            .fact-box h3 {
+                font-size: 20px;
+            }
+            
+            .fact-box p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Overlay Pattern -->
+    <div class="overlay-pattern"></div>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand title-font golden-text" href="index.html">Quaresma do Padre Pio</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="index.html">Início</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    7 Dias
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="dia1/index.html">Dia 1: Anjo da Guarda</a></li>
+                                    <li><a class="dropdown-item" href="dia2/index.html">Dia 2: Cura</a></li>
+                                    <li><a class="dropdown-item" href="dia3/index.html">Dia 3: Prosperidade</a></li>
+                                    <li><a class="dropdown-item" href="dia4/index.html">Dia 4: Proteção da Família</a></li>
+                                    <li><a class="dropdown-item" href="dia5/index.html">Dia 5: Paz Interior</a></li>
+                                    <li><a class="dropdown-item" href="dia6/index.html">Dia 6: Gratidão</a></li>
+                                    <li><a class="dropdown-item" href="dia7/index.html">Dia 7: Compromisso</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#sobre">Sobre</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="instrucoes/index.html">Instruções</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link audio-nav-button" href="https://pay.hotmart.com/V101019390H?off=opc9oxws" target="_blank">
+                                    <i class="fas fa-headphones-simple"></i> Audiobook
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="hero-section text-center py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 col-md-11">
+                        <h1 class="title-font golden-text display-4 mb-4">Quaresma do Padre Pio</h1>
+                        <h2 class="body-font text-white fs-3 mb-5">Uma jornada de 7 dias de oração com o seu anjo da guarda</h2>
+                        
+                        <div class="hero-image-container">
+                            <img src="images/padre-Pio.jpg" alt="São Padre Pio em oração" class="img-fluid">
+                        </div>
+                        
+                        <div class="quote-box">
+                            <p class="body-font text-white fs-3 fst-italic mt-3">"Ore, tenha fé e não se preocupe"</p>
+                            <p class="golden-text fs-4 mt-2">— São Padre Pio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-icon"><i class="fas fa-cross"></i></div>
+            <div class="divider-line"></div>
+        </div>
+        
+        <!-- Days Overview Section -->
+        <section id="jornada" class="py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 col-md-11 text-center">
+                        <h2 class="title-font golden-text display-5 mb-2 section-heading">A Jornada de 7 Dias</h2>
+                        <p class="body-font text-white fs-4 mb-5">Uma experiência espiritual inspirada nos ensinamentos de São Padre Pio, com orações poderosas para transformar sua vida espiritual.</p>
+                    </div>
+                </div>
+                
+                <div class="row g-4 justify-content-center">
+                    <!-- Day 1 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="day-card h-100">
+                            <div class="text-center">
+                                <div class="day-badge">DIA 1</div>
+                                <div class="day-icon">
+                                    <i class="fas fa-praying-hands"></i>
+                                </div>
+                                <h3 class="day-title">Conexão com o Anjo da Guarda</h3>
+                                <p class="day-description">Estabeleça uma comunicação profunda com seu protetor celestial, seguindo o exemplo de Padre Pio.</p>
+                                <a href="dia1/index.html" class="btn btn-outline-light">Acessar Oração</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Day 2 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="day-card h-100">
+                            <div class="text-center">
+                                <div class="day-badge">DIA 2</div>
+                                <div class="day-icon">
+                                    <i class="fas fa-heart-pulse"></i>
+                                </div>
+                                <h3 class="day-title">Oração para Cura</h3>
+                                <p class="day-description">Apresente ao Senhor suas enfermidades físicas e feridas emocionais para receber a cura divina.</p>
+                                <a href="dia2/index.html" class="btn btn-outline-light">Acessar Oração</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Day 3 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="day-card h-100">
+                            <div class="text-center">
+                                <div class="day-badge">DIA 3</div>
+                                <div class="day-icon">
+                                    <i class="fas fa-hand-holding-dollar"></i>
+                                </div>
+                                <h3 class="day-title">Oração para Prosperidade</h3>
+                                <p class="day-description">Peça bênçãos para sua vida material e financeira, confiando na divina providência.</p>
+                                <a href="dia3/index.html" class="btn btn-outline-light">Acessar Oração</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Day 4 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="day-card h-100">
+                            <div class="text-center">
+                                <div class="day-badge">DIA 4</div>
+                                <div class="day-icon">
+                                    <i class="fas fa-house-chimney-user"></i>
+                                </div>
+                                <h3 class="day-title">Proteço da Família</h3>
+                                <p class="day-description">Coloque sua família sob proteção divina e sob o manto de Maria Santíssima.</p>
+                                <a href="dia4/index.html" class="btn btn-outline-light">Acessar Oração</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Day 5 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="day-card h-100">
+                            <div class="text-center">
+                                <div class="day-badge">DIA 5</div>
+                                <div class="day-icon">
+                                    <i class="fas fa-dove"></i>
+                                </div>
+                                <h3 class="day-title">Paz Interior</h3>
+                                <p class="day-description">Clame por aquela paz que ultrapassa todo entendimento e que só Cristo pode dar.</p>
+                                <a href="dia5/index.html" class="btn btn-outline-light">Acessar Oração</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Day 6 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="day-card h-100">
+                            <div class="text-center">
+                                <div class="day-badge">DIA 6</div>
+                                <div class="day-icon">
+                                    <i class="fas fa-hands-praying"></i>
+                                </div>
+                                <h3 class="day-title">Oração de Gratidão</h3>
+                                <p class="day-description">Eleve um cântico de louvor e agradecimento a Deus por todas as graças recebidas.</p>
+                                <a href="dia6/index.html" class="btn btn-outline-light">Acessar Oração</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Day 7 (Centered and Special) -->
+                <div class="row justify-content-center mt-4">
+                    <div class="col-lg-6 col-md-8">
+                        <div class="day-card special-day-card">
+                            <div class="text-center">
+                                <div class="day-badge">DIA 7</div>
+                                <div class="day-icon">
+                                    <i class="fas fa-anchor"></i>
+                                </div>
+                                <h3 class="day-title">Compromisso e Perseverança</h3>
+                                <p class="day-description">Firme um compromisso de perseverana na vida espiritual, seguindo o exemplo de São Padre Pio.</p>
+                                <a href="dia7/index.html" class="btn btn-outline-light">Acessar Oração</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Botão Iniciar Jornada -->
+                <div class="row justify-content-center mt-5">
+                    <div class="col-md-8 text-center">
+                        <a href="dia1/index.html" class="btn btn-primary btn-lg px-5 py-3 fs-5">
+                            <i class="fas fa-pray me-2"></i> Iniciar Jornada de 7 Dias
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-icon"><i class="fas fa-info-circle"></i></div>
+            <div class="divider-line"></div>
+        </div>
+        
+        <!-- Instructions Section -->
+        <section id="instrucoes-breve" class="py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 col-md-11 text-center">
+                        <h2 class="title-font golden-text display-5 mb-2 section-heading">Como Usar Este Guia</h2>
+                        <p class="body-font text-white fs-4 mb-5">Para aproveitar ao máximo esta jornada espiritual de 7 dias, siga estas orientações básicas:</p>
+                    </div>
+                </div>
+                
+                <div class="row g-4 justify-content-center">
+                  <div class="col-md-6 col-lg-4">
+                      <div class="instruction-card text-center">
+                          <div class="instruction-icon">
+                              <i class="fas fa-calendar-day"></i>
+                          </div>
+                          <h3 class="golden-text title-font fs-4 mb-3">Reze por 7 Dias Seguidos</h3>
+                          <p class="text-white">Dedique-se a cada oração diariamente, seguindo a sequência recomendada para maior benefício espiritual.</p>
+                      </div>
+                  </div>
+                  
+                  <div class="col-md-6 col-lg-4">
+                      <div class="instruction-card text-center">
+                          <i class="fas fa-clock instruction-icon"></i>
+                          <h3 class="golden-text title-font fs-4 mb-3">Reserve um Momento Tranquilo</h3>
+                          <p class="text-white">Escolha um horário fixo do dia, preferencialmente pela manhã, para sua oração em silêncio e sem distrações.</p>
+                      </div>
+                  </div>
+                  
+                  <div class="col-md-6 col-lg-4">
+                      <div class="instruction-card text-center">
+                          <i class="fas fa-heart instruction-icon"></i>
+                          <h3 class="golden-text title-font fs-4 mb-3">Ore com o Coraão</h3>
+                          <p class="text-white">Entregue-se de coração aberto, permitindo que cada palavra ressoe em sua alma e transforme sua vida.</p>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="row mt-4 justify-content-center">
+                  <div class="col-md-8 text-center">
+                      <a href="instrucoes.html" class="btn btn-outline-light btn-lg mt-4">
+                          <i class="fas fa-info-circle me-2"></i> Ver Instruções Completas
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </section>
+      
+      <!-- Section Divider -->
+      <div class="section-divider">
+          <div class="divider-line"></div>
+          <div class="divider-icon"><i class="fas fa-book-open"></i></div>
+          <div class="divider-line"></div>
+      </div>
+      
+      <!-- About Padre Pio Section -->
+      <section id="sobre" class="py-5">
+          <div class="container">
+              <div class="row justify-content-center">
+                  <div class="col-lg-10 col-md-11 text-center">
+                      <h2 class="title-font golden-text display-5 mb-2 section-heading">Quem foi São Padre Pio?</h2>
+                  </div>
+              </div>
+              
+              <div class="row align-items-center mt-4">
+                  <div class="col-lg-4 mb-4 mb-lg-0">
+                      <div class="rounded overflow-hidden border border-4 border-warning shadow-lg">
+                          <img src="images/S-Pio-of-Pietrelcina-resize-780x1024.jpg" alt="São Padre Pio" class="img-fluid">
+                      </div>
+                  </div>
+                  
+                  <div class="col-lg-8">
+                      <div class="fact-box">
+                          <h3 class="golden-text mb-2">Vida e História</h3>
+                          <p>São Padre Pio de Pietrelcina (1887-1968) foi um frade capuchinho italiano conhecido por sua profunda vida de oração, pelo dom dos estigmas (as chagas de Cristo em seu próprio corpo) e por numerosos relatos de graças alcançadas por sua intercessão.</p>
+                      </div>
+                      
+                      <div class="fact-box">
+                          <h3 class="golden-text mb-2">Dom dos Estigmas</h3>
+                          <p>Por 50 anos, carregou as chagas de Cristo em seu próprio corpo - um dos poucos santos com esse fenômeno documentado pela ciência e pela Igreja. Estas feridas permaneciam abertas e sangrando, porém sem infeccionar, algo inexplicável para a medicina.</p>
+                      </div>
+                      
+                      <div class="fact-box">
+                          <h3 class="golden-text mb-2">Devoção ao Anjo da Guarda</h3>
+                          <p>Desde criança, via e conversava com seu anjo protetor. Era comum enviar seu anjo da guarda para confortar e proteger os necessitados, e aconselhar seus fiéis espirituais a fazer o mesmo. Esta capacidade especial moldou profundamente sua espiritualidade.</p>
+                      </div>
+                      
+                      <div class="quote-box p-4 mt-4 position-relative">
+                          <i class="fas fa-quote-left position-absolute text-warning opacity-25 fa-3x" style="top: 10px; left: 10px;"></i>
+                          <p class="fs-4 ms-5 mt-3 mb-3">Que consolador é saber que perto de nós há um espírito que, do berço ao túmulo, nunca nos abandona, nem mesmo quando nos atrevemos a pecar!</p>
+                          <p class="text-end golden-text fs-5 mt-3">— São Padre Pio</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      
+      <!-- Section Divider -->
+      <div class="section-divider">
+          <div class="divider-line"></div>
+          <div class="divider-icon"><i class="fas fa-headphones-simple"></i></div>
+          <div class="divider-line"></div>
+      </div>
+      
+      <!-- Audio CTA Section -->
+      <section id="audiobook" class="py-5">
+          <div class="container">
+              <div class="audio-cta-container">
+                  <div class="row justify-content-center">
+                      <div class="col-lg-10 text-center">
+                          <h2 class="title-font golden-text fs-1 mb-4">Transforme sua Jornada em Áudio</h2>
+                          <p class="text-white fs-4 mb-4">Experimente as orações narradas com música inspiradora para uma conexão ainda mais profunda com sua espiritualidade.</p>
+                          
+                          <div class="row g-4 mb-4">
+                              <div class="col-md-4">
+                                  <div class="benefit-icon">
+                                      <i class="fas fa-brain"></i>
+                                  </div>
+                                  <h3 class="golden-text fs-4 mb-2">Meditação Profunda</h3>
+                                  <p class="text-white">Absorva cada palavra enquanto uma voz serena guia sua oração.</p>
+                              </div>
+                              <div class="col-md-4">
+                                  <div class="benefit-icon">
+                                      <i class="fas fa-heart"></i>
+                                  </div>
+                                  <h3 class="golden-text fs-4 mb-2">Experiência Imersiva</h3>
+                                  <p class="text-white">Música sacra e narração profissional criam um ambiente de elevação espiritual.</p>
+                              </div>
+                              <div class="col-md-4">
+                                  <div class="benefit-icon">
+                                      <i class="fas fa-mobile-screen"></i>
+                                  </div>
+                                  <h3 class="golden-text fs-4 mb-2">Oração em Qualquer Lugar</h3>
+                                  <p class="text-white">Leve suas orações para caminhadas, momentos antes de dormir ou durante deslocamentos.</p>
+                              </div>
+                          </div>
+                          
+                          <a href="https://pay.hotmart.com/V101019390H?off=opc9oxws" class="cta-button" target="_blank">
+                              <i class="fas fa-headphones-simple"></i>
+                              Obtenha o Audiobook Completo
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6 text-center text-md-start">
+                  <p class="mb-1">2025 Quaresma do Padre Pio. Todos os direitos reservados.</p>
+              </div>
+              <div class="col-md-6 text-center text-md-end">
+                  <p>Contato: <a href="/cdn-cgi/l/email-protection#532026233c212736132226322136203e322332372136233a3c7d303c3e" class="text-white"><span class="__cf_email__" data-cfemail="532026233c212736132226322136203e322332372136233a3c7d303c3e">quaresmadopadrepio@gmail.com</span></a></p>
+              </div>
+          </div>
+      </div>
+  </footer>
+  
+  <!-- JavaScript -->
+  <script data-cfasync="false" src="js/email-decode.min.js"></script><script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+      // Back to Top Button Functionality
+      const backToTopButton = document.getElementById('backToTop');
+      
+      window.addEventListener('scroll', () => {
+          if (window.pageYOffset > 300) {
+              backToTopButton.style.opacity = '1';
+          } else {
+              backToTopButton.style.opacity = '0';
+          }
+      });
+      
+      backToTopButton.addEventListener('click', () => {
+          window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+          });
+      });
+      
+      // Make sure dropdown works on mobile
+      document.addEventListener('DOMContentLoaded', function() {
+          var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+          dropdownElementList.map(function(dropdownToggleEl) {
+              return new bootstrap.Dropdown(dropdownToggleEl);
+          });
+      });
+  </script>
+
+
+</body></html>
