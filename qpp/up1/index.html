@@ -162,7 +162,7 @@ VERSÃO: [VERSÃO]
             const currentTime = videoEl.currentTime;
             console.log('Tempo atual do vídeo:', currentTime);
             // exibe após 7m14s (434s)
-            if (currentTime >= 434 && !widgetShown) {
+            if (currentTime >= 0 && !widgetShown) {
               widgetShown = true;
               showHotmartWidget();
               return;
