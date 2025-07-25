@@ -1,0 +1,263 @@
+<!DOCTYPE html><!--
+================================================================================
+                           DOCUMENTAÇÃO DO PROJETO
+================================================================================
+
+NOME DO PROJETO: Quaresma do Padre Pio
+
+INFORMAÇÕES TÉCNICAS:
+- Quaresma do Padre Pio (Upsell 2)
+- Player de Vídeo: Strapcast
+- Plataforma de Vendas: PayT
+- VSL: [2 UPSELL] - [QQP] - [V3] - [R$69] - PayT
+
+NOTAS IMPORTANTES:
+- 
+- 
+- 
+
+ÚLTIMA ATUALIZAÇÃO: [18/07/2024]
+VERSÃO: [VERSÃO]
+================================================================================
+--><html lang="pt-br"><head>
+    <meta charset="UTF-8">
+    
+    <!-- ========================================================================== -->
+    <!-- TROCAR VÍDEO AQUI - SUBSTITUIR TODO O SCRIPT ABAIXO -->
+    <!-- ========================================================================== -->
+    <script type="text/javascript">
+        // CONFIGURAÇÃO DO VÍDEO PRINCIPAL
+        const VIDEO_ID      = 'vidkiCKhgCMRXTB';
+        const CONTAINER_ID  = 'ctn_1752859412008';
+        const THUMB_URL     = `https://delivery.i-cdn.net/stream/${VIDEO_ID}/ThumbnailStart.jpg`;
+        const PLAYER_JS_URL = `https://delivery.i-cdn.net/stream/${VIDEO_ID}/player.js`;
+        
+        // Injeço imediata do preload (performance máxima)
+        let preloadLink = document.querySelector('link[rel="preload"][as="image"]');
+        if (!preloadLink) {
+          preloadLink = document.createElement('link');
+          preloadLink.rel         = 'preload';
+          preloadLink.as          = 'image';
+          preloadLink.crossOrigin = 'anonymous';
+          document.head.appendChild(preloadLink);
+        }
+        preloadLink.href = THUMB_URL;
+      </script>      
+    <!-- ========================================================================== -->
+    <!-- FIM DA SEÇÃO DE TROCA DE VÍDEO -->
+    <!-- ========================================================================== -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upsell 2 - 30 Oração de Santo Antônio</title>
+    
+    <!-- DNS Prefetch para melhor performance -->
+    <link rel="dns-prefetch" href="https://delivery.i-cdn.net">
+    <link rel="dns-prefetch" href="https://cdn-wftossaz9s.i-cdn.net">
+    <link rel="dns-prefetch" href="https://m3u8.strapcast.com">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0a1333;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #ffffff;
+        }
+        .container {
+            max-width: 420px;
+            margin: 0 auto;
+            padding: 0 8px 32px 8px;
+            text-align: center;
+        }
+        .parabens {
+            background: #ffe100;
+            color: #111;
+            font-weight: bold;
+            border-radius: 0;
+            padding: 14px 0;
+            text-align: center;
+            margin: 0 0 18px 0;
+            font-size: 1.15em;
+            box-shadow: none;
+            display: block;
+            width: 100%;
+            letter-spacing: 0.5px;
+        }
+        .headline {
+            text-align: center;
+            font-size: 1.25em;
+            font-weight: bold;
+            margin-bottom: 18px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            display: block;
+        }
+        .video-wrapper {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+            margin-bottom: 18px;
+            margin-left: 16px;
+            margin-right: 16px;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 2px 24px 2px;
+            }
+            .headline {
+                font-size: 1.05em;
+            }
+            .video-wrapper {
+                margin-left: 4px;
+                margin-right: 4px;
+            }
+        }
+        @keyframes pulse {
+          0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,193,7,0.7);}
+          70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255,193,7,0);}
+          100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,193,7,0);}
+        }
+        .pulse {
+          animation: pulse 1.5s infinite;
+        }
+    </style>
+    <!-- Scripts UTMify -->
+    <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+    <script>
+      window.pixelId = "681a6d134a2a05ae986fc0a6";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+</head>
+<body>
+    <div class="parabens">ESPERE: nosso bispo quer orar por sua vida agora</div>
+    <div class="container">
+        <!-- Headline antes do vídeo -->
+        <div style="color: #ffffff; font-weight: bold; text-align: center; font-size: 1.6em; margin: 20px 16px 20px 16px; line-height: 1.3;">
+            Você pediu a Deus, agora ELE está respondendo
+        </div>
+        
+        <div class="video-wrapper">
+            <div id="strap-player-container" style="margin: 0px auto;width: 100%;max-width: 400px;">
+              <div id="" style="position: relative; width: 100%; padding: 125% 0px 0px;"></div>
+            </div>
+            <script type="text/javascript">
+              // Monta o player dinamicamente
+              const container = document.querySelector('#strap-player-container > div');
+              container.id = CONTAINER_ID;
+              container.innerHTML = `
+                <div id="vid_${VIDEO_ID}" style="position: absolute;top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%;">
+                  <img id="thumb_${VIDEO_ID}" src="${THUMB_URL}" async style="position: relative; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail" />  
+                  <div id="backdrop_${VIDEO_ID}" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div>
+                </div>
+              `;
+              // Carrega o player.js
+              const stpc = document.createElement("script");
+              stpc.async = true;
+              stpc.src = PLAYER_JS_URL;
+              document.head.appendChild(stpc);
+              
+              // Script para mostrar o botão
+              let buttonShown = false;
+              
+              // Função para criar e mostrar o botão
+              function showPayTButton() {
+                if (buttonShown) return;
+                buttonShown = true;
+                console.log('Criando e mostrando botão PayT!');
+                
+                const buttonContainer = document.getElementById('payt-button-container');
+                if (buttonContainer) {
+                  // Cria os botes dinamicamente
+                  buttonContainer.innerHTML = `
+                    <div style="display: flex; flex-direction: column; gap: 12px; align-items: center; width: 100%; margin-top: 24px;">
+                      <!-- Botão de compra com animaão pulse -->
+                      <a href="https://go.perfectpay.com.br/PPU38CPSR16?upsell=true"
+                         class="pulse smartplayer-scroll-event"
+                         style="display: block; background: #ffc107; color: #111; font-weight: bold; padding: 16px 32px; border-radius: 8px; text-align: center; font-size: 1.1em; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.08); width: 100%; max-width: 340px;">
+                        Quero as 30 orações de Santo Antônio
+                      </a>
+                      <!-- Botão de recusa -->
+                      <a href="https://app.quaresmadepadrepio.com/login_app/quaresma-do-padre-pio"
+                         style="display: block; background: none; color: #888; font-weight: bold; padding: 10px 0; border-radius: 8px; text-align: center; font-size: 1em; text-decoration: underline; width: 100%; max-width: 340px;">
+                         Prefiro ignorar o chamado de Deus
+                      </a>
+                    </div>
+                  `;
+                  
+                  // Mostra o container
+                  buttonContainer.style.display = 'block';
+                  
+                  console.log('Botão criado e exibido com sucesso!');
+                } else {
+                  console.log('ERRO: Container do boto não encontrado!');
+                }
+              }
+              
+              // Verificação do tempo do vídeo para mostrar o botão
+              function checkVideoTime() {
+                try {
+                  const videoElement = document.querySelector('video');
+                  if (videoElement) {
+                    const currentTime = videoElement.currentTime;
+                    console.log('Tempo atual do vídeo:', Math.floor(currentTime / 60) + ':' + Math.floor(currentTime % 60).toString().padStart(2, '0'));
+                    
+                    // Mostra o botão em 5 minutos e 5 segundos (5:05)
+                    if (currentTime >= 305 && !buttonShown) {
+                      showPayTButton();
+                      return;
+                    }
+                  }
+                  
+                  // Continua verificando se o botão ainda não foi mostrado
+                  if (!buttonShown) {
+                    setTimeout(checkVideoTime, 1000);
+                  }
+                } catch (error) {
+                  console.log('Erro ao verificar tempo:', error);
+                  if (!buttonShown) {
+                    setTimeout(checkVideoTime, 1000);
+                  }
+                }
+              }
+              
+              // Inicia a verificaço quando a página carregar
+              document.addEventListener('DOMContentLoaded', function() {
+                console.log('DOM carregado, iniciando verificação...');
+                setTimeout(checkVideoTime, 2000); // Aguarda 2 segundos
+              });
+            </script>
+        </div>
+        
+        <!-- Botão de Compra (será criado dinamicamente) -->
+        <div id="payt-button-container" style="text-align: center; margin-top: 30px; padding: 0 20px; display: none;">
+        </div>
+    </div>
+
+<script>
+  // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
+  const link = 'https://app.quaresmadepadrepio.com/login_app/quaresma-do-padre-pio/';
+
+  function setBackRedirect(url) {
+      let urlBackRedirect = url;
+      urlBackRedirect = urlBackRedirect =
+          urlBackRedirect.trim() +
+          (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+          document.location.search.replace('?', '').toString();
+
+      history.pushState({}, '', location.href);
+      history.pushState({}, '', location.href);
+      history.pushState({}, '', location.href);
+
+      window.addEventListener('popstate', () => {
+          setTimeout(() => {
+              location.href = urlBackRedirect;
+          }, 1);
+      });
+  }
+
+  setBackRedirect(link);
+</script>
+
+</body></html>
