@@ -1,4 +1,5 @@
-<!DOCTYPE html><!--
+<!DOCTYPE html>
+<!--
 ================================================================================
                            DOCUMENTAÇÃO DO PROJETO
 ================================================================================
@@ -8,31 +9,25 @@ NOME DO PROJETO: Quaresma do Padre Pio
 INFORMAÇÕES TÉCNICAS:
 - Quaresma do Padre Pio (Upsell 1)
 - Player de Vídeo: Strapcast
-- Plataforma de Vendas: PayT
-- VSL: [1 UPSELL] - [QQP] - [V1] - [R$49] - PayT
+- Plataforma de Vendas: Hotmart
+- VSL: [1 UPSELL] - [QQP] - [V1] - [R$49] - Hotmart
 
-NOTAS IMPORTANTES:
-- 
-- 
-- 
-
-ÚLTIMA ATUALIZAÇÃO: [18/07/2024]
+ÚLTIMA ATUALIZAÇÃO: [25/07/2025]
 VERSÃO: [VERSÃO]
 ================================================================================
---><html lang="pt-br"><head>
+-->
+<html lang="pt-br">
+<head>
   <meta charset="UTF-8">
-  
-  <!-- ========================================================================== -->
-  <!-- TROCAR VÍDEO AQUI - SUBSTITUIR TODO O SCRIPT ABAIXO -->
-  <!-- ========================================================================== -->
-  <script type="text/javascript">
-    // CONFIGURAÇÃO DO VÍDEO PRINCIPAL
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upsell 1 - Músicas dos Anjos</title>
+
+  <!-- Preload da thumbnail do vídeo -->
+  <script>
     const VIDEO_ID      = 'vidBDeAtgjgrVxH';
     const CONTAINER_ID  = 'ctn_1752859371748';
     const THUMB_URL     = `https://delivery.i-cdn.net/stream/${VIDEO_ID}/ThumbnailStart.jpg`;
     const PLAYER_JS_URL = `https://delivery.i-cdn.net/stream/${VIDEO_ID}/player.js`;
-    
-    // Injeção imediata do preload (performance máxima)
     let preloadLink = document.querySelector('link[rel="preload"][as="image"]');
     if (!preloadLink) {
       preloadLink = document.createElement('link');
@@ -42,18 +37,13 @@ VERSÃO: [VERSÃO]
       document.head.appendChild(preloadLink);
     }
     preloadLink.href = THUMB_URL;
-  </script>  
-  <!-- ========================================================================== -->
-  <!-- FIM DA SEÇÃO DE TROCA DE VÍDEO -->
-  <!-- ========================================================================== -->
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upsell 1 - Músicas dos Anjos</title>
-  
-  <!-- DNS Prefetch para melhor performance -->
+  </script>
+
+  <!-- DNS Prefetch para performance -->
   <link rel="dns-prefetch" href="https://delivery.i-cdn.net">
   <link rel="dns-prefetch" href="https://cdn-wftossaz9s.i-cdn.net">
   <link rel="dns-prefetch" href="https://m3u8.strapcast.com">
+
   <style>
     html, body {
       margin: 0;
@@ -70,198 +60,127 @@ VERSÃO: [VERSÃO]
       color: #fff;
       font-weight: bold;
       text-align: center;
-      padding: 14px 2vw 12px 2vw;
+      padding: 14px 2vw 12px;
       font-size: 1.08rem;
       letter-spacing: 0.5px;
-      box-sizing: border-box;
     }
     .video-container {
-      width: 100vw;
-      max-width: 100vw;
-      margin: 0 auto;
-      background: #fff;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
-      box-sizing: border-box;
-      padding-left: 12px;
-      padding-right: 12px;
+      padding: 20px 12px 0;
     }
     .video-container > div {
-      width: 100vw;
-      max-width: 600px;
-      margin: 0 auto;
-      background: #fff;
+      width: 100%;
+      max-width: 400px;
+      position: relative;
+    }
+    #hotmart-widget-wrapper {
+      display: none;
+      margin-top: 24px;
     }
     @media (max-width: 600px) {
-      .banner-topo { font-size: 0.98rem; padding: 10px 2vw 8px 2vw; }
-      .video-container > div { max-width: 100vw; }
-      .video-container { padding-left: 4vw; padding-right: 4vw; }
-      
-      /* Estilos do botão no mobile */
-      .payt-button {
-        font-size: 18px !important;
-        padding: 12px 20px !important;
-        width: 100% !important;
-        max-width: 300px !important;
+      .banner-topo {
+        font-size: 0.98rem;
+        padding: 10px 2vw 8px;
+      }
+      .video-container {
+        padding: 20px 4vw 0;
       }
     }
-    @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,193,7,0.7);}
-      70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255,193,7,0);}
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,193,7,0);}
-    }
-    .pulse {
-      animation: pulse 1.5s infinite;
-    }
   </style>
-  <!-- Scripts UTMify -->
-  <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+
+  <!-- UTMify & Pixel -->
+  <script src="js/latest.js" async defer></script>
   <script>
     window.pixelId = "681a6d134a2a05ae986fc0a6";
-    var a = document.createElement("script");
-    a.setAttribute("async", "");
-    a.setAttribute("defer", "");
-    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-    document.head.appendChild(a);
+    const utmScript = document.createElement("script");
+    utmScript.async = true;
+    utmScript.defer = true;
+    utmScript.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
+    document.head.appendChild(utmScript);
   </script>
 </head>
 <body>
-  <div class="banner-topo">ATENÇÃO: sua compra ainda não está concluída. Não saia dessa página ainda!</div>
-  
-  <!-- Headline antes do vídeo -->
-  <div style="width: 100vw; max-width: 100vw; margin: 0 auto; display: flex; justify-content: center; align-items: flex-start; box-sizing: border-box; padding-left: 12px; padding-right: 12px; margin-top: 30px;">
-    <div style="width: 100vw; max-width: 400px; margin: 0 auto; color: #000000; font-weight: bold; text-align: center; font-size: 1.6em; line-height: 1.3;">
-      PARE AGORA: esta música tem o poder de realizar milagres
-    </div>
-  </div>
-  
-  <div class="video-container" style="margin-top: 20px;">
-    <div>
-      <div id="strap-player-container" style="margin: 0px auto;width: 100%;max-width: 400px;">
-        <div id="" style="position: relative; width: 100%; padding: 125% 0px 0px;"></div>
-      </div>
-      <script type="text/javascript">
-        // Monta o player dinamicamente
-        const container = document.querySelector('#strap-player-container > div');
-        container.id = CONTAINER_ID;
-        container.innerHTML = `
-          <div id="vid_${VIDEO_ID}" style="position: absolute;top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%;">
-            <img id="thumb_${VIDEO_ID}" src="${THUMB_URL}" async style="position: relative; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail" />  
-            <div id="backdrop_${VIDEO_ID}" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div>
-          </div>
-        `;
-        // Carrega o player.js
-        const stpc = document.createElement("script");
-        stpc.async = true;
-        stpc.src = PLAYER_JS_URL;
-        document.head.appendChild(stpc);
-        
-        // Script simplificado para mostrar o botão
-        let buttonShown = false;
-        
-        // Função para criar e mostrar o botão
-        function showPayTButton() {
-          if (buttonShown) return;
-          buttonShown = true;
-          console.log('Criando e mostrando botão PayT!');
-          
-          const buttonContainer = document.getElementById('payt-button-container');
-          if (buttonContainer) {
-            // Cria os botões dinamicamente
-            buttonContainer.innerHTML = `
-              <div style="display: flex; flex-direction: column; gap: 12px; align-items: center; width: 100%; margin-top: 24px;">
-                <!-- Botão de compra com animação pulse -->
-                <a href="https://go.perfectpay.com.br/PPU38CPSR14?upsell=true"
-                   class="pulse smartplayer-scroll-event"
-                   style="display: block; background: #ffc107; color: #111; font-weight: bold; padding: 16px 32px; border-radius: 8px; text-align: center; font-size: 1.1em; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.08); width: 100%; max-width: 340px;">
-                  Quero escutar a música dos anjos
-                </a>
-                <!-- Botão de recusa -->
-                <a href="https://quaresmadepadrepio.com/payt/pages/up-2/"
-                   style="display: block; background: none; color: #888; font-weight: bold; padding: 10px 0; border-radius: 8px; text-align: center; font-size: 1em; text-decoration: underline; width: 100%; max-width: 340px;">
-                   Não quero receber meu milagre através da música dos anjos
-                </a>
-              </div>
-            `;
-            
-            // Mostra o container
-            buttonContainer.style.display = 'block';
-            
-            console.log('Botão criado e exibido com sucesso!');
-          } else {
-            console.log('ERRO: Container do botão não encontrado!');
-          }
-        }
-        
 
-        
-        // Verificação do tempo do vídeo para mostrar o botão em 10 segundos (para teste)
+  <div class="banner-topo">
+    ATENÇÃO: sua compra ainda não está concluída. Não saia dessa página ainda!
+  </div>
+
+  <div style="text-align:center; margin:30px auto; max-width:400px; font-size:1.6em; font-weight:bold; line-height:1.3; color:#000;">
+    PARE AGORA: esta música tem o poder de realizar milagres
+  </div>
+
+  <div class="video-container">
+    <div>
+      <!-- Strapcast player container -->
+      <div id="strap-player-container" style="width:100%; padding-top:125%;">
+        <div></div>
+      </div>
+
+      <!-- Strapcast player script -->
+      <script>
+        // monta o Strapcast player
+        const strapDiv = document.querySelector('#strap-player-container > div');
+        strapDiv.id = CONTAINER_ID;
+        strapDiv.innerHTML = `
+          <div id="vid_${VIDEO_ID}" style="position:absolute; top:0; left:0; width:100%; height:100%;">
+            <img src="${THUMB_URL}" style="width:100%; height:100%; object-fit:cover;" alt="thumbnail" />
+            <div style="backdrop-filter:blur(5px); position:absolute; top:0; width:100%; height:100%;"></div>
+          </div>`;
+        const playerScript = document.createElement("script");
+        playerScript.async = true;
+        playerScript.src = PLAYER_JS_URL;
+        document.head.appendChild(playerScript);
+      </script>
+
+      <!-- wrapper para manter o widget Hotmart oculto até o delay -->
+      <div id="hotmart-widget-wrapper">
+        <!-- HOTMART - Sales Funnel Widget -->
+        <!--- sales funnel container --->
+        <div id="hotmart-sales-funnel"></div>
+        <!--- script load and setup --->
+        <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+        <script>
+          checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
+        </script>
+        <!-- HOTMART - Sales Funnel Widget -->
+      </div>
+
+      <!-- lógica de delay vinculada ao widget -->
+      <script>
+        let widgetShown = false;
+
+        function showHotmartWidget() {
+          const wrapper = document.getElementById('hotmart-widget-wrapper');
+          wrapper.style.display = 'block';
+          console.log('Widget Hotmart exibido');
+        }
+
         function checkVideoTime() {
-          try {
-            const videoElement = document.querySelector('video');
-            if (videoElement) {
-              const currentTime = videoElement.currentTime;
-              console.log('Tempo atual do vídeo:', Math.floor(currentTime / 60) + ':' + Math.floor(currentTime % 60).toString().padStart(2, '0'));
-              
-              // Mostra o botão em 7 minutos e 14 segundos (7:14)
-              if (currentTime >= 434 && !buttonShown) {
-                showPayTButton();
-                return;
-              }
-            }
-            
-            // Continua verificando se o botão ainda no foi mostrado
-            if (!buttonShown) {
-              setTimeout(checkVideoTime, 1000);
-            }
-          } catch (error) {
-            console.log('Erro ao verificar tempo:', error);
-            if (!buttonShown) {
-              setTimeout(checkVideoTime, 1000);
+          const videoEl = document.querySelector('video');
+          if (videoEl) {
+            const currentTime = videoEl.currentTime;
+            console.log('Tempo atual do vídeo:', currentTime);
+            // exibe após 7m14s (434s)
+            if (currentTime >= 434 && !widgetShown) {
+              widgetShown = true;
+              showHotmartWidget();
+              return;
             }
           }
+          if (!widgetShown) {
+            setTimeout(checkVideoTime, 1000);
+          }
         }
-        
-        // Inicia a verificaão quando a página carregar
+
         document.addEventListener('DOMContentLoaded', function() {
-          console.log('DOM carregado, iniciando verificação...');
-          setTimeout(checkVideoTime, 2000); // Aguarda 2 segundos
+          console.log('DOM pronto, iniciando verificação de tempo...');
+          setTimeout(checkVideoTime, 2000);
         });
       </script>
+
     </div>
   </div>
-  
-  <!-- Botão de Compra PayT (será criado dinamicamente) -->
-  <div id="payt-button-container" style="text-align: center; margin-top: 30px; padding: 0 20px; display: none;">
-  </div>
-  
 
-
-<script>
-  // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
-  const link = 'https://quaresmadepadrepio.com/payt/pages/up-2/';
-
-  function setBackRedirect(url) {
-      let urlBackRedirect = url;
-      urlBackRedirect = urlBackRedirect =
-          urlBackRedirect.trim() +
-          (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
-          document.location.search.replace('?', '').toString();
-
-      history.pushState({}, '', location.href);
-      history.pushState({}, '', location.href);
-      history.pushState({}, '', location.href);
-
-      window.addEventListener('popstate', () => {
-          setTimeout(() => {
-              location.href = urlBackRedirect;
-          }, 1);
-      });
-  }
-
-  setBackRedirect(link);
-</script>
-
-
-</body></html>
+</body>
+</html>
