@@ -1,0 +1,290 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Revelação de Padre Pio — Aprenda a Ouvir o Seu Anjo</title>
+  <meta name="description" content="Experiência devocional com Padre Pio: práticas e orações discretas — raramente explicadas — para aprofundar sua relação com Deus e com o seu Anjo da Guarda.">
+  <meta name="theme-color" content="#0a0f14">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="img2.jpg">
+  <style>
+    :root{
+      --bg: #0a0f14;
+      --paper: #eef6ff;
+      --ink: #16212b;
+      --muted: #5a6a79;
+      --primary: #2ecc71;
+      --primary-2: #28b463;
+      --ring: rgba(46, 204, 113, .35);
+      --shadow: 0 16px 80px rgba(0,0,0,.45);
+      --radius-lg: 22px;
+      --radius-md: 14px;
+      --maxw: 980px;
+      --footer-h: 64px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink);
+      background:#fff;
+      line-height:1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      padding-bottom: calc(var(--footer-h) + 120px);
+    }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      height: 86vh;
+      padding: 32px 16px 24px;
+      background-image:
+        linear-gradient(to bottom, rgba(10,15,20,.82), rgba(10,15,20,.72)),
+        url('images/img1.jpg');
+      background-position: center, center;
+      background-size: cover, 520px;
+      background-repeat: no-repeat, repeat;
+      color:#fff;
+    }
+    .hero .brand{display:flex;align-items:center;gap:10px;color:#cfe4ff;opacity:.95;font-weight:600;font-size:14px}
+    .hero .brand img{width:28px;height:28px;border-radius:8px}
+
+    /* BLUR seletivo: liga só quando o CARD encosta no conteúdo */
+    .text-blur{position:fixed;inset:0;pointer-events:none;z-index:9997;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;transition:opacity .25s ease}
+    .text-blur.on{opacity:1}
+
+    /* CARD FIXO (oferta) */
+    .promo-card{
+      position:fixed;top:8vh;left:50%;transform:translateX(-50%);
+      width:min(600px, 94vw);
+      background:var(--paper);color:var(--ink);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      padding:18px 18px 20px;
+      border:1px solid rgba(255,255,255,.45);
+      outline:8px solid rgba(255,255,255,.08);
+      z-index:9998
+    }
+    .promo-card .media{border-radius:12px;overflow:hidden;aspect-ratio:16/9;background:#c7d8eb;display:block;width:100%;height:auto}
+    .promo-card .eyebrow{font:600 12px/1 Inter, system-ui;letter-spacing:.12em;text-transform:uppercase;color:#2c3e50;opacity:.7;text-align:center;margin:10px 0 2px}
+    .promo-card .title{font-family:Merriweather, serif;font-size:clamp(28px,4vw,36px);font-weight:700;text-align:center;margin:8px 8px 6px;color:#0b1220}
+    .promo-card .subtitle{font-size:15px;text-align:center;color:var(--muted);margin:0 8px 14px}
+
+    .cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--primary);color:#fff;padding:16px 24px;border:0;border-radius:12px;text-decoration:none;font-weight:800;letter-spacing:.2px;box-shadow:0 10px 32px var(--ring);transition:transform .14s ease, box-shadow .14s ease, background .14s ease;width:100%}
+    .cta:hover{background:var(--primary-2);transform:translateY(-1px);box-shadow:0 14px 40px var(--ring)}
+    .cta:active{transform:translateY(0) scale(.99)}
+
+    .assurance{display:flex;justify-content:center;gap:12px;font-size:12px;color:#475569;margin-top:10px}
+
+    /* CONTEÚDO */
+    .wrap{max-width:var(--maxw);margin:44px auto;padding:0 18px}
+    h1{font-family:Merriweather, serif;font-size:clamp(24px,4vw,32px);line-height:1.25;margin:0 0 16px;color:#0b1220}
+    h2{font-size:clamp(18px,3.2vw,22px);margin:26px 0 10px;color:#0b1220}
+    h3{font-size:clamp(16px,3vw,20px);margin:18px 0 8px;color:#0b1220}
+    p{margin:10px 0 12px;color:#334155}
+    ul{margin:10px 0 12px;padding-left:20px;color:#334155}
+    .divider{height:1px;background:linear-gradient(90deg, transparent, #e6edf5, transparent);margin:28px 0}
+
+    /* Seção Destaques */
+    .highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .highlight{background:#fdfefe;border:1px solid #e6edf5;border-radius:var(--radius-md);padding:14px}
+    .highlight strong{display:block;margin-bottom:4px}
+
+    /* Depoimentos (placeholder - parte 2) */
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .testimonial{background:#fff;border:1px dashed #d8e6f8;border-radius:var(--radius-md);padding:14px;font-size:14px}
+    .testimonial cite{display:block;margin-top:8px;color:#64748b;font-style:normal;font-weight:600}
+
+    /* FAQ */
+    details{border:1px solid #e6edf5;border-radius:12px;padding:12px 14px;background:#fff;margin:10px 0}
+    summary{cursor:pointer;font-weight:700}
+
+    /* Barra fixa inferior (links) */
+    .fixed-footer{position:fixed;bottom:0;left:0;width:100%;background:rgba(255,255,255,0.98);text-align:center;font-size:14px;padding:6px 0;border-top:1px solid rgba(0,0,0,0.08);z-index:10050}
+    .fixed-footer a{color:#444;text-decoration:none;margin:0 6px}
+    .fixed-footer a:hover{text-decoration:underline}
+
+    /* CTA sticky mobile */
+    .sticky-cta{position:fixed;left:0;right:0;bottom:calc(var(--footer-h) + 8px);display:none;z-index:10040;padding:0 12px}
+    .sticky-cta .cta{border-radius:14px;font-size:16px;padding:14px 18px}
+
+    @media (max-width: 980px){
+      .promo-card{top:6vh}
+      .highlights{grid-template-columns:1fr 1fr}
+      .testimonials{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 680px){
+      .hero{height:72vh}
+      .promo-card{width:min(94vw, 520px)}
+      .highlights{grid-template-columns:1fr}
+      .testimonials{grid-template-columns:1fr}
+      .sticky-cta{display:block}
+    }
+    /* Ajuste fino para celulares estreitos */
+    @media (max-width: 480px){
+      .promo-card{
+        width:100% !important;
+        margin:0 !important;
+        border-radius:0 !important;
+        padding:12px !important;
+        box-shadow:none !important;
+      }
+      .promo-card .title{
+        font-size:22px !important;
+        line-height:1.3 !important;
+      }
+      .promo-card .subtitle{
+        font-size:14px !important;
+        margin-bottom:12px !important;
+      }
+      .promo-card .media{
+        max-height:220px !important;
+        object-fit:cover !important;
+        border-radius:8px !important;
+      }
+    }
+  </style>
+<script async="" defer="" src="js/pixel.js"></script><script async="" defer="" src="js/pixel-google.js"></script></head>
+<body>
+  <!-- CARD FIXO (Oferta) -->
+  <div class="promo-card" aria-live="polite" role="complementary" aria-label="Oferta devocional">
+    <img class="media" src="images/img2.jpg" alt="Retrato sereno do Padre Pio" width="1536" height="1024" loading="eager" fetchpriority="high">
+    <div class="eyebrow">Experiência Devocional Guiada</div>
+    <h1 class="title">Os Segredos Sagrados de Padre Pio</h1>
+    <p class="subtitle">Práticas discretas e revelações raramente compartilhadas….</p>
+    <a class="cta" href="https://go.perfectpay.com.br/PPU38CPUTM7" target="_blank" rel="noopener noreferrer" aria-label="Assistir agora e iniciar a experiência devocional">ASSISTIR AGORA</a>
+    <div class="assurance" aria-label="Selos de confiança">
+      <span>Pagamento Seguro</span>•<span>Acesso Imediato</span>•<span>Suporte Humano</span>
+    </div>
+  </div>
+
+  <!-- Camada de blur seletivo do texto abaixo do hero -->
+  <div class="text-blur" id="textBlur" aria-hidden="true"></div>
+
+  <!-- HERO (somente plano de fundo; com selo à esquerda) -->
+  <section class="hero" id="hero" role="banner" aria-label="Introdução e chamada à ação">
+    <div class="brand">
+      <img src="/brand-angel.webp" alt="Selo devocional: anjo" width="28" height="28" loading="lazy" onerror="this.onerror=null;this.src='/brand-angel.webp'"> <span>Trilha de Fé • Padre Pio</span>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main id="conteudo" class="wrap" role="main">
+    <article>
+      <h1>Para quem é esta experiência</h1>
+      <p>Para homens e mulheres católicos que desejam viver a Quaresma com propósito, aprofundar a oração e conhecer práticas discretas — explicadas com clareza e respeito — para fortalecer a vida espiritual e a sensibilidade interior.</p>
+
+      <div class="highlights" aria-label="O que você vai vivenciar">
+        <div class="highlight"><strong>1) Oração Viva</strong> Roteiros de oração guiada em áudio para você rezar com foco mesmo nos dias corridos.</div>
+        <div class="highlight"><strong>2) Passos Discretos</strong> Métodos simples e pouco comentados — fé aplicada ao cotidiano.</div>
+        <div class="highlight"><strong>3) Disciplina Suave</strong> Agenda prática (15 minutos) para criar constância e serenidade.</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <h2>O que está incluído</h2>
+      <ul>
+        <li><strong>Áudios devocionais</strong> com orações inspiradas no Padre Pio;</li>
+        <li><strong>Guia PDF</strong> com orientações discretas para o dia a dia;</li>
+        <li><strong>Bônus:</strong> Novena do Padre Pio (roteiro simples e imprimível);</li>
+        <li><strong>Checklist</strong> de práticas quaresmais (jejum, caridade, confissão) com linguagem pastoral prudente.</li>
+      </ul>
+
+      <h2>Por que é diferente (e pouco falado)</h2>
+      <p>Conteúdo claro e aplicável, reunindo tradições e conselhos espirituais com sobriedade — sem promessas exageradas. Você aprende o essencial para cultivar a atenção interior e reconhecer inspirações com maturidade de fé.</p>
+
+      <div class="divider"></div>
+
+      <h2>Perguntas frequentes</h2>
+      <details>
+        <summary>Preciso já ter prática de oração?</summary>
+        <p>Não. É para iniciantes e para quem deseja retomar a vida espiritual com leveza.</p>
+      </details>
+      <details>
+        <summary>Quanto tempo por dia?</summary>
+        <p>Em média, 15 minutos. Você pode repetir os áudios quando quiser.</p>
+      </details>
+      <details>
+        <summary>Posso acessar do celular?</summary>
+        <p>Sim. Todo o conteúdo é compatível com smartphone, tablet e computador.</p>
+      </details>
+
+      <div class="divider"></div>
+
+      <h2>Comece hoje</h2>
+      <p>Um pequeno passo por dia, com discrição e constância, transforma a agenda e pacifica o coração.</p>
+
+      <div style="height:140px"></div>
+    </article>
+  </main>
+
+  <!-- Barra de CTA mobile -->
+  <div class="sticky-cta" aria-hidden="true" style="display: none;">
+    <a class="cta" href="https://go.perfectpay.com.br/PPU38CPUTM7" target="_blank" rel="noopener">Começar agora</a>
+  </div>
+
+  <!-- Rodapé fixo de links (sem blur) -->
+  <div class="fixed-footer" role="contentinfo">
+    <a href="/privacidade">Política de Privacidade</a> •
+    <a href="/termos">Termos de Uso</a>
+  </div>
+
+  <script>
+    // Desfoque quando o CARD encostar no conteúdo
+    (function(){
+      const blur = document.getElementById('textBlur');
+      const card = document.querySelector('.promo-card');
+      const content = document.getElementById('conteudo');
+      if(!blur || !card || !content) return;
+
+      function onScroll(){
+        const cardBottom = card.getBoundingClientRect().bottom;
+        const contentTop = content.getBoundingClientRect().top;
+        if(cardBottom >= contentTop){ blur.classList.add('on'); }
+        else { blur.classList.remove('on'); }
+      }
+      window.addEventListener('scroll', onScroll, {passive:true});
+      window.addEventListener('load', onScroll);
+      window.addEventListener('resize', onScroll);
+    })();
+
+    // Exibir/ocultar CTA sticky conforme rolagem (mobile) sem sobrepor o card
+    (function(){
+      const sticky = document.querySelector('.sticky-cta');
+      const mq = window.matchMedia('(max-width: 680px)');
+      if(!sticky) return;
+      function onScroll(){
+        const y = window.scrollY || window.pageYOffset;
+        const card = document.querySelector('.promo-card');
+        const cardBottom = card ? card.getBoundingClientRect().bottom : 0;
+        if(mq.matches && y > 300 && cardBottom <= 0){ sticky.style.display = 'block'; } else { sticky.style.display = 'none'; }
+      }
+      window.addEventListener('scroll', onScroll, {passive:true});
+      window.addEventListener('load', onScroll);
+    })();
+  </script>
+  <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+
+    <script>
+        window.pixelId = "66f46e9a69e84de401f8772f";
+        var a = document.createElement("script");
+        a.setAttribute("async", "");
+        a.setAttribute("defer", "");
+        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+        document.head.appendChild(a);
+    </script>
+
+    <script>
+        window.googlePixelId = "67e3fc3df432a353e4a9a456";
+        var a = document.createElement("script");
+        a.setAttribute("async", "");
+        a.setAttribute("defer", "");
+        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-google.js");
+        document.head.appendChild(a);
+    </script>
+
+
+</body></html>
