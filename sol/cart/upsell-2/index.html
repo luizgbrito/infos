@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Health Protection Shield</title>
@@ -78,14 +80,8 @@
       margin-bottom: 8px;
     }
 
-    em {
-      font-style: italic;
-      color: #666;
-    }
-
-    strong {
-      font-weight: bold;
-    }
+    em { font-style: italic; color: #666; }
+    strong { font-weight: bold; }
 
     ul, ol, .check-list {
       list-style: none;
@@ -147,28 +143,33 @@
       margin: 0;
     }
 
-    .old-price {
-      text-decoration: line-through;
-      color: #bbb;
-    }
+    .old-price { text-decoration: line-through; color: #bbb; }
+    .new-price { color: #1a73e8; font-weight: bold; }
 
-    .new-price {
-      color: #1a73e8;
-      font-weight: bold;
+    /* Botões Cartpanda */
+    .ocu-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+      flex-wrap: wrap;
     }
-
-    .cta-button {
-      display: block;
-      background-color: #34a853;
-      color: white;
+    .ocu-btn {
+      display: inline-block;
+      background-color: #28A745;
+      color: #fff;
       padding: 10px 16px;
       font-weight: bold;
       border-radius: 6px;
       text-decoration: none;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-      margin-top: 8px;
       text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      min-width: 160px;
+      line-height: 1.2;
+      transition: transform .15s ease, opacity .15s ease;
+      opacity: .98;
     }
+    .ocu-btn:hover { transform: scale(1.03); opacity: 1; }
+    .ocu-btn.no { background-color: #dc3545; }
 
     .info small {
       font-size: 13px;
@@ -178,23 +179,18 @@
     }
 
     @media (max-width: 768px) {
-      h1, h2 {
-        font-size: 18px;
-      }
-
-     
-
-      .wrapper {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .info {
-        text-align: center;
-        max-width: 100%;
-      }
+      h1, h2 { font-size: 18px; }
+      .wrapper { flex-direction: column; align-items: center; }
+      .info { text-align: center; max-width: 100%; }
+      .ocu-buttons { justify-content: center; }
     }
   </style>
+
+  <!-- Script Cartpanda -->
+  <script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"></script>
+  <script>
+    new OcuExternal();
+  </script>
 </head>
 <body>
 
@@ -294,86 +290,34 @@
         <div class="image-box">
           <img src="images/4.png" alt="The Trinitarian Waves Final">
         </div>
+
+        <!-- Substitui completamente o widget Hotmart por botões Cartpanda (sem delay) -->
         <div class="info">
-          <!-- HOTMART - Sales Funnel Widget sincronizado com VTurb (UNIFICADO) -->
-<style>
-  
-</style>
+          <h3>Add Health Protection Shield</h3>
+          <p class="old-price">$97</p>
+          <p class="new-price">$39 Today</p>
 
-<!-- Container do Hotmart começa escondido -->
-<div id="hotmart-sales-funnel" class="esconder"></div>
+          <div class="ocu-buttons">
+            <a
+              href="https://omni-digital.mycartpanda.com/ex-ocu/next-offer/rAYaXldVDK?accepted=yes"
+              class="ocu-btn"
+            >
+              YES, ADD TO MY ORDER
+            </a>
 
-<!-- Script do Checkout Hotmart -->
-<script src="js/hotmart-checkout-elements.js"></script>
+            <a
+              href="https://omni-digital.mycartpanda.com/ex-ocu/next-offer/rAYaXldVDK?accepted=no"
+              class="ocu-btn no"
+            >
+              NO, THANKS
+            </a>
+          </div>
 
-<script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function() {
-  /* ALTERE O VALOR ABAIXO PARA OS SEGUNDOS DE DELAY DESEJADO */
-  var SECONDS_TO_DISPLAY = 0; // <-- altere aqui para o tempo desejado
-  var hotmartDiv = document.getElementById('hotmart-sales-funnel');
-  var alreadyDisplayedKey = 'alreadyHotmartDisplayed_' + SECONDS_TO_DISPLAY;
-  var alreadyDisplayed = localStorage.getItem(alreadyDisplayedKey);
-  var attempts = 0;
-  var widgetMounted = false;
-
-  /**
-   * Trecho integrado do "Sales Funnel Widget" (SEGUNDO SCRIPT)
-   * Equivalente a:
-   *   checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
-   * Com proteções para evitar montar múltiplas vezes.
-   */
-  function mountSalesFunnel() {
-    if (widgetMounted) return;
-    if (typeof checkoutElements !== 'undefined' && checkoutElements.init) {
-      try {
-        checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
-        widgetMounted = true;
-      } catch (e) {
-        // Evita erro se já tiver montado
-        console.warn('Hotmart mount skipped or already mounted:', e);
-      }
-    } else {
-      console.warn('checkoutElements indisponível.');
-    }
-  }
-
-  function showAndMountHotmart() {
-    if (!hotmartDiv) return;
-    hotmartDiv.classList.remove('esconder'); // mostra o container só quando for montar
-    mountSalesFunnel();                       // monta o widget
-    localStorage.setItem(alreadyDisplayedKey, 'true');
-  }
-
-  function startWatchVideoProgress() {
-    // Aguarda o VTurb (smartplayer) ficar disponível
-    if (typeof smartplayer === 'undefined' || !(smartplayer.instances && smartplayer.instances.length)) {
-      if (attempts >= 10) return; // para tentar infinitamente, remova este limite
-      attempts += 1;
-      return setTimeout(startWatchVideoProgress, 1000);
-    }
-
-    var player = smartplayer.instances[0];
-    player.on('timeupdate', function() {
-      if (widgetMounted || player.smartAutoPlay) return;
-      if (player.video.currentTime < SECONDS_TO_DISPLAY) return;
-      showAndMountHotmart();
-    });
-  }
-
-  if (alreadyDisplayed === 'true') {
-    // Se já exibiu uma vez, mostra/monta rápido
-    setTimeout(showAndMountHotmart, 100);
-  } else {
-    startWatchVideoProgress();
-  }
-});
-</script>
-
+          <small>You won’t see this offer again.</small>
         </div>
       </div>
     </div>
   </div>
 
-
-
-</body></html>
+</body>
+</html>
