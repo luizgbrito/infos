@@ -1,8 +1,10 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blessings Page</title>
-<style>
+  <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -79,16 +81,8 @@
       margin: 40px 0 30px;
     }
 
-    .content p {
-      font-size: 15.5px;
-      line-height: 1.7;
-      color: #333;
-      margin-bottom: 14px;
-    }
-
-    .content p strong {
-      color: #1e2d3b;
-    }
+    .content p { font-size: 15.5px; line-height: 1.7; color: #333; margin-bottom: 14px; }
+    .content p strong { color: #1e2d3b; }
 
     .quote-box {
       background-color: #fdf1e7;
@@ -111,9 +105,7 @@
 
     .content img,
     .content > div,
-    .content .quote-box {
-      margin-bottom: 30px;
-    }
+    .content .quote-box { margin-bottom: 30px; }
 
     .final-offer {
       max-width: 900px;
@@ -151,43 +143,38 @@
       margin: 0;
     }
 
-    .old-price {
-      text-decoration: line-through;
-      color: #bbb;
-    }
+    .old-price { text-decoration: line-through; color: #bbb; }
+    .new-price { color: #1a73e8; font-weight: bold; }
 
-    .new-price {
-      color: #1a73e8;
-      font-weight: bold;
+    /* Cartpanda OCU buttons */
+    .ocu-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+      flex-wrap: wrap;
     }
-
-    .cta-button {
-      display: block;
-      background-color: #34a853;
-      color: white;
+    .ocu-btn {
+      display: inline-block;
+      background-color: #28A745;
+      color: #fff;
       padding: 12px 20px;
       font-weight: bold;
       border-radius: 6px;
       text-decoration: none;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-      margin-top: 10px;
-    }
-
-    .info small {
-      font-size: 13px;
-      color: #888;
-    }
-
-    .timer-section {
       text-align: center;
-      margin-top: 30px;
-      font-size: 16px;
-      color: #333;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      min-width: 170px;
+      line-height: 1.2;
+      transition: transform .15s ease, opacity .15s ease;
+      opacity: .98;
     }
+    .ocu-btn:hover { transform: scale(1.03); opacity: 1; }
+    .ocu-btn.no { background-color: #dc3545; }
 
-    .timer-section p {
-      margin: 8px 0;
-    }
+    .info small { font-size: 13px; color: #888; }
+
+    .timer-section { text-align: center; margin-top: 30px; font-size: 16px; color: #333; }
+    .timer-section p { margin: 8px 0; }
 
     #countdown {
       font-weight: bold;
@@ -202,43 +189,23 @@
     }
 
     @media (max-width: 600px) {
-      .content h1 {
-        font-size: 20px;
-      }
-
-      .quote-box {
-        font-size: 15px;
-        padding: 16px;
-      }
-
-      .progress-wrapper {
-        height: 14px;
-      }
-
-      .progress-text {
-        right: 6px;
-        font-size: 11px;
-      }
-
-      .section-heading {
-        font-size: 18px;
-      }
-
-      .info {
-        align-items: center;
-        text-align: center;
-      }
-
-      .cta-button {
-        margin-left: auto;
-        margin-right: auto;
-      }
+      .content h1 { font-size: 20px; }
+      .quote-box { font-size: 15px; padding: 16px; }
+      .progress-wrapper { height: 14px; }
+      .progress-text { right: 6px; font-size: 11px; }
+      .section-heading { font-size: 18px; }
+      .info { align-items: center; text-align: center; }
+      .ocu-buttons { justify-content: center; }
     }
   </style>
+
+  <!-- Cartpanda OCU script (no delay logic here) -->
+  <script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"></script>
+  <script> new OcuExternal(); </script>
 </head>
 <body>
 
-  <!-- Parte 1 -->
+  <!-- Part 1 -->
   <div class="warning-bar">
     ⚠️WARNING: Do not close this page or click the “Back” button to avoid any potential double charge
   </div>
@@ -267,7 +234,7 @@
     </div>
   </div>
 
-  <!-- Parte 2 -->
+  <!-- Part 2 -->
   <div class="content">
     <p>But there’s a problem with this.</p>
     <p>Most people don’t know how to talk <em>WITH</em> God.</p>
@@ -278,7 +245,7 @@
     <img src="images/1.png" alt="Talking with and at God illustration" style="width: 100%; max-width: 700px; border-radius: 8px; display: block; margin: 0 auto;">
   </div>
 
-  <!-- Parte 3 -->
+  <!-- Part 3 -->
   <div class="content">
     <p>Imagine a friend who <strong>ONLY</strong> comes to you when he needs a favor…</p>
     <p>or when he’s in trouble, <strong>ALWAYS</strong> complaining and begging.</p>
@@ -290,18 +257,17 @@
     <p>Fortunately, this is easier than you think and requires only <strong>ONE CHANGE.</strong></p>
   </div>
 
-  <!-- Parte 4 -->
+  <!-- Part 4 -->
   <div class="content">
- <div style="background-color: #eaf5ff; padding: 20px; border-radius: 10px; text-align: center; margin: 0 auto; max-width: 380px;">
-  <h2 style="color: #2980d9; font-size: 18px; font-weight: bold; line-height: 1.4; margin-bottom: 10px;">
-    THE UNIVERSE SPEAKS<br>THROUGH YOUR HEART AND SOUL
-  </h2>
-  <p style="color: #333; font-size: 14px; line-height: 1.5; margin: 0;">
-    This is the main reason your prayers and manifestations haven’t been answered.<br>
-    Because God cannot hear you through <strong>WORDS</strong> alone.
-  </p>
-</div>
-
+    <div style="background-color: #eaf5ff; padding: 20px; border-radius: 10px; text-align: center; margin: 0 auto; max-width: 380px;">
+      <h2 style="color: #2980d9; font-size: 18px; font-weight: bold; line-height: 1.4; margin-bottom: 10px;">
+        THE UNIVERSE SPEAKS<br>THROUGH YOUR HEART AND SOUL
+      </h2>
+      <p style="color: #333; font-size: 14px; line-height: 1.5; margin: 0;">
+        This is the main reason your prayers and manifestations haven’t been answered.<br>
+        Because God cannot hear you through <strong>WORDS</strong> alone.
+      </p>
+    </div>
 
     <p>A famous physicist proposed String Theory.</p>
     <p>He says that at the heart of the universe, everything vibrates.</p>
@@ -311,228 +277,142 @@
     <p>We call this divine resonance the <strong>Trinitarian Waves</strong>.</p>
   </div>
 
-  <!-- Parte 5 -->
+  <!-- Part 5 -->
   <div class="content" style="text-align: center; margin-top: 40px;">
-    <p style="
-      color: #999;
-      text-transform: uppercase;
-      font-size: 16px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      margin-bottom: 30px;
-    ">
+    <p style="color: #999; text-transform: uppercase; font-size: 16px; font-weight: 500; letter-spacing: 0.5px; margin-bottom: 30px;">
       TRINITARIAN WAVES – SPEAK WITH THE UNIVERSE AND RECEIVE EXACTLY WHAT YOU WANT AND NEED
     </p>
 
     <img src="images/2.png" alt="The Trinitarian Waves Product" style="width: 100%; max-width: 480px; height: auto;">
   </div>
 
-<!-- Parte 6 -->
-<div class="content">
+  <!-- Part 6 -->
+  <div class="content">
+    <!-- WEALTH WAVE -->
+    <div style="background: #fff; border-radius: 10px; padding: 24px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 30px;">
+      <h3 style="color: #1e2d3b; font-size: 18px; margin-bottom: 8px;">WEALTH WAVE</h3>
+      <p style="color: #f77f00; font-size: 14.5px; margin-bottom: 14px;">
+        The revolutionary vibration that attracts huge sums of money and profit
+      </p>
+      <ul style="list-style: none; padding-left: 0; color: #333; font-size: 15px; line-height: 1.6;">
+        <li><span style="color: #2ecc71;">✔</span> Manifest the exact amount you need</li>
+        <li><span style="color: #2ecc71;">✔</span> Discover the secrets of abundance and financial prosperity</li>
+        <li><span style="color: #2ecc71;">✔</span> Cultivate a millionaire mindset that guarantees constant flow and growth</li>
+      </ul>
+    </div>
 
-  <!-- WEALTH WAVE -->
-  <div style="background: #fff; border-radius: 10px; padding: 24px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 30px;">
-    <h3 style="color: #1e2d3b; font-size: 18px; margin-bottom: 8px;">WEALTH WAVE</h3>
-    <p style="color: #f77f00; font-size: 14.5px; margin-bottom: 14px;">
-      The revolutionary vibration that attracts huge sums of money and profit
-    </p>
-    <ul style="list-style: none; padding-left: 0; color: #333; font-size: 15px; line-height: 1.6;">
-      <li><span style="color: #2ecc71;">✔</span> Manifest the exact amount you need</li>
-      <li><span style="color: #2ecc71;">✔</span> Discover the secrets of abundance and financial prosperity</li>
-      <li><span style="color: #2ecc71;">✔</span> Cultivate a millionaire mindset that guarantees constant flow and growth</li>
-    </ul>
+    <!-- INTUITION WAVE -->
+    <div style="background: #fff; border-radius: 10px; padding: 24px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 30px;">
+      <h3 style="color: #1e2d3b; font-size: 18px; margin-bottom: 8px;">INTUITION WAVE</h3>
+      <p style="color: #f77f00; font-size: 14.5px; margin-bottom: 14px;">
+        Connect your mind and soul with divine wisdom to make perfect decisions
+      </p>
+      <ul style="list-style: none; padding-left: 0; color: #333; font-size: 15px; line-height: 1.6;">
+        <li><span style="color: #2ecc71;">✔</span> Hear your inner voice with clarity and certainty</li>
+        <li><span style="color: #2ecc71;">✔</span> Make decisions with confidence and spiritual alignment</li>
+        <li><span style="color: #2ecc71;">✔</span> Develop intuitive gifts and energetic perception</li>
+      </ul>
+    </div>
   </div>
 
-  <!-- INTUITION WAVE -->
-  <div style="background: #fff; border-radius: 10px; padding: 24px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 30px;">
-    <h3 style="color: #1e2d3b; font-size: 18px; margin-bottom: 8px;">INTUITION WAVE</h3>
-    <p style="color: #f77f00; font-size: 14.5px; margin-bottom: 14px;">
-      Connect your mind and soul with divine wisdom to make perfect decisions
-    </p>
-    <ul style="list-style: none; padding-left: 0; color: #333; font-size: 15px; line-height: 1.6;">
-      <li><span style="color: #2ecc71;">✔</span> Hear your inner voice with clarity and certainty</li>
-      <li><span style="color: #2ecc71;">✔</span> Make decisions with confidence and spiritual alignment</li>
-      <li><span style="color: #2ecc71;">✔</span> Develop intuitive gifts and energetic perception</li>
-    </ul>
+  <!-- Part 7: Love Wave + Guarantee -->
+  <div class="content">
+    <!-- LOVE WAVE -->
+    <div style="background: #fff; border-radius: 10px; padding: 24px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 30px;">
+      <h3 style="color: #1e2d3b; font-size: 18px; margin-bottom: 8px;">LOVE WAVE</h3>
+    </div>
+
+    <!-- Guarantee -->
+    <div style="background-color: #ecf8f2; border-radius: 10px; padding: 24px 20px; margin-top: -10px;">
+      <h3 style="color: #9ea7a2; font-size: 18px; font-weight: bold; text-transform: uppercase; margin-bottom: 16px;">
+        YOU’RE PROTECTED BY OUR 100% MONEY-BACK GUARANTEE
+      </h3>
+      <p style="color: #333; font-size: 15px; line-height: 1.6; margin-bottom: 12px;">
+        If for any reason you’re not completely satisfied during the first 60 days after purchase,<br>
+        just let us know and we’ll refund 100% of your money.<br>
+        No questions asked.
+      </p>
+      <p style="color: #333; font-size: 15px; line-height: 1.6;">
+        We stand behind our product and fully trust the value it provides.<br>
+        Your satisfaction is our top priority.
+      </p>
+    </div>
   </div>
 
-</div>
-
-
-  <!-- Parte 7: Love Wave + Garantia -->
-<div class="content">
-
-  <!-- LOVE WAVE -->
-  <div style="background: #fff; border-radius: 10px; padding: 24px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 30px;">
-    <h3 style="color: #1e2d3b; font-size: 18px; margin-bottom: 8px;">LOVE WAVE</h3>
-  </div>
-
-  <!-- Garantia de Reembolso -->
-  <div style="background-color: #ecf8f2; border-radius: 10px; padding: 24px 20px; margin-top: -10px;">
-    <h3 style="color: #9ea7a2; font-size: 18px; font-weight: bold; text-transform: uppercase; margin-bottom: 16px;">
-      YOU’RE PROTECTED BY OUR 100% MONEY-BACK GUARANTEE
-    </h3>
-    <p style="color: #333; font-size: 15px; line-height: 1.6; margin-bottom: 12px;">
-      If for any reason you’re not completely satisfied during the first 60 days after purchase,<br>
-      just let us know and we’ll refund 100% of your money.<br>
-      No questions asked.
-    </p>
-    <p style="color: #333; font-size: 15px; line-height: 1.6;">
-      We stand behind our product and fully trust the value it provides.<br>
-      Your satisfaction is our top priority.
-    </p>
-  </div>
-
-</div>
-
-<!-- Parte 8: Opções de compra -->
-<div class="content" style="text-align: left;">
-
-  <!-- Título -->
-  <h2 style="color: #999; font-size: 24px; font-weight: 600; margin-bottom: 8px;">
-    NORMALLY YOU’D PAY $25 FOR EACH WAVE
-  </h2>
-
-  <!-- Subtexto -->
-  <p style="color: #2e3e5e; font-size: 14px; font-weight: 500; margin-bottom: 24px;">
-    And you can choose <strong>ONLY ONE</strong>.
-  </p>
-
-  <!-- Opções -->
-  <div style="background-color: #f9fafb; padding: 16px 20px; border-radius: 8px; margin-bottom: 12px; font-size: 15px; color: #222;">
-    The Wealth Wave for $25...
-  </div>
-
-  <div style="background-color: #f9fafb; padding: 16px 20px; border-radius: 8px; font-size: 15px; color: #222;">
-    The Intuition Wave for $25...
-  </div>
-
-</div>
-
-<!-- Parte 9: Oferta Especial -->
-<div class="content">
-  <div style="border: 2px solid #f77f00; border-radius: 10px; padding: 32px 20px; text-align: center;">
-
-    <!-- Título -->
-    <h2 style="color: #999; font-size: 20px; font-weight: 600; text-transform: uppercase; margin-bottom: 6px;">
-      ONE-TIME, EXCLUSIVE OFFER: GET ALL THREE TRINITARIAN WAVES FOR THE PRICE OF ONE
+  <!-- Part 8: Options -->
+  <div class="content" style="text-align: left;">
+    <h2 style="color: #999; font-size: 24px; font-weight: 600; margin-bottom: 8px;">
+      NORMALLY YOU’D PAY $25 FOR EACH WAVE
     </h2>
-    <p style="color: #999; font-size: 15px; margin-bottom: 30px;">
-      THE TRINITARIAN WAVES:
+    <p style="color: #2e3e5e; font-size: 14px; font-weight: 500; margin-bottom: 24px;">
+      And you can choose <strong>ONLY ONE</strong>.
     </p>
 
-    <!-- Imagem do produto -->
-    <img src="images/2.png" alt="Trinitarian Waves" style="max-width: 420px; width: 100%; margin-bottom: 30px;">
-
-    <!-- Lista com ícones verdes -->
-    <ul style="list-style: none; padding-left: 0; text-align: left; max-width: 400px; margin: 0 auto 30px;">
-      <li style="margin-bottom: 10px;">
-        <span style="color: #2ecc71;">✔</span> Wealth Wave – huge sums of money and profit
-      </li>
-      <li style="margin-bottom: 10px;">
-        <span style="color: #2ecc71;">✔</span> Intuition Wave – divine wisdom and inner clarity
-      </li>
-      <li>
-        <span style="color: #2ecc71;">✔</span> Love Wave – the relationship of your dreams
-      </li>
-    </ul>
-
-    <!-- Preço -->
-    <p style="font-size: 16px; font-weight: bold; color: #2e3e5e;">
-      ALL FOR JUST <span style="text-decoration: line-through; color: #d40000;">$75</span>
-      <span style="color: #2eaf4f; font-size: 20px;">$25</span>
-    </p>
-
-  </div>
-</div>
-
-<div class="final-offer">
-  <div class="wrapper">
-    <div class="image-box">
-      <img src="images/3.png" alt="The Trinitarian Waves Final">
+    <div style="background-color: #f9fafb; padding: 16px 20px; border-radius: 8px; margin-bottom: 12px; font-size: 15px; color: #222;">
+      The Wealth Wave for $25...
     </div>
-
-    <div class="info">
-      <!-- HOTMART - Sales Funnel Widget sincronizado com VTurb (UNIFICADO) -->
-<style>
-  
-</style>
-
-<!-- Container do Hotmart começa escondido -->
-<div id="hotmart-sales-funnel" class="esconder"></div>
-
-<!-- Script do Checkout Hotmart -->
-<script src="js/hotmart-checkout-elements.js"></script>
-
-<script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function() {
-  /* ALTERE O VALOR ABAIXO PARA OS SEGUNDOS DE DELAY DESEJADO */
-  var SECONDS_TO_DISPLAY = 0; // <-- altere aqui para o tempo desejado
-  var hotmartDiv = document.getElementById('hotmart-sales-funnel');
-  var alreadyDisplayedKey = 'alreadyHotmartDisplayed_' + SECONDS_TO_DISPLAY;
-  var alreadyDisplayed = localStorage.getItem(alreadyDisplayedKey);
-  var attempts = 0;
-  var widgetMounted = false;
-
-  /**
-   * Trecho integrado do "Sales Funnel Widget" (SEGUNDO SCRIPT)
-   * Equivalente a:
-   *   checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
-   * Com proteções para evitar montar múltiplas vezes.
-   */
-  function mountSalesFunnel() {
-    if (widgetMounted) return;
-    if (typeof checkoutElements !== 'undefined' && checkoutElements.init) {
-      try {
-        checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
-        widgetMounted = true;
-      } catch (e) {
-        // Evita erro se já tiver montado
-        console.warn('Hotmart mount skipped or already mounted:', e);
-      }
-    } else {
-      console.warn('checkoutElements indisponível.');
-    }
-  }
-
-  function showAndMountHotmart() {
-    if (!hotmartDiv) return;
-    hotmartDiv.classList.remove('esconder'); // mostra o container só quando for montar
-    mountSalesFunnel();                       // monta o widget
-    localStorage.setItem(alreadyDisplayedKey, 'true');
-  }
-
-  function startWatchVideoProgress() {
-    // Aguarda o VTurb (smartplayer) ficar disponível
-    if (typeof smartplayer === 'undefined' || !(smartplayer.instances && smartplayer.instances.length)) {
-      if (attempts >= 10) return; // para tentar infinitamente, remova este limite
-      attempts += 1;
-      return setTimeout(startWatchVideoProgress, 1000);
-    }
-
-    var player = smartplayer.instances[0];
-    player.on('timeupdate', function() {
-      if (widgetMounted || player.smartAutoPlay) return;
-      if (player.video.currentTime < SECONDS_TO_DISPLAY) return;
-      showAndMountHotmart();
-    });
-  }
-
-  if (alreadyDisplayed === 'true') {
-    // Se já exibiu uma vez, mostra/monta rápido
-    setTimeout(showAndMountHotmart, 100);
-  } else {
-    startWatchVideoProgress();
-  }
-});
-</script>
-
+    <div style="background-color: #f9fafb; padding: 16px 20px; border-radius: 8px; font-size: 15px; color: #222;">
+      The Intuition Wave for $25...
     </div>
   </div>
-</div>
 
+  <!-- Part 9: Special Offer -->
+  <div class="content">
+    <div style="border: 2px solid #f77f00; border-radius: 10px; padding: 32px 20px; text-align: center;">
+      <h2 style="color: #999; font-size: 20px; font-weight: 600; text-transform: uppercase; margin-bottom: 6px;">
+        ONE-TIME, EXCLUSIVE OFFER: GET ALL THREE TRINITARIAN WAVES FOR THE PRICE OF ONE
+      </h2>
+      <p style="color: #999; font-size: 15px; margin-bottom: 30px;">
+        THE TRINITARIAN WAVES:
+      </p>
 
+      <img src="images/2.png" alt="Trinitarian Waves" style="max-width: 420px; width: 100%; margin-bottom: 30px;">
 
+      <ul style="list-style: none; padding-left: 0; text-align: left; max-width: 400px; margin: 0 auto 30px;">
+        <li style="margin-bottom: 10px;"><span style="color: #2ecc71;">✔</span> Wealth Wave – huge sums of money and profit</li>
+        <li style="margin-bottom: 10px;"><span style="color: #2ecc71;">✔</span> Intuition Wave – divine wisdom and inner clarity</li>
+        <li><span style="color: #2ecc71;">✔</span> Love Wave – the relationship of your dreams</li>
+      </ul>
 
+      <p style="font-size: 16px; font-weight: bold; color: #2e3e5e;">
+        ALL FOR JUST <span style="text-decoration: line-through; color: #d40000;">$75</span>
+        <span style="color: #2eaf4f; font-size: 20px;">$25</span>
+      </p>
+    </div>
+  </div>
 
-</body></html>
+  <div class="final-offer">
+    <div class="wrapper">
+      <div class="image-box">
+        <img src="images/3.png" alt="The Trinitarian Waves Final">
+      </div>
+
+      <!-- Replaces Hotmart widget with Cartpanda YES/NO buttons (no delay) -->
+      <div class="info">
+        <h3>Add Trinitarian Waves – Complete Pack</h3>
+        <p class="old-price">$75</p>
+        <p class="new-price">$25 Today</p>
+
+        <div class="ocu-buttons">
+          <a
+            href="https://omni-digital.mycartpanda.com/ex-ocu/next-offer/rAYaXldVDK?accepted=yes"
+            class="ocu-btn"
+          >
+            YES, ADD TO MY ORDER
+          </a>
+
+          <a
+            href="https://omni-digital.mycartpanda.com/ex-ocu/next-offer/rAYaXldVDK?accepted=no"
+            class="ocu-btn no"
+          >
+            NO, THANKS
+          </a>
+        </div>
+
+        <small>You won’t see this offer again.</small>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
