@@ -22,59 +22,14 @@
 <link rel="dns-prefetch" href="https://images.converteai.net">
 <link rel="dns-prefetch" href="https://api.vturb.com.br">
 
-<script>
-// Função para obter parâmetros da URL
-function getURLParameter(name) {
- return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
-}
-
-// Função para remover um parâmetro específico da URL
-function removeURLParameter(url, parameter) {
- var urlparts = url.split('?');
- if (urlparts.length >= 2) {
-  var prefix = encodeURIComponent(parameter) + '=';
-  var pars = urlparts[1].split(/[&;]/g);
-  for (var i = pars.length; i-- > 0;) {
-   if (pars[i].lastIndexOf(prefix, 0) !== -1) {
-    pars.splice(i, 1);
-   }
-  }
-  return urlparts[0] + (pars.length > 0 ? '?' + pars.join('&') : '');
- }
- return url;
-}
-
-// Verifica se o usuário já foi redirecionado anteriormente
-if (localStorage.getItem('userRedirected') === 'true') {
- // Redireciona o usuário para outra página (por exemplo, página inicial)
- window.location.href = "https://www.alzint.org/resource/world-alzheimer-report-2023/";
-} else if (localStorage.getItem('userAccessed') === 'true') {
- // Remove o parâmetro 'R8sK3vP191T8lJqT4nU6mZ25klasMfl' da URL sem recarregar a página
- var cleanURL = removeURLParameter(window.location.href, 'R8sK3vP191T8lJqT4nU6mZ25klasMfl');
- history.replaceState(null, null, cleanURL);
-} else {
- // Verifica se a página foi acessada com o parâmetro correto
- if (getURLParameter('R8sK3vP191T8lJqT4nU6mZ25klasMfl') !== 'true') {
-  // Armazena no localStorage que o usuário foi redirecionado
-  localStorage.setItem('userRedirected', 'true');
-  // Redireciona o usuário para outra página (por exemplo, página inicial)
-  window.location.href = "http://bemestarrenovado.site/mp";
- } else {
-  // Armazena no localStorage que o usuário acessou a página corretamente
-  localStorage.setItem('userAccessed', 'true');
-  // Remove o parâmetro 'R8sK3vP191T8lJqT4nU6mZ25klasMfl' da URL sem recarregar a página
-  var cleanURL = removeURLParameter(window.location.href, 'R8sK3vP191T8lJqT4nU6mZ25klasMfl');
-  history.replaceState(null, null, cleanURL);
- }
-}
-</script>
-
   
   <!-- PIXEL AQUI !-->
 
 
   
 <!-- PIXEL AQUI !-->
+
+  <script type="text/javascript" src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/cpsales.js"></script>
   
 </head>
 <body>
