@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="max-image-preview:large">
+<title>UPSELL 02 – HÁLITO BLINDADO</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Preload / dns-prefetch do player -->
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="preload" href="https://scripts.converteai.net/d437580f-f425-43d9-9ed7-1381a3114a2c/players/6a769ef732c18f2352766259/v4/player.js" as="script">
+
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+    background: #0b0b0b;
+    color: #ffffff;
+  }
+
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 30px 16px 50px;
+  }
+
+  section {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  h5 {
+    font-size: 22px;
+    margin: 0 0 20px;
+  }
+
+  h5 u {
+    color: #ff0000;
+  }
+
+  /* ===== IMAGEM ===== */
+  .banner-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+  }
+
+  /* ===== BARRA DE PROGRESSO ===== */
+  .progress-wrapper {
+    position: relative;
+    background-color: #eee;
+    color: #fff;
+    height: 30px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 0 0 20px;
+  }
+
+  .progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #28a745;
+    width: 0%;
+    height: 100%;
+    font-size: 13px;
+    padding: 0 15px;
+    border-radius: 4px;
+    animation: fillProgress 3s ease-out forwards;
+  }
+
+  @keyframes fillProgress {
+    from { width: 0%; }
+    to { width: 95%; }
+  }
+
+  .subtext {
+    font-size: 16px;
+    margin: 0 0 10px;
+  }
+
+  .subtext strong {
+    color: #ff0000;
+  }
+
+  /* ===== VÍDEO ===== */
+  .video-section {
+    padding: 0;
+  }
+
+  @media (max-width: 767px) {
+    h5 { font-size: 18px; }
+    .subtext { font-size: 14px; }
+  }
+
+  .esconder {
+    display: none !important;
+  }
+</style>
+</head>
+<body>
+
+<main>
+
+  <!-- Cabeçalho -->
+  <section>
+    <h5>ESPERE! SEU PROTOCOLO AINDA <u>NÃO ESTÁ COMPLETO</u></h5>
+
+    <div class="progress-wrapper" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="95" aria-valuetext="95% (Em progresso)">
+      <div class="progress-bar" id="progress-bar">
+        <span>Em progresso</span>
+        <span>95%</span>
+      </div>
+    </div>
+
+    <img class="banner-img" src="images/Espere-Seu-pedido-ainda-1280-x-400-px-1280-x-300-px-1-1024x240-1-1.png" alt="Espere, seu pedido ainda não foi concluído">
+
+    <p class="subtext">Antes de finalizar de vez, você <strong>PRECISA</strong> ver essa etapa final abaixo:</p>
+  </section>
+
+  <!-- Vídeo -->
+  <section class="video-section">
+    <vturb-smartplayer id="vid-6a769ef732c18f2352766259" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;">
+      <div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.77777777777777% 0 0; z-index: 0; background-color: black;"></div>
+    </vturb-smartplayer>
+  </section>
+
+  <!-- Botão de compra: será inserido automaticamente pelo script da Kiwify -->
+  <section id="kiwify-buttons" class="esconder"></section>
+
+</main>
+
+<!-- Player VTURB do vídeo do upsell -->
+<script type="text/javascript">
+var s = document.createElement("script");
+s.src = "https://scripts.converteai.net/d437580f-f425-43d9-9ed7-1381a3114a2c/players/6a769ef732c18f2352766259/v4/player.js";
+s.async = true;
+document.head.appendChild(s);
+</script>
+
+<!-- Liberação dos botões sincronizada com o vídeo (1:51 min) -->
+<script>
+    /* =====================================================================
+       LIBERAÇÃO DOS BOTÕES — SINCRONIZADO COM O VÍDEO (VTurb / smartplayer)
+       ---------------------------------------------------------------------
+       Os elementos com a classe ".esconder" começam ocultos e são exibidos
+       quando o vídeo passa de SECONDS_TO_DISPLAY segundos.
+       >> Ajuste apenas SECONDS_TO_DISPLAY (em segundos). Ex.: 480 = 8 min.
+       >> Se NÃO houver player na página, libera após FALLBACK_NO_PLAYER_SECONDS.
+       ===================================================================== */
+    var SECONDS_TO_DISPLAY = 111;
+    var FALLBACK_NO_PLAYER_SECONDS = 111;
+    (function liberarBotoes() {
+      var revelado = false, elapsed = 0;
+      function mostrar() {
+        if (revelado) return;
+        revelado = true;
+        document.querySelectorAll('.esconder').forEach(function (el) { el.classList.remove('esconder'); });
+      }
+      var timer = setInterval(function () {
+        elapsed += 1;
+        var sp = (typeof smartplayer !== 'undefined' && smartplayer.instances && smartplayer.instances[0] && smartplayer.instances[0].video) ? smartplayer.instances[0].video : null;
+        if (sp) {
+          if (sp.currentTime > SECONDS_TO_DISPLAY) { mostrar(); clearInterval(timer); }
+        } else if (elapsed >= FALLBACK_NO_PLAYER_SECONDS) {
+          mostrar(); clearInterval(timer);
+        }
+      }, 1000);
+    })();
+</script>
+
+<!-- Script de upsell da Kiwify será inserido aqui (dentro de #kiwify-buttons) -->
+
+</body>
+</html>
