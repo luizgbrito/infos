@@ -135,8 +135,13 @@
     </vturb-smartplayer>
   </section>
 
-  <!-- Botão de compra: será inserido automaticamente pelo script da Kiwify -->
-  <section id="kiwify-buttons" class="esconder"></section>
+  <!-- Botão de compra: inserido pelo script da Kiwify -->
+  <section id="kiwify-buttons" class="esconder">
+    <div style="text-align:center" id="kiwify-upsell-445x0Rz" data-upsell-url="https://saludbienhoy.site/pzh/up02" data-downsell-url="https://saludbienhoy.site/pzh/up02">
+      <button id="kiwify-upsell-trigger-445x0Rz" style="background-color:#27AF60;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #27AF60;font-size:20px;">Sim, eu aceito essa oferta especial!</button>
+      <div id="kiwify-upsell-cancel-trigger-445x0Rz" style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">Não, eu gostaria de recusar essa oferta</div>
+    </div>
+  </section>
 
 </main>
 
@@ -179,7 +184,8 @@ document.head.appendChild(s);
     })();
 </script>
 
-<!-- Script de upsell da Kiwify será inserido aqui (dentro de #kiwify-buttons) -->
+<!-- Script de upsell da Kiwify -->
+<script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
 
 </body>
 </html>
