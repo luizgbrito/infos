@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="max-image-preview:large">
+<title>Apresentação Zero Halitose</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Preload / dns-prefetch do player -->
+<script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/d437580f-f425-43d9-9ed7-1381a3114a2c/ab-test/6a769d4e2a6d0d72967bf471/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://m3u8.vturb.net">
+<link rel="dns-prefetch" href="https://license.vturb.com">
+
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #0b0b0b;
+  }
+
+  /* ===== HEADER DE ESCASSEZ ===== */
+  .scarcity-header {
+    width: 100%;
+    background: #c0392b;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 16px;
+  }
+
+  .scarcity-header .scarcity-text {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .scarcity-header #scarcity-date {
+    color: #ffe600;
+    font-weight: 800;
+  }
+
+  /* ===== VÍDEO ===== */
+  .video-section {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px 16px 30px;
+  }
+
+  vturb-smartplayer {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* ===== RESPONSIVO ===== */
+  @media (min-width: 1025px) {
+    .scarcity-header .scarcity-text { font-size: 18px; }
+  }
+
+  @media (max-width: 1024px) and (min-width: 768px) {
+    .scarcity-header .scarcity-text { font-size: 15px; }
+  }
+
+  @media (max-width: 767px) {
+    .scarcity-header { padding: 8px 10px; }
+    .scarcity-header .scarcity-text { font-size: 13px; line-height: 1.3; }
+  }
+
+  @media (max-width: 380px) {
+    .scarcity-header .scarcity-text { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header de escassez -->
+<div class="scarcity-header">
+  <p class="scarcity-text">
+    Devido a alta demanda essa aula só ficará disponível até
+    <span id="scarcity-date"></span>
+  </p>
+</div>
+
+<!-- Vídeo -->
+<main>
+  <div class="video-section">
+    <vturb-smartplayer id="ab-6a769d4e2a6d0d72967bf471" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+  </div>
+</main>
+
+<script>
+(function () {
+  // Data atual exibida dinamicamente
+  var dateEl = document.getElementById('scarcity-date');
+  function formatDate(d) {
+    var dd = String(d.getDate()).padStart(2, '0');
+    var mm = String(d.getMonth() + 1).padStart(2, '0');
+    var yyyy = d.getFullYear();
+    return dd + '/' + mm + '/' + yyyy;
+  }
+  function updateDate() {
+    dateEl.textContent = formatDate(new Date());
+  }
+  updateDate();
+  setInterval(updateDate, 60 * 1000);
+})();
+</script>
+
+<!-- Player VTURB -->
+<script type="text/javascript">
+var s = document.createElement("script");
+s.src = "https://scripts.converteai.net/d437580f-f425-43d9-9ed7-1381a3114a2c/ab-test/6a769d4e2a6d0d72967bf471/player.js";
+s.async = true;
+document.head.appendChild(s);
+</script>
+
+</body>
+</html>
