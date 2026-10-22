@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>(1) Mensaje sin leer</title>
+<meta name="description" content="El desayuno de 5 minutos que mantiene tu glucosa estable desde la mañana.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap"></noscript>
+<style>
+:root{
+  --bg:#ffffff;
+  --dark:#3d1f1f;
+  --headline:#7a2e2e;
+  --body:#4d5663;
+  --muted:#8993a0;
+  --accent:#7a2e2e;
+  --cta-bg:#d4a017;
+  --cta-text:#3d1f1f;
+  --rule:#e8eaee;
+  --alert:#b91c1c;
+  --soft:#f7f0e3;
+  --sp-violet-1:#8b5cf6;
+  --sp-violet-2:#7c3aed;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--body)}
+body{font:400 17px/1.6 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.wrap{max-width:680px;margin:0 auto;padding:0 18px}
+
+/* Titular */
+.vsl-headline{color:var(--headline);text-align:center;text-wrap:balance;font-weight:900;font-size:26px;line-height:1.16;margin:26px 0 14px;letter-spacing:-.01em}
+.vsl-headline .vh-q{display:block;color:var(--alert);font-weight:900;font-size:31px;margin-bottom:6px}
+.vsl-headline .vh-a{display:block;color:var(--dark);font-weight:700;font-size:23px}
+
+/* "personas de Facebook están viendo" */
+.vsl-watching-wrap{width:100%;text-align:center;padding:14px 0}
+.vsl-watching{background:linear-gradient(135deg,var(--sp-violet-1) 0%,var(--sp-violet-2) 100%);color:#fff;padding:10px 20px;border-radius:30px;display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;font-size:13px;font-weight:600;box-shadow:0 3px 15px rgba(124,58,237,.3),0 0 25px rgba(124,58,237,.15);position:relative;overflow:hidden}
+.vsl-watching .vw-shine{position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent,rgba(255,255,255,.1),transparent);transform:rotate(45deg);animation:vsl-shimmer 3s infinite}
+.vsl-watching .vw-dot{width:8px;height:8px;background:#10b981;border-radius:50%;position:relative;z-index:1;animation:vsl-pulse-dot 2s infinite}
+.vsl-watching .vw-dot::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;background:#10b981;border-radius:50%;animation:vsl-pulse-ring 2s infinite;opacity:.6}
+.vsl-watching #viewerCount{font-weight:600;font-size:14px;position:relative;z-index:1}
+.vsl-watching .vw-fb{font-weight:600;color:#fbbf24;position:relative;z-index:1}
+.vsl-watching span{position:relative;z-index:1}
+@keyframes vsl-shimmer{0%{transform:translateX(-100%) rotate(45deg)}100%{transform:translateX(100%) rotate(45deg)}}
+@keyframes vsl-pulse-dot{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
+@keyframes vsl-pulse-ring{0%{transform:translate(-50%,-50%) scale(1);opacity:.6}100%{transform:translate(-50%,-50%) scale(2);opacity:0}}
+
+/* Vídeo VTurb */
+/* largo limitado por la altura de la pantalla: el vídeo 9:16 entra completo sin hacer scroll */
+.vsl-video{width:100%;max-width:clamp(260px,calc((100svh - 190px) * .5625),400px);margin:0 auto}
+.vsl-video vturb-smartplayer{display:block;width:100%;margin:0 auto}
+.vsl-ratio{position:relative;width:100%;padding:177.78% 0 0;background:#000}
+.vsl-video-ph{position:relative;width:100%;padding:177.78% 0 0;background:#0c0c12}
+.vsl-video-ph span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#7a8090;font-size:13px;padding:18px;font-style:italic}
+
+/* "Otros están comprando ahora" */
+.cf-viewer-container{width:100%;text-align:center;padding:3px 0}
+.cf-viewer-wrapper{display:inline-block;text-align:center;padding:4px 10px;background-color:#fffeec;border:1px solid #f0edd0;border-radius:4px;font-weight:400;font-size:15px;color:#1a1a1a;line-height:1.2;max-width:100%}
+#cf-viewer-count{font-weight:700;font-variant-numeric:tabular-nums}
+@keyframes vsl-shake-box{0%{transform:translateX(0)}20%{transform:translateX(-3px) rotate(-1deg)}40%{transform:translateX(3px) rotate(1deg)}60%{transform:translateX(-3px) rotate(-1deg)}80%{transform:translateX(3px) rotate(1deg)}100%{transform:translateX(0)}}
+.cf-viewer-wrapper.shaking{animation:vsl-shake-box .4s ease-in-out}
+
+/* Botones */
+.cta-wrap{text-align:center;margin:18px 0 8px}
+.vsl-cta{display:block;width:100%;background:var(--cta-bg);color:var(--cta-text);font:900 28px/1.15 "Inter",sans-serif;text-decoration:none;padding:32px 20px;border-radius:10px;letter-spacing:.01em;text-align:center;box-shadow:0 10px 22px -10px rgba(0,0,0,.35);position:relative;overflow:hidden}
+.vsl-cta.pulse{animation:vsl-pulse-grow 2s infinite}
+.vsl-cta.pulse-fast{animation:vsl-pulse-grow .85s infinite}
+.vsl-cta .shine{position:absolute;top:0;left:-150%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:vsl-simple-shine 3.2s infinite}
+@keyframes vsl-simple-shine{0%{left:-150%}60%{left:150%}100%{left:150%}}
+@keyframes vsl-pulse-grow{0%{transform:scale(1);box-shadow:0 0 0 0 color-mix(in srgb,var(--cta-text) 70%,transparent)}50%{transform:scale(1.03);box-shadow:0 0 0 16px transparent}100%{transform:scale(1);box-shadow:0 0 0 0 transparent}}
+.cta-sub{text-align:center;margin:6px 0 18px}
+.cta-sub a{color:#1a0dab;font-weight:700;text-decoration:underline;font-size:15px;line-height:1.4}
+.cta-sub-lg a{font-size:40px;font-weight:800}
+
+/* Caja punteada de la oferta */
+.vsl-offer-box{border:2px dashed color-mix(in srgb,var(--dark) 30%,var(--soft));background:var(--soft);border-radius:14px;padding:22px 22px 6px;margin:18px 0}
+.note{margin:0 0 2px;font-size:16px;line-height:1.55;text-align:center}
+.note b{color:var(--alert)}
+.buy-section-img{width:100%;max-width:620px;margin:18px auto 16px;border-radius:6px;display:block}
+.img-ph{width:100%;aspect-ratio:620/331;margin:18px auto 16px;border-radius:6px;background:repeating-linear-gradient(45deg,#efe4cf,#efe4cf 10px,#f4ead8 10px,#f4ead8 20px);display:flex;align-items:center;justify-content:center;color:#9a8664;font-size:13px;font-style:italic;text-align:center;padding:12px}
+
+/* Sello de compra segura */
+.trust-seal{text-align:center;margin:22px auto 0;line-height:1.25}
+.ts-stars{display:inline-flex;gap:3px;margin-bottom:5px}
+.ts-stars span{width:22px;height:22px;background:#00b67a;display:flex;align-items:center;justify-content:center}
+.ts-stars svg{width:15px;height:15px;fill:#fff}
+.ts-line{font-size:13px;font-weight:700;color:#0b6b3a}
+.ts-sub{font-size:12px;color:#5d6570;letter-spacing:.02em}
+
+/* Pie */
+footer.site{border-top:1px solid var(--rule);margin:28px 0 0;padding:22px 0 18px;text-align:center;font-size:13px;color:var(--muted)}
+footer.site p{margin:6px 0;overflow-wrap:anywhere}
+footer.site .flink{color:var(--accent);margin:0 4px}
+
+/* Pop-up de salida */
+.vsl-exit-overlay{position:fixed;inset:0;background:rgba(0,0,0,.66);display:none;align-items:center;justify-content:center;z-index:9999;padding:16px}
+.vsl-exit-overlay.open{display:flex;animation:vsl-fade .2s ease}
+.vsl-exit-box{background:var(--bg);color:var(--body);max-width:620px;width:100%;border-radius:10px;padding:26px;position:relative;border-top:6px solid var(--accent);animation:vsl-drop .25s ease;max-height:92vh;overflow:auto}
+.vsl-exit-x{position:absolute;top:8px;right:14px;background:none;border:0;font-size:26px;line-height:1;color:var(--body);cursor:pointer;opacity:.7}
+.vsl-exit-h{color:var(--dark);font-weight:800;font-size:21px;line-height:1.2;text-align:center;margin:2px 0 16px}
+.vsl-exit-h .sig{color:var(--alert);font-weight:900}
+.vsl-exit-h .eh-1{display:block;font-size:26px;font-weight:900;margin-bottom:5px}
+.vsl-exit-h .eh-2{display:block;font-size:20px;font-weight:700;color:var(--dark)}
+.vsl-exit-grid{display:flex;gap:16px;align-items:center}
+.vsl-exit-img{max-width:42%;height:auto;border-radius:6px;cursor:pointer}
+.vsl-exit-grid .img-ph{max-width:42%;margin:0;aspect-ratio:291/208;flex:none}
+.vsl-exit-body{margin:0;font-size:20px;line-height:1.5}
+.vsl-exit-cta-wrap{text-align:center;margin:18px 0 0}
+.vsl-exit-cta-wrap .vsl-cta{font-size:20px;padding:16px 18px}
+@keyframes vsl-fade{from{opacity:0}to{opacity:1}}
+@keyframes vsl-drop{from{transform:translateY(-24px);opacity:0}to{transform:none;opacity:1}}
+
+@media(min-width:760px){
+  body{font-size:18px}
+  .wrap{max-width:720px}
+  .vsl-headline{font-size:34px;margin:38px 0 18px}
+  .vsl-headline .vh-q{font-size:38px}
+  .vsl-headline .vh-a{font-size:27px}
+  .vsl-cta{font-size:30px;padding:34px 22px}
+  .note{font-size:17px}
+  .vsl-exit-box{max-width:760px;padding:34px}
+  .vsl-exit-h .eh-1{font-size:48px;margin-bottom:8px}
+  .vsl-exit-h .eh-2{font-size:26px}
+  .vsl-exit-body{font-size:23px}
+}
+@media(max-width:480px){
+  .vsl-exit-grid{flex-direction:column}
+  .vsl-exit-img,.vsl-exit-grid .img-ph{max-width:78%;width:78%}
+  .vsl-exit-h{font-size:20px}
+  .cf-viewer-wrapper{font-size:14px}
+  .cta-sub-lg a{font-size:32px}
+}
+
+/* Delay: la zona de compra queda oculta hasta el segundo configurado del vídeo */
+.esconder{display:none}
+.esconder.unlocked{display:block;animation:ctaFadeIn .5s ease both}
+@keyframes ctaFadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+</style>
+<script>
+/* ============================================================
+   CONFIGURACIÓN — solo edita este bloque
+   ============================================================ */
+window.PAGE = {
+  vturbAccount: '',          // ID de la cuenta VTurb (ej.: f989fe3e-8644-4d9b-b514-4359aca49e3b)
+  vturbPlayer:  '',          // ID del player (lo que viene después de "vid-")
+  delaySeconds: 600,         // segundo del vídeo en que aparecen los botones
+  checkoutUrl:  '#',         // link del checkout
+  productName:  'La Solución de Una Comida para el Azúcar en Sangre',
+  authorName:   'Alejandro Ferrer',
+  buyImage:     'assets/producto.webp',          // imagen del producto (620x331 aprox.)
+  exitImage:    'assets/popup.webp'           // imagen del pop-up de salida (291x208 aprox.)
+};
+/* Adelanta la descarga del player VTurb */
+(function(P){
+  if(!P.vturbAccount||!P.vturbPlayer) return;
+  [['https://scripts.converteai.net/'+P.vturbAccount+'/players/'+P.vturbPlayer+'/v4/player.js','script'],
+   ['https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js','script']].forEach(function(r){
+    var l=document.createElement('link'); l.rel='preload'; l.href=r[0]; l.as=r[1]; document.head.appendChild(l);
+  });
+})(window.PAGE);
+</script>
+<link rel="preconnect" href="https://scripts.converteai.net" crossorigin>
+<link rel="preconnect" href="https://cdn.converteai.net" crossorigin>
+<link rel="dns-prefetch" href="https://images.converteai.net">
+</head>
+<body>
+
+<main class="wrap">
+
+  <h1 class="vsl-headline"><span class="vh-q">Glucosa por debajo de 140 durante todo el día.</span><span class="vh-a">Con un desayuno que se prepara en 5 minutos.</span></h1>
+
+  <div class="vsl-watching-wrap">
+    <div class="vsl-watching">
+      <div class="vw-shine"></div>
+      <div class="vw-dot"></div>
+      <span id="viewerCount">742</span>
+      <span>personas de</span>
+      <span class="vw-fb">Facebook</span>
+      <span>están viendo</span>
+    </div>
+  </div>
+
+  <div class="vsl-video" id="vsl-video-slot"></div>
+  <script>
+  (function(){
+    var P=window.PAGE, slot=document.getElementById('vsl-video-slot');
+    if(!P.vturbAccount||!P.vturbPlayer){
+      slot.innerHTML='<div class="vsl-video-ph"><span>Configura vturbAccount y vturbPlayer en el bloque PAGE</span></div>';
+      return;
+    }
+    slot.innerHTML='<vturb-smartplayer id="vid-'+P.vturbPlayer+'"><div class="vsl-ratio"></div></vturb-smartplayer>';
+    var s=document.createElement('script');
+    s.src='https://scripts.converteai.net/'+P.vturbAccount+'/players/'+P.vturbPlayer+'/v4/player.js';
+    s.async=true;
+    document.head.appendChild(s);
+  })();
+  </script>
+
+  <!-- Zona de compra: aparece en el segundo configurado del vídeo -->
+  <div id="vsl-cta-zone" class="esconder">
+
+    <div class="cf-viewer-container">
+      <div class="cf-viewer-wrapper shaking" id="cf-wrapper-box">
+        <span><span id="cf-viewer-count">...</span> personas están comprando <span data-product></span> en este momento</span>
+      </div>
+    </div>
+
+    <div class="cta-wrap"><a class="vsl-cta pulse" data-checkout><span class="shine"></span><span>COMPRAR AHORA</span></a></div>
+    <p class="cta-sub"><a data-checkout>¡SÍ! Quiero acabar con los picos de azúcar de una vez. (Agregar al carrito) Merezco vivir esta etapa de mi vida tranquilo, con el glucómetro por debajo de 140.</a></p>
+
+    <div class="vsl-offer-box">
+      <p class="note"><b>Unas palabras de <span data-author></span>:</b><br><i>"Si ya pasaste los 50 y en silencio aceptaste que los picos son parte de tu vida, te lo pido de corazón: <u>no te rindas contigo mismo.</u> Dale una oportunidad sincera durante unos días. Esto no se explica con palabras, hay que sentirlo."</i></p>
+      <div id="buy-img-slot"></div>
+    </div>
+
+    <div class="cta-wrap"><a class="vsl-cta pulse" data-checkout><span class="shine"></span><span>¡SÍ! QUIERO BAJAR MI AZÚCAR</span></a></div>
+    <p class="cta-sub cta-sub-lg"><a data-checkout><b>AGREGAR AL CARRITO</b></a></p>
+
+  </div>
+
+  <!-- Sello de opiniones: siempre visible, debajo de la VSL -->
+  <div class="trust-seal" role="img" aria-label="Excelente, 4,9 de 5">
+    <div class="ts-stars"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.5L12 17.3 6.1 20.5l1.3-6.5L2.5 9.4l6.6-.8z"/></svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.5L12 17.3 6.1 20.5l1.3-6.5L2.5 9.4l6.6-.8z"/></svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.5L12 17.3 6.1 20.5l1.3-6.5L2.5 9.4l6.6-.8z"/></svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.5L12 17.3 6.1 20.5l1.3-6.5L2.5 9.4l6.6-.8z"/></svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.5L12 17.3 6.1 20.5l1.3-6.5L2.5 9.4l6.6-.8z"/></svg></span></div>
+    <div class="ts-line">Excelente | Confiable 9,7</div>
+    <div class="ts-sub">BASADO EN 2.387 OPINIONES</div>
+  </div>
+
+  <footer class="site">
+    <p>&copy; <span id="year">2026</span> <span data-product></span>. Todos los derechos reservados. Contenido solo con fines educativos: no reemplaza la orientación de tu médico.</p>
+    <p><span class="flink">Política de Privacidad</span> &nbsp;&middot;&nbsp; <span class="flink">Términos y Condiciones</span></p>
+  </footer>
+
+</main>
+
+<!-- Pop-up de salida -->
+<div class="vsl-exit-overlay" id="vslExitModal" role="dialog" aria-modal="true" aria-label="Espera">
+  <div class="vsl-exit-box">
+    <button class="vsl-exit-x" data-vsl-exit-close aria-label="Cerrar">&times;</button>
+    <h2 class="vsl-exit-h"><span class="eh-1"><span class="sig">¡ESPERA!</span> En solo <span class="sig">1:45</span>...</span><span class="eh-2">¡Te muestro el truco matutino de 5 minutos que baja la glucosa rápido!</span></h2>
+    <div class="vsl-exit-grid">
+      <div id="exit-img-slot" style="display:contents"></div>
+      <p class="vsl-exit-body">Es un "truco de la mañana" de 5 minutos que puedes hacer hoy mismo en tu casa. Es ridículamente simple y funciona muy bien para estabilizar el azúcar. Pruébalo mañana. <b>Créeme, te va a encantar.</b></p>
+    </div>
+    <div class="vsl-exit-cta-wrap"><a class="vsl-cta pulse-fast" href="#" data-vsl-exit-close><span class="shine"></span>Sigue viendo y descubre el truco »</a></div>
+  </div>
+</div>
+
+<script>
+/* Aplica la configuración (links, nombres, imágenes) */
+(function(){
+  var P=window.PAGE, q=function(s){return document.querySelectorAll(s);};
+  function each(s,fn){Array.prototype.forEach.call(q(s),fn);}
+  each('[data-checkout]',function(a){a.href=P.checkoutUrl;a.rel='noopener';});
+  each('[data-product]',function(e){e.textContent=P.productName;});
+  each('[data-author]',function(e){e.textContent=P.authorName;});
+  document.getElementById('year').textContent=new Date().getFullYear();
+
+  var buy=document.getElementById('buy-img-slot');
+  buy.innerHTML=P.buyImage
+    ? '<img class="buy-section-img" src="'+P.buyImage+'" alt="" width="620" height="331" loading="lazy" decoding="async">'
+    : '<div class="img-ph">Imagen del producto (620 x 331)</div>';
+  var ex=document.getElementById('exit-img-slot');
+  ex.innerHTML=P.exitImage
+    ? '<img class="vsl-exit-img" src="'+P.exitImage+'" alt="" width="291" height="208" loading="lazy" decoding="async" data-vsl-exit-close title="Seguir viendo">'
+    : '<div class="img-ph" data-vsl-exit-close>Imagen del pop-up</div>';
+  // La imagen del pop-up se descarga después de que carga la página, así ya está lista cuando aparece
+  window.addEventListener('load',function(){ var i=ex.querySelector('img'); if(i) i.loading='eager'; });
+})();
+
+/* Libera la zona de compra en el segundo exacto del vídeo (sincronizado con el player VTurb). NO TOCAR. */
+(function(){
+  var P=window.PAGE;
+  var SECONDS_TO_DISPLAY = P.delaySeconds;
+  var FALLBACK_NO_PLAYER_SECONDS = SECONDS_TO_DISPLAY;
+  var revelado = false, elapsed = 0;
+  function mostrar(){
+    if (revelado) return;
+    revelado = true;
+    var el = document.getElementById('vsl-cta-zone');
+    if (el) el.classList.add('unlocked');
+  }
+  // Sin player configurado (vista previa), delay en 0 o ?nodelay en la URL: muestra de una vez
+  if (SECONDS_TO_DISPLAY <= 0 || !P.vturbAccount || !P.vturbPlayer || new URLSearchParams(location.search).has('nodelay')) { mostrar(); return; }
+  var timer = setInterval(function(){
+    elapsed += 1;
+    var sp = (typeof smartplayer !== 'undefined' && smartplayer.instances && smartplayer.instances[0] && smartplayer.instances[0].video) ? smartplayer.instances[0].video : null;
+    if (sp) {
+      if (sp.currentTime > SECONDS_TO_DISPLAY) { mostrar(); clearInterval(timer); }
+    } else if (elapsed >= FALLBACK_NO_PLAYER_SECONDS) {
+      mostrar(); clearInterval(timer);
+    }
+  }, 1000);
+})();
+
+/* "X personas de Facebook están viendo": variación aleatoria */
+(function(){
+  var el=document.getElementById('viewerCount'); if(!el) return;
+  var MIN=702, MAX=880, v=Math.floor(720+Math.random()*120);
+  function clamp(n,l,h){return Math.max(l,Math.min(h,n));}
+  function tick(){
+    var d=Math.floor(Math.random()*7)-3;
+    if(v<730) d+=Math.floor(Math.random()*3)+1;
+    if(v>860) d-=Math.floor(Math.random()*4)+1;
+    v=clamp(v+d,MIN,MAX); el.textContent=v;
+    setTimeout(tick,2000+Math.random()*2000);
+  }
+  el.textContent=v; setTimeout(tick,1200);
+})();
+
+/* "X personas están comprando": arranque rápido y luego más lento, con sacudida */
+(function(){
+  var minV=9, maxV=22, minC=1, maxC=4, FAST=5;
+  var countEl=document.getElementById('cf-viewer-count'), wrapEl=document.getElementById('cf-wrapper-box');
+  if(!countEl||!wrapEl) return;
+  function ri(a,b){return Math.floor(Math.random()*(b-a+1))+a;}
+  var cur=ri(minV,maxV), n=0; countEl.textContent=cur;
+  function upd(){
+    var ch=ri(minC,maxC), op;
+    if(cur+ch>maxV) op='sub'; else if(cur-ch<minV) op='add'; else op=Math.random()<.5?'add':'sub';
+    cur+=(op==='add')?ch:-ch; countEl.textContent=cur;
+    wrapEl.classList.remove('shaking'); void wrapEl.offsetWidth; wrapEl.classList.add('shaking');
+    n++;
+    setTimeout(upd,(n<FAST)?ri(500,1500):ri(3000,7000));
+  }
+  setTimeout(upd,1500);
+})();
+
+/* Pop-up de salida: mouse sale por arriba (desktop) o botón atrás (móvil), una vez por sesión */
+(function(){
+  var modal=document.getElementById('vslExitModal'); if(!modal) return;
+  var shown=false;
+  function show(){
+    if(shown) return;
+    try{ if(sessionStorage.getItem('vslExitShown')) return; }catch(e){}
+    shown=true; try{sessionStorage.setItem('vslExitShown','1');}catch(e){}
+    modal.classList.add('open');
+  }
+  function hide(){ modal.classList.remove('open'); }
+  setTimeout(function(){
+    document.addEventListener('mouseout',function(e){ if(!e.relatedTarget && e.clientY<=0) show(); });
+  },4000);
+  try{
+    history.pushState(null,'',location.href);
+    window.addEventListener('popstate',function(){ if(!shown){ show(); history.pushState(null,'',location.href);} });
+  }catch(e){}
+  modal.addEventListener('click',function(e){
+    if(e.target===modal||(e.target.closest&&e.target.closest('[data-vsl-exit-close]'))){ e.preventDefault(); hide(); }
+  });
+})();
+</script>
+</body>
+</html>
