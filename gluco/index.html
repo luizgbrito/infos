@@ -97,7 +97,8 @@ a{color:inherit}
 /* Pie */
 footer.site{border-top:1px solid var(--rule);margin:28px 0 0;padding:22px 0 18px;text-align:center;font-size:13px;color:var(--muted)}
 footer.site p{margin:6px 0;overflow-wrap:anywhere}
-footer.site .flink{color:var(--accent);margin:0 4px}
+footer.site a{color:var(--accent);text-decoration:none;margin:0 4px}
+footer.site a:hover{text-decoration:underline}
 
 /* Pop-up de salida */
 .vsl-exit-overlay{position:fixed;inset:0;background:rgba(0,0,0,.66);display:none;align-items:center;justify-content:center;z-index:9999;padding:16px}
@@ -234,7 +235,7 @@ window.PAGE = {
 
   <footer class="site">
     <p>&copy; <span id="year">2026</span> <span data-product></span>. Todos los derechos reservados. Contenido solo con fines educativos: no reemplaza la orientación de tu médico.</p>
-    <p><span class="flink">Política de Privacidad</span> &nbsp;&middot;&nbsp; <span class="flink">Términos y Condiciones</span></p>
+    <p><a href="privacidad.html">Política de Privacidad</a> &nbsp;&middot;&nbsp; <a href="terminos.html">Términos y Condiciones</a></p>
   </footer>
 
 </main>
