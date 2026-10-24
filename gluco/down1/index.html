@@ -69,6 +69,7 @@ img{max-width:100%;height:auto;display:block}
 .pending small{display:block;color:var(--dark);font-size:20px;font-weight:800;margin-top:2px}
 
 .cta-wrap{text-align:center;margin:18px 0 8px}
+.mnd-wrap{margin:20px auto 18px;max-width:560px;min-height:120px}
 .vsl-cta{display:block;width:100%;background:var(--cta-bg);color:var(--cta-text);font:900 28px/1.15 "Inter",sans-serif;text-decoration:none;padding:30px 20px;border-radius:10px;letter-spacing:.01em;text-align:center;box-shadow:0 10px 22px -10px rgba(0,0,0,.35);position:relative;overflow:hidden;animation:vsl-pulse-grow 2s infinite}
 .vsl-cta .shine{position:absolute;top:0;left:-150%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:vsl-simple-shine 3.2s infinite}
 @keyframes vsl-simple-shine{0%{left:-150%}60%{left:150%}100%{left:150%}}
@@ -81,7 +82,7 @@ img{max-width:100%;height:auto;display:block}
 .bonus .r{color:var(--alert)}
 
 .offer-img{width:100%;max-width:620px;margin:18px auto 0;border-radius:6px}
-.img-ph{width:100%;aspect-ratio:1600/865;margin:18px auto 0;border-radius:6px;background:repeating-linear-gradient(45deg,#efe4cf,#efe4cf 10px,#f4ead8 10px,#f4ead8 20px);display:flex;align-items:center;justify-content:center;color:#9a8664;font-size:13px;font-style:italic;text-align:center;padding:12px}
+.img-ph{width:100%;aspect-ratio:1240/588;margin:18px auto 0;border-radius:6px;background:repeating-linear-gradient(45deg,#efe4cf,#efe4cf 10px,#f4ead8 10px,#f4ead8 20px);display:flex;align-items:center;justify-content:center;color:#9a8664;font-size:13px;font-style:italic;text-align:center;padding:12px}
 
 .disc{margin:28px auto 0;max-width:520px;text-align:center;border:2px dashed var(--alert);background:#fff5f5;border-radius:14px;padding:18px 18px 20px}
 .disc .d0{display:block;color:var(--dark);font-weight:800;font-size:22px;line-height:1.2}
@@ -139,14 +140,12 @@ window.PAGE = {
   vturbAccount:  '',          // ID de la cuenta VTurb
   vturbPlayer:   '',          // ID del player (lo que viene después de "vid-")
   delaySeconds:  600,         // segundo del vídeo en que aparece la oferta
-  checkoutUrl:   '#',         // link de compra del downsell (con el descuento)
-  declineUrl:    '../gracias/', // a dónde va quien dice "No, gracias"
-  offerName:     'Plan Intensivo de 14 Días',
+  offerName:     'Reinicio Intensivo de Glucosa de 14 Días',
   guaranteeDays: 60,          // días de garantía
   discount:      '$10',       // descuento que se muestra en la oferta
   authorName:    'Alejandro Ferrer',
   timerMinutes:  20,          // cuenta regresiva de la oferta
-  offerImage:    ''           // imagen de la oferta (1600x865 aprox.)
+  offerImage:    '../assets/reinicio.webp' // imagen de la oferta
 };
 (function(P){
   if(!P.vturbAccount||!P.vturbPlayer) return;
@@ -156,6 +155,8 @@ window.PAGE = {
   });
 })(window.PAGE);
 </script>
+<!-- Mundpay: botones de compra 1 clic del funnel -->
+<script src="https://upsell.mundpay.com/script-v2.js" defer async></script>
 <link rel="preconnect" href="https://scripts.converteai.net" crossorigin>
 <link rel="preconnect" href="https://cdn.converteai.net" crossorigin>
 </head>
@@ -203,13 +204,11 @@ window.PAGE = {
       <span class="d3">Se aplica automáticamente</span>
     </div>
 
-    <div class="cta-wrap"><a class="vsl-cta" data-checkout><span class="shine"></span><span>ACTIVAR AHORA</span></a></div>
-    <p class="cta-sub"><a data-checkout>¡SÍ! Quiero añadir el <span data-offer></span> a mi área de miembros con el descuento.<small>(Tu descuento se aplica automáticamente)</small></a></p>
+    <div class="mnd-wrap"><div data-mndpay-render="01a1701c-cb9d-712a-8896-40282eeacf4d"></div></div>
 
     <div id="offer-img-slot"></div>
 
-    <div class="cta-wrap"><a class="vsl-cta" data-checkout><span class="shine"></span><span>ACTIVAR AHORA</span></a></div>
-    <p class="cta-sub"><a data-checkout>¡SÍ! Quiero añadir el <span data-offer></span> a mi área de miembros con el descuento.<small>(Garantía de reembolso de <span data-days></span> días)</small></a></p>
+    <div class="mnd-wrap"><div data-mndpay-render="01a1701c-cb9d-712a-8896-40282eeacf4d"></div></div>
 
     <div class="timer">
       <span class="t1">¡DISPONIBLE SOLO EN ESTA PÁGINA!</span>
@@ -217,7 +216,6 @@ window.PAGE = {
       <span class="clock" id="clock">20:00</span>
     </div>
 
-    <a class="decline" data-decline>No, gracias. Renuncio a este descuento único y entiendo que no volveré a ver el <span data-offer></span> a este precio.</a>
 
   </div>
 
@@ -232,16 +230,14 @@ window.PAGE = {
 (function(){
   var P=window.PAGE;
   function each(s,fn){Array.prototype.forEach.call(document.querySelectorAll(s),fn);}
-  each('[data-checkout]',function(a){a.href=P.checkoutUrl;});
-  each('[data-decline]',function(a){a.href=P.declineUrl;});
   each('[data-offer]',function(e){e.textContent=P.offerName;});
   each('[data-days]',function(e){e.textContent=P.guaranteeDays;});
   each('[data-discount]',function(e){e.textContent=P.discount;});
   each('[data-author]',function(e){e.textContent=P.authorName;});
   document.getElementById('year').textContent=new Date().getFullYear();
   document.getElementById('offer-img-slot').innerHTML=P.offerImage
-    ? '<img class="offer-img" src="'+P.offerImage+'" alt="" width="1600" height="865" loading="lazy" decoding="async">'
-    : '<div class="img-ph">Imagen de la oferta (1600 x 865)</div>';
+    ? '<img class="offer-img" src="'+P.offerImage+'" alt="" width="1240" height="588" loading="lazy" decoding="async">'
+    : '<div class="img-ph">Imagen de la oferta</div>';
 })();
 
 /* Libera la zona de la oferta en el segundo exacto del vídeo (sincronizado con el player VTurb). NO TOCAR. */

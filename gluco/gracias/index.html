@@ -55,24 +55,11 @@ img{max-width:100%;height:auto;display:block}
 .info li svg{flex:none;width:22px;height:22px;margin-top:2px}
 .info a{color:var(--accent);font-weight:700}
 
-/* Productos */
-.sec{color:var(--headline);text-align:center;font-weight:900;font-size:26px;line-height:1.2;margin:38px 0 4px}
-.sec-sub{text-align:center;color:var(--muted);font-size:13px;margin:0 0 18px}
-.prod{border:1px solid var(--rule);border-radius:14px;overflow:hidden;margin:0 0 22px;box-shadow:0 8px 24px -16px rgba(61,31,31,.35)}
-.prod-top{background:var(--dark);color:#fff;text-align:center;padding:12px 16px}
-.prod-top .tag{display:block;color:#fbd77a;font-weight:800;font-size:12px;letter-spacing:.1em}
-.prod-top .name{display:block;font-weight:800;font-size:20px;line-height:1.25;margin-top:2px}
-.prod-body{padding:18px 18px 20px;display:grid;gap:16px}
-.prod-img{width:100%;max-width:300px;margin:0 auto;border-radius:6px}
-.prod-ph{width:100%;max-width:300px;aspect-ratio:3/4;margin:0 auto;border-radius:6px;background:repeating-linear-gradient(45deg,#efe4cf,#efe4cf 10px,#f4ead8 10px,#f4ead8 20px);display:flex;align-items:center;justify-content:center;color:#9a8664;font-size:13px;font-style:italic;text-align:center;padding:12px}
-.prod-desc{margin:0;color:var(--dark);font-size:16px;line-height:1.55}
-.how{margin:0;padding:12px 14px;background:#f6f7f9;border-radius:10px;font-size:14px;line-height:1.5;color:var(--body)}
-.how b{color:var(--dark)}
-.how p{margin:0 0 6px}
-.how p:last-child{margin:0}
-.dl{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--cta-bg);color:var(--cta-text);font:900 20px/1.2 "Inter",sans-serif;text-decoration:none;padding:18px 16px;border-radius:10px;box-shadow:0 10px 22px -10px rgba(0,0,0,.35)}
-.dl svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.dl-meta{text-align:center;color:var(--muted);font-size:13px;margin:-8px 0 0}
+/* Aviso de correo */
+.mail{margin:28px 0 0;text-align:center;border:2px solid var(--ok);background:#f1faf5;border-radius:14px;padding:22px 20px}
+.mail svg{width:44px;height:44px;margin:0 auto 8px;display:block;fill:none;stroke:var(--ok);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.mail h2{margin:0 0 6px;color:var(--dark);font-size:22px;font-weight:900;line-height:1.25}
+.mail p{margin:0;color:var(--dark);font-size:16px;line-height:1.55}
 
 footer.site{border-top:1px solid var(--rule);margin:30px 0 0;padding:22px 0 18px;text-align:center;font-size:13px;color:var(--muted)}
 footer.site p{margin:6px 0}
@@ -83,9 +70,6 @@ footer.site p{margin:6px 0}
   .hello .h1{font-size:40px}
   .hello .h0{font-size:21px}
   .hello .h2{font-size:21px}
-  .sec{font-size:32px}
-  .prod-body{grid-template-columns:240px 1fr;align-items:start;padding:22px}
-  .prod-body .prod-img,.prod-body .prod-ph{grid-row:span 3}
   .info li{font-size:17px}
 }
 </style>
@@ -98,21 +82,7 @@ window.PAGE = {
   vturbPlayer:  '',            // ID del player (lo que viene después de "vid-")
   productName:  'La Solución de Una Comida para el Azúcar en Sangre',
   supportEmail: '',            // correo de soporte (vacío = no se muestra)
-  paymentName:  '',            // nombre que aparece en el extracto de la tarjeta (vacío = no se muestra)
-  products: [
-    { tag: 'PRODUCTO PRINCIPAL', name: 'La Solución de Una Comida para el Azúcar en Sangre',
-      desc: 'La guía completa con el desayuno de 5 minutos, la fórmula para armarlo con lo que tienes en casa y tu plan para los primeros días. Te recomendamos leer entre 3 y 5 páginas al día.',
-      url: '#', size: 'PDF', image: '' },
-    { tag: 'BONO GRATIS #1', name: 'Los $2 Desayunos Infalibles',
-      desc: 'Desayunos que cuestan alrededor de $2, mantienen tu glucosa estable y te dejan saciado hasta el mediodía. Ábrelo en el teléfono antes de ir al supermercado.',
-      url: '#', size: 'PDF', image: '' },
-    { tag: 'BONO GRATIS #2', name: 'El Dossier de Rescate en Restaurantes',
-      desc: 'Qué pedir en cualquier restaurante sin disparar tu azúcar y sin sentirte excluido en la mesa. Guárdalo en el teléfono y decide antes de abrir el menú.',
-      url: '#', size: 'PDF', image: '' },
-    { tag: 'BONO GRATIS #3', name: 'Los 27 Sustitutos de Postres Prohibidos',
-      desc: 'Calma tus antojos de dulce con 27 postres que no disparan tu glucosa y mantienen tu energía estable.',
-      url: '#', size: 'PDF', image: '' }
-  ]
+  paymentName:  ''             // nombre que aparece en el extracto de la tarjeta (vacío = no se muestra)
 };
 </script>
 <link rel="preconnect" href="https://scripts.converteai.net" crossorigin>
@@ -147,14 +117,17 @@ window.PAGE = {
   })();
   </script>
 
+  <div class="mail">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg>
+    <h2>Revisa tu correo electrónico</h2>
+    <p>Tu compra fue confirmada. En los próximos minutos recibirás un correo con tu acceso y todas las instrucciones para empezar.</p>
+  </div>
+
   <div class="info">
     <h2>Lo más importante, de un vistazo:</h2>
     <ul id="info-list"></ul>
   </div>
 
-  <h2 class="sec">Accede a tus productos aquí</h2>
-  <p class="sec-sub">Las imágenes son ilustrativas: todo el contenido se entrega en formato digital.</p>
-  <div id="products"></div>
 
   <footer class="site">
     <p>&copy; <span id="year">2026</span> <span data-product></span>. Todos los derechos reservados. Contenido solo con fines educativos: no reemplaza la orientación de tu médico.</p>
@@ -172,28 +145,12 @@ window.PAGE = {
   var tick='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#1f8a4c"/><path d="M7 12.5l3.3 3.3L17.2 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   var items=[];
   if(P.paymentName) items.push('En el extracto de tu tarjeta o banco verás un cargo de <b>'+esc(P.paymentName)+'</b>. Tranquilo, somos nosotros: es la plataforma de pago que usamos.');
-  items.push('<b>Guarda esta página en tus favoritos.</b> Necesitarás esta misma dirección para volver a descargar tus materiales.');
+  items.push('<b>¿No ves el correo?</b> Revisa también la carpeta de spam, correo no deseado o promociones. Puede tardar hasta 15 minutos en llegar.');
   if(P.supportEmail) items.push('Guarda nuestro correo de soporte: es la forma más rápida de resolver cualquier duda. <a href="mailto:'+esc(P.supportEmail)+'">'+esc(P.supportEmail)+'</a>');
   items.push('Dale al método una oportunidad real: para mejores resultados, síguelo con constancia durante al menos 30 días antes de sacar conclusiones.');
-  items.push('Si compraste productos adicionales, recibirás correos separados con el acceso. Revisa tu bandeja de entrada y también la carpeta de spam o correo no deseado.');
+  items.push('Si compraste productos adicionales, recibirás un correo separado para cada uno.');
   document.getElementById('info-list').innerHTML=items.map(function(t){return '<li>'+tick+'<span>'+t+'</span></li>';}).join('');
 
-  var dl='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10.5l5 5 5-5"/><path d="M5 20h14"/></svg>';
-  document.getElementById('products').innerHTML=P.products.map(function(p){
-    var img=p.image
-      ? '<img class="prod-img" src="'+esc(p.image)+'" alt="'+esc(p.name)+'" loading="lazy" decoding="async">'
-      : '<div class="prod-ph">Portada de '+esc(p.name)+'</div>';
-    return '<section class="prod">'+
-      '<div class="prod-top"><span class="tag">'+esc(p.tag)+'</span><span class="name">'+esc(p.name)+'</span></div>'+
-      '<div class="prod-body">'+img+
-        '<p class="prod-desc">'+esc(p.desc)+'</p>'+
-        '<div class="how"><p><b>El archivo puede tardar de 3 a 5 segundos en abrir</b>, porque es de alta calidad.</p>'+
-          '<p><b>En computadora o Android:</b> abre el archivo y toca el ícono de descarga (la flecha hacia abajo) para guardarlo.</p>'+
-          '<p><b>En iPhone:</b> cuando se abra, toca el ícono de Compartir y elige "Guardar en Archivos".</p></div>'+
-        '<div><a class="dl" href="'+esc(p.url)+'" target="_blank" rel="noopener">'+dl+'Descargar archivo</a>'+
-        '<p class="dl-meta" style="margin-top:8px">'+esc(p.size)+'</p></div>'+
-      '</div></section>';
-  }).join('');
 })();
 </script>
 </body>
