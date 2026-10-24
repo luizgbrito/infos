@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>(1) Mensaje de Alejandro Ferrer</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap"></noscript>
+<style>
+:root{
+  --bg:#ffffff;
+  --dark:#3d1f1f;
+  --headline:#7a2e2e;
+  --body:#4d5663;
+  --muted:#8993a0;
+  --accent:#7a2e2e;
+  --cta-bg:#d4a017;
+  --cta-text:#3d1f1f;
+  --rule:#e8eaee;
+  --alert:#b91c1c;
+  --soft:#f7f0e3;
+  --ok:#1f8a4c;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--body)}
+body{font:400 17px/1.6 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:680px;margin:0 auto;padding:0 18px}
+
+/* Franja de aviso */
+.warn{background:var(--alert);color:#fff;text-align:center;padding:14px 18px 16px}
+.warn .w1{display:block;font-weight:900;font-size:24px;letter-spacing:.02em;line-height:1.15}
+.warn .w2{display:block;font-weight:700;font-size:16px;line-height:1.35;margin-top:4px}
+
+/* Barra de progreso del pedido */
+.steps{display:flex;align-items:flex-start;justify-content:space-between;max-width:520px;margin:22px auto 4px;position:relative}
+.steps::before{content:'';position:absolute;top:15px;left:16%;right:16%;height:4px;background:var(--rule);border-radius:4px}
+.steps::after{content:'';position:absolute;top:15px;left:16%;width:34%;height:4px;background:var(--ok);border-radius:4px}
+.step{flex:1;text-align:center;position:relative;z-index:1;font-size:12px;font-weight:600;color:var(--muted);line-height:1.25}
+.step i{display:flex;width:34px;height:34px;margin:0 auto 6px;border-radius:50%;align-items:center;justify-content:center;background:#fff;border:3px solid var(--rule);font-style:normal;font-weight:800;font-size:14px;color:var(--muted)}
+.step.done i{background:var(--ok);border-color:var(--ok);color:#fff}
+.step.done i svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.step.now{color:var(--alert)}
+.step.now i{border-color:var(--alert);color:var(--alert);animation:ring 1.6s infinite}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(185,28,28,.45)}70%{box-shadow:0 0 0 10px rgba(185,28,28,0)}100%{box-shadow:0 0 0 0 rgba(185,28,28,0)}}
+
+/* Titulares */
+.h-main{color:var(--alert);text-align:center;text-wrap:balance;font-weight:900;font-size:30px;line-height:1.14;margin:22px 0 8px;letter-spacing:-.01em}
+.h-sub{color:var(--dark);text-align:center;text-wrap:balance;font-weight:700;font-size:19px;line-height:1.3;margin:0 0 18px}
+
+/* Vídeo VTurb 9:16 */
+.vsl-video{width:100%;max-width:clamp(260px,calc((100svh - 190px) * .5625),400px);margin:0 auto}
+.vsl-video vturb-smartplayer{display:block;width:100%;margin:0 auto}
+.vsl-ratio{position:relative;width:100%;padding:177.78% 0 0;background:#000}
+.vsl-video-ph{position:relative;width:100%;padding:177.78% 0 0;background:#0c0c12}
+.vsl-video-ph span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#7a8090;font-size:13px;padding:18px;font-style:italic}
+
+/* "Haz esto primero" */
+.first{margin:20px auto 0;max-width:560px;text-align:center;border:2px dashed color-mix(in srgb,var(--dark) 30%,var(--soft));background:var(--soft);border-radius:14px;padding:16px 18px}
+.first b{display:block;color:var(--alert);font-weight:900;font-size:20px;letter-spacing:.02em;margin-bottom:4px}
+.first p{margin:0;color:var(--dark);font-size:16px;line-height:1.5}
+
+/* Zona con delay */
+.pending{color:var(--alert);text-align:center;font-weight:900;font-size:26px;line-height:1.15;margin:30px 0 4px}
+.pending small{display:block;color:var(--dark);font-size:20px;font-weight:800;margin-top:2px}
+
+.cta-wrap{text-align:center;margin:18px 0 8px}
+.vsl-cta{display:block;width:100%;background:var(--cta-bg);color:var(--cta-text);font:900 28px/1.15 "Inter",sans-serif;text-decoration:none;padding:30px 20px;border-radius:10px;letter-spacing:.01em;text-align:center;box-shadow:0 10px 22px -10px rgba(0,0,0,.35);position:relative;overflow:hidden;animation:vsl-pulse-grow 2s infinite}
+.vsl-cta .shine{position:absolute;top:0;left:-150%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:vsl-simple-shine 3.2s infinite}
+@keyframes vsl-simple-shine{0%{left:-150%}60%{left:150%}100%{left:150%}}
+@keyframes vsl-pulse-grow{0%{transform:scale(1);box-shadow:0 0 0 0 color-mix(in srgb,var(--cta-text) 70%,transparent)}50%{transform:scale(1.03);box-shadow:0 0 0 16px transparent}100%{transform:scale(1);box-shadow:0 0 0 0 transparent}}
+.cta-sub{text-align:center;margin:6px 0 18px}
+.cta-sub a{color:#1a0dab;font-weight:700;text-decoration:underline;font-size:15px;line-height:1.45}
+.cta-sub small{display:block;font-size:14px}
+
+.bonus{text-align:center;color:var(--dark);font-weight:700;font-size:19px;line-height:1.4;text-wrap:balance;margin:26px 0 0}
+.bonus .r{color:var(--alert)}
+
+.offer-img{width:100%;max-width:620px;margin:18px auto 0;border-radius:6px}
+.img-ph{width:100%;aspect-ratio:1600/865;margin:18px auto 0;border-radius:6px;background:repeating-linear-gradient(45deg,#efe4cf,#efe4cf 10px,#f4ead8 10px,#f4ead8 20px);display:flex;align-items:center;justify-content:center;color:#9a8664;font-size:13px;font-style:italic;text-align:center;padding:12px}
+
+.disc{margin:28px auto 0;max-width:520px;text-align:center;border:2px dashed var(--alert);background:#fff5f5;border-radius:14px;padding:18px 18px 20px}
+.disc .d0{display:block;color:var(--dark);font-weight:800;font-size:22px;line-height:1.2}
+.disc .d1{display:block;color:var(--muted);font-weight:700;font-size:13px;letter-spacing:.08em;margin-top:12px}
+.disc .d2{display:block;color:var(--alert);font-weight:900;font-size:46px;line-height:1.05;letter-spacing:-.01em;margin-top:2px}
+.disc .d3{display:inline-block;margin-top:8px;background:var(--ok);color:#fff;font-weight:700;font-size:13px;border-radius:30px;padding:5px 12px}
+.why{color:var(--headline);text-align:center;text-wrap:balance;font-weight:900;font-size:26px;line-height:1.18;margin:34px 0 16px}
+.checks{list-style:none;margin:0;padding:20px 20px 6px;background:var(--soft);border:2px dashed color-mix(in srgb,var(--dark) 30%,var(--soft));border-radius:14px}
+.checks li{display:flex;gap:12px;align-items:flex-start;margin:0 0 16px;color:var(--dark);font-size:17px;line-height:1.5}
+.checks li svg{flex:none;width:26px;height:26px;margin-top:1px}
+.checks li b{color:var(--headline)}
+
+.decline{display:block;text-align:center;margin:22px auto 0;max-width:560px;color:var(--muted);font-size:14px;line-height:1.5;text-decoration:underline}
+
+.timer{margin:26px auto 0;max-width:420px;text-align:center;border-radius:12px;background:var(--dark);color:#fff;padding:16px 18px 18px}
+.timer .t1{display:block;font-weight:800;font-size:15px;letter-spacing:.03em;color:#fbd77a}
+.timer .t2{display:block;font-size:14px;opacity:.85;margin-top:2px}
+.timer .clock{display:block;font:800 44px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.06em;margin-top:6px}
+
+footer.site{border-top:1px solid var(--rule);margin:30px 0 0;padding:22px 0 18px;text-align:center;font-size:13px;color:var(--muted)}
+footer.site p{margin:6px 0}
+
+@media(min-width:760px){
+  body{font-size:18px}
+  .wrap{max-width:720px}
+  .warn .w1{font-size:30px}
+  .warn .w2{font-size:19px}
+  .h-main{font-size:40px;margin-top:30px}
+  .h-sub{font-size:23px}
+  .pending{font-size:32px}
+  .pending small{font-size:24px}
+  .vsl-cta{font-size:32px;padding:32px 22px}
+  .bonus{font-size:22px}
+  .disc{margin:28px auto 0;max-width:520px;text-align:center;border:2px dashed var(--alert);background:#fff5f5;border-radius:14px;padding:18px 18px 20px}
+.disc .d0{display:block;color:var(--dark);font-weight:800;font-size:22px;line-height:1.2}
+.disc .d1{display:block;color:var(--muted);font-weight:700;font-size:13px;letter-spacing:.08em;margin-top:12px}
+.disc .d2{display:block;color:var(--alert);font-weight:900;font-size:46px;line-height:1.05;letter-spacing:-.01em;margin-top:2px}
+.disc .d3{display:inline-block;margin-top:8px;background:var(--ok);color:#fff;font-weight:700;font-size:13px;border-radius:30px;padding:5px 12px}
+.why{font-size:32px}
+  .checks{padding:26px 28px 10px}
+  .checks li{font-size:18px}
+  .step{font-size:13px}
+}
+
+/* Delay: oculto hasta el segundo configurado del vídeo */
+.esconder{display:none}
+.esconder.unlocked{display:block;animation:ctaFadeIn .5s ease both}
+@keyframes ctaFadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+</style>
+<script>
+/* ============================================================
+   CONFIGURACIÓN — solo edita este bloque
+   ============================================================ */
+window.PAGE = {
+  vturbAccount:  '',          // ID de la cuenta VTurb
+  vturbPlayer:   '',          // ID del player (lo que viene después de "vid-")
+  delaySeconds:  600,         // segundo del vídeo en que aparece la oferta
+  checkoutUrl:   '#',         // link de compra del downsell (con el descuento)
+  declineUrl:    '../gracias/', // a dónde va quien dice "No, gracias"
+  offerName:     'Plan Intensivo de 14 Días',
+  guaranteeDays: 60,          // días de garantía
+  discount:      '$10',       // descuento que se muestra en la oferta
+  authorName:    'Alejandro Ferrer',
+  timerMinutes:  20,          // cuenta regresiva de la oferta
+  offerImage:    ''           // imagen de la oferta (1600x865 aprox.)
+};
+(function(P){
+  if(!P.vturbAccount||!P.vturbPlayer) return;
+  [['https://scripts.converteai.net/'+P.vturbAccount+'/players/'+P.vturbPlayer+'/v4/player.js','script'],
+   ['https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js','script']].forEach(function(r){
+    var l=document.createElement('link'); l.rel='preload'; l.href=r[0]; l.as=r[1]; document.head.appendChild(l);
+  });
+})(window.PAGE);
+</script>
+<link rel="preconnect" href="https://scripts.converteai.net" crossorigin>
+<link rel="preconnect" href="https://cdn.converteai.net" crossorigin>
+</head>
+<body>
+
+<div class="warn">
+  <span class="w1">¡IMPORTANTE!</span>
+  <span class="w2">No cierres esta ventana ni vuelvas atrás: tu pedido todavía se está procesando.</span>
+</div>
+
+<main class="wrap">
+
+  <div class="steps" aria-label="Progreso del pedido">
+    <div class="step done"><i><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Pedido<br>recibido</div>
+    <div class="step now"><i>2</i>Personaliza<br>tu pedido</div>
+    <div class="step"><i>3</i>Acceso<br>al programa</div>
+  </div>
+
+  <h1 class="h-main">(1) Mensaje de <span data-author></span></h1>
+  <p class="h-sub">Escucha este breve mensaje antes de entrar a tu área de miembros.</p>
+
+  <div class="vsl-video" id="vsl-video-slot"></div>
+  <script>
+  (function(){
+    var P=window.PAGE, slot=document.getElementById('vsl-video-slot');
+    if(!P.vturbAccount||!P.vturbPlayer){
+      slot.innerHTML='<div class="vsl-video-ph"><span>Configura vturbAccount y vturbPlayer en el bloque PAGE</span></div>';
+      return;
+    }
+    slot.innerHTML='<vturb-smartplayer id="vid-'+P.vturbPlayer+'"><div class="vsl-ratio"></div></vturb-smartplayer>';
+    var s=document.createElement('script');
+    s.src='https://scripts.converteai.net/'+P.vturbAccount+'/players/'+P.vturbPlayer+'/v4/player.js';
+    s.async=true;
+    document.head.appendChild(s);
+  })();
+  </script>
+
+  <!-- Zona de la oferta: aparece en el segundo configurado del vídeo -->
+  <div id="vsl-cta-zone" class="esconder">
+
+    <div class="disc">
+      <span class="d0">Activa tu descuento ahora</span>
+      <span class="d1">DESCUENTO EXCLUSIVO PARA NUEVOS MIEMBROS</span>
+      <span class="d2"><span data-discount></span> DE DESCUENTO</span>
+      <span class="d3">Se aplica automáticamente</span>
+    </div>
+
+    <div class="cta-wrap"><a class="vsl-cta" data-checkout><span class="shine"></span><span>ACTIVAR AHORA</span></a></div>
+    <p class="cta-sub"><a data-checkout>¡SÍ! Quiero añadir el <span data-offer></span> a mi área de miembros con el descuento.<small>(Tu descuento se aplica automáticamente)</small></a></p>
+
+    <div id="offer-img-slot"></div>
+
+    <div class="cta-wrap"><a class="vsl-cta" data-checkout><span class="shine"></span><span>ACTIVAR AHORA</span></a></div>
+    <p class="cta-sub"><a data-checkout>¡SÍ! Quiero añadir el <span data-offer></span> a mi área de miembros con el descuento.<small>(Garantía de reembolso de <span data-days></span> días)</small></a></p>
+
+    <div class="timer">
+      <span class="t1">¡DISPONIBLE SOLO EN ESTA PÁGINA!</span>
+      <span class="t2">Esta oferta termina en</span>
+      <span class="clock" id="clock">20:00</span>
+    </div>
+
+    <a class="decline" data-decline>No, gracias. Renuncio a este descuento único y entiendo que no volveré a ver el <span data-offer></span> a este precio.</a>
+
+  </div>
+
+  <footer class="site">
+    <p>&copy; <span id="year">2026</span> Todos los derechos reservados. Contenido solo con fines educativos: no reemplaza la orientación de tu médico.</p>
+  </footer>
+
+</main>
+
+<script>
+/* Aplica la configuración */
+(function(){
+  var P=window.PAGE;
+  function each(s,fn){Array.prototype.forEach.call(document.querySelectorAll(s),fn);}
+  each('[data-checkout]',function(a){a.href=P.checkoutUrl;});
+  each('[data-decline]',function(a){a.href=P.declineUrl;});
+  each('[data-offer]',function(e){e.textContent=P.offerName;});
+  each('[data-days]',function(e){e.textContent=P.guaranteeDays;});
+  each('[data-discount]',function(e){e.textContent=P.discount;});
+  each('[data-author]',function(e){e.textContent=P.authorName;});
+  document.getElementById('year').textContent=new Date().getFullYear();
+  document.getElementById('offer-img-slot').innerHTML=P.offerImage
+    ? '<img class="offer-img" src="'+P.offerImage+'" alt="" width="1600" height="865" loading="lazy" decoding="async">'
+    : '<div class="img-ph">Imagen de la oferta (1600 x 865)</div>';
+})();
+
+/* Libera la zona de la oferta en el segundo exacto del vídeo (sincronizado con el player VTurb). NO TOCAR. */
+(function(){
+  var P=window.PAGE;
+  var SECONDS_TO_DISPLAY = P.delaySeconds;
+  var FALLBACK_NO_PLAYER_SECONDS = SECONDS_TO_DISPLAY;
+  var revelado = false, elapsed = 0;
+  function mostrar(){
+    if (revelado) return;
+    revelado = true;
+    var el = document.getElementById('vsl-cta-zone');
+    if (el) el.classList.add('unlocked');
+    iniciarReloj();
+  }
+  if (SECONDS_TO_DISPLAY <= 0 || !P.vturbAccount || !P.vturbPlayer || new URLSearchParams(location.search).has('nodelay')) { mostrar(); return; }
+  var timer = setInterval(function(){
+    elapsed += 1;
+    var sp = (typeof smartplayer !== 'undefined' && smartplayer.instances && smartplayer.instances[0] && smartplayer.instances[0].video) ? smartplayer.instances[0].video : null;
+    if (sp) {
+      if (sp.currentTime > SECONDS_TO_DISPLAY) { mostrar(); clearInterval(timer); }
+    } else if (elapsed >= FALLBACK_NO_PLAYER_SECONDS) {
+      mostrar(); clearInterval(timer);
+    }
+  }, 1000);
+
+  /* Cuenta regresiva: empieza cuando aparece la oferta */
+  function iniciarReloj(){
+    var el=document.getElementById('clock'), left=P.timerMinutes*60;
+    function pad(n){return String(n).padStart(2,'0');}
+    function draw(){el.textContent=pad(Math.floor(left/60))+':'+pad(left%60);}
+    draw();
+    var iv=setInterval(function(){ left=Math.max(0,left-1); draw(); if(!left) clearInterval(iv); },1000);
+  }
+})();
+</script>
+</body>
+</html>
