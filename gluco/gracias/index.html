@@ -38,14 +38,6 @@ img{max-width:100%;height:auto;display:block}
 .hello .h0{display:block;color:var(--dark);font-weight:700;font-size:19px;margin-top:14px}
 .hello .h1{display:block;color:var(--alert);font-weight:900;font-size:30px;line-height:1.14;text-wrap:balance;margin-top:4px;letter-spacing:-.01em}
 .hello .h2{display:block;color:var(--headline);font-weight:700;font-size:18px;margin-top:6px}
-.watch{text-align:center;color:var(--dark);font-weight:800;font-size:17px;margin:4px 0 12px}
-
-/* Vídeo VTurb 9:16 */
-.vsl-video{width:100%;max-width:clamp(260px,calc((100svh - 190px) * .5625),400px);margin:0 auto}
-.vsl-video vturb-smartplayer{display:block;width:100%;margin:0 auto}
-.vsl-ratio{position:relative;width:100%;padding:177.78% 0 0;background:#000}
-.vsl-video-ph{position:relative;width:100%;padding:177.78% 0 0;background:#0c0c12}
-.vsl-video-ph span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#7a8090;font-size:13px;padding:18px;font-style:italic}
 
 /* Información importante */
 .info{margin:28px 0 0;background:var(--soft);border:2px dashed color-mix(in srgb,var(--dark) 30%,var(--soft));border-radius:14px;padding:20px 20px 8px}
@@ -78,14 +70,11 @@ footer.site p{margin:6px 0}
    CONFIGURACIÓN — solo edita este bloque
    ============================================================ */
 window.PAGE = {
-  vturbAccount: '',            // ID de la cuenta VTurb (vacío = sin vídeo)
-  vturbPlayer:  '',            // ID del player (lo que viene después de "vid-")
   productName:  'La Solución de Una Comida para el Azúcar en Sangre',
   supportEmail: '',            // correo de soporte (vacío = no se muestra)
   paymentName:  ''             // nombre que aparece en el extracto de la tarjeta (vacío = no se muestra)
 };
 </script>
-<link rel="preconnect" href="https://scripts.converteai.net" crossorigin>
 </head>
 <body>
 
@@ -97,25 +86,6 @@ window.PAGE = {
     <span class="h1" data-product></span>
     <span class="h2">Tu área privada de miembros</span>
   </div>
-
-  <div id="video-block">
-    <p class="watch">Mira primero este mensaje personal</p>
-    <div class="vsl-video" id="vsl-video-slot"></div>
-  </div>
-  <script>
-  (function(){
-    var P=window.PAGE, slot=document.getElementById('vsl-video-slot');
-    if(!P.vturbAccount||!P.vturbPlayer){
-      slot.innerHTML='<div class="vsl-video-ph"><span>Configura vturbAccount y vturbPlayer en el bloque PAGE</span></div>';
-      return;
-    }
-    slot.innerHTML='<vturb-smartplayer id="vid-'+P.vturbPlayer+'"><div class="vsl-ratio"></div></vturb-smartplayer>';
-    var s=document.createElement('script');
-    s.src='https://scripts.converteai.net/'+P.vturbAccount+'/players/'+P.vturbPlayer+'/v4/player.js';
-    s.async=true;
-    document.head.appendChild(s);
-  })();
-  </script>
 
   <div class="mail">
     <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg>
