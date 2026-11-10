@@ -63,7 +63,12 @@
         img.addEventListener('error', show, { once: true });
       });
 
-      requestAnimationFrame(function () {
+      // roda no próximo frame (como o original); se a aba estiver em segundo plano,
+      // o timer garante que os scripts do passo rodem mesmo assim
+      var ran = false, token = idx;
+      var runScripts = function () {
+        if (ran || token !== idx) return;
+        ran = true;
         var inline = false;
         scripts.forEach(function (s) {
           var el = document.createElement('script');
@@ -73,7 +78,9 @@
           box.appendChild(el);
         });
         if (inline) try { window.dispatchEvent(new Event('DOMContentLoaded')); window.dispatchEvent(new Event('load')); } catch (e) {}
-      });
+      };
+      requestAnimationFrame(runScripts);
+      setTimeout(runScripts, 60);
     }
 
     function go(i) {
