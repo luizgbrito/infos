@@ -30,9 +30,9 @@ window.FUNNEL_CONFIG = {
 
   /* Links de checkout de Cakto. Pegá acá las URLs cuando tengas los productos creados. */
   checkout: {
-    front:    "#",   // checkout del producto principal (con order bump activado en Cakto)
-    upsell:   "#",   // link de upsell 1-clic (Cakto genera este link)
-    downsell: "#"    // link de downsell 1-clic
+    front:    "https://pay.cakto.com.br/36um3jj_1303524",   // checkout del producto principal (con order bump "Las Fiestas sin Picos" ya activado en Cakto)
+    upsell:   "#",   // Club del Secreto ($17) — pegá el link de checkout (Ver links) o usá el upsell nativo de Cakto
+    downsell: "#"    // Club del Secreto - Oferta ($11,90) — idem
   },
 
   /* Prueba social — reemplazá por datos reales antes de publicar. */
