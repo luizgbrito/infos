@@ -4,7 +4,7 @@
   --gold:#e0ad44; --gold-soft:#f6d98a; --gold-dark:#b07d1f;
   --cream:#f4eede; --ink:#eae3d2; --muted:#a9b6a7;
   --card:#1b4733; --line:#265a41; --orange:#e2812b;
-  --font:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font:"Raleway",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;padding:0}
@@ -90,3 +90,19 @@ h3.sec{font-size:1.1rem;margin:22px 0 10px;display:flex;align-items:center;gap:8
 .tab span{font-size:1.25rem;filter:grayscale(.4);opacity:.8}
 .tab.active{color:var(--gold)}
 .tab.active span{filter:none;opacity:1}
+
+/* ---------- Íconos (reemplazan emojis) ---------- */
+.tab .ic{display:block;margin:0 auto 1px;opacity:.8}
+.tab .lbl{font-size:.68rem;font-weight:600}
+.tab.active .ic{opacity:1}
+h3.sec{color:var(--ink);align-items:center}
+h3.sec .ic{color:var(--gold);flex:0 0 auto}
+ul.plain{list-style:none;padding-left:0;margin:8px 0 0}
+ul.plain li{display:flex;align-items:center;gap:9px;margin:7px 0}
+ul.plain li .ic{color:var(--gold);flex:0 0 auto}
+.cta .ic{vertical-align:-4px;margin-right:6px}
+.ring-d{font-weight:700}
+.note{margin-top:12px}
+.mini{font-size:.8rem;text-align:center;margin-top:10px}
+.steps{padding-left:18px}
+.steps li{margin:4px 0}

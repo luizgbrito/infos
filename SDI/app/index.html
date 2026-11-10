@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#143d2c">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="app.css">
 </head>
 <body>
@@ -34,10 +34,10 @@
         <input type="email" id="email" required placeholder="tu@email.com" autocomplete="email">
       </label>
       <label>Contraseña
-        <input type="password" id="password" required placeholder="••••••••" autocomplete="current-password">
+        <input type="password" id="password" required placeholder="Tu contraseña" autocomplete="current-password">
       </label>
       <p id="loginError" class="err hidden">Email o contraseña incorrectos.</p>
-      <button type="submit" class="btn">Entrar</button>
+      <button type="submit" class="btn" id="loginBtn">Entrar</button>
     </form>
     <p class="hint">Recibiste tus datos de acceso por email después de la compra.<br>¿Problemas? <a data-wa href="#">Escríbenos por WhatsApp</a></p>
     <p class="demo-note">Demo: cualquier email · contraseña <b>secreto21</b></p>
@@ -61,21 +61,14 @@
     <button id="logout" class="logout" title="Salir">Salir</button>
   </header>
 
-  <main id="views">
-    <!-- Vistas inyectadas por JS -->
-  </main>
+  <main id="views"></main>
 
-  <nav class="tabbar">
-    <button class="tab active" data-view="inicio"><span>🏠</span>Inicio</button>
-    <button class="tab" data-view="mezcla"><span>🥤</span>La Mezcla</button>
-    <button class="tab" data-view="plan"><span>📅</span>21 días</button>
-    <button class="tab" data-view="bonos"><span>🎁</span>Bonos</button>
-    <button class="tab" data-view="soporte"><span>💬</span>Soporte</button>
-  </nav>
+  <nav class="tabbar" id="tabbar"></nav>
 </section>
 
 <script src="../assets/js/config.js"></script>
 <script src="app-data.js"></script>
+<script src="icons.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

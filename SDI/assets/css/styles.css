@@ -23,7 +23,7 @@
   --shadow:      0 10px 30px rgba(31, 70, 50, .12);
   --radius:      18px;
   --maxw:        480px;
-  --font:        "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font:        "Raleway", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -273,3 +273,25 @@ a { color: inherit; }
   .front__head { font-size: 1.75rem; }
   .h1 { font-size: 1.7rem; }
 }
+
+/* =====================================================================
+   FRONT ADVERTORIAL — antes/después (nueva 1ª sección)
+   ===================================================================== */
+.adv{min-height:100svh;padding:20px 0 30px;background:radial-gradient(120% 70% at 50% 0%, #fbeccb 0%, var(--bg) 55%)}
+.adv__logo{width:168px;margin:0 auto 14px;display:block}
+.adv__head{font-size:1.45rem;font-weight:800;line-height:1.18;text-align:center;margin:0 0 6px;letter-spacing:-.2px}
+.adv__head b{color:var(--cta)}
+.adv__sub{text-align:center;color:var(--muted);margin:0 0 16px;font-weight:500}
+.ba{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:4px 0 8px}
+.ba__col{margin:0;position:relative}
+.ba__col img{width:100%;border-radius:16px;box-shadow:var(--shadow);aspect-ratio:432/800;object-fit:cover}
+.ba__col--after img{border:3px solid var(--rose)}
+.ba__tag{position:absolute;left:50%;bottom:-13px;transform:translateX(-50%);font-weight:800;font-size:.8rem;
+  color:#fff;padding:6px 18px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.ba__tag--before{background:#5c4430}
+.ba__tag--after{background:var(--rose)}
+.ba__mid{position:absolute;top:44%;left:50%;transform:translate(-50%,-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px}
+.ba__arrow{width:46px;height:46px;border-radius:50%;background:var(--cta);display:grid;place-items:center;box-shadow:0 6px 16px rgba(226,129,43,.5)}
+.ba__kg{background:var(--rose);color:#fff;font-weight:800;font-size:.95rem;padding:7px 14px;border-radius:999px;box-shadow:0 4px 12px rgba(31,107,74,.4)}
+.ba__days{background:#fff;color:var(--ink);font-weight:700;font-size:.72rem;padding:3px 10px;border-radius:999px;box-shadow:0 3px 8px rgba(0,0,0,.12)}
+.adv__proof{text-align:center;color:var(--rose-dark);font-weight:700;margin:22px 0 14px}

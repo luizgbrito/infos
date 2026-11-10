@@ -41,5 +41,10 @@ window.FUNNEL_CONFIG = {
   },
 
   /* Soporte */
-  whatsappSoporte: "https://wa.me/000000000"
+  whatsappSoporte: "https://wa.me/000000000",
+
+  /* Backend de acceso del app. Vacío = modo demo (contraseña secreto21).
+     Seteá la URL base de tus funciones (ej "https://TU-BACKEND.vercel.app/api")
+     para liberar el app SOLO a quien compró (valida en la base de Supabase). */
+  authApi: ""
 };
