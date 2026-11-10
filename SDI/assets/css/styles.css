@@ -5,20 +5,21 @@
     pero ahora valen VERDE y NARANJA respectivamente.)
    ===================================================================== */
 :root {
-  --rose:        #1f6b4a;   /* verde marca (acentos, títulos, progreso) */
-  --rose-dark:   #164f37;
-  --rose-soft:   #e7f1ea;   /* verde muy claro (fondos de opción, pills) */
-  --cta:         #e2812b;   /* naranja de acción (botones) */
-  --cta-dark:    #c86a18;
-  --cta-glow:    rgba(226,129,43,.40);
-  --gold:        #d79a34;   /* dorado del emblema / precios */
+  /* Paleta exacta del funnel original en español (impultienda) */
+  --rose:        #ff6a00;   /* naranja de marca (destacados, progreso, tags, seleccionado) */
+  --rose-dark:   #e05f00;
+  --rose-soft:   #ffeede;   /* naranja muy claro (fondos de opción, pills) */
+  --cta:         #28af60;   /* verde de acción (botones) */
+  --cta-dark:    #1f9450;
+  --cta-glow:    rgba(40,175,96,.38);
+  --gold:        #d79a34;   /* dorado (emblema del app) */
   --gold-dark:   #b57d20;
-  --amber:       #d79a34;
+  --amber:       #ff6a00;
   --danger:      #d5452e;
-  --ink:         #253a2e;   /* verde-tinta para texto */
-  --muted:       #7b8a80;
-  --line:        #e3ded1;
-  --bg:          #f7f2e7;   /* crema */
+  --ink:         #402b1c;   /* marrón del texto (original) */
+  --muted:       #8a7d6f;
+  --line:        #eadfd2;
+  --bg:          #fcf7f3;   /* crema del original */
   --card:        #ffffff;
   --shadow:      0 10px 30px rgba(31, 70, 50, .12);
   --radius:      18px;
@@ -45,11 +46,11 @@ a { color: inherit; }
 /* ---------- Botones ---------- */
 .btn {
   display: block; width: 100%; border: 0; cursor: pointer;
-  font-family: var(--font); font-weight: 700; font-size: 1.05rem;
-  color: #fff; background: var(--cta);
-  padding: 17px 20px; border-radius: 999px;
-  box-shadow: 0 8px 20px var(--cta-glow);
-  letter-spacing: .2px; line-height: 1.25;
+  font-family: var(--font); font-weight: 800; font-size: 1.05rem;
+  color: #fff; background: var(--cta); text-decoration: none;
+  padding: 17px 20px; border-radius: 16px;
+  box-shadow: 0 10px 24px var(--cta-glow);
+  letter-spacing: .3px; line-height: 1.25; text-align: center;
   transition: transform .12s ease, box-shadow .12s ease, background .2s ease;
 }
 .btn:active { transform: scale(.98); }
@@ -295,3 +296,24 @@ a { color: inherit; }
 .ba__kg{background:var(--rose);color:#fff;font-weight:800;font-size:.95rem;padding:7px 14px;border-radius:999px;box-shadow:0 4px 12px rgba(31,107,74,.4)}
 .ba__days{background:#fff;color:var(--ink);font-weight:700;font-size:.72rem;padding:3px 10px;border-radius:999px;box-shadow:0 3px 8px rgba(0,0,0,.12)}
 .adv__proof{text-align:center;color:var(--rose-dark);font-weight:700;margin:22px 0 14px}
+
+/* =====================================================================
+   FRONT fiel al original (foto única de la especialista)
+   ===================================================================== */
+.fr{min-height:100svh;padding:22px 0 26px}
+.fr__logo{display:block;margin:0 auto 12px;width:200px;height:auto}
+.fr__head{font-size:1.5rem;font-weight:900;line-height:1.15;letter-spacing:-.3px;text-align:center;color:var(--ink);margin:0 0 6px}
+.fr__head .o{color:var(--rose)}
+.fr__sub{text-align:center;color:var(--muted);font-weight:500;margin:0 0 16px}
+.fr__photo{position:relative;margin:4px 0 2px}
+.fr__photo img{width:100%;border-radius:20px;display:block}
+.fr__seal{position:absolute;top:12px;left:-4px;display:inline-flex;align-items:center;gap:8px;
+  background:#fff;border-radius:999px;padding:8px 15px 8px 12px;box-shadow:0 6px 16px rgba(64,43,28,.16)}
+.fr__seal .txt{display:flex;flex-direction:column;line-height:1.02}
+.fr__seal b{font-weight:800;font-size:.98rem;color:var(--ink)}
+.fr__seal i{font-style:normal;font-size:.6rem;font-weight:700;letter-spacing:1.5px;color:var(--ink);opacity:.85}
+.fr__tag{position:absolute;right:-2px;bottom:34%;background:var(--rose);color:#fff;font-weight:800;font-style:italic;
+  font-size:.98rem;padding:9px 16px;border-radius:12px;box-shadow:0 8px 18px rgba(255,106,0,.45)}
+.fr__proof{text-align:center;color:var(--muted);font-weight:500;margin:20px 0 14px}
+.fr__proof b{color:var(--cta-dark);font-weight:800}
+.badges .dot{color:var(--line)}

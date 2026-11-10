@@ -173,13 +173,17 @@
       '<input class="field" id="nameField" type="text" autocomplete="given-name" placeholder="Tu nombre" value="' + (A.nombre || '') + '"></div>';
     var f = document.getElementById('nameField');
     setTimeout(function () { f.focus(); }, 60);
+    function valid() { return f.value.trim().length >= 2; }
     function save() {
       A.nombre = f.value.trim();
       try { localStorage.setItem('fn_nombre', A.nombre); } catch (e) {}
     }
-    f.addEventListener('input', save);
-    f.addEventListener('keydown', function (e) { if (e.key === 'Enter') { save(); next(); } });
-    showCta(s.btn, function () { save(); next(); });
+    function sync() { ctaBtn.disabled = !valid(); ctaBtn.style.opacity = valid() ? '1' : '.5'; }
+    function go() { if (!valid()) { f.focus(); return; } save(); next(); }
+    f.addEventListener('input', function () { save(); sync(); });
+    f.addEventListener('keydown', function (e) { if (e.key === 'Enter') go(); });
+    showCta(s.btn, go);
+    sync();
   }
 
   function rSlider(s) {
