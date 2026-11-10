@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tu cupón de descuento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<main class="page">
+  <div class="wrap roulette-wrap">
+
+    <!-- Pantalla 1: ruleta -->
+    <div id="step1">
+      <h1 class="h1">¡FELICITACIONES!</h1>
+      <p class="lead">Fuiste seleccionada para ganar un cupón de descuento sorpresa en <span data-t="club">Club del Secreto</span>.</p>
+      <p style="font-weight:700">Haz clic en la ruleta de la suerte y descubre qué descuento te toca 👇</p>
+      <div class="wheel">
+        <div class="pointer">🔻</div>
+        <canvas id="wheel" width="260" height="260"></canvas>
+      </div>
+      <button class="btn btn-pulse" id="spin">GIRAR RULETA</button>
+    </div>
+
+    <!-- Pantalla 2: resultado -->
+    <div id="step2" class="hidden">
+      <h1 class="h1">¡Felicitaciones!</h1>
+      <p class="lead">Acabas de ganar un cupón sorpresa de <b>30% de descuento</b> en <span data-t="club">Club del Secreto</span>.</p>
+      <div class="card">
+        <div class="price-box">
+          <span class="anchor" data-t="upsell">$17</span>
+          <div class="now"><span data-t="downsell">$11.90</span></div>
+          <p style="font-weight:700;color:var(--cta-dark);margin:4px 0 0">AHORRAS 30%</p>
+        </div>
+        <a class="btn btn-pulse" data-link="downsell" href="#">¡QUIERO ASEGURAR MI DESCUENTO AHORA!</a>
+        <p class="center" style="font-weight:700;color:var(--danger);margin:12px 0 0">Cupón válido por: <span class="timer" id="t">10:00</span></p>
+      </div>
+    </div>
+  </div>
+
+  <p class="foot">Este producto es de naturaleza informativa y no sustituye el consejo médico profesional. Los resultados varían de persona a persona.</p>
+</main>
+
+<canvas class="confetti hidden" id="confetti"></canvas>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+(function () {
+  var segments = ['5%','10%','15%','20%','25%','30%','40%','50%'];
+  var colors = ['#f1e2bf','#1f6b4a','#f1e2bf','#1f6b4a','#f1e2bf','#d79a34','#f1e2bf','#1f6b4a'];
+  var cv = document.getElementById('wheel'), ctx = cv.getContext('2d');
+  var cx = 130, cy = 130, r = 125, N = segments.length, ang = (Math.PI * 2) / N;
+
+  function draw(rot) {
+    ctx.clearRect(0, 0, 260, 260);
+    for (var i = 0; i < N; i++) {
+      var a0 = rot + i * ang, a1 = a0 + ang;
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.arc(cx, cy, r, a0, a1); ctx.closePath();
+      ctx.fillStyle = colors[i]; ctx.fill();
+      ctx.save(); ctx.translate(cx, cy); ctx.rotate(a0 + ang / 2);
+      ctx.fillStyle = (colors[i] === '#f1e2bf') ? '#164f37' : '#fff';
+      ctx.font = 'bold 16px Poppins, sans-serif'; ctx.textAlign = 'right';
+      ctx.fillText(segments[i], r - 14, 6); ctx.restore();
+    }
+    ctx.beginPath(); ctx.arc(cx, cy, 26, 0, Math.PI * 2); ctx.fillStyle = '#fff'; ctx.fill();
+  }
+  draw(-Math.PI / 2);
+
+  var spinning = false;
+  document.getElementById('spin').onclick = function () {
+    if (spinning) return; spinning = true;
+    // Siempre cae en 30% (índice 5). Puntero arriba (-90°).
+    var target = 5;
+    var pointer = -Math.PI / 2;
+    var segCenter = target * ang + ang / 2;
+    var finalRot = pointer - segCenter + Math.PI * 2 * 6; // 6 vueltas
+    var start = performance.now(), dur = 4200, from = -Math.PI / 2;
+    function ease(t) { return 1 - Math.pow(1 - t, 3); }
+    function frame(now) {
+      var t = Math.min(1, (now - start) / dur);
+      draw(from + (finalRot - from) * ease(t));
+      if (t < 1) requestAnimationFrame(frame);
+      else { confetti(); setTimeout(reveal, 500); }
+    }
+    requestAnimationFrame(frame);
+  };
+
+  function reveal() {
+    document.getElementById('step1').classList.add('hidden');
+    document.getElementById('step2').classList.remove('hidden');
+    window.applyTokens(document);
+    window.startTimer(document.getElementById('t'), 10 * 60);
+    window.scrollTo(0, 0);
+  }
+
+  function confetti() {
+    var c = document.getElementById('confetti'); c.classList.remove('hidden');
+    c.width = innerWidth; c.height = innerHeight; var x = c.getContext('2d');
+    var P = [], cols = ['#1f6b4a','#e2812b','#d79a34','#f1e2bf'];
+    for (var i = 0; i < 140; i++) P.push({ x: Math.random()*c.width, y: -20 - Math.random()*c.height, s: 5+Math.random()*7, v: 2+Math.random()*4, col: cols[i%4], a: Math.random()*6 });
+    var t0 = performance.now();
+    (function loop(now) {
+      x.clearRect(0,0,c.width,c.height);
+      P.forEach(function(p){ p.y += p.v; p.a += .1; x.save(); x.translate(p.x,p.y); x.rotate(p.a); x.fillStyle=p.col; x.fillRect(-p.s/2,-p.s/2,p.s,p.s); x.restore(); });
+      if (now - t0 < 3500) requestAnimationFrame(loop); else c.classList.add('hidden');
+    })(t0);
+  }
+})();
+</script>
+</body>
+</html>

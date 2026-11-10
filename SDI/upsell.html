@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tu pedido todavía no está completo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div class="topbar warn">⚠️ Importante: NO cierres esta página ni toques el botón de volver. Puede generar problemas con tu pedido.</div>
+
+<main class="page">
+  <div class="wrap">
+    <h1 class="h1 center">¡Tu pedido todavía no está completo! Mira el mensaje de abajo</h1>
+
+    <!-- VSL — reemplazá por tu embed (YouTube/Vimeo/Wistia/Converteai) -->
+    <div class="vsl">
+      <div class="ph">
+        <div class="play">▶️</div>
+        <p style="margin:8px 0 0;font-weight:600">Reemplazá este bloque por tu VSL<br><small style="opacity:.7">(autoplay, sin controles al inicio)</small></p>
+      </div>
+    </div>
+    <p class="center" style="color:var(--muted);font-weight:600">Mira el mensaje de arriba sobre tu producto. Tu enlace de acceso aparecerá abajo.</p>
+
+    <!-- Oferta (revelada tras X minutos) -->
+    <div id="offer" class="hidden">
+      <div class="card reveal in" style="border:2px solid var(--rose)">
+        <p class="pill" style="display:inline-block">⚡ OFERTA ÚNICA · SOLO APARECE AHORA</p>
+        <div class="section-label" style="margin-top:8px"><span data-t="club">Club del Secreto</span></div>
+        <ul class="deliver">
+          <li>⭐ Nuestra especialista en tu WhatsApp, todos los días</li>
+          <li>⭐ Recetas nuevas cada mes</li>
+          <li>⭐ El plan del día 22: qué hacer cuando terminan los 21 días</li>
+          <li>⭐ Protocolos para cumpleaños, fiestas y vacaciones</li>
+          <li>⭐ Rutinas de 15 minutos en casa, sin aparatos</li>
+        </ul>
+        <div class="price-box">
+          <span class="anchor" data-t="upsellAncla">$49</span>
+          <div class="now"><span data-t="upsell">$17</span> <small>una sola vez</small></div>
+        </div>
+        <p class="center" style="color:var(--muted);margin:0 0 12px">Oferta única por tiempo limitado</p>
+        <a class="btn btn-pulse" data-link="upsell" href="#">QUIERO ACTIVAR AHORA</a>
+        <div class="guarantee" style="margin-top:14px">
+          <div class="shield">🛡️</div>
+          <b>30 días de garantía</b>
+          <p style="margin:0">Si no te sirve, te devolvemos todo. Te quedas igual con lo que ya compraste.</p>
+        </div>
+        <p class="center" style="font-weight:700;color:var(--danger)">ESTA OFERTA EXPIRA EN <span class="timer" id="t">10:00</span></p>
+        <a class="btn--ghost btn" href="downsell.html">No quiero el acompañamiento ahora</a>
+      </div>
+    </div>
+
+    <div id="waiting" class="center" style="padding:20px 0;color:var(--muted)">
+      <p>⏳ Mira el video completo. Tu enlace de acceso aparece en unos minutos…</p>
+    </div>
+  </div>
+
+  <p class="foot">
+    Este producto es de naturaleza informativa y no sustituye el consejo médico profesional. Los resultados varían de persona a persona.
+  </p>
+</main>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+  // Tiempo para revelar el botón (segundos). Spec: 4 min. ?fast=1 lo revela ya (para testear).
+  var REVEAL = 240;
+  if (/[?&]fast=1/.test(location.search)) REVEAL = 1;
+  setTimeout(function () {
+    document.getElementById('waiting').classList.add('hidden');
+    var o = document.getElementById('offer'); o.classList.remove('hidden');
+    window.startTimer(document.getElementById('t'), 10 * 60);
+    o.scrollIntoView({ behavior: 'smooth' });
+  }, REVEAL * 1000);
+</script>
+</body>
+</html>

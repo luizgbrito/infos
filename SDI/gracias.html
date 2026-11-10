@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>¡Listo! Tu acceso está en camino</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<main class="page">
+  <div class="wrap thanks">
+    <div class="check">✅</div>
+    <h1 id="thHead">¡Listo!</h1>
+    <p class="lead">Tu acceso ya está en camino a tu correo. Si no lo ves en 5 minutos, revisa spam o promociones.</p>
+
+    <a class="btn btn-pulse" id="appLink" href="#">ENTRAR A LA APP AHORA</a>
+
+    <p style="margin-top:22px;font-weight:600">📲 Guárdala en la pantalla de inicio de tu celular para abrirla con un toque.</p>
+
+    <div class="card" style="margin-top:20px">
+      <p style="margin:0;font-weight:600">¿Problemas para entrar?</p>
+      <p style="margin:6px 0 0">Escríbenos por WhatsApp y te resolvemos en minutos.</p>
+      <a class="btn btn--rose" data-wa href="#" style="margin-top:12px">Hablar con soporte</a>
+    </div>
+  </div>
+
+  <p class="foot">Este producto es de naturaleza informativa y no sustituye el consejo médico profesional. Los resultados varían de persona a persona.</p>
+</main>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var n = window.getName();
+    if (n) document.getElementById('thHead').textContent = '¡Listo, ' + n + '!';
+    // Reemplazá el href por el link de acceso real a tu app/área de miembros.
+    document.getElementById('appLink').setAttribute('href', '#');
+  });
+</script>
+</body>
+</html>
