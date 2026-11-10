@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+  <title>Quiz</title>
+  <meta name="description" content="Descubre tu camino de manifestación"/>
+  <meta property="og:title" content="Quiz"/>
+  <meta property="og:description" content="Descubre tu camino de manifestación"/>
+  <meta property="og:type" content="website"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="img/valeria-luna.webp">
+  <style>
+    /* Igual ao shell original: sem overlay, troca instantânea, fundo definido por passo */
+    *,::before,::after{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;background:#FBFAFF}
+    #root>.shell{display:flex;flex-direction:column;min-height:100vh;min-height:100dvh}
+    #root .stage{flex:1;position:relative}
+    .w-full{width:100%}
+  </style>
+</head>
+<body>
+  <div id="root"><div class="shell"><div class="stage"><div class="w-full"><div class="w-full public-step-content" id="step"></div></div></div></div></div>
+
+  <script src="steps.js"></script>
+  <script>
+  (function () {
+    var STEPS = window.FUNNEL_STEPS;
+    var box = document.getElementById('step');
+    var shell = document.querySelector('#root>.shell');
+    var idx = 0, data = {}, answers = {};
+
+    // Pré-carrega o avatar (o original pré-carrega o HTML do próximo passo)
+    try { new Image().src = 'img/valeria-luna.webp'; } catch (e) {}
+
+    function mount() {
+      var step = STEPS[idx];
+      var scripts = [];
+      // separa os <script> (innerHTML não os executa), como o shell original
+      var html = step.html.replace(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi, function (_, attrs, text) {
+        var a = {};
+        attrs.replace(/(\w[\w-]*)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|(\S+)))?/g, function (_, k, v1, v2, v3) { a[k] = v1 != null ? v1 : v2 != null ? v2 : v3 != null ? v3 : ''; return ''; });
+        scripts.push({ src: a.src, text: text.trim(), attrs: a });
+        return '';
+      });
+      box.innerHTML = html;
+      document.documentElement.style.backgroundColor = step.bg;
+      document.body.style.backgroundColor = step.bg;
+      shell.style.backgroundColor = step.bg;
+      window.scrollTo(0, 0);
+
+      // imagens aparecem com fade de 180ms ao carregar (comportamento do original)
+      box.querySelectorAll('img').forEach(function (img) {
+        if (img.complete && img.naturalWidth) return;
+        var prev = img.style.opacity;
+        img.style.transition = 'opacity 180ms ease-out';
+        img.style.opacity = '0';
+        var show = function () { img.style.opacity = prev; };
+        img.addEventListener('load', show, { once: true });
+        img.addEventListener('error', show, { once: true });
+      });
+
+      requestAnimationFrame(function () {
+        var inline = false;
+        scripts.forEach(function (s) {
+          var el = document.createElement('script');
+          Object.keys(s.attrs).forEach(function (k) { if (k !== 'src') el.setAttribute(k, s.attrs[k]); });
+          if (s.src) { el.src = s.src; el.async = true; }
+          else if (s.text) { el.textContent = s.text; inline = true; }
+          box.appendChild(el);
+        });
+        if (inline) try { window.dispatchEvent(new Event('DOMContentLoaded')); window.dispatchEvent(new Event('load')); } catch (e) {}
+      });
+    }
+
+    function go(i) {
+      if (i < 0 || i >= STEPS.length || i === idx) return;
+      idx = i;
+      mount();
+    }
+
+    window.__funnel = {
+      get currentStep() { return idx + 1; },
+      get totalSteps() { return STEPS.length; },
+      continue: function () { go(idx + 1); },
+      back: function () { go(idx - 1); },
+      select: function (k, v) { data[k] = v; },
+      setData: function (k, v) { data[k] = v; },
+      getData: function (k) { return data[k]; },
+      answer: function (k, v, meta) { answers[k] = { value: v, meta: meta }; }
+    };
+
+    // ?step=N abre direto num passo (útil para testar)
+    var q = parseInt(new URLSearchParams(location.search).get('step'), 10);
+    if (q >= 1 && q <= STEPS.length) idx = q - 1;
+    mount();
+  })();
+  </script>
+</body>
+</html>
