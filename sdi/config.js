@@ -21,5 +21,5 @@
       }
     }
   };
-  window.QUIZ_CONFIG = {checkout: new URL('checkout/', base).href, precio: 'US$9.90', precioTachado: '', cuotas: 'Pago único en USD'};
+  window.QUIZ_CONFIG = {checkout: 'https://pay.cakto.com.br/36um3jj_1303524', precio: 'US$9.90', precioTachado: '', cuotas: 'Pago único en USD'};
 })();
