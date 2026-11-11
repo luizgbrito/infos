@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="es-419">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>El Secreto de la Insulina</title>
+  <link rel="icon" type="image/x-icon" href="../sdi/assets/29603cad7e10dfe30387e4b64e4ff46ae2170a940aba7ab3deb258fe3b0267d7.webp" />
+  
+
+  <!-- ========== Tracker (manda eventos pro Supabase / Quiz Analytics) ========== -->
+  
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #ffffff; color: #111827; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    body { min-height: 100vh; }
+
+    .container { width: 100%; max-width: 720px; margin: 0 auto; padding: 32px 20px 60px; text-align: center; }
+
+    .parabens-tag {
+      font-size: 14px; font-weight: 800; letter-spacing: 2px;
+      color: #dc2626; margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 26px; font-weight: 800; color: #111827;
+      line-height: 1.25; margin-bottom: 24px;
+      padding: 0 8px;
+    }
+    h1 strong { color: #16a34a; }
+
+    .instruction {
+      font-size: 16px; color: #374151; margin-bottom: 28px;
+      padding: 0 8px;
+    }
+    .arrow-bounce { display: inline-block; animation: bounce 1.4s infinite; }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+    /* ----- Roleta ----- */
+    .wheel-wrap {
+      position: relative; width: 340px; height: 340px;
+      margin: 16px auto 28px; user-select: none;
+    }
+    /* Anel externo dourado (moldura) */
+    .wheel-wrap::before {
+      content: ''; position: absolute; inset: -14px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 0%, #fde68a, #f59e0b 60%, #b45309);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.25), inset 0 4px 12px rgba(255,255,255,0.4);
+      z-index: 0;
+    }
+    /* Anel interno (fundo das luzinhas) */
+    .wheel-wrap::after {
+      content: ''; position: absolute; inset: 0;
+      border-radius: 50%;
+      background: #1f2937;
+      z-index: 1;
+    }
+
+    .pointer {
+      position: absolute; top: -22px; left: 50%; transform: translateX(-50%);
+      width: 0; height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 38px solid #dc2626;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.35));
+      z-index: 5;
+      transform-origin: 50% 0;
+    }
+    .pointer::after {
+      content: ''; position: absolute; top: -42px; left: -10px;
+      width: 20px; height: 20px; background: #dc2626; border-radius: 50%;
+      box-shadow: 0 0 0 4px #fff, 0 0 0 6px #dc2626;
+    }
+    @keyframes pointer-kick {
+      0%   { transform: translateX(-50%) rotate(0); }
+      35%  { transform: translateX(-50%) rotate(14deg); }
+      100% { transform: translateX(-50%) rotate(0); }
+    }
+    .pointer.kick { animation: pointer-kick 110ms ease-out; }
+
+    .wheel {
+      width: 100%; height: 100%; border-radius: 50%;
+      box-shadow: inset 0 0 0 6px #fff;
+      will-change: transform;
+      position: relative;
+      z-index: 2;
+    }
+    .wheel.spinning { filter: drop-shadow(0 0 14px rgba(251,191,36,0.6)); }
+
+    .wheel-hub {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(180deg, #fde68a, #f59e0b);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3), inset 0 -3px 8px rgba(0,0,0,0.2);
+      z-index: 4;
+    }
+    .wheel-hub::after {
+      content: ''; position: absolute; inset: 14px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #fff, #fde68a);
+      box-shadow: inset 0 -2px 6px rgba(180,83,9,0.4);
+    }
+
+    /* Luzinhas em volta do aro */
+    .wheel-light {
+      position: absolute; top: 50%; left: 50%;
+      width: 8px; height: 8px;
+      margin-left: -4px; margin-top: -4px;
+      background: #fef3c7; border-radius: 50%;
+      box-shadow: 0 0 6px #fbbf24, 0 0 12px #fbbf24;
+      z-index: 6;
+      animation: light-blink 1.4s ease-in-out infinite;
+    }
+    @keyframes light-blink {
+      0%, 100% { opacity: 0.25; transform: var(--pos) scale(0.9); }
+      50%      { opacity: 1;    transform: var(--pos) scale(1.15); }
+    }
+    .wheel-wrap.spinning .wheel-light { animation-duration: 0.28s; }
+    .wheel-wrap.celebrating .wheel-light { animation-duration: 0.12s; }
+
+    /* Winning slice glow (apos parar) */
+    .wheel.celebrating { animation: wheel-celebrate 1.2s ease-out 2; }
+    @keyframes wheel-celebrate {
+      0%, 100% { filter: drop-shadow(0 0 18px rgba(34,197,94,0.0)); }
+      50%      { filter: drop-shadow(0 0 30px rgba(34,197,94,0.95)); }
+    }
+
+    .spin-btn {
+      display: inline-block; background: linear-gradient(180deg, #fbbf24, #f59e0b);
+      color: #111827; font-size: 18px; font-weight: 800; letter-spacing: 0.4px;
+      padding: 16px 38px; border-radius: 12px; border: none; cursor: pointer;
+      box-shadow: 0 8px 20px rgba(245,158,11,0.45);
+      transition: transform 200ms, box-shadow 200ms;
+      animation: pulse-yellow 1.7s ease-in-out infinite;
+    }
+    .spin-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(245,158,11,0.55); }
+    .spin-btn:disabled { opacity: 0.6; cursor: not-allowed; animation: none; }
+    @keyframes pulse-yellow {
+      0%, 100% { box-shadow: 0 8px 20px rgba(245,158,11,0.40); }
+      50%      { box-shadow: 0 12px 28px rgba(245,158,11,0.70); }
+    }
+
+    /* ----- Resultado (escondido inicialmente) ----- */
+    .result {
+      margin-top: 40px;
+      opacity: 0; transform: translateY(20px);
+      pointer-events: none;
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+    .result.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+    .result-msg {
+      font-size: 20px; font-weight: 700; color: #111827;
+      line-height: 1.4; margin-bottom: 24px;
+    }
+    .result-msg .discount {
+      display: inline-block; color: #16a34a; font-weight: 900;
+      font-size: 26px;
+    }
+
+    .cta {
+      display: inline-block;
+      background: linear-gradient(180deg, #22c55e 0%, #16a34a 100%);
+      color: #fff; text-decoration: none;
+      font-size: 22px; font-weight: 800; letter-spacing: 0.3px;
+      padding: 20px 36px; border-radius: 14px;
+      box-shadow: 0 10px 24px rgba(22,163,74,0.45);
+      transition: transform 200ms ease, box-shadow 200ms ease;
+      animation: pulse-green 1.7s ease-in-out infinite;
+    }
+    .cta:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(22,163,74,0.55); }
+    @keyframes pulse-green {
+      0%, 100% { transform: scale(1); box-shadow: 0 10px 24px rgba(22,163,74,0.40); }
+      50%      { transform: scale(1.03); box-shadow: 0 12px 30px rgba(22,163,74,0.65); }
+    }
+
+    /* ----- Bloco de preco ----- */
+    .price-box {
+      background: linear-gradient(180deg, #f0fdf4, #dcfce7);
+      border: 2px dashed #16a34a;
+      border-radius: 14px;
+      padding: 18px 16px;
+      margin: 0 auto 22px;
+      max-width: 360px;
+      box-shadow: 0 6px 18px rgba(22,163,74,0.15);
+    }
+    .price-from {
+      color: #6b7280; font-size: 16px; font-weight: 600;
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      text-decoration-color: #dc2626;
+      margin-bottom: 4px;
+    }
+    .price-from .label { color: #9ca3af; text-decoration: none; margin-right: 6px; font-weight: 500; }
+    .price-to {
+      display: flex; align-items: baseline; justify-content: center; gap: 10px;
+      flex-wrap: wrap;
+    }
+    .price-to .label { color: #4b5563; font-size: 16px; font-weight: 700; }
+    .price-to .value {
+      color: #16a34a; font-size: 36px; font-weight: 900; letter-spacing: -0.5px;
+      line-height: 1;
+    }
+    .price-badge {
+      display: inline-block; margin-top: 10px;
+      background: #16a34a; color: #fff;
+      font-size: 13px; font-weight: 800; letter-spacing: 1px;
+      padding: 6px 14px; border-radius: 999px;
+      box-shadow: 0 4px 10px rgba(22,163,74,0.3);
+    }
+
+    .timer-line {
+      margin-top: 22px;
+      font-size: 15px; color: #4b5563;
+    }
+    .timer-line .clock {
+      display: inline-block;
+      font-family: "SF Mono", "Roboto Mono", Menlo, Consolas, monospace;
+      font-size: 28px; font-weight: 800; color: #dc2626;
+      letter-spacing: 1.5px;
+      vertical-align: middle; margin-left: 8px;
+      padding: 4px 12px; border-radius: 8px;
+      background: #fee2e2; border: 1px solid #fecaca;
+      font-variant-numeric: tabular-nums;
+    }
+    .clock.expired { color: #6b7280; background: #f3f4f6; border-color: #e5e7eb; }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 22px; }
+      .instruction { font-size: 15px; }
+      .wheel-wrap { width: 290px; height: 290px; }
+      .pointer { border-left-width: 16px; border-right-width: 16px; border-top-width: 30px; }
+      .pointer::after { width: 16px; height: 16px; left: -8px; top: -34px; }
+      .wheel-hub { width: 58px; height: 58px; }
+      .wheel-hub::after { inset: 12px; }
+      .result-msg { font-size: 18px; }
+      .result-msg .discount { font-size: 22px; }
+      .cta { font-size: 18px; padding: 18px 28px; }
+      .timer-line { font-size: 14px; }
+      .timer-line .clock { font-size: 22px; }
+      .price-box { padding: 14px 14px; max-width: 320px; }
+      .price-from { font-size: 14px; }
+      .price-to .value { font-size: 30px; }
+      .price-to .label { font-size: 14px; }
+      .price-badge { font-size: 12px; padding: 5px 12px; }
+    }
+  </style>
+<style>button:focus-visible,a:focus-visible,svg[role=button]:focus-visible{outline:3px solid #2563eb;outline-offset:5px}.container{max-width:min(100%,720px)}@media(max-width:360px){.wheel-wrap{width:260px;height:260px}.cta{font-size:16px;padding:16px 18px}}</style></head>
+<body>
+  <main class="container">
+    <div class="parabens-tag">¡FELICIDADES!</div>
+
+    <h1>
+      Tienes una <strong>oferta especial</strong> con un cupón de descuento para
+      <strong>Dra. del Secreto</strong>
+    </h1>
+
+    <p class="instruction">
+      Gira la ruleta y descubre tu cupón de descuento
+      <span class="arrow-bounce">👇</span>
+    </p>
+
+    <div class="wheel-wrap">
+      <div class="pointer"></div>
+      <svg class="wheel" viewBox="0 0 200 200" id="wheel">
+        <!-- 8 setores de 45°. WINNER (30%) e o setor 0, centrado no topo (apontador) -->
+        <!-- Setores gerados via JS pra garantir consistencia -->
+      </svg>
+      <div class="wheel-hub"></div>
+    </div>
+
+    <button class="spin-btn" id="spin-btn">GIRAR RULETA</button>
+
+    <p style="font-size:12px;color:#6b7280;margin-top:18px;margin-bottom:20px">La ruleta presenta el cupón promocional fijo del 30%. No es un sorteo.</p><div class="result" id="result" aria-live="polite">
+      <p class="result-msg">
+        ¡Felicidades! Tienes un cupón de
+        <span class="discount">30% de descuento</span>
+        en <strong>Dra. del Secreto</strong>
+      </p>
+
+      <div class="price-box">
+        <div class="price-from">
+          <span class="label">Antes:</span>US$17
+        </div>
+        <div class="price-to">
+          <span class="label">Ahora:</span>
+          <span class="value">US$11.90</span>
+        </div>
+        <div class="price-badge">AHORRAS EL 30%</div>
+      </div>
+
+      <a class="cta" id="cta-btn" href="../sdi/checkout/?oferta=down" rel="noopener" data-cakto-offer="down">
+        ¡QUIERO MI DESCUENTO — US$11.90!
+      </a>
+      
+
+      <div class="timer-line">
+        Cupón de descuento válido por:
+        <span class="clock" id="clock">10:00</span>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      // ------------------------------------------------------------------
+      // Configuracao do "premio". O setor 0 (topo) e o ganhador.
+      // Pra trocar a porcentagem: muda PRIZE_PCT abaixo + o texto do
+      // .result-msg (.discount span) no HTML.
+      // ------------------------------------------------------------------
+      var PRIZE_PCT = 30;
+      var SECTORS = [
+        { pct: 30, fill: '#22c55e', text: '#fff' },  // WINNER (topo)
+        { pct: 5,  fill: '#fde68a', text: '#92400e' },
+        { pct: 50, fill: '#a78bfa', text: '#fff' },
+        { pct: 10, fill: '#fbbf24', text: '#7c2d12' },
+        { pct: 40, fill: '#60a5fa', text: '#fff' },
+        { pct: 15, fill: '#fcd34d', text: '#7c2d12' },
+        { pct: 25, fill: '#f472b6', text: '#fff' },
+        { pct: 20, fill: '#fb923c', text: '#fff' },
+      ];
+
+      // ------------------------------------------------------------------
+      // Desenha a roleta em SVG
+      // ------------------------------------------------------------------
+      var wheel = document.getElementById('wheel');
+      var n = SECTORS.length;
+      var step = 360 / n;
+      var R = 100;     // raio (viewBox 200x200, centro 100,100)
+      var cx = 100, cy = 100;
+
+      function polar(angleDeg, r) {
+        var rad = (angleDeg - 90) * Math.PI / 180;
+        return [cx + r * Math.cos(rad), cy + r * Math.sin(rad)];
+      }
+
+      var svgNs = 'http://www.w3.org/2000/svg';
+      // Posicionamento: cada setor i vai de (i*step - step/2) ate (i*step + step/2).
+      // Assim o CENTRO do setor 0 fica em 0° (topo, sob o ponteiro). WINNER.
+      for (var i = 0; i < n; i++) {
+        var start = i * step - step / 2;
+        var end   = i * step + step / 2;
+        var p1 = polar(start, R);
+        var p2 = polar(end, R);
+        var largeArc = step > 180 ? 1 : 0;
+
+        var path = document.createElementNS(svgNs, 'path');
+        path.setAttribute('d',
+          'M ' + cx + ' ' + cy +
+          ' L ' + p1[0] + ' ' + p1[1] +
+          ' A ' + R + ' ' + R + ' 0 ' + largeArc + ' 1 ' + p2[0] + ' ' + p2[1] +
+          ' Z');
+        path.setAttribute('fill', SECTORS[i].fill);
+        path.setAttribute('stroke', '#fff');
+        path.setAttribute('stroke-width', '1');
+        wheel.appendChild(path);
+
+        // Texto no centro do setor
+        var mid = i * step;
+        var txtPos = polar(mid, R * 0.62);
+        var text = document.createElementNS(svgNs, 'text');
+        text.setAttribute('x', txtPos[0]);
+        text.setAttribute('y', txtPos[1]);
+        text.setAttribute('fill', SECTORS[i].text);
+        text.setAttribute('text-anchor', 'middle');
+        text.setAttribute('dominant-baseline', 'central');
+        text.setAttribute('font-size', '14');
+        text.setAttribute('font-weight', '800');
+        text.setAttribute('transform', 'rotate(' + mid + ' ' + txtPos[0] + ' ' + txtPos[1] + ')');
+        text.textContent = SECTORS[i].pct + '%';
+        wheel.appendChild(text);
+      }
+
+      // ------------------------------------------------------------------
+      // Luzinhas piscantes em volta do aro
+      // ------------------------------------------------------------------
+      var wheelWrap = document.querySelector('.wheel-wrap');
+      var NUM_LIGHTS = 18;
+      var LIGHT_RADIUS = wheelWrap.clientWidth / 2 - 2;
+      for (var l = 0; l < NUM_LIGHTS; l++) {
+        var a = (l / NUM_LIGHTS) * 2 * Math.PI - Math.PI / 2;
+        var x = Math.cos(a) * LIGHT_RADIUS;
+        var y = Math.sin(a) * LIGHT_RADIUS;
+        var d = document.createElement('div');
+        d.className = 'wheel-light';
+        d.style.setProperty('--pos', 'translate(' + x + 'px, ' + y + 'px)');
+        d.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+        d.style.animationDelay = (l * 0.08) + 's';
+        wheelWrap.appendChild(d);
+      }
+
+      // ------------------------------------------------------------------
+      // Som "tick" via Web Audio (sem arquivo)
+      // ------------------------------------------------------------------
+      var audioCtx = null;
+      function tick(volume) {
+        try {
+          if (!audioCtx) {
+            var AC = window.AudioContext || window.webkitAudioContext;
+            if (!AC) return;
+            audioCtx = new AC();
+          }
+          var osc = audioCtx.createOscillator();
+          var gain = audioCtx.createGain();
+          osc.connect(gain); gain.connect(audioCtx.destination);
+          osc.frequency.value = 1400;
+          osc.type = 'square';
+          var now = audioCtx.currentTime;
+          var v = volume || 0.12;
+          gain.gain.setValueAtTime(v, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+          osc.start(now);
+          osc.stop(now + 0.05);
+        } catch (e) {}
+      }
+      function winSound() {
+        try {
+          if (!audioCtx) return;
+          var notes = [523.25, 659.25, 783.99, 1046.5]; // C E G C
+          notes.forEach(function (f, i) {
+            var osc = audioCtx.createOscillator();
+            var gain = audioCtx.createGain();
+            osc.connect(gain); gain.connect(audioCtx.destination);
+            osc.type = 'triangle';
+            osc.frequency.value = f;
+            var t = audioCtx.currentTime + i * 0.12;
+            gain.gain.setValueAtTime(0.18, t);
+            gain.gain.exponentialRampToValueAtTime(0.001, t + 0.28);
+            osc.start(t);
+            osc.stop(t + 0.3);
+          });
+        } catch (e) {}
+      }
+
+      // ------------------------------------------------------------------
+      // Confete (canvas full-screen, dura ~5s)
+      // ------------------------------------------------------------------
+      function fireConfetti() {
+        var canvas = document.createElement('canvas');
+        canvas.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:9999';
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        document.body.appendChild(canvas);
+        var ctx = canvas.getContext('2d');
+        var colors = ['#22c55e', '#fbbf24', '#dc2626', '#3b82f6', '#a78bfa', '#f472b6', '#10b981'];
+        var parts = [];
+        for (var i = 0; i < 140; i++) {
+          parts.push({
+            x: Math.random() * canvas.width,
+            y: -20 - Math.random() * 120,
+            vx: (Math.random() - 0.5) * 6,
+            vy: Math.random() * 4 + 2,
+            ang: Math.random() * Math.PI * 2,
+            angV: (Math.random() - 0.5) * 0.35,
+            size: Math.random() * 9 + 5,
+            color: colors[Math.floor(Math.random() * colors.length)],
+          });
+        }
+        var t0 = performance.now();
+        function loop(now) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          for (var i = 0; i < parts.length; i++) {
+            var p = parts[i];
+            p.x += p.vx; p.y += p.vy; p.vy += 0.14; p.ang += p.angV;
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.ang);
+            ctx.fillStyle = p.color;
+            ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.55);
+            ctx.restore();
+          }
+          if (now - t0 < 5000) requestAnimationFrame(loop);
+          else canvas.remove();
+        }
+        requestAnimationFrame(loop);
+      }
+
+      // ------------------------------------------------------------------
+      // Spin: animacao manual via requestAnimationFrame
+      // - tick sonoro + "kick" do ponteiro a cada setor passado
+      // - easing easeOutQuart pra desacelerar dramatico no fim
+      // - sempre para com o setor 0 (winner) sob o ponteiro
+      // ------------------------------------------------------------------
+      var spinBtn = document.getElementById('spin-btn');
+      var result  = document.getElementById('result');
+      var pointerEl = document.querySelector('.pointer');
+      var spun = false;
+
+      function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+
+      function spin() {
+        if (spun) return;
+        spun = true;
+        spinBtn.disabled = true;
+        spinBtn.textContent = 'Girando...';
+        if (window.track) window.track('spin_click');
+
+        // Inicializa audio com a interacao do usuario
+        if (!audioCtx) {
+          try {
+            var AC = window.AudioContext || window.webkitAudioContext;
+            if (AC) audioCtx = new AC();
+          } catch (e) {}
+        }
+        if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+
+        wheel.classList.add('spinning');
+        wheelWrap.classList.add('spinning');
+
+        var FULL = 360;
+        var SEG = FULL / n; // 45 graus
+        var SPINS = 7;
+        var jitter = (Math.random() * 10) - 5;
+        var TOTAL = FULL * SPINS + jitter; // graus totais
+        var DURATION = 6800; // ms
+        var t0 = performance.now();
+        var lastSeg = -1;
+
+        function frame(now) {
+          var t = Math.min((now - t0) / DURATION, 1);
+          var rot = TOTAL * easeOutQuart(t);
+          wheel.style.transform = 'rotate(' + rot + 'deg)';
+
+          // Detecta quando o ponteiro cruzou outro setor
+          var segNow = Math.floor((rot % FULL) / SEG);
+          if (segNow !== lastSeg) {
+            lastSeg = segNow;
+            // Volume mais alto no comeco, menor no fim (so pra dar textura)
+            var v = 0.08 + (1 - t) * 0.12;
+            tick(v);
+            pointerEl.classList.remove('kick');
+            // forca reflow pra reaplicar a animacao
+            void pointerEl.offsetWidth;
+            pointerEl.classList.add('kick');
+          }
+
+          if (t < 1) {
+            requestAnimationFrame(frame);
+          } else {
+            wheel.classList.remove('spinning');
+            wheelWrap.classList.remove('spinning');
+            wheel.classList.add('celebrating');
+            wheelWrap.classList.add('celebrating');
+            setTimeout(function () {
+              wheel.classList.remove('celebrating');
+              wheelWrap.classList.remove('celebrating');
+            }, 2500);
+            winSound();
+            fireConfetti();
+            result.classList.add('show');
+            spinBtn.style.display = 'none';
+            startTimer();
+            setTimeout(function () {
+              try { result.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (e) {}
+            }, 400);
+          }
+        }
+        requestAnimationFrame(frame);
+      }
+
+      spinBtn.addEventListener('click', spin); wheel.addEventListener('click', spin); wheel.setAttribute('role','button'); wheel.setAttribute('tabindex','0'); wheel.setAttribute('aria-label','Girar ruleta'); wheel.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();spin();}});
+
+      // ------------------------------------------------------------------
+      // Timer de 10 min (comeca quando a roleta para). Persiste em localStorage.
+      // ------------------------------------------------------------------
+      var TIMER_SECONDS = 10 * 60;
+      var STORAGE_KEY = 'sdi_down_timer_start_v1';
+      var clock = document.getElementById('clock');
+      var cta = document.getElementById('cta-btn');
+      var timerInterval = null;
+
+      function startTimer() {
+        var startMs = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
+        if (!startMs) {
+          startMs = Date.now();
+          localStorage.setItem(STORAGE_KEY, String(startMs));
+        }
+        function tick() {
+          var left = Math.max(0, TIMER_SECONDS - Math.floor((Date.now() - startMs) / 1000));
+          var m = Math.floor(left / 60), s = left % 60;
+          clock.textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+          if (left === 0) {
+            clock.classList.add('expired');
+            cta.textContent = 'CUPÓN FINALIZADO';
+            cta.style.background = '#9ca3af';
+            cta.style.cursor = 'not-allowed';
+            cta.style.animation = 'none';
+            cta.removeAttribute('href');
+            cta.addEventListener('click', function (e) { e.preventDefault(); });
+            if (window.track) window.track('timer_expired');
+            clearInterval(timerInterval);
+          }
+        }
+        tick();
+        // tracking do clique no CTA (1 vez so)
+        var tracked = false;
+        cta.addEventListener('click', function () {
+          if (tracked || !cta.getAttribute('href')) return;
+          tracked = true;
+          if (window.track) window.track('checkout_click');
+        });
+        timerInterval = setInterval(tick, 1000);
+      }
+
+      // Se o usuario ja girou em uma sessao anterior (timer salvo), revela direto
+      if (localStorage.getItem(STORAGE_KEY)) {
+        spinBtn.style.display = 'none';
+        result.classList.add('show');
+        // posiciona a roleta no resultado final sem animacao
+        wheel.style.transition = 'none';
+        wheel.style.transform = 'rotate(0deg)';
+        spun = true;
+        startTimer();
+      }
+    })();
+  </script>
+  <!-- Script OneClick Payt (carrega uma vez) -->
+  
+<script src="../sdi/offers-config.js"></script><script src="../sdi/offers.js"></script></body>
+</html>
