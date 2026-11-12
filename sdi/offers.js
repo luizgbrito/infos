@@ -13,5 +13,6 @@
  container.querySelectorAll('script').forEach(script=>{const active=document.createElement('script');for(const attr of script.attributes)active.setAttribute(attr.name,attr.value);active.textContent=script.textContent;script.replaceWith(active)});
  // The original countdown still holds a reference to the former CTA.
  // Mirror its expired state onto the official widget without submitting a payment.
- const watch=setInterval(()=>{if(!original.hasAttribute('href')){container.inert=true;container.setAttribute('aria-disabled','true');container.style.opacity='.55';container.style.pointerEvents='none';clearInterval(watch)}},500);
+ const watch=setInterval(()=>{if(!original.hasAttribute('href')){const accept=container.querySelector('cakto-upsell-accept');if(accept){accept.inert=true;accept.setAttribute('aria-disabled','true');accept.style.opacity='.55';accept.style.pointerEvents='none';} clearInterval(watch)}},500);
 })();
+
