@@ -1,0 +1,22 @@
+# NEM — Navidad entre Manos
+Página de vendas estática em espanhol neutro LATAM. Pasta independente para `luizgbrito/infos/NEM/`. Não altera outros produtos do repositório.
+
+## Preview
+Abra por um servidor estático: `python3 -m http.server 4173 --directory NEM` a partir da pasta que contém NEM. Acesse http://localhost:4173. CSS, JS, logo e imagens locais; sem dependências de instalação.
+
+## Conectar a Cakto
+Edite apenas `config.js`:
+- `kits.complete.checkoutUrl`: checkout do kit de 50 projetos + 5 bônus.
+- `kits.basic.checkoutUrl`: checkout do kit de 20 projetos.
+- `price`: USD 9.90 / 4.90 nesta versão. Confirmar no checkout.
+- `videoUrl`: caminho do vídeo final em espanhol; vazio mantém a foto de apresentação.
+Os botões com checkout válido em HTTPS redirecionam para ele e preservam parâmetros UTM. Enquanto as URLs estiverem vazias, abrem um resumo do kit sem fingir que houve compra. Não há banners de indisponibilidade na página.
+
+## Conteúdo
+Paleta e sequência de conversão aproximadas da referência, código próprio. As fotografias dos projetos foram preservadas. As quatro etapas, as quatro capas de bônus e o cascanueces foram localizados por geração de imagem. O avatar Lucía é uma personagem ilustrada de marca, não a autora original. Logo próprio sem marca de plataforma. Os depoimentos são trechos traduzidos, com nomes e contexto da edição brasileira; não foram apresentados como resultados da edição LATAM. Não foram importados números de clientes, nota média ou avaliações como se fossem do novo produto. Nenhum pixel, rastreador, checkout ou código executável de terceiros foi copiado.
+
+## Pendências operacionais
+Inserir os dois checkouts, vídeo em espanhol, dados definitivos de suporte e responsável nos termos/privacidade; produzir e validar os entregáveis e garantir que a oferta corresponda ao conteúdo. Os preços e as condições comerciais devem coincidir com o checkout. O quiz não faz parte do escopo: a referência não contém quiz.
+
+## Imagens
+A procedência das fotos está em `ASSETS.json`. As imagens localizadas e o avatar foram gerados com a ferramenta de imagem integrada; ver `IMAGE-PROMPTS.md`. Pequenos textos de mockups gerados devem ser revisados na finalização dos entregáveis; os mockups não são os PDFs finais.

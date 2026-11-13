@@ -1,0 +1,86 @@
+{
+  "reference": "https://artesanatonatalino.lovable.app/",
+  "date": "2026-11-13",
+  "photos": [
+    {
+      "file": "assets/ref-06.webp",
+      "source": "/images/fast/card-01-420-f861076447.webp"
+    },
+    {
+      "file": "assets/ref-07.webp",
+      "source": "/images/fast/card-02-420-a9f1e7504e.webp"
+    },
+    {
+      "file": "assets/ref-08.webp",
+      "source": "/images/fast/card-03-420-6add53355a.webp"
+    },
+    {
+      "file": "assets/ref-09.webp",
+      "source": "/images/fast/card-04-420-64450ebfca.webp"
+    },
+    {
+      "file": "assets/ref-10.webp",
+      "source": "/images/fast/card-05-420-e8fed3e337.webp"
+    },
+    {
+      "file": "assets/ref-11.webp",
+      "source": "/images/fast/card-06-420-d54a99edd5.webp"
+    },
+    {
+      "file": "assets/ref-12.webp",
+      "source": "/images/fast/card-07-420-214812f9df.webp"
+    },
+    {
+      "file": "assets/ref-13.webp",
+      "source": "/images/fast/card-08-420-fed30a146e.webp"
+    },
+    {
+      "file": "assets/ref-14.webp",
+      "source": "/images/fast/card-09-420-5f9a0723b4.webp"
+    },
+    {
+      "file": "assets/ref-15.webp",
+      "source": "/images/fast/card-10-420-5287ab60b5.webp"
+    },
+    {
+      "file": "assets/ref-16.webp",
+      "source": "/images/fast/card-11-420-2800fd023c.webp"
+    },
+    {
+      "file": "assets/ref-17.webp",
+      "source": "/images/fast/card-12-420-4914863140.webp"
+    },
+    {
+      "file": "assets/ref-18.webp",
+      "source": "/images/fast/card-13-420-de44056ce9.webp"
+    },
+    {
+      "file": "assets/ref-19.webp",
+      "source": "/images/fast/card-14-420-bb3b40c293.webp"
+    },
+    {
+      "file": "assets/ref-20.webp",
+      "source": "/images/fast/card-15-420-849ba33238.webp"
+    },
+    {
+      "file": "assets/ref-21.webp",
+      "source": "/images/fast/card-16-420-60e4fb351e.webp"
+    },
+    {
+      "file": "assets/ref-22.webp",
+      "source": "/images/fast/natal-artesanato-em-casa-900-607be4af08.webp"
+    },
+    {
+      "file": "assets/ref-37.webp",
+      "source": "/images/fast/capa-vitrine-natal-640-ce8b27a8fb.webp"
+    }
+  ],
+  "localized_images": [
+    "assets/etapas-es.webp",
+    "assets/bonos-es.webp",
+    "assets/cascanueces-es.webp"
+  ],
+  "original_avatar": "assets/lucia-avatar.webp",
+  "original_logo": "assets/logo.svg",
+  "testimonials": "Short translated excerpts from reference; original names retained and Brazilian context explicitly attributed."
+}
