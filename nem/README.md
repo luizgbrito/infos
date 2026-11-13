@@ -1,8 +1,8 @@
 # NEM — Navidad entre Manos
-Página de vendas estática em espanhol neutro LATAM. Pasta independente para `luizgbrito/infos/NEM/`. Não altera outros produtos do repositório.
+Página de vendas estática em espanhol neutro LATAM. Pasta independente para `luizgbrito/infos/nem/`. Não altera outros produtos do repositório.
 
 ## Preview
-Abra por um servidor estático: `python3 -m http.server 4173 --directory NEM` a partir da pasta que contém NEM. Acesse http://localhost:4173. CSS, JS, logo e imagens locais; sem dependências de instalação.
+Abra por um servidor estático: `python3 -m http.server 4173 --directory nem` a partir da pasta que contém nem. Acesse http://localhost:4173. CSS, JS, logo e imagens locais; sem dependências de instalação.
 
 ## Conectar a Cakto
 Edite apenas `config.js`:
