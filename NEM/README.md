@@ -20,3 +20,10 @@ Inserir os dois checkouts, vídeo em espanhol, dados definitivos de suporte e re
 
 ## Imagens
 A procedência das fotos está em `ASSETS.json`. As imagens localizadas e o avatar foram gerados com a ferramenta de imagem integrada; ver `IMAGE-PROMPTS.md`. Pequenos textos de mockups gerados devem ser revisados na finalização dos entregáveis; os mockups não são os PDFs finais.
+
+## Ajuste visual de 13/11/2026
+Fontes originais incorporadas localmente (DM Sans, Playfair Display e Dancing Script). Kit completo com gradiente vermelho, bordas douradas, preço amarelo e CTA verde; kit básico bege. Dois carrosséis contínuos em sentidos opostos com pausa, navegação manual, arraste e respeito a movimento reduzido. Repetições visuais não duplicam a navegação por teclado/leitor de tela.
+
+Valores em US$: completo 9.90, referência 57.90; básico 4.90, referência 24.90; cada bônus 9.90, cascanueces 19.90. Os valores riscados são ancoragens comerciais configuráveis e estão explicitamente identificados como valores de referência, sem alegação de venda anterior. Todos ficam centralizados em `config.js`.
+
+Validação visual em 375 × 812 e 1440 × 900, sem overflow horizontal; movimento e pausa de ambas as faixas verificados; sete preços riscados presentes e ausência de erros capturados no console.

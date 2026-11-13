@@ -82,5 +82,19 @@
   ],
   "original_avatar": "assets/lucia-avatar.webp",
   "original_logo": "assets/logo.svg",
-  "testimonials": "Short translated excerpts from reference; original names retained and Brazilian context explicitly attributed."
+  "testimonials": "Short translated excerpts from reference; original names retained and Brazilian context explicitly attributed.",
+  "fonts": [
+    {
+      "file": "assets/fonts/dm-sans.woff2",
+      "source": "https://artesanatonatalino.lovable.app/fonts/dm-sans-pt-08c9a9d3d9.woff2"
+    },
+    {
+      "file": "assets/fonts/playfair-display.woff2",
+      "source": "https://artesanatonatalino.lovable.app/fonts/playfair-display-pt-b7372b0bc8.woff2"
+    },
+    {
+      "file": "assets/fonts/dancing-script.woff2",
+      "source": "https://artesanatonatalino.lovable.app/fonts/dancing-script-pt-c5b89fd68c.woff2"
+    }
+  ]
 }
