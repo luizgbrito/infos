@@ -55,8 +55,36 @@ if(carousels){
 
 // Provided Spanish conversations: independent collage viewports and tap-to-expand.
 const testimonialMedia={"arboles": {"title": "Árboles navideños hechos a mano", "panel": "<span class=\"testimonial-crop\" style=\"--proof-ratio:367/517;--proof-width:418.528610%;--proof-left:0.000000%;--proof-top:0.000000%\"><img src=\"assets/testimonios-collage-es.webp\" alt=\"Árboles navideños hechos a mano, conversación en español\" width=\"1536\" height=\"1024\" loading=\"lazy\" decoding=\"async\"></span>", "full": "assets/testimonio-arboles-es.webp"}, "globo": {"title": "Globo navideño artesanal", "panel": "<span class=\"testimonial-crop\" style=\"--proof-ratio:390/517;--proof-width:393.846154%;--proof-left:-96.666667%;--proof-top:0.000000%\"><img src=\"assets/testimonios-collage-es.webp\" alt=\"Globo navideño artesanal, conversación en español\" width=\"1536\" height=\"1024\" loading=\"lazy\" decoding=\"async\"></span>", "full": null}, "cliente": {"title": "Conversación sobre los primeros proyectos", "panel": "<span class=\"testimonial-crop\" style=\"--proof-ratio:379/517;--proof-width:405.277045%;--proof-left:-205.277045%;--proof-top:0.000000%\"><img src=\"assets/testimonios-collage-es.webp\" alt=\"Conversación sobre los primeros proyectos, conversación en español\" width=\"1536\" height=\"1024\" loading=\"lazy\" decoding=\"async\"></span>", "full": null}, "fernanda": {"title": "Conversación de Fernanda S.", "panel": "<span class=\"testimonial-crop\" style=\"--proof-ratio:380/497;--proof-width:404.210526%;--proof-left:0.000000%;--proof-top:-106.036217%\"><img src=\"assets/testimonios-collage-es.webp\" alt=\"Conversación de Fernanda S., conversación en español\" width=\"1536\" height=\"1024\" loading=\"lazy\" decoding=\"async\"></span>", "full": null}, "camila": {"title": "Conversación de Camila", "panel": "<span class=\"testimonial-crop\" style=\"--proof-ratio:349/497;--proof-width:440.114613%;--proof-left:-113.180516%;--proof-top:-106.036217%\"><img src=\"assets/testimonios-collage-es.webp\" alt=\"Conversación de Camila, conversación en español\" width=\"1536\" height=\"1024\" loading=\"lazy\" decoding=\"async\"></span>", "full": null}, "mariana": {"title": "Conversación de Mariana S.", "panel": "<span class=\"testimonial-crop\" style=\"--proof-ratio:363/497;--proof-width:423.140496%;--proof-left:-210.192837%;--proof-top:-106.036217%\"><img src=\"assets/testimonios-collage-es.webp\" alt=\"Conversación de Mariana S., conversación en español\" width=\"1536\" height=\"1024\" loading=\"lazy\" decoding=\"async\"></span>", "full": null}, "juliana": {"title": "Conversación de Juliana", "panel": "<span class=\"testimonial-crop\" style=\"--proof-ratio:397/497;--proof-width:386.901763%;--proof-left:-286.901763%;--proof-top:-106.036217%\"><img src=\"assets/testimonios-collage-es.webp\" alt=\"Conversación de Juliana, conversación en español\" width=\"1536\" height=\"1024\" loading=\"lazy\" decoding=\"async\"></span>", "full": null}};
-document.querySelectorAll('[data-testimonial]').forEach(button=>button.addEventListener('click',()=>{
+function openTestimonial(button){
  const item=testimonialMedia[button.dataset.testimonial];
  const visual=item.full?'<img class="testimonial-full" src="'+escapeHTML(item.full)+'" alt="'+escapeHTML(item.title)+'">':item.panel;
  showDialog('<h2 id="dialog-title">'+escapeHTML(item.title)+'</h2><div class="testimonial-enlarged">'+visual+'</div>');
-}));
+}
+document.querySelectorAll('[data-testimonial]').forEach(button=>button.addEventListener('click',()=>openTestimonial(button)));
+
+// Continuous testimonial rows with touch scrolling and keyboard-accessible pause.
+document.querySelectorAll('.proof-top,.proof-gallery').forEach((viewport,index)=>{
+ viewport.classList.add('proof-scroll');
+ const track=document.createElement('div');track.className='proof-track';
+ const group=document.createElement('div');group.className='proof-group';
+ [...viewport.children].forEach(child=>group.appendChild(child));track.appendChild(group);
+ const duplicate=group.cloneNode(true);duplicate.setAttribute('aria-hidden','true');
+ duplicate.querySelectorAll('button').forEach(button=>{button.tabIndex=-1;button.addEventListener('mousedown',event=>event.preventDefault());button.addEventListener('click',()=>openTestimonial(button));});
+ track.appendChild(duplicate);viewport.appendChild(track);
+ const control=document.createElement('button');control.type='button';control.className='carousel-a11y-pause';control.textContent='Pausar testimonios';control.setAttribute('aria-pressed','false');viewport.after(control);
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');let paused=false;let resumeTimer;
+ function pause(value){
+  value=value||reduced.matches;
+  let offset=0;if(value&&!paused){const matrix=new DOMMatrixReadOnly(getComputedStyle(track).transform);const width=group.getBoundingClientRect().width;offset=(viewport.scrollLeft-matrix.m41+width)%width;}
+  viewport.classList.toggle('proof-paused',value);
+  if(value&&!paused)viewport.scrollLeft=offset;else if(!value)viewport.scrollLeft=0;
+  paused=value;control.setAttribute('aria-pressed',String(value));control.textContent=value?'Reanudar testimonios':'Pausar testimonios';
+ }
+ control.addEventListener('click',()=>pause(!paused));
+ viewport.addEventListener('pointerdown',()=>{clearTimeout(resumeTimer);pause(true);});
+ viewport.addEventListener('pointerup',()=>{resumeTimer=setTimeout(()=>{if(!viewport.matches(':focus-within')&&!dialog.open)pause(false);},5000);});
+ viewport.addEventListener('focusin',()=>pause(true));
+ viewport.addEventListener('focusout',event=>{if(!viewport.contains(event.relatedTarget)&&!dialog.open)pause(false);});
+ new IntersectionObserver(entries=>viewport.classList.toggle('proof-in-view',entries[0].isIntersecting),{threshold:.05}).observe(viewport);
+ if(reduced.matches){pause(true);control.hidden=true;duplicate.hidden=true;}
+});

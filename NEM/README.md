@@ -31,3 +31,6 @@ Validação visual em 375 × 812 e 1440 × 900, sem overflow horizontal; movimen
 ## Depoimentos enviados em 13/11/2026
 As sete conversas únicas das imagens em espanhol fornecidas foram distribuídas em duas no topo e cinco na seção de depoimentos. A colagem contém um balão duplicado, que não foi repetido. Os painéis são separados por recortes de apresentação em CSS, preservando as imagens enviadas sem reescrever mensagens. O primeiro depoimento abre a versão individual em maior resolução. Todas as imagens podem ser ampliadas.
 Os botões visíveis de navegação/pausa dos carrosséis de projetos foram retirados; a animação, o arraste e a pausa ao interagir continuam disponíveis. O comando de pausa permanece acessível ao teclado sem ocupar espaço no layout normal.
+
+## Movimento dos depoimentos
+Removidas as duas legendas indicadas pelo proprietário. Os prints das duas seções agora deslizam continuamente na lateral, preservando os sete depoimentos únicos (dois no topo e cinco abaixo). As cópias visuais do loop ficam fora da navegação por teclado/leitor de tela. Ampliação continua disponível; interação pausa o movimento e a preferência por movimento reduzido é respeitada. O subtítulo da seção mantém o contexto da edição brasileira.
