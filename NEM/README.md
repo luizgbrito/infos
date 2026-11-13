@@ -27,3 +27,7 @@ Fontes originais incorporadas localmente (DM Sans, Playfair Display e Dancing Sc
 Valores em US$: completo 9.90, referência 57.90; básico 4.90, referência 24.90; cada bônus 9.90, cascanueces 19.90. Os valores riscados são ancoragens comerciais configuráveis e estão explicitamente identificados como valores de referência, sem alegação de venda anterior. Todos ficam centralizados em `config.js`.
 
 Validação visual em 375 × 812 e 1440 × 900, sem overflow horizontal; movimento e pausa de ambas as faixas verificados; sete preços riscados presentes e ausência de erros capturados no console.
+
+## Depoimentos enviados em 13/11/2026
+As sete conversas únicas das imagens em espanhol fornecidas foram distribuídas em duas no topo e cinco na seção de depoimentos. A colagem contém um balão duplicado, que não foi repetido. Os painéis são separados por recortes de apresentação em CSS, preservando as imagens enviadas sem reescrever mensagens. O primeiro depoimento abre a versão individual em maior resolução. Todas as imagens podem ser ampliadas.
+Os botões visíveis de navegação/pausa dos carrosséis de projetos foram retirados; a animação, o arraste e a pausa ao interagir continuam disponíveis. O comando de pausa permanece acessível ao teclado sem ocupar espaço no layout normal.

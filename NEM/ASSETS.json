@@ -82,7 +82,7 @@
   ],
   "original_avatar": "assets/lucia-avatar.webp",
   "original_logo": "assets/logo.svg",
-  "testimonials": "Short translated excerpts from reference; original names retained and Brazilian context explicitly attributed.",
+  "testimonials": "User-supplied Spanish conversation images, maintaining original Brazilian context.",
   "fonts": [
     {
       "file": "assets/fonts/dm-sans.woff2",
@@ -96,5 +96,13 @@
       "file": "assets/fonts/dancing-script.woff2",
       "source": "https://artesanatonatalino.lovable.app/fonts/dancing-script-pt-c5b89fd68c.woff2"
     }
-  ]
+  ],
+  "provided_testimonials": {
+    "source": "Spanish testimonial images supplied by the user on 2026-11-13",
+    "files": [
+      "assets/testimonio-arboles-es.webp",
+      "assets/testimonios-collage-es.webp"
+    ],
+    "presentation": "Two conversations above; five below. Duplicate balloon panel omitted. Collage separated with CSS viewports; no changes to the supplied conversation content."
+  }
 }
