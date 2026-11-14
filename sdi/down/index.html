@@ -325,7 +325,7 @@
     <div class="wheel-wrap">
       <div class="pointer"></div>
       <svg class="wheel" viewBox="0 0 200 200" id="wheel">
-        <!-- 8 setores de 45°. WINNER (30%) e o setor 0, centrado no topo (apontador) -->
+        <!-- 8 setores de 45°. WINNER (37%) e o setor 0, centrado no topo (apontador) -->
         <!-- Setores gerados via JS pra garantir consistencia -->
       </svg>
       <div class="wheel-hub"></div>
@@ -336,19 +336,19 @@
     <div class="result" id="result">
       <p class="result-msg">
         ¡Felicitaciones! Acabas de ganar un cupón sorpresa de
-        <span class="discount">30% de descuento</span>
+        <span class="discount">37% de descuento</span>
         en la <strong>Dra. del Secreto</strong>
       </p>
 
       <div class="price-box">
         <div class="price-from">
-          <span class="label">De:</span>$ 17,00
+          <span class="label">De:</span>US$19
         </div>
         <div class="price-to">
           <span class="label">Por:</span>
           <span class="value">$ 11,90</span>
         </div>
-        <div class="price-badge">AHORRAS 30%</div>
+        <div class="price-badge">AHORRAS 37%</div>
       </div>
 
       <div class="cakto-wrap">
@@ -372,9 +372,9 @@
       // Pra trocar a porcentagem: muda PRIZE_PCT abaixo + o texto do
       // .result-msg (.discount span) no HTML.
       // ------------------------------------------------------------------
-      var PRIZE_PCT = 30;
+      var PRIZE_PCT = 37;
       var SECTORS = [
-        { pct: 30, fill: '#22c55e', text: '#fff' },  // WINNER (topo)
+        { pct: 37, fill: '#22c55e', text: '#fff' },  // WINNER (topo)
         { pct: 5,  fill: '#fde68a', text: '#92400e' },
         { pct: 50, fill: '#a78bfa', text: '#fff' },
         { pct: 10, fill: '#fbbf24', text: '#7c2d12' },
