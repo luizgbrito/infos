@@ -1,52 +1,64 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex,nofollow" />
+<!DOCTYPE html><html lang="es"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
   <title>El Secreto de la Insulina</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" href="images/logo.png">
 
-  <!-- ========== Tracker (eventos para o Supabase proprio) ========== -->
+  <!-- ========== Tracker (manda eventos pro Supabase / Quiz Analytics) ========== -->
   <script>
     (function () {
-      var SUPABASE_URL = 'https://viphjxuewsfksudbmzhk.supabase.co';
-      var SUPABASE_KEY = 'sb_publishable_jIQuHVoPprDCgKDhEMnYQw_XHg40n_i';
-      var PREFIX = 'upsell';
+      var SUPABASE_URL = 'https://gvlpstbxespetsdbelfm.supabase.co';
+      var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd2bHBzdGJ4ZXNwZXRzZGJlbGZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU5OTk3NTksImV4cCI6MjA5MTU3NTc1OX0.KwE3Xc60SCdw1sJQHTkl3s05Vsu0EhXwlzri2reYyCY';
+      var QUIZ_ID = 'upsell-segredo-insulina';
+
+      // session_id persistente. Permite reusar o de outra pagina via ?sid= na URL
       var p = new URLSearchParams(location.search);
-      function ss(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } }
-      function ls(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
-      var sid = p.get('sid') || ss('t_sid') || ls('t_sid_' + PREFIX);
+      var sid = p.get('sid');
+      var SK = 'sid_' + QUIZ_ID;
+      if (!sid) sid = localStorage.getItem(SK);
       if (!sid) {
         sid = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
               : 's_' + Math.random().toString(36).slice(2) + Date.now().toString(36);
       }
-      try { sessionStorage.setItem('t_sid', sid); localStorage.setItem('t_sid_' + PREFIX, sid); } catch (e) {}
-      var utm = {};
-      try { utm = JSON.parse(ss('t_utm') || 'null') || {}; } catch (e) {}
-      ['utm_source','utm_campaign','utm_content'].forEach(function (k) { if (p.get(k)) utm[k] = p.get(k); });
-      window.__sid = sid;
+      localStorage.setItem(SK, sid);
+
+      var utm = {
+        utm_source: p.get('utm_source'), utm_medium: p.get('utm_medium'),
+        utm_campaign: p.get('utm_campaign'), utm_content: p.get('utm_content'),
+        utm_term: p.get('utm_term'), fbclid: p.get('fbclid'),
+      };
+
+      window.__sid = sid; // pra outros scripts da pagina propagarem se quiserem
+
       window.track = function (event_type, extra) {
+        var row = Object.assign({
+          quiz_id: QUIZ_ID, session_id: sid, event_type: event_type, page_number: 1,
+        }, utm, extra || {});
         try {
-          fetch(SUPABASE_URL + '/rest/v1/events', {
+          fetch(SUPABASE_URL + '/rest/v1/quiz_events', {
             method: 'POST',
-            headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
-            body: JSON.stringify({
-              session_id: sid, name: PREFIX + '_' + event_type,
-              utm_source: utm.utm_source || null, utm_campaign: utm.utm_campaign || null, utm_content: utm.utm_content || null,
-              meta: extra || null
-            }),
-            keepalive: true
-          }).catch(function () {});
+            headers: {
+              'apikey': SUPABASE_KEY,
+              'Authorization': 'Bearer ' + SUPABASE_KEY,
+              'Content-Type': 'application/json',
+              'Prefer': 'return=minimal',
+            },
+            body: JSON.stringify(row),
+            keepalive: true, // garante envio mesmo se a pagina navegar logo apos
+          });
         } catch (e) {}
       };
+
       window.track('page_view');
     })();
   </script>
 
   <!-- Otimizacao VTurb (carrega mais rapido) -->
   <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-  <link rel="preload" href="https://scripts.converteai.net/444a5d7e-e885-42b4-a1cb-9629c927cee7/players/6a396060a7c0b52c357efea2/v4/player.js" as="script">
-  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+  <link rel="preload" href="js/player.js" as="script">
+  <link rel="preload" href="js/smartplayer.js" as="script">
   <link rel="preload" href="https://cdn.converteai.net/444a5d7e-e885-42b4-a1cb-9629c927cee7/6a396046a7c0b52c357efe87/main.m3u8" as="fetch">
   <link rel="dns-prefetch" href="https://cdn.converteai.net">
   <link rel="dns-prefetch" href="https://scripts.converteai.net">
@@ -218,38 +230,8 @@
       .below-video { font-size: 14px; }
       .cta { font-size: 18px; padding: 18px 32px; }
     }
-
-    /* ----- Botoes Cakto (one click) com o mesmo visual da pagina ----- */
-    .cakto-wrap { display: flex; flex-direction: column; align-items: center; }
-    cakto-upsell-buttons { display: flex; flex-direction: column; align-items: center; gap: 0; }
-    cakto-upsell-accept { display: inline-block; }
-    cakto-upsell-accept::part(button) {
-      background: linear-gradient(180deg, #22c55e 0%, #16a34a 100%); color: #fff;
-      font-family: inherit; font-size: 22px; font-weight: 800; letter-spacing: 0.3px;
-      padding: 20px 44px; border-radius: 14px; border: 0; cursor: pointer;
-      box-shadow: 0 10px 24px rgba(22,163,74,0.45);
-      transition: transform 200ms ease, box-shadow 200ms ease;
-      animation: pulse-cakto 1.7s ease-in-out infinite;
-    }
-    cakto-upsell-accept::part(button):hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(22,163,74,0.55); }
-    cakto-upsell-reject { display: inline-block; margin-top: 18px; }
-    cakto-upsell-reject::part(button) {
-      background: none; border: 0; padding: 0; cursor: pointer; font-family: inherit;
-      color: #9ca3af; font-size: 14px; text-decoration: underline; text-underline-offset: 3px;
-      transition: color 200ms;
-    }
-    cakto-upsell-reject::part(button):hover { color: #4b5563; }
-    cakto-upsell-accept.expired-cta { pointer-events: none; }
-    cakto-upsell-accept.expired-cta::part(button) { background: #9ca3af; box-shadow: none; animation: none; cursor: not-allowed; }
-    @keyframes pulse-cakto {
-      0%, 100% { transform: scale(1); box-shadow: 0 10px 24px rgba(22,163,74,0.40); }
-      50%      { transform: scale(1.03); box-shadow: 0 12px 30px rgba(22,163,74,0.65); }
-    }
-    @media (max-width: 480px) {
-      cakto-upsell-accept::part(button) { font-size: 18px; padding: 18px 32px; }
-    }
   </style>
-</head>
+<script src="js/player.js" async=""></script></head>
 <body>
   <div class="top-bar">
     <b>Importante:</b> NO cierres esta página ni hagas clic en el botón de volver.<br>
@@ -271,27 +253,29 @@
       Tu enlace de acceso aparecerá abajo.
     </p>
 
-    <div class="cta-wrap" id="cta-wrap">
+    <div class="cta-wrap show" id="cta-wrap">
       <div class="price-box">
         <div class="price-head">⚡ Oferta única — solo aparece ahora</div>
         <div class="price-from">
-          <span class="label">De:</span>$ 50,00
+          <span class="label">De:</span>R$ 197,00
         </div>
         <div class="price-to">
           <span class="label">Por:</span>
-          <span class="value">$ 17,00</span>
+          <span class="value">R$ 67,00</span>
         </div>
       </div>
 
-      <div class="cakto-wrap">
-        <cakto-upsell-buttons>
-          <cakto-upsell-accept id="cta-btn" bg-color="#16a34a" text-color="#ffffff" upsell-accept-url="members_area" offer-id="5ievaqo" app-base-url="https://app.cakto.com.br" offer-type="upsell" upsell-reject-url="https://saludbien.site/sdi/down/">¡QUIERO ACTIVAR AHORA!</cakto-upsell-accept>
-          <cakto-upsell-reject upsell-reject-url="https://saludbien.site/sdi/down/">No quiero formar parte del Club del Secreto ahora</cakto-upsell-reject>
-        </cakto-upsell-buttons>
-      </div>
+      <a class="cta" id="cta-btn" payt_action="oneclick_buy" data-object="R6Y6Q4-LXM9XW" href="#" rel="noopener">QUIERO ACTIVAR AHORA</a>
+      <select payt_element="installment" data-object="R6Y6Q4-LXM9XW" style="display:block; margin:14px auto 0; max-width:280px; padding:12px; border:1px solid #cbd5e1; border-radius:10px; background:#fff; font-size:15px;"></select>
       <span class="cta-note">Oferta única por tiempo limitado</span>
 
-      <div class="timer-wrap" id="timer-wrap">
+      <div>
+        <a class="decline-link" href="https://oportunidade-si.vercel.app/" rel="noopener">
+          ¡No quiero formar parte del club del secreto ahora!
+        </a>
+      </div>
+
+      <div class="timer-wrap show" id="timer-wrap">
         <span class="timer-label">Esta oferta expira en</span>
         <span class="timer-clock" id="timer-clock">10:00</span>
       </div>
@@ -336,8 +320,11 @@
         if (left === 0) {
           timerClock.classList.add('expired');
           ctaBtn.textContent = 'OFERTA EXPIRADA';
-          ctaBtn.classList.add('expired-cta');
-          ctaBtn.addEventListener('click', function (e) { e.preventDefault(); e.stopImmediatePropagation(); }, true);
+          ctaBtn.style.background = '#9ca3af';
+          ctaBtn.style.cursor = 'not-allowed';
+          ctaBtn.style.animation = 'none';
+          ctaBtn.removeAttribute('href');
+          ctaBtn.addEventListener('click', function (e) { e.preventDefault(); });
           if (window.track) window.track('timer_expired');
           clearInterval(timerInterval);
         }
@@ -368,16 +355,22 @@
       // Tracking dos cliques
       var trackedCta = false, trackedDecline = false;
       ctaBtn.addEventListener('click', function () {
-        if (trackedCta || ctaBtn.classList.contains('expired-cta')) return;
+        if (trackedCta || !ctaBtn.getAttribute('href')) return;
         trackedCta = true;
         if (window.track) window.track('checkout_click');
       });
-      var declineLink = document.querySelector('cakto-upsell-reject');
+      var declineLink = document.querySelector('.decline-link');
       if (declineLink) {
         declineLink.addEventListener('click', function () {
           if (trackedDecline) return;
           trackedDecline = true;
           if (window.track) window.track('decline_click');
+          // Propaga o session_id pra pagina de downsell tambem
+          var href = declineLink.getAttribute('href');
+          if (href && href.indexOf('sid=') === -1 && window.__sid) {
+            var sep = href.indexOf('?') === -1 ? '?' : '&';
+            declineLink.setAttribute('href', href + sep + 'sid=' + encodeURIComponent(window.__sid));
+          }
         });
       }
 
@@ -460,6 +453,8 @@
       }, true);
     })();
   </script>
-  <script type="text/javascript" src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js"></script>
-</body>
-</html>
+  <!-- Script OneClick Payt (carrega uma vez) -->
+  <script type="text/javascript" src="https://checkout.payt.com.br/multiple-oneclickbuyscript/LXGVJB.js"></script>
+
+
+</body></html>
