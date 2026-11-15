@@ -14,13 +14,13 @@
       var PREFIX = 'downsell';
       var p = new URLSearchParams(location.search);
       function ss(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } }
-      function ls(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+      function ls(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } }
       var sid = p.get('sid') || ss('t_sid') || ls('t_sid_' + PREFIX);
       if (!sid) {
         sid = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
               : 's_' + Math.random().toString(36).slice(2) + Date.now().toString(36);
       }
-      try { sessionStorage.setItem('t_sid', sid); localStorage.setItem('t_sid_' + PREFIX, sid); } catch (e) {}
+      try { sessionStorage.setItem('t_sid', sid); sessionStorage.setItem('t_sid_' + PREFIX, sid); } catch (e) {}
       var utm = {};
       try { utm = JSON.parse(ss('t_utm') || 'null') || {}; } catch (e) {}
       ['utm_source','utm_campaign','utm_content'].forEach(function (k) { if (p.get(k)) utm[k] = p.get(k); });
@@ -313,12 +313,12 @@
     <div class="parabens-tag">¡FELICITACIONES!</div>
 
     <h1>
-      Fuiste <strong>seleccionada</strong> para ganar un cupón de descuento sorpresa en la
-      <strong>Dra. del Secreto</strong>
+      Conoce una <strong>oferta adicional</strong> con descuento para el
+      <strong>Club del Secreto</strong>
     </h1>
 
     <p class="instruction">
-      Haz clic en la ruleta de la suerte de abajo y mira qué cupón de descuento ganarás
+      Gira la ruleta para ver el descuento disponible en esta oferta
       <span class="arrow-bounce">👇</span>
     </p>
 
@@ -331,13 +331,13 @@
       <div class="wheel-hub"></div>
     </div>
 
-    <button class="spin-btn" id="spin-btn">GIRAR RULETA</button>
+    <button class="spin-btn" id="spin-btn">GIRAR RULETA</button><p style="font-size:12px;color:#6b7280;margin:16px auto;max-width:340px">La ruleta muestra el descuento promocional fijo de esta oferta. No es un sorteo.</p>
 
     <div class="result" id="result">
       <p class="result-msg">
-        ¡Felicitaciones! Acabas de ganar un cupón sorpresa de
-        <span class="discount">37% de descuento</span>
-        en la <strong>Dra. del Secreto</strong>
+        Esta oferta te permite ahorrar aproximadamente un
+        <span class="discount">37%</span>
+        en el <strong>Club del Secreto</strong>
       </p>
 
       <div class="price-box">
@@ -346,20 +346,20 @@
         </div>
         <div class="price-to">
           <span class="label">Por:</span>
-          <span class="value">$ 11,90</span>
+          <span class="value">US$11.90</span>
         </div>
-        <div class="price-badge">AHORRAS 37%</div>
+        <div class="price-badge">AHORRAS US$7.10</div>
       </div>
 
       <div class="cakto-wrap">
         <cakto-upsell-buttons>
-          <cakto-upsell-accept id="cta-btn" bg-color="#16a34a" text-color="#ffffff" upsell-accept-url="members_area" offer-id="3362k3w" app-base-url="https://app.cakto.com.br" offer-type="downsell" upsell-reject-url="members_area">¡GARANTIZAR MI DESCUENTO AHORA MISMO!</cakto-upsell-accept>
-          <cakto-upsell-reject upsell-reject-url="members_area">No gracias, no quiero el descuento</cakto-upsell-reject>
+          <cakto-upsell-accept id="cta-btn" bg-color="#16a34a" text-color="#ffffff" upsell-accept-url="members_area" offer-id="3362k3w" app-base-url="https://app.cakto.com.br" offer-type="downsell" upsell-reject-url="members_area">¡QUIERO ESTA OFERTA — US$11.90!</cakto-upsell-accept>
+          <cakto-upsell-reject upsell-reject-url="members_area">No, gracias. Continuar con mi compra.</cakto-upsell-reject>
         </cakto-upsell-buttons>
       </div>
 
       <div class="timer-line">
-        Cupón de descuento válido por:
+        Tiempo restante de esta sesión:
         <span class="clock" id="clock">10:00</span>
       </div>
     </div>
@@ -625,19 +625,19 @@
       spinBtn.addEventListener('click', spin);
 
       // ------------------------------------------------------------------
-      // Timer de 10 min (comeca quando a roleta para). Persiste em localStorage.
+      // Timer de 10 min (comeca quando a roleta para). Persiste em sessionStorage.
       // ------------------------------------------------------------------
       var TIMER_SECONDS = 10 * 60;
-      var STORAGE_KEY = 'oportunidade_si_timer_start';
+      var STORAGE_KEY = 'sdi_down_offer_started_v3';
       var clock = document.getElementById('clock');
       var cta = document.getElementById('cta-btn');
       var timerInterval = null;
 
       function startTimer() {
-        var startMs = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
+        var startMs = parseInt(sessionStorage.getItem(STORAGE_KEY) || '0', 10);
         if (!startMs) {
           startMs = Date.now();
-          localStorage.setItem(STORAGE_KEY, String(startMs));
+          sessionStorage.setItem(STORAGE_KEY, String(startMs));
         }
         function tick() {
           var left = Math.max(0, TIMER_SECONDS - Math.floor((Date.now() - startMs) / 1000));
@@ -664,7 +664,7 @@
       }
 
       // Se o usuario ja girou em uma sessao anterior (timer salvo), revela direto
-      if (localStorage.getItem(STORAGE_KEY)) {
+      if (sessionStorage.getItem(STORAGE_KEY)) {
         spinBtn.style.display = 'none';
         result.classList.add('show');
         // posiciona a roleta no resultado final sem animacao
