@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="es-419">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f3">
+  <meta name="description" content="Un cuestionario sobre dolor articular, movilidad y vida diaria. Revisa tus respuestas y conoce el protocolo digital.">
+  <title>Bienestar articular · Cuestionario de movilidad</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #faf7f3;
+      --paper: #fffefa;
+      --ink: #2b192d;
+      --muted: #635667;
+      --plum: #592658;
+      --plum-dark: #40173f;
+      --lilac: #eee4f2;
+      --line: #e3d8e1;
+      --peach: #f7e9dc;
+      --radius: 26px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: var(--page); line-height: 1.6; }
+    [hidden] { display: none !important; }
+    img { display: block; max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    a { color: var(--plum); }
+    :focus-visible { outline: 3px solid #884b90; outline-offset: 4px; }
+    .shell { width: min(1120px, calc(100% - 32px)); margin-inline: auto; }
+    .mast { border-bottom: 1px solid var(--line); }
+    .mast-inner { min-height: 69px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-weight: 680; letter-spacing: -.025em; }
+    .mark { width: 34px; height: 34px; display: grid; place-items: center; color: white; background: var(--plum); border-radius: 50%; font: 21px Georgia, serif; }
+    .mast-note, .eyebrow, .progress-label { color: var(--muted); font-size: .79rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+    .stage { margin-block: clamp(26px, 5vw, 65px); min-height: min(580px, 66svh); }
+    .enter { animation: arrive 300ms cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; letter-spacing: -.04em; line-height: 1.13; text-wrap: balance; }
+    h1 { font-size: clamp(2.25rem, 5vw, 4.35rem); }
+    h2 { font-size: clamp(1.85rem, 4.9vw, 3.55rem); }
+    h3 { font-size: clamp(1.42rem, 3.5vw, 2rem); }
+    .hero { display: grid; align-items: stretch; width: 100%; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--paper); }
+    .hero-copy { padding: clamp(24px, 5.1vw, 68px); display: grid; gap: 18px; align-content: center; justify-items: start; }
+    .hero-copy p:not(.eyebrow) { max-width: 47ch; color: var(--muted); font-size: clamp(1.03rem, 2vw, 1.19rem); }
+    .hero-photo { width: 100%; height: 100%; max-height: 640px; min-height: 0; object-fit: cover; object-position: center 33%; background: var(--peach); }
+    .action, .text-button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 14px; border-radius: 999px; padding: 10px 22px; font-weight: 710; cursor: pointer; text-decoration: none; }
+    .action { background: var(--plum); color: white; border: 1px solid var(--plum); transition: background-color .2s, transform .2s, box-shadow .2s; }
+    .action:hover { background: var(--plum-dark); box-shadow: 0 7px 18px #40173f26; transform: translateY(-1px); }
+    .action:active { transform: translateY(0); }
+    .text-button { border: 1px solid var(--line); background: var(--paper); color: var(--plum); }
+    .text-button:hover { background: var(--lilac); }
+    .progress { width: min(100%, 724px); margin: 0 auto 14px; }
+    .progress-row { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 7px; }
+    .track { height: 5px; border-radius: 999px; overflow: hidden; background: var(--line); }
+    .track span { display: block; width: 100%; height: 100%; transform: scaleX(0); transform-origin: left; background: #855383; transition: transform 290ms ease; }
+    .panel { width: min(100%, 724px); margin-inline: auto; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(20px, 5vw, 52px); box-shadow: 0 16px 52px #47213f0a; }
+    .panel > * + * { margin-top: 14px; }
+    .description, .fine, .hint { color: var(--muted); }
+    .fine, .hint { font-size: .89rem; }
+    .options { display: grid; gap: 9px; padding: 0; margin: 18px 0 0; border: 0; min-width: 0; }
+    .choice { min-height: 55px; width: 100%; display: flex; gap: 13px; align-items: center; text-align: left; padding: 11px 15px; border: 1px solid var(--line); border-radius: 13px; color: var(--ink); background: var(--paper); cursor: pointer; transition: background-color .18s, border-color .18s; }
+    .choice::after { content: "→"; margin-left: auto; font-size: 1.1rem; color: var(--plum); }
+    label.choice::after { content: none; }
+    .choice:hover, .choice[aria-pressed="true"], .choice:has(:checked) { background: var(--lilac); border-color: #ab88b3; }
+    .choice:has(:focus-visible) { outline: 3px solid #884b90; outline-offset: 2px; }
+    .choice input { width: 20px; height: 20px; flex: 0 0 20px; margin: 0; accent-color: var(--plum); }
+    .controls { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; margin-top: 23px; }
+    .error { color: #9b243e; font-size: .93rem; }
+    .note { padding: 15px 17px; border-radius: 16px; background: var(--lilac); }
+    .note p + p { margin-top: 8px; }
+    .media { border: 1px solid var(--line); border-radius: 16px; padding: 15px; }
+    .media > * + * { margin-top: 10px; }
+    audio { width: 100%; display: block; }
+    details { border: 1px solid var(--line); border-radius: 13px; padding: 0 13px; }
+    details summary { min-height: 44px; align-content: center; cursor: pointer; font-weight: 700; color: var(--plum); }
+    details p, details ul { margin-bottom: 13px; }
+    blockquote { margin: 12px 0 0; padding: 9px 0 9px 14px; border-left: 3px solid #b798be; }
+    .video video { display: block; width: min(100%, 310px, max(200px, 32svh)); aspect-ratio: 9/16; margin-inline: auto; border-radius: 12px; background: #251827; }
+    .summary-list { margin: 14px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 8px; }
+    .summary-list div { padding: 12px; border: 1px solid var(--line); border-radius: 12px; overflow-wrap: anywhere; }
+    .summary-list dt { font-size: .84rem; font-weight: 750; color: var(--muted); }
+    .summary-list dd { margin: 4px 0 0; }
+    .offer { width: min(100%, 900px); }
+    .offer-grid { display: grid; align-items: stretch; gap: 14px; }
+    .offer-card { padding: clamp(17px, 3vw, 26px); border: 1px solid var(--line); border-radius: 18px; }
+    .offer-card > * + * { margin-top: 12px; }
+    .offer-card.pricing { background: var(--lilac); display: grid; align-content: start; justify-items: start; }
+    .price { display: block; font-family: Georgia, serif; font-size: clamp(2.7rem, 10vw, 4.3rem); line-height: 1; letter-spacing: -.06em; }
+    .offer-card ul { margin-left: 0; padding-left: 22px; }
+    .offer-card ul li + li { margin-top: 4px; }
+    .book { border-radius: 13px; width: 100%; }
+    .footer { border-top: 1px solid var(--line); padding: 14px 0 24px; color: var(--muted); font-size: .86rem; }
+    .footer .shell { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; justify-content: space-between; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+    @media (min-width: 720px) {
+      .hero { grid-template-columns: 1.08fr 1fr; }
+      .hero-photo { max-height: none; }
+      .offer-grid { grid-template-columns: 1.18fr 1fr; }
+    }
+    @media (max-width: 719px) {
+      .hero-photo { max-height: min(480px, 68svh); }
+      .mast-note { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="mast">
+    <div class="shell mast-inner">
+      <div class="brand"><span class="mark" aria-hidden="true">B</span> Bienestar articular</div>
+      <span class="mast-note">Cuestionario de movilidad</span>
+    </div>
+  </header>
+  <main class="shell stage">
+    <div id="progress" class="progress" hidden>
+      <div class="progress-row">
+        <span id="progress-area" class="progress-label"></span>
+        <span id="progress-count" class="progress-label"></span>
+      </div>
+      <div id="progress-bar" class="track" role="progressbar" aria-label="Avance del cuestionario" aria-valuemin="0" aria-valuemax="26" aria-valuenow="0"><span></span></div>
+    </div>
+    <div id="screen"></div>
+    <noscript><p>Activa JavaScript para responder el cuestionario y consultar el resumen.</p></noscript>
+  </main>
+  <footer class="footer">
+    <div class="shell"><span>Bienestar articular</span><span>Cuestionario informativo</span></div>
+  </footer>
+  <template id="home-template">
+    <section class="hero" aria-labelledby="title">
+      <div class="hero-copy">
+        <p class="eyebrow">Cuestionario de movilidad</p>
+        <h1 id="title" tabindex="-1">¿Cómo te afecta el dolor articular?</h1>
+        <p>Identifica cuándo te molesta más el dolor y cómo influye en tu descanso, tus movimientos y tu rutina.</p>
+        <button type="button" data-action="next" class="action">Empezar el cuestionario <span aria-hidden="true">→</span></button>
+        <p class="fine">Tus respuestas se usan para mostrarte un resumen en esta página.</p>
+      </div>
+      <img class="hero-photo" src="assets/images/bienestar-articular.webp" alt="Bienestar articular. Una mujer estira una pierna sentada en una banca." width="1080" height="1350" fetchpriority="high">
+    </section>
+  </template>
+  <script>
+    "use strict";
+    const single = (title, choices, description = "") => ({ title, choices, description });
+    const multi = (title, choices, exclusive = "", description = "Selecciona todas las opciones que correspondan.") =>
+      ({ title, choices, exclusive, description, multiple: true });
+    const info = (title, description, content, button = "Continuar") => ({ title, description, content, button });
+    const checkout = "https://checkout.payt.com.br/c605e9088ce5521e6c0c577951c213eb?payment=pix";
+    const audioText = [
+      "Hola, soy el doctor Rodrigo y estoy siguiendo tu caso. Estoy revisando cada una de tus respuestas con la atención que merece lo que estás pasando. Sé que vivir con dolor no es fácil, especialmente cuando ya probaste de todo y nada funciona. Tal vez te dijeron que era la edad, el desgaste o incluso algo psicológico. Pero ahora vas a descubrir algo que quizá nadie te había contado.\n\nSegún el relato, el dolor podría estar relacionado con un parásito que entra al cuerpo, consume nutrientes destinados a los músculos y provoca rigidez y desgaste del cartílago. El cuerpo intenta recuperarse y reparar el tejido muscular, pero el parásito supuestamente dificulta ese proceso, inflama distintas zonas del cuerpo y ejerce presión sobre los nervios, lo que haría que el dolor empeorara con el tiempo.\n\nEl autor dice haber acompañado a más de dos mil pacientes en un proceso de desparasitación y afirma que se recuperaron. Cuenta que algunas personas que dependían de medicamentos volvieron a caminar y a dormir bien. Te invita a continuar para escuchar el relato de una de esas personas.",
+      "Creé lo que llamo Protocolo de Desparasitación Articular. Según la presentación, recibirás la receta completa y las indicaciones para seguir el protocolo. Si nunca te has desparasitado, el autor dice que su equipo te guiará paso a paso y te acompañará durante treinta días. El objetivo que describe es ayudarte a recuperar el bienestar, dormir mejor y sentir más confianza al moverte.\n\nEn el audio se sostiene que un parásito sin tratar puede dañar el cartílago y las articulaciones, y que por eso el dolor aumentaría con el tiempo. Esta afirmación pertenece al material promocional.",
+      "Tu protocolo ya está listo. El audio original recomienda permanecer en la página para conservar el acceso. Según el autor, el protocolo completo se enviará a tu WhatsApp y su equipo te acompañará durante treinta días. La presentación ofrece orientación en cada etapa del proceso y habla de recuperar la movilidad. La disponibilidad y las condiciones de ese acompañamiento dependen de lo que ofrezca el vendedor en el checkout."
+    ];
+    const audio = (number, title) => `
+      <section class="media">
+        <h3>${title}</h3>
+        <p class="fine">Versión narrada en español del material promocional original.</p>
+        <audio controls preload="none" src="assets/audio/presentacion-${number}.mp3" aria-label="${title}"></audio>
+        <details><summary>Leer la transcripción</summary>${audioText[number - 1].split("\n\n").map(paragraph => `<p>${paragraph}</p>`).join("")}</details>
+      </section>`;
+    const videoText = {
+      rodilla: "En una conversación con varias voces, le piden a Sueli que se agache. Ella se lo atribuye al doctor Rodrigo y agradece a Dios. Cuenta que hacía años que no podía doblar la rodilla así y que antes le costaba recoger cosas del suelo.",
+      columna: "El entrevistado dice que tenía problemas en la columna y que llegó con las piernas prácticamente paralizadas. Cuenta que, con el tratamiento y la orientación del doctor, se recuperó en una semana. Algunos detalles del inicio son difíciles de distinguir.",
+      ana: "Me llamo Ana y terminé el protocolo hace unos tres meses. Antes tenía mucho dolor en el hombro y en la rodilla. Había recibido varios diagnósticos, hecho muchas sesiones de fisioterapia y gastado mucho en suplementos. Aun así, seguía con esos dolores. Llevaba más de diez años así. Cuenta que después de ocho días tomando la bebida ya no tenía dolor. Siguió el protocolo por recomendación del doctor. Tres meses después, dice que seguía sin dolor. Muchas gracias."
+    };
+    const video = (file, id, title) => `
+      <section class="media video">
+        <h3>${title}</h3>
+        <p class="fine">Audio original con subtítulos en español.</p>
+        <video controls playsinline preload="metadata" src="assets/video/${file}.mp4" aria-label="${title}"></video>
+        <details><summary>Leer el testimonio en español</summary><p>${videoText[file]}</p></details>
+        <a href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener noreferrer">Ver la fuente en YouTube</a>
+      </section>`;
+    const screens = [
+      null,
+      single("Comencemos con tu perfil", ["Mujer", "Hombre", "Prefiero no responder"], "Selecciona la opción con la que te identificas."),
+      single("¿Cuántas molestias articulares sientes?", ["Una o ninguna", "Dos o más"], "Piensa en señales como el dolor, la rigidez o la dificultad para moverte."),
+      single("¿Alguna vez te has desparasitado?", ["No, nunca", "Sí, alguna vez"], "Incluye medicamentos y otros métodos que hayas usado."),
+      single("¿Has consultado a un profesional por tus dolores?", ["Sí, varias veces", "Sí, pocas veces", "Todavía no"], "Puede ser cualquier consulta con un profesional de la salud."),
+      single("¿Desde cuándo sientes estas molestias?", ["Desde hace menos de tres meses", "Desde hace tres a seis meses", "Desde hace seis meses a un año", "Desde hace más de un año", "Desde hace décadas"]),
+      single("¿Cuánto afectan los dolores a tu rutina?", ["Poco. Puedo dormir y agacharme, pero a veces siento punzadas.", "Moderadamente. Algunos movimientos habituales se han vuelto difíciles.", "Mucho. Subir escaleras y moverme forman parte de mis dificultades diarias.", "Muchísimo. El dolor interfiere todos los días."]),
+      multi("¿Tienes alguna de estas condiciones?", ["Artrosis", "Artritis", "Tendinitis o bursitis", "Lumbalgia mecánica", "Cervicalgia mecánica u osteofitos", "Fascitis plantar o espolón calcáneo", "Ninguna de las anteriores"], "Ninguna de las anteriores"),
+      info("El dolor articular puede tener distintas causas", "La referencia original presenta el caso de una mujer de 56 años con dolor en la rodilla y la espalda y dificultad para dormir.", '<div class="note"><p>Si el dolor persiste o empeora, una consulta médica puede ayudar a identificar la causa y orientar el tratamiento.</p></div>'),
+      single("¿Te preocupa que las molestias empeoren?", ["Sí, me preocupa y quiero informarme", "Hasta ahora no me preocupaba, pero quiero cuidarme"]),
+      single("¿El dolor dificulta mantener tus hábitos?", ["Sí, me cuesta mantenerme en movimiento o preparar mis comidas", "En parte, según el día"]),
+      multi("¿Cuáles de estos alimentos consumiste en los últimos tres meses?", ["Leche", "Queso", "Papas fritas", "Salchichas", "Jamón", "Alcohol", "Ninguno"], "Ninguno"),
+      multi("¿Qué síntomas te molestan más?", ["Dolor constante", "Rigidez", "Hinchazón", "Chasquidos o crujidos", "Bloqueo articular", "Calor o enrojecimiento", "Pérdida de movilidad", "Debilidad muscular", "Fatiga o cansancio", "Ninguno"], "Ninguno"),
+      single("¿Cómo afectan estos síntomas tu vida diaria?", ["Me cuesta caminar o dormir bien.", "Me molestan un poco, pero puedo seguir con mi rutina.", "Mi calidad de vida ha bajado y me preocupa depender de los demás.", "Ahora necesito ayuda para tareas que antes hacía por mi cuenta."]),
+      single("¿En qué momento del día te molesta más el dolor?", ["Por la mañana, al despertar o levantarme de la cama.", "Por la tarde, mientras hago mis actividades.", "Por la noche, al acostarme o al tratar de dormir."]),
+      single("¿Cómo te afecta emocionalmente el dolor?", ["Me deja con tristeza y poca energía para compartir con mi familia.", "Me irrita y me cuesta sentirme capaz.", "Me quita las ganas de salir y disfrutar.", "Interrumpe mi sueño y despierto con cansancio.", "No noto un efecto emocional."]),
+      info("Escucha la explicación original", "Los testimonios son experiencias personales declaradas en el material de venta.", audio(1, "Presentación sobre el dolor articular") + video("rodilla", "2vxVfbUxePA", "Experiencia compartida") + '<details><summary>Leer el testimonio de Rita</summary><blockquote>Muchas gracias, Rodrigo. Llevo ocho días siguiendo la desparasitación y mis dolores desaparecieron. Me alegra mucho este logro. Gracias por tu ayuda.</blockquote><p class="fine">Rita Limeira, Porto Alegre, Brasil. Testimonio del material original.</p></details>'),
+      single("¿Te interesa conocer el protocolo de nueve días?", ["Sí, me interesa", "Me interesa, pero tengo preguntas", "Por ahora solo quiero ver mis respuestas"]),
+      multi("¿Qué tratamientos o medicamentos has usado para aliviar el dolor?", ["Analgésicos (por ejemplo, tramadol, codeína o dipirona)", "Antiinflamatorios (por ejemplo, ibuprofeno, diclofenaco o nimesulida)", "Relajantes musculares", "Suplementos naturales", "Inyecciones para el dolor", "Nunca usé un tratamiento para el dolor"], "Nunca usé un tratamiento para el dolor"),
+      multi("¿Cuáles de estas alternativas has probado?", ["Acupuntura, quiropraxia o masajes", "Fisioterapia, estiramientos o ejercicios", "Infusiones, hierbas o remedios naturales", "Pomadas, cremas o suplementos", "Rodilleras, órtesis o bastones", "Varias opciones sin alivio duradero", "Todavía no he probado ninguna"], "Todavía no he probado ninguna"),
+      single("¿Consideras que cuidar tu salud es una prioridad?", ["Sí, estoy de acuerdo", "No del todo"]),
+      single("Si el dolor dejara de limitarte, ¿cómo te sentirías?", ["Sentiría mucha alegría.", "Sentiría alivio y retomaría lo que dejé pendiente.", "Tendría más energía y confianza para moverme.", "Celebraría poder moverme y dormir mejor.", "Al principio me costaría creerlo."]),
+      {
+        ...single("¿Te animarías a seguir un plan de nueve días en casa?", ["Sí, me comprometería", "Lo intentaría"], "Piensa en lo que podrías incorporar de forma realista a tu rutina."),
+        content: `<details><summary>Leer dos experiencias del material original</summary>
+          <blockquote>Lo que más me molestaba era el dolor de cadera. Casi no podía moverme bien. Después de tomar la bebida empecé a sentirme mejor. Llevo dos días sin dolor y anoche dormí de corrido. Muchas gracias.</blockquote>
+          <p class="fine">María, testimonio atribuido en el material original.</p>
+          <blockquote>Hoy limpié toda la casa sin dolor. Me levanté temprano, con energía, y dormí toda la noche. La verdad, no creía que fuera posible. Llevo una semana sin dolor.</blockquote>
+          <p class="fine">Lourdes, testimonio atribuido en el material original.</p>
+        </details>`
+      },
+      single("¿Qué te gustaría recuperar primero?", ["Caminar y moverme con confianza", "Dormir bien y despertar con energía", "Jugar y mantenerme activo con mi familia", "Moverme con mayor libertad", "Hacer mis actividades con más independencia"]),
+      info("Antes de revisar tus respuestas", "Puedes escuchar la presentación del protocolo y ver el segundo testimonio.", audio(2, "Cómo se presenta el protocolo de nueve días") + video("columna", "qvlpr9R76U8", "Segundo testimonio del material original"), "Ver mi resumen"),
+      info("Tu resumen de movilidad", "Este resumen reúne las respuestas que marcaste durante el cuestionario. Puedes volver a una pregunta para corregirla.", () => renderSummary(), "Conocer la oferta"),
+      { title: "Protocolo de Desparasitación Articular", description: "Material digital del proveedor original, presentado en español para que puedas revisar la oferta.", offer: true }
+    ];
+    const screen = document.querySelector("#screen");
+    const home = document.querySelector("#home-template");
+    const progress = document.querySelector("#progress");
+    const last = screens.length - 1;
+    const answers = new Map();
+    let current = 0;
+
+    function action(text, name, secondary = false) {
+      return `<button type="button" class="${secondary ? "text-button" : "action"}" data-action="${name}">${text}</button>`;
+    }
+
+    function renderSummary() {
+      const labels = [[5, "Desde cuándo"], [6, "Impacto en tu rutina"], [7, "Condiciones"], [12, "Síntomas"], [14, "Momento del día"], [23, "Tu prioridad"]];
+      const entry = (index, label) =>
+        `<div><dt>${label}</dt><dd>${(answers.get(index) || []).join(", ") || "Sin respuesta"}</dd></div>`;
+      const allAnswers = screens.flatMap((step, index) => step?.choices ? [entry(index, step.title)] : []);
+      return `<dl class="summary-list">${labels.map(([index, label]) => entry(index, label)).join("")}</dl>
+        <details><summary>Ver todas mis respuestas</summary><dl class="summary-list">${allAnswers.join("")}</dl></details>
+        <p class="note">El cuestionario es informativo. Un diagnóstico requiere una evaluación profesional.</p>`;
+    }
+
+    function renderOffer() {
+      return `<div class="offer-grid">
+        <section class="offer-card">
+          <h3>Qué presenta la oferta</h3>
+          <ul>
+            <li>Preparación y protocolo de desparasitación de nueve días.</li>
+            <li>Guía de alimentación y materiales sobre hábitos de movilidad.</li>
+            <li>Orientación, seguimiento y mantenimiento según las condiciones del proveedor.</li>
+          </ul>
+          <details><summary>Ver los componentes anunciados</summary><ul>
+            <li>Preparación para la desparasitación</li><li>Desparasitación completa</li><li>Acompañamiento individual</li>
+            <li>Guía de alimentación</li><li>Consultas con el equipo</li><li>Mantenimiento anual</li><li>Receta del protocolo de nueve días</li>
+          </ul></details>
+        </section>
+        <section class="offer-card pricing">
+          <p class="eyebrow">Acceso digital</p>
+          <strong class="price">R$ 37,90</strong>
+          <p class="fine">Precio en reales brasileños. Confirma el total y los métodos de pago disponibles en Payt.</p>
+          <a class="action" href="${checkout}" target="_blank" rel="noopener noreferrer">Ir al checkout de Payt <span aria-hidden="true">↗</span></a>
+        </section>
+      </div>
+      ${audio(3, "Entrega y acompañamiento")}
+      ${video("ana", "3kvlzN7mt1E", "Testimonio de Ana")}
+      <details><summary>Leer los testimonios del material original</summary>
+        <blockquote>Tenía artrosis y una lesión de ligamento en la rodilla. Ya había gastado cientos de reales en suplementos y pomadas y, según mi experiencia, noté un cambio después del protocolo.</blockquote>
+        <p class="fine">Paulo Nascimento, São Paulo, Brasil.</p>
+        <blockquote>Tenía fibromialgia, osteofitos y dolores muy fuertes en los hombros, las manos y las piernas. Después de completar el protocolo, una mañana desperté sin dolor.</blockquote>
+        <p class="fine">Teresa Ferreira, Belo Horizonte, Brasil.</p>
+        <blockquote>Había recibido inyecciones y tenía programada una cirugía de columna. Decidí probar una opción más. Al principio no lo creía, pero cuento que mis dolores desaparecieron de una semana a otra.</blockquote>
+        <p class="fine">Antônio Costa, Parnaíba, Brasil.</p>
+      </details>
+      <section class="offer-card">
+        <h3>Guía esencial de movilidad</h3>
+        <img class="book" src="assets/images/guia-movilidad.webp" alt="Portada ilustrativa de la Guía esencial de movilidad" width="1200" height="900" loading="lazy">
+        <p>La oferta original presenta una guía adicional sobre hábitos cotidianos, movilidad, tensión muscular y formas de cuidar tus articulaciones.</p>
+        <details><summary>Acceso, materiales y condiciones</summary><p>El material se presenta como digital y de pago único. Consulta al vendedor por el idioma de los entregables y las condiciones de acceso, acompañamiento y reembolso.</p></details>
+      </section>
+      <div class="controls">
+        ${action("Volver al resumen", "back", true)}
+        ${action("Reiniciar cuestionario", "reset", true)}
+      </div>`;
+    }
+
+    function renderChoices(step) {
+      const selected = answers.get(current) || [];
+      const options = step.choices.map((choice, index) => {
+        const checked = selected.includes(choice);
+        if (step.multiple) {
+          return `<label class="choice"><input type="checkbox" name="answer" value="${index}"${checked ? " checked" : ""}><span>${choice}</span></label>`;
+        }
+        return `<button type="button" class="choice" data-choice="${index}" aria-pressed="${checked}">${choice}</button>`;
+      }).join("");
+      return `<fieldset class="options"><legend class="sr-only">${step.title}</legend>${options}</fieldset>`;
+    }
+
+    function render(moveFocus = true) {
+      progress.hidden = current === 0;
+      if (current > 0) {
+        document.querySelector("#progress-area").textContent = current === last ? "Oferta" : current === last - 1 ? "Resumen" : "Cuestionario";
+        document.querySelector("#progress-count").textContent = `Etapa ${current} de ${last}`;
+        document.querySelector("#progress-bar").setAttribute("aria-valuenow", current);
+        document.querySelector("#progress-bar span").style.transform = `scaleX(${current / last})`;
+      }
+
+      if (current === 0) {
+        screen.replaceChildren(home.content.cloneNode(true));
+      } else {
+        const step = screens[current];
+        const content = typeof step.content === "function" ? step.content() : step.content || "";
+        screen.innerHTML = `<section class="panel${step.offer ? " offer" : ""}" aria-labelledby="title">
+          <h2 id="title" tabindex="-1">${step.title}</h2>
+          ${step.description ? `<p class="description">${step.description}</p>` : ""}
+          ${step.offer ? renderOffer() : `
+            ${content}
+            ${step.choices ? renderChoices(step) : ""}
+            <p id="error" class="error" role="alert" hidden>Selecciona al menos una opción para continuar.</p>
+            <div class="controls">
+              ${action("← Volver", "back", true)}
+              ${!step.choices || step.multiple ? action(step.button || "Continuar", "next") : ""}
+            </div>`}
+        </section>`;
+      }
+      screen.firstElementChild.classList.add("enter");
+      if (moveFocus) {
+        document.querySelector("#title").focus({ preventScroll: true });
+        window.scrollTo(0, 0);
+      }
+    }
+
+    function goTo(index) {
+      current = Math.max(0, Math.min(index, last));
+      render();
+    }
+
+    screen.addEventListener("change", event => {
+      if (!event.target.matches('input[name="answer"]')) return;
+      const step = screens[current];
+      const toggled = step.choices[Number(event.target.value)];
+      const inputs = Array.from(screen.querySelectorAll('input[name="answer"]'));
+      if (event.target.checked && step.exclusive) {
+        for (const input of inputs) {
+          const choice = step.choices[Number(input.value)];
+          if (input !== event.target && (toggled === step.exclusive || choice === step.exclusive)) input.checked = false;
+        }
+      }
+      answers.set(current, inputs.filter(input => input.checked).map(input => step.choices[Number(input.value)]));
+      document.querySelector("#error").hidden = true;
+      inputs[0].closest("fieldset").removeAttribute("aria-describedby");
+    });
+
+    screen.addEventListener("click", event => {
+      const button = event.target.closest("button");
+      if (!button) return;
+      if (button.dataset.choice !== undefined) {
+        answers.set(current, [screens[current].choices[Number(button.dataset.choice)]]);
+        goTo(current + 1);
+        return;
+      }
+      const name = button.dataset.action;
+      if (name === "next") {
+        if (screens[current]?.multiple && !answers.get(current)?.length) {
+          document.querySelector("#error").hidden = false;
+          screen.querySelector("fieldset").setAttribute("aria-describedby", "error");
+          screen.querySelector("input").focus();
+          return;
+        }
+        goTo(current + 1);
+      } else if (name === "back") {
+        goTo(current - 1);
+      } else if (name === "reset") {
+        answers.clear();
+        goTo(0);
+      }
+    });
+
+    render(false);
+  </script>
+</body>
+</html>
