@@ -1,0 +1,33 @@
+{
+  "status": "Original files missing from the supplied HTML",
+  "images": [
+    "images/1787456375037_bonus-1-cronologia.webp",
+    "images/1787456378491_bonus-2-pueblos.webp",
+    "images/1787456379930_bonus-3-la-vida-en-tiempos-biblicos.webp",
+    "images/1787456382861_bonus-4-tabernaculos.webp",
+    "images/1787456385359_bonus-5-30-dias.webp",
+    "images/1787456696724_biblical-world-3d.webp",
+    "images/1788384789561_05179da5-aa93-48df-b635-37aa5e507104.webp",
+    "images/1788384792380_2480b7cc-cb81-4bda-80ae-87ccb8065074.webp",
+    "images/1788384793918_4b2940e7-cf52-48b9-9cc2-c48b8c1d8ac9.webp",
+    "images/1788384796681_1787672830754-01-ensenanza-congregacional-1x1.webp",
+    "images/1788384797893_1787672831892-02-estudio-biblico-en-casa-1x1.webp",
+    "images/1788384799000_1787672832981-03-clase-biblica-intergeneracional-1x1.webp",
+    "images/1788384800342_1787672841549-01-estudio-en-computadora-1x1.webp",
+    "images/app-exp-poster.jpg",
+    "images/app-mapa-poster.jpg",
+    "images/muestra-capernaum.webp",
+    "images/muestra-elah.webp",
+    "images/muestra-exodus.webp",
+    "images/muestra-pablo.webp",
+    "images/muestra-tabernaculo.webp",
+    "images/muestra-tribus.webp"
+  ],
+  "media": [
+    "media/app-exp.mp4",
+    "media/app-exp.webm",
+    "media/app-mapa.mp4",
+    "media/app-mapa.webm"
+  ],
+  "notes": "Add localized media assets to bw3d/images and bw3d/media before final publication."
+}
