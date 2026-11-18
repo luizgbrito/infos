@@ -1,16 +1,26 @@
-# Biblical World 3D — Español LATAM
+# Biblical World 3D™ — adaptación español LATAM
 
-Página de ventas en español neutro, precio **US$ 27** (referencia **US$ 54**).
+## Estado: paquete completo en ZIP, publicación de binarios pendiente
 
-## Estado
-- `index.html`: 13 secciones fieles a la estructura original; diseño móvil/escritorio, FAQ, carrusel, dos bloques de video y animaciones sutiles. Sin los píxeles de rastreo ni el checkout de la tienda de referencia.
-- `assets-manifest.json`: listado de los 21 archivos de imágenes/posters y 4 archivos de video que faltan. El HTML original NO incluía los binarios. No se puede certificar la fidelidad visual hasta disponer de ellos.
-- `images/` y `media/`: colocar aquí imágenes traducidas y videos propios en sus nombres originales.
+Se recibió el ZIP original del proyecto (21 imágenes, 4 videos, HTML/CSS/JS).
+Se generó una versión independiente de la plataforma de origen: 13 secciones,
+textos en español latinoamericano neutro, precios US$ 27 / US$ 54, responsive,
+carrusel, FAQ, videos y animaciones suaves.
 
-## Para terminar antes de publicar
-1. Configurar `window.BW3D_CONFIG.checkoutUrl` en `index.html` con tu checkout propio de Cakto, nunca el de Impultienda original.
-2. Agregar los recursos de `assets-manifest.json` con texto traducido dentro de todas las imágenes, así como la locución/subtítulos del video.
-3. Revisar enlaces reales de los aplicativos y entregables, garantías y testimonios.
-4. Pasar QA visual con archivos gráficos en móvil y escritorio y verificación final de checkout y analíticas.
+- 17 imágenes modificadas gráficamente con títulos, tapas de libros y páginas de muestra en español.
+- 4 fotos de sesiones y clases conservadas porque sus mapas ya estaban en español.
+- 4 archivos de video originales incluidos en el ZIP de entrega.
+- Sin rastreadores ni checkout de la tienda Impultienda original.
 
-Se retiró el rastreo y la redirección de ventas del propietario de la página original. La página no está autorizada para campañas en producción mientras falten sus assets y su checkout.
+### Faltante para publicar en GitHub Pages
+
+**Esta carpeta de GitHub todavía no tiene las carpetas images/ y media/.**
+El ZIP descargable entregado en el chat sí contiene esas carpetas y el HTML final.
+Para terminar la subida hay que descomprimir y subir el contenido del directorio
+`bw3d/` (index.html, images/, media/, README.md, status.json) a esta misma carpeta.
+
+### Configuración obligatoria antes de campañas
+
+El HTML del paquete tiene `window.BW3D_CONFIG.checkoutUrl: ''` para agregar el checkout propio de Cakto. Sin él se mostrará un aviso y no se redirige al checkout de la tienda original.
+
+Revisar el texto pequeño aún presente en las grabaciones de demostración, los PDFs/materiales de entrega, los derechos sobre los activos, testimonios y garantía. Configurar píxel, CAPI y eventos de Meta con credenciales propias si corresponde. El paquete se entrega como staging, no como checkout listo para ventas.
