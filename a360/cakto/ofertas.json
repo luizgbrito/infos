@@ -1,0 +1,55 @@
+{
+  "brand": "Activa360",
+  "currency": "USD",
+  "published": false,
+  "products": [
+    {
+      "slug": "front",
+      "name": "Sistema Activa360 – Colección Completa",
+      "price": 17,
+      "files": [
+        "01_FRONTEND/01_Biblioteca_Actividades_Fisicas.pdf",
+        "01_FRONTEND/02_Planes_de_Sesion.pdf",
+        "01_FRONTEND/03_Programas_4_8_12_Semanas.pdf",
+        "01_FRONTEND/04_Selector_4D.pdf",
+        "01_FRONTEND/05_Evaluacion_y_Seguimiento.pdf",
+        "01_FRONTEND/06_Estimulacion_Cognitiva.pdf",
+        "02_BONOS_FRONTEND/Bono_01_Movilidad_Reducida.pdf",
+        "02_BONOS_FRONTEND/Bono_02_Retorno_Post_Caida.pdf",
+        "02_BONOS_FRONTEND/Bono_03_Guia_Evaluacion.pdf",
+        "02_BONOS_FRONTEND/Bono_04_Armador_Sesiones.pdf"
+      ]
+    },
+    {
+      "slug": "bump1",
+      "name": "100 Sesiones Listas para Adaptar",
+      "price": 7.9,
+      "files": [
+        "03_ORDER_BUMPS/Order_Bump_01_100_Sesiones.pdf"
+      ]
+    },
+    {
+      "slug": "bump2",
+      "name": "Kit Profesional de Seguimiento y Comunicación",
+      "price": 5.9,
+      "files": [
+        "03_ORDER_BUMPS/Order_Bump_02_Kit_Profesional.pdf"
+      ]
+    },
+    {
+      "slug": "upsell",
+      "name": "Programa Avanzado Activa360 – 12 Semanas",
+      "price": 27,
+      "files": [
+        "04_UPSELL/Upsell_Programa_Avanzado_12_Semanas.pdf"
+      ]
+    }
+  ],
+  "checkout_url": "",
+  "sales_page_url": "",
+  "order_bumps": [
+    "bump1",
+    "bump2"
+  ],
+  "upsell": "upsell"
+}
