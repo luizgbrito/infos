@@ -1,12 +1,16 @@
 {
   "brand": "Activa360",
+  "language": "es-419",
   "currency": "USD",
   "published": false,
+  "checkout_url": "",
   "products": [
     {
       "slug": "front",
-      "name": "Sistema Activa360 – Colección Completa",
+      "title": "Sistema Activa360 – Colección Completa",
       "price": 17,
+      "description": "Sistema integral de estimulación física y cognitiva para adultos mayores. Incluye seis módulos principales y cuatro bonos digitales: fichas de actividades, planes de sesión, programas por semanas, selector 4D, registros de seguimiento y recursos cognitivos imprimibles, con acceso digital para consulta y descarga.",
+      "delivery": "Cakto Members",
       "files": [
         "01_FRONTEND/01_Biblioteca_Actividades_Fisicas.pdf",
         "01_FRONTEND/02_Planes_de_Sesion.pdf",
@@ -22,34 +26,42 @@
     },
     {
       "slug": "bump1",
-      "name": "100 Sesiones Listas para Adaptar",
+      "title": "100 Sesiones Listas para Adaptar",
       "price": 7.9,
+      "description": "100 estructuras de sesiones listas para adaptar según objetivos, capacidades y valoración de cada adulto mayor, con hojas imprimibles y orientaciones prácticas para organizar el trabajo.",
+      "delivery": "Cakto Members",
       "files": [
         "03_ORDER_BUMPS/Order_Bump_01_100_Sesiones.pdf"
       ]
     },
     {
       "slug": "bump2",
-      "name": "Kit Profesional de Seguimiento y Comunicación",
+      "title": "Kit Profesional de Seguimiento y Comunicación",
       "price": 5.9,
+      "description": "Modelos para registrar objetivos, evolución, observaciones, sesiones y comunicaciones con familiares y equipos de cuidado.",
+      "delivery": "Cakto Members",
       "files": [
         "03_ORDER_BUMPS/Order_Bump_02_Kit_Profesional.pdf"
       ]
     },
     {
       "slug": "upsell",
-      "name": "Programa Avanzado Activa360 – 12 Semanas",
+      "title": "Programa Avanzado Activa360 – 12 Semanas",
       "price": 27,
+      "description": "Programa avanzado de doce semanas con 36 sesiones estructuradas, planificación progresiva, seguimiento y recursos de adaptación.",
+      "delivery": "Cakto Members",
       "files": [
         "04_UPSELL/Upsell_Programa_Avanzado_12_Semanas.pdf"
       ]
     }
   ],
-  "checkout_url": "",
-  "sales_page_url": "",
-  "order_bumps": [
-    "bump1",
-    "bump2"
-  ],
-  "upsell": "upsell"
+  "funnel": {
+    "front": "front",
+    "order_bumps": [
+      "bump1",
+      "bump2"
+    ],
+    "upsell": "upsell"
+  },
+  "publishing_note": "Ofertas ainda não criadas na Cakto; verificar moeda USD no painel e executar compras-teste."
 }
