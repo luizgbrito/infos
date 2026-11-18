@@ -3,7 +3,6 @@
 (function () {
   var SUPABASE_URL = 'https://zbiwjzxcbfxwgivsotzu.supabase.co';
   var SUPABASE_ANON_KEY = 'sb_publishable_BBy2qONODtRQVhuNe7ng0g_iaBVXRPz';
-  var CHECKOUT_MATCH = 'pay.cakto.com.br';
   var HEARTBEAT_MS = 60000;
 
   if (SUPABASE_URL.indexOf('__') === 0) return;      // nao configurado ainda
@@ -22,7 +21,36 @@
   var KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_id'];
   var q = new URLSearchParams(location.search), utm = {}, fresh = false;
   KEYS.forEach(function (k) { var v = q.get(k); if (v) { utm[k] = v.split('::')[0].slice(0, 100); fresh = true; } });
-  var fbclid = q.get('fbclid');
+  var config = window.SUPERVIVENCIA_CONFIG || {};
+  var fbclid = clickId(q.get('fbclid'));
+  if (fbclid) {
+    ss('t_fbclid', fbclid);
+    ss('t_fbc', 'fb.1.' + Date.now() + '.' + fbclid);
+  } else {
+    fbclid = clickId(ss('t_fbclid'));
+  }
+
+  function clickId(value) {
+    return /^[a-zA-Z0-9_-]{1,512}$/.test(value || '') ? value : null;
+  }
+
+  function cookie(name) {
+    var prefix = name + '=';
+    var entry = document.cookie.split('; ').find(function (part) { return part.startsWith(prefix); });
+    return entry ? entry.slice(prefix.length) : null;
+  }
+
+  function metaIdentifiers() {
+    var cookieFbc = cookie('_fbc');
+    var fbc = /^fb\.\d+\.\d{13}\.[a-zA-Z0-9_-]{1,512}$/.test(cookieFbc || '') ? cookieFbc : null;
+    if (fbclid && !fbc?.endsWith('.' + fbclid)) fbc = ss('t_fbc');
+    var fbp = cookie('_fbp');
+    return {
+      fbc: fbc,
+      fbp: /^fb\.\d+\.\d{13}\.\d{1,30}$/.test(fbp || '') ? fbp : null
+    };
+  }
+
   if (fresh) {
     ss('t_utm', JSON.stringify(utm));
     ls('t_utm_mem', JSON.stringify({ v: utm, exp: Date.now() + 7 * 864e5 }));
@@ -80,16 +108,82 @@
   ping(); setInterval(ping, HEARTBEAT_MS);
   document.addEventListener('visibilitychange', function () { if (!document.hidden) ping(); });
 
-  // ---- clique no checkout: registra e repassa UTMs para a Cakto
-  document.addEventListener('click', function (e) {
-    var a = e.target && e.target.closest && e.target.closest('a[href]');
-    if (!a || a.href.indexOf(CHECKOUT_MATCH) < 0) return;
-    try {
-      var u = new URL(a.href);
-      KEYS.forEach(function (k) { if (utm[k]) u.searchParams.set(k, utm[k]); });
-      u.searchParams.set('sck', sid);
-      a.href = u.toString();
-    } catch (err) {}
+  function initPixel() {
+    if (!config.metaPixelId) return;
+    if (!window.fbq) {
+      var pixel = function () {
+        if (pixel.callMethod) pixel.callMethod.apply(pixel, arguments);
+        else pixel.queue.push(arguments);
+      };
+      pixel.push = pixel;
+      pixel.loaded = true;
+      pixel.version = '2.0';
+      pixel.queue = [];
+      window.fbq = pixel;
+      window._fbq = pixel;
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://connect.facebook.net/en_US/fbevents.js';
+      document.head.appendChild(script);
+    }
+    window.fbq('set', 'autoConfig', false, config.metaPixelId);
+    window.fbq('init', config.metaPixelId);
+  }
+
+  function metaEvent(name, checkout) {
+    if (!config.metaPixelId) return;
+    var id = uuid();
+    var params = name === 'PageView' ? {} : {
+      content_type: 'product',
+      content_ids: ['61098992-7838-417f-ab8d-1786d5921083'],
+      currency: 'USD',
+      value: 9.90
+    };
+    var match = metaIdentifiers();
+    window.fbq('trackSingle', config.metaPixelId, name, params, { eventID: id });
+    if (!config.metaTrackingUrl) return;
+    fetch(config.metaTrackingUrl, {
+      method: 'POST', keepalive: true,
+      // A simple cross-origin POST avoids a preflight during checkout navigation.
+      headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+      body: JSON.stringify({
+        name: name, event_id: id, session_id: sid,
+        source_url: location.origin + location.pathname,
+        fbc: match.fbc, fbp: match.fbp,
+        checkout: checkout || undefined
+      })
+    }).catch(function () {});
+  }
+
+  initPixel();
+  metaEvent('PageView');
+  metaEvent('ViewContent');
+
+  function decorateCheckout(link, checkoutSession) {
+    if (!link?.hasAttribute('data-checkout')) return;
+    var url = new URL(link.href);
+    if (url.origin !== 'https://pay.cakto.com.br') return;
+    KEYS.forEach(function (key) { if (utm[key]) url.searchParams.set(key, utm[key]); });
+    var match = metaIdentifiers();
+    if (fbclid) url.searchParams.set('fbclid', fbclid);
+    if (match.fbc) url.searchParams.set('fbc', match.fbc);
+    if (match.fbp) url.searchParams.set('fbp', match.fbp);
+    url.searchParams.set('sck', checkoutSession);
+    link.href = url.href;
+    return url;
+  }
+
+  document.querySelectorAll('a[data-checkout]').forEach(function (link) {
+    decorateCheckout(link, sid);
+  });
+  function onCheckout(eventObject) {
+    if (eventObject.defaultPrevented || eventObject.button > 1) return;
+    var link = eventObject.target?.closest?.('a[data-checkout]');
+    var checkout = decorateCheckout(link, sid);
+    if (!checkout) return;
     event('checkout_click', maxPct);
-  }, true);
+    metaEvent('InitiateCheckout', { utm: utm, fbclid: fbclid });
+  }
+  document.addEventListener('click', onCheckout, true);
+  document.addEventListener('auxclick', onCheckout, true);
 })();
