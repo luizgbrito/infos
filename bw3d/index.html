@@ -1,0 +1,1813 @@
+<!doctype html><html lang="es" dir="ltr"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biblical World 3D™</title>
+<meta name="description" content="Biblical World 3D™ reúne más de 300 páginas visuales, más de 100 mapas, reconstrucciones 3D, un mapa bíblico interactivo con escenas en video y 6 volúmenes adicionales completos. Acceso inmediato y garantía de 15 días.">
+<meta property="og:title" content="Biblical World 3D™">
+<meta property="og:description" content="Cuando comprendes dónde ocurrió, comprendes con mayor claridad lo que sucedió.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Biblical World 3D™">
+<meta name="application-name" content="Biblical World 3D™">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Playfair+Display:wght@700;800;900&amp;display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#0E0B08 !important}
+/* ?? These rules hide the Shopify theme header/footer. In Impultienda, selectors may differ;
+   if the store header appears, add its class or id here. */
+#shopify-section-announcement-bar,header,.header-wrapper,#shopify-section-header,
+footer.footer,#shopify-section-footer,.announcement-bar{display:none !important}
+body{
+  font-family:'Inter',sans-serif;
+  font-size:16px;
+  line-height:1.65;
+  color:rgba(255,255,255,.82);
+  background:#0E0B08;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%;height:auto}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+:root{
+  --black:#0E0B08;
+  --black2:#1A130C;
+  --black3:#2A1E11;
+  --violet:#7A4408;
+  --violet2:#9E5A0C;
+  --violet3:#FFB24A;
+  --gold:#F5C542;
+  --gold2:#FFD86B;
+  --green:#22C55E;
+  --red:#EF4444;
+  --text:#FFFFFF;
+  --muted:#CEC2B0;
+  --line:rgba(225,132,22,.22);
+  --r:14px;
+}
+/* ?? BOTON ?? */
+.btn-pulse{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--gold),#FFE08A 55%,#F5B700);
+  color:#120300;
+  font-family:'Inter',sans-serif;
+  font-weight:900;
+  font-size:17px;
+  padding:16px 28px;
+  border-radius:14px;
+  cursor:pointer;
+  border:none;
+  text-align:center;
+  box-shadow:0 0 42px rgba(245,197,66,.28), inset 0 1px 0 rgba(255,255,255,.45);
+  transition:box-shadow .2s,transform .2s,filter .2s;
+  animation:pulse-btn 2s ease-in-out infinite;
+  position:relative;
+  overflow:hidden;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+}
+.btn-pulse::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent 35%,rgba(255,255,255,.26) 50%,transparent 65%);
+  transform:translateX(-100%);
+  transition:transform .45s ease;
+  z-index:1;
+}
+.btn-pulse>span{position:relative;z-index:2}
+.btn-pulse:hover::after{transform:translateX(100%)}
+.btn-pulse:hover{box-shadow:0 0 70px rgba(245,197,66,.42);transform:scale(1.02);animation:none;filter:saturate(1.08)}
+.btn-pulse:active{transform:scale(.98)}
+@keyframes pulse-btn{
+  0%,100%{box-shadow:0 0 42px rgba(245,197,66,.25)}
+  50%{box-shadow:0 0 72px rgba(225,132,22,.32),0 0 42px rgba(245,197,66,.22)}
+}
+.sep{
+  width:100%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(245,197,66,.32),rgba(225,132,22,.25),transparent);
+  border:none;
+  margin:0
+}
+/* ?? HERO ?? */
+.hero{
+  position:relative;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+  align-items:center;
+  justify-content:center;
+  padding:44px 20px 38px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 16%,rgba(225,132,22,.22) 0%,rgba(160,90,15,.12) 28%,transparent 58%),
+    radial-gradient(circle at 12% 20%,rgba(245,197,66,.10) 0%,transparent 32%),
+    linear-gradient(180deg,#120E09 0%,#0E0B08 62%,#17110A 100%);
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.75),transparent 85%);
+  pointer-events:none;
+}
+.hero-glow{
+  position:absolute;
+  top:12%;
+  left:50%;
+  transform:translateX(-50%);
+  width:780px;
+  height:420px;
+  border-radius:50%;
+  pointer-events:none;
+  opacity:.75;
+  background:radial-gradient(rgba(225,132,22,.18) 0%,rgba(245,197,66,.05) 38%,transparent 72%);
+  filter:blur(10px);
+}
+.hero-kicker{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  color:var(--gold2);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(245,197,66,.08);
+  border:1px solid rgba(245,197,66,.28);
+}
+.hero h1{
+  position:relative;
+  font-weight:900;
+  color:#fff;
+  max-width:58rem;
+  font-size:clamp(2.15rem,8.5vw,4.85rem);
+  line-height:1.03;
+  margin-bottom:18px;
+  letter-spacing:-.055em;
+}
+.hero h1 span{
+  color:transparent;
+  background:linear-gradient(90deg,var(--gold),#fff0a8,var(--violet3));
+  -webkit-background-clip:text;
+  background-clip:text;
+}
+.hero-sub{
+  font-size:clamp(16px,2.5vw,19px);
+  max-width:34rem;
+  line-height:1.65;
+  margin-bottom:20px;
+  color:#D8CCBA;
+}
+.hero-sub strong{color:#fff}
+.hero-img-wrap{
+  position:relative;
+  width:100%;
+  max-width:clamp(300px,84vw,560px);
+  margin:0 auto 20px;
+}
+.hero-img-wrap::before{
+  content:'';
+  position:absolute;
+  inset:8% 3% -4%;
+  background:radial-gradient(circle,rgba(245,197,66,.20),rgba(225,132,22,.18),transparent 66%);
+  filter:blur(25px);
+  z-index:0;
+}
+.hero-img-wrap img{
+  position:relative;
+  z-index:1;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  border-radius:16px;
+  box-shadow:0 28px 90px rgba(0,0,0,.45);
+}
+.hero-pills{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+  color:#fff;
+}
+.hero-pills span:not(.div){
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.07);
+}
+.hero-pills .div{width:1px;height:12px;background:rgba(255,255,255,.12)}
+.hero .btn-pulse{
+  font-size:17px;
+  padding:17px 30px;
+  border-radius:15px;
+  width:100%;
+  max-width:470px;
+  margin-bottom:10px;
+}
+@media(min-width:640px){.hero .btn-pulse{width:auto}}
+.hero-social{color:#CEC2B0;font-size:13px;margin-bottom:10px;font-weight:600}
+.hero-social strong{color:#fff}
+.hero-trust{color:#A69884;font-size:13px;letter-spacing:.03em}
+/* Viendo ahora */
+.viendo-ahora{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(34,197,94,.08);
+  border:1px solid rgba(34,197,94,.22);
+  border-radius:8px;
+  padding:7px 14px;
+  margin-bottom:14px;
+}
+.viendo-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--green);
+  animation:blink 1.5s infinite;
+  flex-shrink:0
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.viendo-txt{color:#D8CCBA;font-size:13px;font-weight:700}
+.viendo-txt strong{color:#fff}
+/* ?? STATS ?? */
+.stats-sec{
+  width:100%;
+  padding:48px 20px;
+  background:linear-gradient(#0E0B08 0%,#211810 100%);
+  position:relative;
+  overflow:hidden;
+}
+.stats-glow{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:600px;height:230px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(rgba(225,132,22,.10) 0%,transparent 70%);
+}
+.stats-inner{position:relative;max-width:80rem;margin:0 auto}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:40px}
+@media(min-width:640px){.stats-grid{grid-template-columns:repeat(4,1fr)}}
+.stat-card{
+  text-align:center;
+  padding:16px 8px;
+  border-radius:14px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(225,132,22,.16);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+}
+.stat-num{font-size:clamp(28px,6vw,48px);font-weight:900;color:#fff;line-height:1;margin-bottom:6px}
+.stat-lbl{color:var(--gold);font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.cian-line{
+  width:90px;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(245,197,66,.55),rgba(225,132,22,.35),transparent);
+  margin:0 auto 40px
+}
+.mini-tests{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:640px){.mini-tests{grid-template-columns:repeat(3,1fr)}}
+.mini-test{
+  position:relative;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(225,132,22,.16);
+  border-radius:16px;
+  padding:20px;
+  transition:border-color .3s,transform .3s;
+}
+.mini-test:hover{border-color:rgba(245,197,66,.35);transform:translateY(-2px)}
+.mini-test-quote{position:absolute;top:12px;right:16px;color:rgba(245,197,66,.13);font-size:36px;font-family:serif;line-height:1;pointer-events:none}
+.mini-test-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.mini-av{
+  width:44px;height:44px;border-radius:50%;flex-shrink:0;overflow:hidden;
+  background:rgba(225,132,22,.15);border:1px solid rgba(245,197,66,.28);
+  display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:900;font-size:14px
+}
+.mini-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.mini-name{font-weight:800;font-size:15px;color:#fff;line-height:1.3}
+.mini-loc{color:#A69884;font-size:13px;margin-top:2px}
+.mini-txt{color:#D8CCBA;font-size:15px;line-height:1.65;margin-bottom:8px}
+.mini-stars{color:var(--gold);font-size:14px;letter-spacing:2px}
+/* ?? PROBLEMAS ?? */
+.prob-sec{width:100%;background:#0E0B08;padding:50px 20px}
+.prob-inner{max-width:42rem;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:32px}
+.sec-head h2{font-size:clamp(22px,4.8vw,34px);font-weight:900;color:#fff;line-height:1.22;letter-spacing:-.03em}
+.sec-head h2 span{color:var(--gold)}
+.prob-list{display:flex;flex-direction:column;gap:10px;margin-bottom:40px}
+.prob-item{
+  display:flex;align-items:flex-start;gap:14px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;
+  padding:16px 18px;
+  border-left:3px solid rgba(239,68,68,.55);
+  transition:background .3s,border-color .3s
+}
+.prob-item:hover{background:rgba(255,255,255,.055);border-color:rgba(225,132,22,.2)}
+.prob-x{
+  flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:rgba(239,68,68,.15);display:flex;align-items:center;justify-content:center;margin-top:1px
+}
+.prob-x svg{color:#EF4444}
+.prob-txt{color:#D8CCBA;font-size:16px;line-height:1.65}
+.prob-cta{text-align:center}
+.prob-cta p{color:var(--gold);font-size:clamp(18px,4vw,29px);font-weight:900;margin-bottom:32px;line-height:1.28}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(245,197,66,.55),rgba(225,132,22,.45),transparent);width:100%}
+/* ?? SOLUCION ?? */
+.solucion-sec{width:100%;background:#0E0B08;padding:52px 20px}
+.solucion-inner{max-width:52rem;margin:0 auto;text-align:center}
+.badge-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid rgba(245,197,66,.32);
+  color:var(--gold);
+  background:rgba(245,197,66,.07);
+  font-size:13px;font-weight:900;padding:8px 18px;
+  border-radius:9999px;margin-bottom:24px;letter-spacing:.04em
+}
+.solucion-inner h2{
+  font-size:clamp(32px,8vw,62px);
+  font-weight:900;
+  color:#fff;
+  margin-bottom:6px;
+  font-family:'Playfair Display',serif;
+  letter-spacing:.02em
+}
+.solucion-inner h3{font-size:clamp(18px,4vw,28px);font-weight:900;color:var(--gold);margin-bottom:24px;letter-spacing:.04em;text-transform:uppercase}
+.sol-info-box{
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(225,132,22,.18);
+  border-radius:16px;
+  padding:20px;
+  max-width:36rem;
+  margin:0 auto 20px
+}
+.sol-info-box p{color:#fff;font-size:17px;font-weight:800;line-height:1.4;margin-bottom:10px}
+.sol-tags{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+.sol-tag{color:#D8CCBA;font-size:13px;font-weight:700;background:rgba(255,255,255,.05);padding:5px 10px;border-radius:7px;border:1px solid rgba(255,255,255,.06)}
+.sol-highlight{color:var(--gold);font-weight:900;font-size:16px;letter-spacing:.04em;margin-bottom:24px}
+.sol-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:32rem;margin:0 auto 40px}
+.sol-stat p:first-child{color:var(--gold);font-size:clamp(22px,5vw,32px);font-weight:900;line-height:1;margin-bottom:4px}
+.sol-stat p:last-child{color:#A69884;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.sol-features{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;max-width:36rem;margin:0 auto}
+@media(min-width:640px){.sol-features{grid-template-columns:repeat(4,1fr)}}
+.sol-feat{background:rgba(225,132,22,.10);border:1px solid rgba(225,132,22,.25);color:#fff;font-size:14px;font-weight:800;padding:10px 12px;border-radius:8px;text-align:center}
+/* ?? VE POR DENTRO - bloque injertado (no esta en la plantilla 03) ??
+   Construido con el mismo lenguaje visual: mismos bordes, radios, dorado y glow. */
+.dentro-sec{position:relative;width:100%;padding:52px 20px;overflow:hidden;background:linear-gradient(#0E0B08 0%,#181109 100%)}
+.dentro-inner{position:relative;max-width:60rem;margin:0 auto}
+.dentro-kicker{color:var(--gold);font-size:13px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;text-align:center}
+.dentro-inner h2{font-size:clamp(24px,5.5vw,38px);font-weight:900;color:#fff;line-height:1.22;margin-bottom:12px;text-align:center;letter-spacing:-.03em}
+.dentro-inner h2 span{color:var(--gold)}
+.dentro-sub{color:#CEC2B0;font-size:16px;text-align:center;max-width:36rem;margin:0 auto 32px;line-height:1.65}
+.dentro-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:28px}
+@media(min-width:820px){.dentro-grid{grid-template-columns:repeat(3,1fr)}}
+.dentro-card{
+  position:relative;border-radius:14px;overflow:hidden;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(225,132,22,.18);
+  transition:border-color .3s,transform .3s
+}
+.dentro-card:hover{border-color:rgba(245,197,66,.42);transform:translateY(-3px)}
+.dentro-card-img{position:relative;width:100%;aspect-ratio:1055/1491;background:#150F09;overflow:hidden;line-height:0}
+.dentro-card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.dentro-tag{position:absolute;top:10px;left:10px;background:rgba(14,11,8,.86);border:1px solid rgba(245,197,66,.34);color:var(--gold);font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:5px}
+.dentro-card-body{padding:12px 14px}
+.dentro-card-body p{color:#F0E7D9;font-size:14px;font-weight:700;line-height:1.4}
+.dentro-card-body span{color:#A69884;font-size:12px;font-weight:700;display:block;margin-top:4px}
+.dentro-nota{
+  display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;text-align:center;
+  background:linear-gradient(135deg,rgba(245,197,66,.06),rgba(225,132,22,.06));
+  border:1px solid rgba(245,197,66,.26);border-radius:14px;padding:16px 20px
+}
+.dentro-nota p{color:#D8CCBA;font-size:15px;line-height:1.6}
+.dentro-nota strong{color:#fff}
+/* ?? WHAT YOU GET ?? */
+.recibis-sec{
+  position:relative;width:100%;padding:50px 20px;overflow:hidden;
+  background:linear-gradient(#211810 0%,#2A1E11 50%,#16100A 100%)
+}
+.recibis-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:650px;height:650px;border-radius:50%;pointer-events:none;background:radial-gradient(rgba(225,132,22,.07) 0%,transparent 70%)}
+.recibis-inner{position:relative;max-width:42rem;margin:0 auto}
+.recibis-kicker{color:var(--gold);font-size:13px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;text-align:center}
+.recibis-inner h2{font-size:clamp(28px,6vw,46px);font-weight:900;color:#fff;line-height:1.12;text-align:center;margin-bottom:40px;letter-spacing:-.03em}
+.recibis-inner h2 span{color:var(--gold)}
+.tomos-box{background:rgba(14,11,8,.72);border:1px solid rgba(225,132,22,.22);border-radius:18px;padding:20px 22px;margin-bottom:14px;overflow:hidden}
+.tomos-box-title{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:20px}
+.tomos-box-title::before,.tomos-box-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(245,197,66,.25))}
+.tomos-box-title::after{background:linear-gradient(270deg,transparent,rgba(245,197,66,.25))}
+.tomos-box-title h3{color:var(--gold);font-size:16px;font-weight:900;letter-spacing:.05em;white-space:nowrap}
+.tomos-detail{display:flex;flex-direction:column;gap:6px}
+.tomo-row{display:flex;align-items:flex-start;gap:12px;border-radius:12px;padding:14px 16px;background:rgba(255,255,255,.025);border-left:3px solid;transition:background .3s}
+.tomo-row:hover{background:rgba(255,255,255,.05)}
+.tomo-num-badge{flex-shrink:0;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:inherit;margin-top:2px}
+.tomo-row-content p:first-child{color:#fff;font-size:17px;font-weight:800;line-height:1.3}
+.tomo-row-content p:last-child{color:#CEC2B0;font-size:15px;line-height:1.65;margin-top:5px}
+.tomos-metrics{display:flex;align-items:center;justify-content:center;gap:20px;padding:16px;text-align:center;flex-wrap:wrap}
+.tomos-metrics .div-v{width:1px;height:24px;background:rgba(255,255,255,.10)}
+.metric p:first-child{color:var(--gold);font-size:22px;font-weight:900;line-height:1}
+.metric p:last-child{color:#A69884;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-top:3px}
+/* ?? BONUSES ?? */
+.bonuses-sec{width:100%;background:#0E0B08;padding:50px 20px}
+.bonuses-inner{max-width:42rem;margin:0 auto}
+.bonuses-kicker{color:var(--gold);font-size:13px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;text-align:center}
+.bonuses-inner h2{font-size:clamp(24px,5.5vw,38px);font-weight:900;color:#fff;line-height:1.22;margin-bottom:24px;text-align:center;letter-spacing:-.03em}
+.bonuses-inner h2 span{color:var(--gold)}
+.bonuses-box{background:rgba(255,255,255,.025);border:1px solid rgba(225,132,22,.18);border-radius:18px;overflow:hidden;margin-bottom:20px}
+.bonuses-box-top{height:2px;width:100%;background:linear-gradient(90deg,transparent,rgba(245,197,66,.5),rgba(225,132,22,.4),transparent)}
+.bono-row{display:flex;flex-direction:column;border-bottom:1px solid rgba(255,255,255,.055);transition:background .2s}
+.bono-row:last-child{border-bottom:none}
+.bono-row:hover{background:rgba(255,255,255,.035)}
+.bono-row-img{width:100%;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.05);line-height:0;background:#150F09}
+.bono-row-img img{width:100%;height:auto;object-fit:contain;display:block}
+.bono-row-body{flex:1;padding:16px 18px;display:flex;align-items:flex-start;gap:12px}
+.bono-row-icon{flex-shrink:0;width:38px;height:38px;border-radius:10px;background:rgba(225,132,22,.12);display:flex;align-items:center;justify-content:center;font-size:18px;border:1px solid rgba(225,132,22,.18)}
+.bono-row-texts{flex:1;min-width:0}
+.bono-row-name{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.bono-row-name h3{color:#fff;font-size:16px;font-weight:800;line-height:1.25}
+.bono-qty{color:var(--gold);font-size:12px;font-weight:900;background:rgba(245,197,66,.10);padding:2px 8px;border-radius:4px}
+.bono-precio-wrap{display:flex;align-items:center;gap:8px;margin-top:6px}
+.bono-precio-tach{font-size:14px;color:#B0A18B;text-decoration:line-through;font-weight:600}
+.bono-precio-gratis{font-size:15px;font-weight:900;color:var(--green)}
+.bonuses-total{display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 20px;border:1px solid rgba(245,197,66,.26);border-radius:14px;text-align:center;flex-wrap:wrap;background:linear-gradient(135deg,rgba(245,197,66,.06) 0%,rgba(225,132,22,.06) 100%)}
+.bonuses-total p{color:#CEC2B0;font-size:15px}
+.bonuses-total p span{text-decoration:line-through}
+.bonuses-total .gratis-big{color:var(--gold);font-size:17px;font-weight:900}
+.bonuses-total .hint{color:#A69884;font-size:13px}
+/* ?? URGENCY ?? */
+.urgencia-banner{width:100%;padding:16px 20px;background:linear-gradient(135deg,#0E0B08,#241A0F);border-top:1px solid rgba(245,197,66,.18);border-bottom:1px solid rgba(225,132,22,.18);text-align:center}
+.urgencia-inner{max-width:32rem;margin:0 auto}
+.urgencia-label{color:var(--gold);font-size:12px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px}
+.countdown-wrap{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:12px}
+.countdown-block{display:flex;flex-direction:column;align-items:center;background:rgba(0,0,0,.45);border:1px solid rgba(245,197,66,.22);border-radius:7px;padding:8px 14px;min-width:56px}
+.countdown-num{font-size:clamp(28px,6vw,40px);font-weight:900;color:var(--gold);line-height:1;font-variant-numeric:tabular-nums;font-family:'Inter',monospace}
+.countdown-lbl{color:#A69884;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
+.countdown-sep{font-size:28px;font-weight:900;color:var(--gold);margin-bottom:14px}
+.urgencia-aviso{display:inline-flex;align-items:center;gap:8px;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.22);border-radius:7px;padding:8px 16px}
+.urgencia-aviso span{font-size:13px;font-weight:800;color:#FCA5A5}
+.urgencia-aviso strong{color:#fff}
+/* ?? PURCHASE BOX ?? */
+.compra-sec{position:relative;width:100%;padding:52px 20px;overflow:hidden;background:#0E0B08}
+.compra-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:560px;height:430px;border-radius:50%;pointer-events:none;background:radial-gradient(rgba(225,132,22,.10) 0%,transparent 70%)}
+.compra-inner{position:relative;max-width:34rem;margin:0 auto;text-align:center}
+.compra-inner h2{font-size:clamp(22px,5vw,34px);font-weight:900;color:#fff;margin-bottom:24px;line-height:1.25;letter-spacing:-.03em}
+.compra-inner h2 span{color:var(--gold)}
+.price-card{background:linear-gradient(160deg,rgba(33,24,16,.72),rgba(14,11,8,.96));border:2px solid rgba(245,197,66,.75);border-radius:18px;padding:24px 20px;margin-bottom:20px;box-shadow:0 0 48px rgba(225,132,22,.15),0 0 34px rgba(245,197,66,.08);position:relative}
+.price-card-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--gold),#FFE08A);color:#120300;font-size:12px;font-weight:900;padding:5px 16px;border-radius:9999px;box-shadow:0 4px 12px rgba(245,197,66,.28);white-space:nowrap;letter-spacing:.04em}
+.price-card-img{width:100%;max-width:280px;margin:14px auto;border-radius:12px;overflow:hidden}
+.price-card-img img{width:100%;height:auto;display:block}
+.price-card h3{font-size:clamp(18px,4vw,25px);font-weight:900;color:#fff;margin-bottom:8px}
+.price-card .price-sub{color:#CEC2B0;font-size:15px;margin-bottom:20px}
+.price-old{color:#B0A18B;text-decoration:line-through;font-size:15px;margin-bottom:4px}
+.price-big{font-size:clamp(38px,10vw,58px);font-weight:900;color:var(--gold);line-height:1;margin-bottom:6px}
+.price-ahorro{display:inline-block;background:rgba(239,68,68,.2);color:#FCA5A5;font-size:13px;font-weight:900;padding:4px 12px;border-radius:7px;margin-bottom:20px}
+.inc-lista{list-style:none;text-align:left;margin-bottom:20px;display:flex;flex-direction:column;gap:10px}
+.inc-lista li{font-size:16px;color:#F0E7D9;display:flex;align-items:center;gap:10px}
+.ck{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--green),#009960);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#fff;flex-shrink:0}
+.price-card .btn-pulse{font-size:18px;padding:18px 24px;border-radius:14px;width:100%;margin-bottom:12px}
+.trust-pills{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 16px}
+.trust-pill{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:8px 12px}
+.trust-pill span:first-child{font-size:15px}
+.trust-pill span:last-child{color:#F0E7D9;font-size:13px;font-weight:600}
+/* Barra cupos */
+.cupos-wrap{background:rgba(255,255,255,.025);border:1px solid rgba(245,197,66,.13);border-radius:9px;padding:14px 18px;margin-bottom:20px}
+.cupos-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:10px}
+.cupos-dot{display:inline-flex;align-items:center;gap:6px;color:#FCA5A5;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
+.cupos-dot::before{content:'';width:8px;height:8px;border-radius:50%;background:#EF4444;animation:blink 1.2s infinite}
+.cupos-badge{background:rgba(239,68,68,.15);color:#FCA5A5;font-size:12px;font-weight:900;padding:2px 10px;border-radius:4px;text-transform:uppercase;letter-spacing:.04em}
+.cupos-bar-bg{width:100%;height:12px;background:rgba(255,255,255,.06);border-radius:9999px;overflow:hidden}
+.cupos-bar-fill{height:100%;border-radius:9999px;position:relative;background:linear-gradient(90deg,#EF4444,#F97316,#F5C542);width:73%;animation:fill-anim .8s ease-out forwards}
+@keyframes fill-anim{from{width:0}to{width:73%}}
+.cupos-bar-fill::after{content:'';position:absolute;inset:0;border-radius:9999px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);animation:shimmer 2s ease infinite}
+@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.cupos-footer{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.cupos-footer span{color:#A69884;font-size:12px;font-weight:700}
+.cupos-footer strong{color:#FCA5A5;font-size:12px;font-weight:900}
+/* ?? TESTIMONIALS ?? */
+.tests-sec{width:100%;background:#211810;padding:52px 20px}
+.tests-inner{max-width:42rem;margin:0 auto}
+.tests-inner h2{font-size:clamp(24px,5vw,36px);font-weight:900;color:#fff;line-height:1.25;margin-bottom:8px;text-align:center;letter-spacing:-.03em}
+.tests-inner h2 span{color:var(--gold)}
+.tests-sub{color:#CEC2B0;font-size:16px;text-align:center;margin-bottom:28px}
+.tests-grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:640px){.tests-grid{grid-template-columns:repeat(2,1fr)}}
+.test-card{position:relative;background:rgba(14,11,8,.82);border:1px solid rgba(225,132,22,.16);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px;transition:border-color .3s}
+.test-card:hover{border-color:rgba(245,197,66,.35)}
+.test-card-shine{position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(245,197,66,.32),transparent);opacity:0;transition:opacity .3s}
+.test-card:hover .test-card-shine{opacity:1}
+.test-head{display:flex;align-items:center;gap:12px}
+.test-av-wrap{
+  width:48px;height:48px;border-radius:50%;overflow:hidden;border:2px solid rgba(245,197,66,.25);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(225,132,22,.15);color:var(--gold);font-weight:900;font-size:15px
+}
+.test-av-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.test-name{font-weight:800;font-size:16px;color:#fff;line-height:1.25}
+.test-stars{color:var(--gold);font-size:14px;letter-spacing:1px;margin-top:2px}
+.test-loc{color:#A69884;font-size:13px;margin-top:2px}
+.test-quote{color:#D8CCBA;font-size:15px;line-height:1.7;font-style:italic;position:relative}
+.test-quote::before{content:'"';position:absolute;top:-4px;left:-4px;color:rgba(245,197,66,.25);font-size:22px;font-family:serif;line-height:1;z-index:-1}
+.test-chip{display:inline-block;background:rgba(245,197,66,.08);border:1px solid rgba(245,197,66,.16);color:var(--gold);font-size:12px;font-weight:800;padding:4px 12px;border-radius:20px}
+/* ?? GUARANTEE ?? */
+.garantia-sec{width:100%;background:#0E0B08;padding:52px 20px}
+.garantia-inner{max-width:42rem;margin:0 auto;text-align:center}
+.garantia-ico{width:64px;height:64px;margin:0 auto 16px;background:rgba(245,197,66,.09);border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(245,197,66,.25);box-shadow:0 0 30px rgba(245,197,66,.12);font-size:30px}
+.garantia-inner h2{font-size:clamp(22px,5vw,34px);font-weight:900;color:#fff;margin-bottom:16px;line-height:1.25;letter-spacing:-.03em}
+.garantia-inner h2 span{color:var(--gold)}
+.garantia-box{background:rgba(255,255,255,.025);border:1px solid rgba(245,197,66,.30);border-radius:18px;padding:24px 20px;margin-bottom:16px;position:relative;overflow:hidden}
+.garantia-box-top{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(245,197,66,.55),transparent)}
+.garantia-box p{color:#D8CCBA;font-size:16px;margin-bottom:16px;line-height:1.65}
+.garantia-100{color:var(--gold);font-size:clamp(24px,5vw,34px);font-weight:900;margin-bottom:10px}
+.garantia-sin{color:#fff;font-size:15px;font-weight:800;background:rgba(255,255,255,.05);display:inline-block;padding:6px 16px;border-radius:8px}
+.garantia-nota{color:#A69884;font-size:14px;line-height:1.65;max-width:28rem;margin:0 auto}
+/* ?? FAQ ?? */
+.faq-sec{width:100%;background:#211810;padding:52px 20px}
+.faq-inner{max-width:42rem;margin:0 auto}
+.faq-kicker{color:var(--gold);font-size:13px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;text-align:center}
+.faq-inner h2{font-size:clamp(28px,6vw,46px);font-weight:900;color:#fff;margin-bottom:32px;line-height:1.15;text-align:center;letter-spacing:-.03em}
+.faq-inner h2 span{color:var(--gold)}
+.faq-list{display:flex;flex-direction:column;gap:10px}
+.faq-item{border-radius:14px;overflow:hidden;border-left:3px solid rgba(255,255,255,.07);background:rgba(255,255,255,.035);transition:all .3s}
+.faq-item:hover{background:rgba(255,255,255,.055);border-color:rgba(245,197,66,.25)}
+.faq-item.open{border-color:rgba(245,197,66,.5)}
+.faq-btn{width:100%;text-align:left;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;background:none;border:none;cursor:pointer;font-size:16px;font-weight:800;color:#F0E7D9;line-height:1.5;transition:color .2s;font-family:'Inter',sans-serif}
+.faq-btn:hover{color:#fff}
+.faq-icon{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:rgba(245,197,66,.12);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:22px;line-height:1;transition:transform .2s,background .2s}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:rgba(245,197,66,.22)}
+.faq-resp{display:none;padding:0 20px 18px;font-size:15px;color:#CEC2B0;line-height:1.7;border-top:1px solid rgba(255,255,255,.055);padding-top:14px}
+.faq-item.open .faq-resp{display:block}
+/* ?? FINAL CTA ?? */
+.cta-final-sec{width:100%;background:#2A1E11;padding:52px 20px;text-align:center}
+.cta-final-inner{position:relative;z-index:10;max-width:42rem;margin:0 auto}
+.cta-final-kicker{color:var(--gold);font-size:13px;font-weight:900;letter-spacing:.25em;text-transform:uppercase;margin-bottom:20px}
+.cta-final-inner h2{font-size:clamp(19px,4vw,29px);font-weight:800;color:#fff;margin-bottom:10px;line-height:1.38}
+.cta-final-inner p.gold{color:var(--gold);font-size:clamp(21px,5vw,34px);font-weight:900;margin-bottom:32px;line-height:1.28}
+.before-after{background:rgba(255,255,255,.025);border:1px solid rgba(245,197,66,.22);border-radius:16px;overflow:hidden;margin-bottom:36px;box-shadow:0 20px 48px rgba(0,0,0,.5);text-align:left}
+.ba-head{display:grid;grid-template-columns:1fr 1fr;background:rgba(14,11,8,.7);border-bottom:1px solid rgba(245,197,66,.25)}
+.ba-col-head{padding:12px 16px;font-weight:900;font-size:13px;color:#fff}
+.ba-col-head:last-child{border-left:1px solid rgba(245,197,66,.22);color:var(--gold)}
+.ba-rows{display:flex;flex-direction:column}
+.ba-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(255,255,255,.055)}
+.ba-row:last-child{border-bottom:none}
+.ba-cell{padding:12px 16px;font-size:14px;line-height:1.5}
+@media(min-width:640px){.ba-cell{font-size:16px}}
+.ba-cell:first-child{color:#CEC2B0}
+.ba-cell:last-child{border-left:1px solid rgba(255,255,255,.055);background:rgba(245,197,66,.035);color:#fff;font-weight:800}
+.cta-final-inner .btn-pulse{font-size:18px;padding:18px 24px;border-radius:14px;width:100%;max-width:470px;margin-bottom:10px}
+.cta-micro{color:#CEC2B0;font-size:14px;margin-bottom:12px}
+.cta-micro span{font-weight:800;color:#fff}
+.trust-final{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px}
+.trust-f-item{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:8px 12px}
+.trust-f-item span:first-child{font-size:15px}
+.trust-f-item span:last-child{color:#D8CCBA;font-size:13px;font-weight:600}
+/* ?? FOOTER ?? */
+footer{width:100%;background:#070503;border-top:1px solid rgba(245,197,66,.12);padding:40px 20px}
+.footer-inner{max-width:42rem;margin:0 auto;text-align:center}
+.footer-brand{color:var(--gold);font-size:22px;font-weight:900;letter-spacing:.2em;margin-bottom:12px}
+.footer-desc{color:#CEC2B0;font-size:15px;line-height:1.65;margin-bottom:8px}
+.footer-tagline{color:#A69884;font-size:15px;font-style:italic;margin-bottom:28px}
+.footer-div{height:1px;background:linear-gradient(90deg,transparent,rgba(245,197,66,.18),transparent);margin-bottom:16px}
+.footer-copy{color:#948674;font-size:13px;line-height:1.6}
+/* ?? POPUP ?? */
+.notif{position:fixed;bottom:16px;left:12px;z-index:50;background:#1A130C;border:1px solid rgba(245,197,66,.35);border-radius:14px;box-shadow:0 20px 48px rgba(0,0,0,.6);padding:14px 16px;max-width:315px;transform:translateX(-120%);opacity:0;visibility:hidden;transition:all .5s cubic-bezier(.68,-.55,.265,1.55)}
+.notif.show{transform:translateX(0);opacity:1;visibility:visible}
+.notif-top{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.notif-dot{width:8px;height:8px;background:var(--green);border-radius:50%;animation:blink 1.5s infinite}
+.notif-label{color:var(--gold);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
+.notif-body{display:flex;align-items:center;gap:10px}
+.notif-foto{
+  width:44px;height:44px;border-radius:50%;overflow:hidden;border:2px solid rgba(245,197,66,.28);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(225,132,22,.15);color:var(--gold);font-weight:900;font-size:14px
+}
+.notif-foto img{width:100%;height:100%;object-fit:cover;display:block}
+.notif-name{color:#fff;font-size:14px;font-weight:800;margin-bottom:3px}
+.notif-prod{color:#D8CCBA;font-size:13px}
+.notif-prod strong{color:var(--gold)}
+.notif-time{color:#A69884;font-size:12px;margin-top:3px}
+@media(max-width:500px){
+  .price-card{padding:20px 16px}
+  .inc-lista li{font-size:15px}
+  .tomos-box{padding:16px}
+  .tomo-row{padding:12px}
+  .cupos-head{align-items:flex-start;flex-direction:column}
+}
+
+
+/* ?? INTERACTIVE APP DEMO VIDEO ?? */
+.app-demo-frame{
+  position:relative;
+  width:100%;
+  max-width:760px;
+  aspect-ratio:16/9;
+  margin:0 auto 24px;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(245,197,66,.28);
+  background:
+    radial-gradient(circle at 50% 48%,rgba(245,197,66,.09),transparent 42%),
+    linear-gradient(135deg,#090705 0%,#171109 48%,#090705 100%);
+  box-shadow:0 26px 80px rgba(0,0,0,.52),0 0 0 1px rgba(255,255,255,.02) inset;
+}
+.app-demo-frame::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(245,197,66,.035),transparent 22%,transparent 78%,rgba(245,197,66,.035)),
+    radial-gradient(circle at 16% 50%,rgba(225,132,22,.10),transparent 28%),
+    radial-gradient(circle at 84% 50%,rgba(225,132,22,.10),transparent 28%);
+}
+.app-demo-side{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:25%;
+  color:#A69884;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  line-height:1.7;
+  text-align:center;
+  pointer-events:none;
+  z-index:1;
+}
+.app-demo-side--left{left:3%}
+.app-demo-side--right{right:3%}
+.app-demo-side strong{
+  display:block;
+  color:var(--gold);
+  font-size:12px;
+  letter-spacing:.12em;
+  margin-bottom:5px;
+}
+.app-demo-phone{
+  position:absolute;
+  top:3.5%;
+  bottom:3.5%;
+  left:50%;
+  transform:translateX(-50%);
+  aspect-ratio:9/16;
+  border-radius:15px;
+  overflow:hidden;
+  background:#000;
+  border:1px solid rgba(245,197,66,.28);
+  box-shadow:0 18px 55px rgba(0,0,0,.58),0 0 28px rgba(225,132,22,.10);
+  z-index:2;
+}
+.app-demo-phone video{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  background:#000;
+  pointer-events:none;
+}
+.app-demo-badge{
+  position:absolute;
+  left:50%;
+  bottom:10px;
+  transform:translateX(-50%);
+  z-index:3;
+  padding:5px 10px;
+  border-radius:999px;
+  background:rgba(14,11,8,.82);
+  border:1px solid rgba(245,197,66,.20);
+  color:#D8CCBA;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  pointer-events:none;
+  backdrop-filter:blur(6px);
+}
+@media(max-width:640px){
+  .app-demo-frame{
+    max-width:390px;
+    aspect-ratio:9/16;
+    border-radius:18px;
+  }
+  .app-demo-phone{
+    inset:0;
+    width:100%;
+    height:100%;
+    aspect-ratio:auto;
+    transform:none;
+    border:0;
+    border-radius:0;
+  }
+  .app-demo-side,
+  .app-demo-badge{display:none}
+}
+
+
+/* ?? HOW TO USE IT - IMAGE CAROUSEL ?? */
+.uso-sec{
+  position:relative;
+  width:100%;
+  background:#0E0B08;
+  padding:52px 20px;
+  overflow:hidden;
+}
+.uso-inner{
+  position:relative;
+  max-width:62rem;
+  margin:0 auto;
+}
+.uso-kicker{
+  color:var(--gold);
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+  text-align:center;
+}
+.uso-inner h2{
+  font-size:clamp(22px,4.8vw,34px);
+  font-weight:900;
+  color:#fff;
+  line-height:1.25;
+  margin-bottom:12px;
+  text-align:center;
+  letter-spacing:-.03em;
+}
+.uso-inner h2 span{color:var(--gold)}
+.uso-sub{
+  color:#CEC2B0;
+  font-size:16px;
+  text-align:center;
+  max-width:36rem;
+  margin:0 auto 28px;
+  line-height:1.65;
+}
+.uso-carousel{position:relative}
+.uso-track{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+  padding:2px 0;
+  scroll-behavior:smooth;
+}
+.uso-track::-webkit-scrollbar{display:none}
+.uso-slide{
+  flex:0 0 84%;
+  scroll-snap-align:center;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(225,132,22,.18);
+  background:#150F09;
+  line-height:0;
+  transition:border-color .3s,transform .3s;
+}
+.uso-slide:hover{
+  border-color:rgba(245,197,66,.42);
+  transform:translateY(-2px);
+}
+.uso-slide img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  display:block;
+}
+@media(min-width:640px){.uso-slide{flex-basis:46%}}
+@media(min-width:1000px){.uso-slide{flex-basis:31.6%}}
+
+.uso-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:44px;
+  height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  border:1px solid rgba(245,197,66,.34);
+  background:rgba(14,11,8,.82);
+  -webkit-backdrop-filter:blur(6px);
+  backdrop-filter:blur(6px);
+  color:var(--gold);
+  cursor:pointer;
+  z-index:3;
+  transition:background .25s,border-color .25s,transform .25s;
+  -webkit-tap-highlight-color:transparent;
+}
+.uso-btn:hover{
+  background:rgba(245,197,66,.18);
+  border-color:rgba(245,197,66,.6);
+}
+.uso-btn:active{transform:translateY(-50%) scale(.94)}
+.uso-btn svg{width:17px;height:17px}
+.uso-btn--prev{left:6px}
+.uso-btn--next{right:6px}
+@media(min-width:1000px){
+  .uso-btn--prev{left:-8px}
+  .uso-btn--next{right:-8px}
+}
+.uso-dots{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  margin-top:18px;
+}
+.uso-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:rgba(255,255,255,.18);
+  border:none;
+  padding:0;
+  cursor:pointer;
+  transition:background .3s,width .3s;
+}
+.uso-dot.is-active{
+  background:var(--gold);
+  width:20px;
+  border-radius:999px;
+}
+
+</style>
+<style>
+/* ??? Multi-currency: the price token can render a much longer value than
+   "$14.99". The font size is capped so it never overflows the card on mobile. ??? */
+.price-big{font-size:clamp(30px,8.4vw,52px)}
+.price-old,.price-ahorro{overflow-wrap:anywhere}
+</style>
+
+
+<!-- ?????????? 1. HERO ?????????? -->
+
+<style id="bw3d-polish">
+html{scroll-behavior:smooth}html,body{max-width:100%;overflow-x:clip}
+.btn-pulse,.uso-btn,.faq-btn{touch-action:manipulation}
+.btn-pulse:focus-visible,.uso-btn:focus-visible,.faq-btn:focus-visible{outline:3px solid #FFD86B;outline-offset:3px}
+.dentro-grid>*,.stats-grid>*,.sol-stats>*,.tests-grid>*,.ba-row>*{min-width:0}
+[data-reveal]{transition:opacity .6s cubic-bezier(.2,.7,.3,1),transform .6s cubic-bezier(.2,.7,.3,1)}
+.bw3d-motion [data-reveal]:not(.is-visible){opacity:.2;transform:translateY(11px)}
+@media(max-width:480px){
+.hero,.dentro-sec,.solucion-sec,.recibis-sec,.bonuses-sec,.compra-sec,.tests-sec,.uso-sec,.cta-final-sec,.faq-sec,.prob-sec,.stats-sec{padding-left:10px;padding-right:10px}
+.hero h1{font-size:clamp(29px,8.7vw,43px);line-height:1.11;letter-spacing:-.04em}
+.hero-sub{font-size:15px;line-height:1.55}
+.hero-pills{gap:4px;font-size:10px}.hero-pills span:not(.div){padding:5px 7px}
+.hero .btn-pulse,.price-card .btn-pulse,.cta-final-inner .btn-pulse{font-size:clamp(12px,3.7vw,16px);padding:15px 9px;overflow-wrap:anywhere}
+.dentro-grid{gap:8px}.dentro-card-body{padding:10px}
+.dentro-card-body p{font-size:12px}.dentro-card-body span{font-size:11px}
+.sol-stats{gap:6px}.sol-stat p:last-child{font-size:11px}
+.tomo-row{gap:8px;padding:11px}.tomo-row-content p:first-child{font-size:15px}.tomo-row-content p:last-child{font-size:13px}
+.ba-cell{padding:10px 8px;font-size:12px;overflow-wrap:anywhere}
+.price-card{padding:20px 12px}.faq-btn{padding:16px 12px;font-size:15px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}[data-reveal]{transition:none!important;transform:none!important;opacity:1!important}}
+</style></head><body><section class="hero">
+<div class="hero-glow"></div>
+<p class="hero-kicker">📖 BIBLICAL WORLD 3D™ — SISTEMA VISUAL COMPLETO</p>
+<h1>Nunca volverás a leer la Biblia<br/><span>de la misma manera.</span></h1>
+<p class="hero-sub">
+    Nueve guías ilustradas revelan <strong>dónde</strong> ocurrió cada historia, <strong>cuándo</strong> sucedió,
+    <strong>quién</strong> estuvo allí y <strong>cómo</strong> vivía la gente.<br/>
+    Todo el contexto en un solo lugar, sin tener que buscar entre libros, videos y mapas desconectados.<br/>
+<strong>Para que puedas comprenderla con mayor claridad y mostrársela a otros.</strong>
+</p>
+<div class="hero-img-wrap">
+<img alt="Biblical World 3D — sistema visual completo con mapa interactivo y volúmenes adicionales" fetchpriority="high" height="860" loading="eager" src="images/1788384792380_2480b7cc-cb81-4bda-80ae-87ccb8065074.webp" width="860"/>
+</div>
+<div class="viendo-ahora" id="viendo-wrap">
+<div class="viendo-dot"></div>
+<p class="viendo-txt"><strong id="viendo-num">39</strong> personas están viendo esto ahora mismo</p>
+</div>
+<div class="hero-pills">
+<span>📖 Más de 300 páginas</span><span class="div"></span>
+<span>🗺️ Más de 100 mapas</span><span class="div"></span>
+<span>🏛️ Reconstrucciones 3D</span><span class="div"></span>
+<span>📲 2 aplicaciones web</span><span class="div"></span>
+<span>🎁 6 bonos</span>
+</div>
+<a class="btn-pulse" href="#comprar"><span>📖 QUIERO VER LOS ESCENARIOS BÍBLICOS EN 3D →</span></a>
+<p class="hero-social" style="margin-top:.75rem">⭐ Pago único ·  <strong>acceso de por vida</strong></p>
+<p class="hero-trust">🛡️ Garantía de 15 días · 🔒 Pago seguro · 📧 Acceso inmediato</p>
+</section>
+<hr class="sep"/>
+<!-- ?????????? 2. STATS ?????????? -->
+<section class="stats-sec">
+<div class="stats-glow"></div>
+<div class="stats-inner">
+<div class="stats-grid">
+<div class="stat-card"><div class="stat-num">300+</div><div class="stat-lbl">📖 páginas visuales</div></div>
+<div class="stat-card"><div class="stat-num">100+</div><div class="stat-lbl">🗺️ mapas y escenarios</div></div>
+<div class="stat-card"><div class="stat-num">9</div><div class="stat-lbl">📚 secciones bíblicas</div></div>
+<div class="stat-card"><div class="stat-num">2</div><div class="stat-lbl">📲 aplicaciones web</div></div>
+</div>
+</div>
+</section>
+<hr class="sep"/>
+<!-- ?????????? 3. VE POR DENTRO (bloque injertado) ?????????? -->
+<section class="dentro-sec">
+<div class="dentro-inner">
+<p class="dentro-kicker">VISTA PREVIA DEL CONTENIDO</p>
+<h2>Mira <span>por dentro</span> Biblical World 3D™</h2>
+<p class="dentro-sub">
+      Estas no son maquetas publicitarias: son páginas reales del material. Así es exactamente como se ven los mapas, las reconstrucciones y las explicaciones por dentro.
+    </p>
+<div class="dentro-grid">
+<div class="dentro-card">
+<div class="dentro-card-img">
+<span class="dentro-tag">Pág. 11</span>
+<img alt="La ruta de David — página real de Biblical World 3D" height="1556" loading="lazy" src="images/muestra-elah.webp" width="1100"/>
+</div>
+<div class="dentro-card-body"><p>La ruta de David</p><span>El valle de Ela · Parte 5</span></div>
+</div>
+<div class="dentro-card">
+<div class="dentro-card-img">
+<span class="dentro-tag">Pág. 23</span>
+<img alt="Capernaúm — página real de Biblical World 3D" height="1556" loading="lazy" src="images/muestra-capernaum.webp" width="1100"/>
+</div>
+<div class="dentro-card-body"><p>Capernaúm</p><span>Reconstrucción 3D · Parte 7</span></div>
+</div>
+<div class="dentro-card">
+<div class="dentro-card-img">
+<span class="dentro-tag">Pág. 17</span>
+<img alt="A través del mar — página real de Biblical World 3D" height="1556" loading="lazy" src="images/muestra-exodus.webp" width="1100"/>
+</div>
+<div class="dentro-card-body"><p>A través del mar</p><span>El Éxodo · Parte 3</span></div>
+</div>
+<div class="dentro-card">
+<div class="dentro-card-img">
+<span class="dentro-tag">Pág. 3</span>
+<img alt="Dentro del Tabernáculo — página real de Biblical World 3D" height="1650" loading="lazy" src="images/muestra-tabernaculo.webp" width="1100"/>
+</div>
+<div class="dentro-card-body"><p>Dentro del Tabernáculo</p><span>Vista en corte 3D · Bono 4</span></div>
+</div>
+<div class="dentro-card">
+<div class="dentro-card-img">
+<span class="dentro-tag">Pág. 16</span>
+<img alt="Las doce tribus — página real de Biblical World 3D" height="1556" loading="lazy" src="images/muestra-tribus.webp" width="1100"/>
+</div>
+<div class="dentro-card-body"><p>Las doce tribus</p><span>Cartografía · Parte 4</span></div>
+</div>
+<div class="dentro-card">
+<div class="dentro-card-img">
+<span class="dentro-tag">Pág. 2</span>
+<img alt="Los viajes de Pablo — página real de Biblical World 3D" height="1556" loading="lazy" src="images/muestra-pablo.webp" width="1100"/>
+</div>
+<div class="dentro-card-body"><p>Los viajes de Pablo</p><span>De Antioquía a Roma · Parte 9</span></div>
+</div>
+</div>
+<div class="dentro-nota">
+<p>Estas son 6 páginas reales, tal como aparecen en los PDF. El sistema completo incluye
+      <strong>más de 100 mapas y escenarios</strong> organizados en 9 partes, desde los primeros acontecimientos bíblicos hasta los viajes apostólicos.</p>
+</div>
+</div>
+</section>
+<hr class="sep"/>
+<!-- ?????????? 4. PROBLEMAS ?????????? -->
+<section class="prob-sec">
+<div class="prob-inner">
+<div class="sec-head">
+<h2>Conoces la historia.<br/><span>Pero ¿puedes imaginar dónde ocurrió?</span></h2>
+</div>
+<div class="prob-list">
+<div class="prob-item">
+<span class="prob-x"><svg fill="none" height="12" viewbox="0 0 12 12" width="12"><path d="M9 3L3 9M3 3L9 9" stroke="#EF4444" stroke-linecap="round" stroke-width="2"></path></svg></span>
+<p class="prob-txt">Lees que subieron de Jericó a Jerusalén, pero no sabes si fue una caminata corta o un viaje largo.</p>
+</div>
+<div class="prob-item">
+<span class="prob-x"><svg fill="none" height="12" viewbox="0 0 12 12" width="12"><path d="M9 3L3 9M3 3L9 9" stroke="#EF4444" stroke-linecap="round" stroke-width="2"></path></svg></span>
+<p class="prob-txt">Samaria, Galilea y Judea aparecen en la misma página, pero puede ser difícil visualizar dónde estaba cada región en relación con las demás.</p>
+</div>
+<div class="prob-item">
+<span class="prob-x"><svg fill="none" height="12" viewbox="0 0 12 12" width="12"><path d="M9 3L3 9M3 3L9 9" stroke="#EF4444" stroke-linecap="round" stroke-width="2"></path></svg></span>
+<p class="prob-txt">Conoces la historia de David y Goliat, pero quizá nunca imaginaste el valle donde realmente ocurrió.</p>
+</div>
+<div class="prob-item">
+<span class="prob-x"><svg fill="none" height="12" viewbox="0 0 12 12" width="12"><path d="M9 3L3 9M3 3L9 9" stroke="#EF4444" stroke-linecap="round" stroke-width="2"></path></svg></span>
+<p class="prob-txt">Lees sobre el Tabernáculo y el Templo, pero todavía te cuesta imaginar cómo eran por dentro.</p>
+</div>
+<div class="prob-item">
+<span class="prob-x"><svg fill="none" height="12" viewbox="0 0 12 12" width="12"><path d="M9 3L3 9M3 3L9 9" stroke="#EF4444" stroke-linecap="round" stroke-width="2"></path></svg></span>
+<p class="prob-txt">Filisteos, asirios, babilonios, persas: aparecen a lo largo de las Escrituras, pero puede ser difícil recordar quiénes eran y cómo encajaban en la historia.</p>
+</div>
+</div>
+<div class="prob-cta">
+<p>No es falta de fe ni de estudio.<br/>El texto describe un mundo que nunca has visto.</p>
+<div class="divider"></div>
+</div>
+</div>
+</section>
+<hr class="sep"/>
+<!-- ?????????? 5. SOLUCION ?????????? -->
+<section class="solucion-sec">
+<div class="solucion-inner">
+<div class="badge-pill">🏆 El sistema visual para comprender la Biblia con mayor claridad</div>
+<h2>BIBLICAL WORLD 3D™</h2>
+<h3>Ubica · Reconstruye · Explica · Enseña</h3>
+<div class="sol-info-box">
+<p>Cada mapa responde <b>dónde</b>. Cada reconstrucción muestra <b>cómo</b>. Cada explicación revela <b>por qué</b> importa cada detalle. Y todo está listo para mostrar en pantalla, imprimir o proyectar frente a tu grupo.</p>
+<div class="sol-tags">
+<span class="sol-tag">Mapas</span>
+<span class="sol-tag">Escenarios</span>
+<span class="sol-tag">Rutas</span>
+<span class="sol-tag">Reconstrucciones 3D</span>
+<span class="sol-tag">2 aplicaciones web</span>
+<span class="sol-tag">Materiales para enseñar</span>
+</div>
+</div>
+<p class="sol-highlight">📖 No memorices nombres aislados: conecta lugares, rutas, arquitectura y significado.</p>
+<div class="sol-stats">
+<div class="sol-stat"><p>300+</p><p>páginas</p></div>
+<div class="sol-stat"><p>100+</p><p>mapas</p></div>
+<div class="sol-stat"><p>9</p><p>partes</p></div>
+<div class="sol-stat"><p>6</p><p>bonos</p></div>
+</div>
+<div style="width:100%;max-width:560px;margin:0 auto 2.5rem;border-radius:16px;overflow:hidden;box-shadow:0 0 60px rgba(225,132,22,.22)">
+<img alt="Biblical World 3D — Sistema Visual Completo" height="860" loading="lazy" src="images/1787456696724_biblical-world-3d.webp" style="width:100%;height:auto;display:block" width="860"/>
+</div>
+<style>
+    .recibis-box{max-width:620px;margin:0 auto 2rem;padding:22px 20px;border-radius:16px;border:1.5px solid rgba(245,197,66,.55);background:linear-gradient(160deg,rgba(33,24,16,.72),rgba(14,11,8,.96));text-align:left}
+    .recibis-title{color:var(--gold);font-size:clamp(19px,4.6vw,24px);font-weight:900;text-align:center;margin-bottom:14px}
+    .recibis-lista{list-style:none;margin:0;padding:0}
+    .recibis-lista li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid rgba(245,197,66,.14)}
+    .recibis-lista li:first-child{border-top:0}
+    .recibis-lista li>span{font-size:22px;line-height:1.2;flex:none}
+    .recibis-lista b{display:block;color:#fff;font-size:16px;margin-bottom:2px}
+    .recibis-lista div{color:#CEC2B0;font-size:14.5px;line-height:1.5}
+    .recibis-nota{margin-top:12px;color:#E8DCC8;font-size:14px;line-height:1.55;text-align:center}
+    </style>
+<div class="recibis-box">
+<p class="recibis-title">Lo que recibes exactamente</p>
+<ul class="recibis-lista">
+<li><span>📖</span><div><b>9 guías ilustradas en PDF</b>Desde la Creación hasta los viajes de Pablo: mapas, rutas, reconstrucciones de estilo 3D, explicaciones y referencias bíblicas.</div></li>
+<li><span>🗺️</span><div><b>App 1 · Mapa Bíblico Interactivo</b>Toca un lugar del mapa para abrir su escena: una animación breve, una explicación narrada y el versículo bíblico.</div></li>
+<li><span>🏛️</span><div><b>App 2 · Expediciones 3D</b>13 lugares reconstruidos en 3D: el Tabernáculo, el Templo de Salomón, el Arca de Noé y más. Haz un recorrido narrado o gíralos 360° y explora su interior.</div></li>
+<li><span>🎬</span><div><b>18 animaciones 3D breves</b>Desde el mar Rojo hasta Pablo y Silas en prisión. Míralas o reprodúcelas en clase.</div></li>
+</ul>
+<p class="recibis-nota">📧 Recibes todo por correo electrónico en minutos. Puedes abrir y conservar los PDF en cualquier celular, tableta o computadora. Las aplicaciones se abren en el navegador, sin instalar nada.</p>
+</div>
+<div class="sol-features">
+<span class="sol-feat">✅ No necesitas formación teológica</span>
+<span class="sol-feat">✅ Desde Génesis hasta Hechos</span>
+<span class="sol-feat">✅ Celular, tableta y computadora</span>
+<span class="sol-feat">✅ Acceso de por vida</span>
+</div>
+</div>
+</section>
+<hr class="sep"/>
+<!-- ?????????? INTERACTIVE APP ?????????? -->
+<section class="dentro-sec">
+<div class="dentro-inner">
+<p class="dentro-kicker">2 APLICACIONES WEB INCLUIDAS</p>
+<h2>No te limites a leer dónde ocurrió.<br/><span>Míralo y enséñalo con claridad.</span></h2>
+<p class="dentro-sub">
+      Cuando cuesta imaginar una ruta, una ciudad o un escenario, también cuesta explicarlo. Por eso, las guías incluyen dos aplicaciones web: una para explorar el mapa lugar por lugar y otra para recorrer edificios bíblicos en 3D. Ambas funcionan en tu navegador, sin instalar nada.
+    </p>
+<style>
+    .app-bloque{text-align:center;max-width:560px;margin:8px auto 14px}
+    .app-bloque-num{color:var(--gold);font-size:12px;font-weight:900;letter-spacing:.18em;margin-bottom:4px}
+    .app-bloque-tit{color:#fff;font-size:clamp(20px,5vw,26px);font-weight:900;margin-bottom:6px}
+    .app-bloque-desc{color:#CEC2B0;font-size:15px;line-height:1.55}
+    .app-demo-frame.app-tall{aspect-ratio:16/10;margin-bottom:34px}
+    .app-demo-frame.app-tall .app-demo-phone{aspect-ratio:375/812;border-radius:22px}
+    @media(max-width:640px){.app-demo-frame.app-tall{max-width:330px;aspect-ratio:375/812}
+      .app-demo-frame.app-tall .app-demo-phone{border-radius:0}}
+    </style>
+<div class="app-bloque">
+<p class="app-bloque-num">APP 1</p>
+<h3 class="app-bloque-tit">Mapa Bíblico Interactivo</h3>
+<p class="app-bloque-desc">5 mapas ilustrados: Tierra Santa, los Patriarcas, el Éxodo, el mundo de Jesús y los viajes de Pablo. Toca un lugar para abrir su escena: una animación breve, una explicación narrada y el versículo bíblico.</p>
+</div>
+<div class="app-demo-frame app-tall" id="bw3d-app-demo-frame-1">
+<div class="app-demo-side app-demo-side--left"><strong>Toca un lugar</strong>en el mapa</div>
+<div class="app-demo-phone">
+<video aria-label="Demostración del Mapa Bíblico Interactivo" class="bw3d-app-video" controlslist="nodownload noplaybackrate noremoteplayback" disablepictureinpicture="" disableremoteplayback="" loop="" muted="" playsinline="" poster="images/app-mapa-poster.jpg" preload="none" tabindex="-1">
+<source src="media/app-mapa.webm" type="video/webm"/>
+<source src="media/app-mapa.mp4" type="video/mp4"/>
+</video>
+</div>
+<div class="app-demo-side app-demo-side--right"><strong>Mira y escucha</strong>escena + narración + versículo</div>
+<div class="app-demo-badge">App 1 · Mapa Bíblico Interactivo</div>
+</div>
+<div class="app-bloque">
+<p class="app-bloque-num">APP 2</p>
+<h3 class="app-bloque-tit">Expediciones 3D</h3>
+<p class="app-bloque-desc">13 lugares reconstruidos en 3D: el Tabernáculo, el Templo de Salomón, el Arca de Noé, una sinagoga de Galilea y más. Sigue el recorrido guiado con narración (audio y subtítulos) o explora libremente: gíralos 360° y observa su interior.</p>
+</div>
+<div class="app-demo-frame app-tall" id="bw3d-app-demo-frame-2">
+<div class="app-demo-side app-demo-side--left"><strong>Recorrido guiado</strong>narración + subtítulos</div>
+<div class="app-demo-phone">
+<video aria-label="Demostración de Expediciones 3D" class="bw3d-app-video" controlslist="nodownload noplaybackrate noremoteplayback" disablepictureinpicture="" disableremoteplayback="" loop="" muted="" playsinline="" poster="images/app-exp-poster.jpg" preload="none" tabindex="-1">
+<source src="media/app-exp.webm" type="video/webm"/>
+<source src="media/app-exp.mp4" type="video/mp4"/>
+</video>
+</div>
+<div class="app-demo-side app-demo-side--right"><strong>Gíralo 360°</strong>y explora el interior</div>
+<div class="app-demo-badge">App 2 · Expediciones 3D</div>
+</div>
+<div class="dentro-nota">
+<p><strong>Convierte nombres y lugares en imágenes que puedas comprender y mostrar.</strong>
+      Úsalas para profundizar en tu lectura personal o como apoyo visual al preparar clases, estudios bíblicos y sermones. Ambas aplicaciones funcionan en celular, tableta y computadora con conexión a internet.</p>
+</div>
+</div>
+</section>
+<hr class="sep"/>
+<!-- ?????????? 6. WHAT YOU GET ?????????? -->
+<section class="recibis-sec">
+<div class="recibis-glow"></div>
+<div class="recibis-inner">
+<p class="recibis-kicker">TODO INCLUIDO</p>
+<h2>Lo que <span>recibes</span> dentro de Biblical World 3D™</h2>
+<div class="tomos-box">
+<div class="tomos-box-title"><h3>📖 LAS 9 PARTES</h3></div>
+<div class="tomos-detail">
+<div class="tomo-row" style="border-color:#F5C542">
+<div class="tomo-num-badge" style="background:rgba(245,197,66,.12);color:#F5C542">1</div>
+<div class="tomo-row-content"><p>Los comienzos</p><p>El Edén, el Diluvio, Babel y los primeros escenarios bíblicos.</p></div>
+</div>
+<div class="tomo-row" style="border-color:#FFB24A">
+<div class="tomo-num-badge" style="background:rgba(255,178,74,.14);color:#FFB24A">2</div>
+<div class="tomo-row-content"><p>Los patriarcas</p><p>Abraham, Isaac, Jacob y José: dónde vivieron y qué distancias recorrieron.</p></div>
+</div>
+<div class="tomo-row" style="border-color:#22C55E">
+<div class="tomo-num-badge" style="background:rgba(34,197,94,.12);color:#22C55E">3</div>
+<div class="tomo-row-content"><p>Egipto, Éxodo y desierto</p><p>Egipto, el mar Rojo, el Sinaí y el camino hacia Canaán, paso a paso.</p></div>
+</div>
+<div class="tomo-row" style="border-color:#38BDF8">
+<div class="tomo-num-badge" style="background:rgba(56,189,248,.12);color:#38BDF8">4</div>
+<div class="tomo-row-content"><p>La Tierra Prometida</p><p>Josué, la conquista, el reparto entre las doce tribus y el período de los jueces.</p></div>
+</div>
+<div class="tomo-row" style="border-color:#C08552">
+<div class="tomo-num-badge" style="background:rgba(192,133,82,.14);color:#C08552">5</div>
+<div class="tomo-row-content"><p>El reino de Israel</p><p>Saúl, David, Salomón, Jerusalén y la división del reino.</p></div>
+</div>
+<div class="tomo-row" style="border-color:#A78BFA">
+<div class="tomo-num-badge" style="background:rgba(167,139,250,.14);color:#A78BFA">6</div>
+<div class="tomo-row-content"><p>Profetas, exilio y regreso</p><p>Asiria, Babilonia, Persia y el regreso a Jerusalén.</p></div>
+</div>
+<div class="tomo-row" style="border-color:#FBBF24">
+<div class="tomo-num-badge" style="background:rgba(251,191,36,.14);color:#FBBF24">7</div>
+<div class="tomo-row-content"><p>El mundo de Jesús</p><p>Belén, Nazaret, Galilea, Samaria, Judea y Jerusalén.</p></div>
+</div>
+<div class="tomo-row" style="border-color:#FB7185">
+<div class="tomo-num-badge" style="background:rgba(251,113,133,.12);color:#FB7185">8</div>
+<div class="tomo-row-content"><p>La Iglesia primitiva</p><p>Jerusalén, Antioquía y la expansión del cristianismo.</p></div>
+</div>
+<div class="tomo-row" style="border-color:#34D399">
+<div class="tomo-num-badge" style="background:rgba(52,211,153,.12);color:#34D399">9</div>
+<div class="tomo-row-content"><p>Los viajes apostólicos</p><p>Los recorridos de Pablo por Asia Menor, Grecia y Roma, junto con las comunidades que surgieron en el camino.</p></div>
+</div>
+</div>
+</div>
+<div class="tomos-metrics">
+<div class="metric"><p>300+</p><p>páginas</p></div>
+<div class="div-v"></div>
+<div class="metric"><p>100+</p><p>mapas</p></div>
+<div class="div-v"></div>
+<div class="metric"><p>9</p><p>partes</p></div>
+<div class="div-v"></div>
+<div class="metric"><p>PDF</p><p>inmediato</p></div>
+</div>
+<div class="tomos-box" style="margin-top:1rem">
+<div class="tomos-box-title"><h3>✅ Para quién es</h3></div>
+<div style="display:grid;grid-template-columns:1fr;gap:.5rem;padding:.5rem 0">
+<div class="tomo-row" style="border-color:transparent">
+<span style="font-size:1rem;flex-shrink:0;width:2rem;height:2rem;border-radius:.5rem;background:rgba(245,197,66,.07);display:flex;align-items:center;justify-content:center">📖</span>
+<div class="tomo-row-content"><p style="font-size:.8125rem;color:#CEC2B0"><b style="color:#fff">Si lees la Biblia y quieres comprenderla con mayor claridad.</b> No necesitas formación teológica: cada estudio comienza con el relato bíblico, no con la geografía.</p></div>
+</div>
+<div class="tomo-row" style="border-color:transparent">
+<span style="font-size:1rem;flex-shrink:0;width:2rem;height:2rem;border-radius:.5rem;background:rgba(245,197,66,.07);display:flex;align-items:center;justify-content:center">🏫</span>
+<div class="tomo-row-content"><p style="font-size:.8125rem;color:#CEC2B0"><b style="color:#fff">Si enseñas o predicas.</b> Deja de depender solo de explicaciones verbales: proyecta la ruta, muestra el interior del Templo y entrega las hojas de evaluación al finalizar la clase.</p></div>
+</div>
+<div class="tomo-row" style="border-color:transparent">
+<span style="font-size:1rem;flex-shrink:0;width:2rem;height:2rem;border-radius:.5rem;background:rgba(245,197,66,.07);display:flex;align-items:center;justify-content:center">📲</span>
+<div class="tomo-row-content"><p style="font-size:.8125rem;color:#CEC2B0"><b style="color:#fff">Si estudias con tu familia o grupo pequeño.</b> Recibes el material en PDF para abrirlo en tu celular, tableta o computadora y proyectarlo cuando lo necesites.</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<hr class="sep"/>
+<!-- ?????????? 7. BONUSES ?????????? -->
+<section class="bonuses-sec">
+<div class="bonuses-inner">
+<p class="bonuses-kicker">INCLUIDOS SIN COSTO ADICIONAL</p>
+<h2>También recibes <span>6 volúmenes adicionales completos</span></h2>
+<div class="bonuses-box">
+<div class="bonuses-box-top"></div>
+<div class="bonuses-rows">
+<div class="bono-row">
+<div class="bono-row-img"><img alt="Bono 1 — Cronología Bíblica Visual" height="860" loading="lazy" src="images/1787456375037_bonus-1-cronologia.webp" width="860"/></div>
+<div class="bono-row-body">
+<div class="bono-row-icon">🕰️</div>
+<div class="bono-row-texts">
+<div class="bono-row-name">
+<h3>Cronología Bíblica Visual™</h3>
+<span class="bono-qty">cuándo</span>
+</div>
+<p style="color:#CEC2B0;font-size:14px;margin-top:4px;line-height:1.5">Una cronología visual completa desde los patriarcas hasta la Iglesia primitiva. Contempla las Escrituras como una historia conectada y no como una serie de acontecimientos aislados.</p>
+<div class="bono-precio-wrap">
+<span class="bono-precio-tach">US$ 4.00</span>
+<span class="bono-precio-gratis">✓ GRATIS HOY</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bono-row">
+<div class="bono-row-img"><img alt="Bono 2 — Pueblos, Imperios y Civilizaciones de la Biblia" height="860" loading="lazy" src="images/1787456378491_bonus-2-pueblos.webp" width="860"/></div>
+<div class="bono-row-body">
+<div class="bono-row-icon">🏛️</div>
+<div class="bono-row-texts">
+<div class="bono-row-name">
+<h3>Pueblos, Imperios y Civilizaciones de la Biblia™</h3>
+<span class="bono-qty">quién</span>
+</div>
+<p style="color:#CEC2B0;font-size:14px;margin-top:4px;line-height:1.5">Egipcios, cananeos, filisteos, asirios, babilonios, persas, griegos y romanos: quiénes fueron, dónde vivieron y cómo se relacionaron con Israel.</p>
+<div class="bono-precio-wrap">
+<span class="bono-precio-tach">US$ 4.00</span>
+<span class="bono-precio-gratis">✓ GRATIS HOY</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bono-row">
+<div class="bono-row-img"><img alt="Bono 3 — La Vida en Tiempos Bíblicos" height="860" loading="lazy" src="images/1787456379930_bonus-3-la-vida-en-tiempos-biblicos.webp" width="860"/></div>
+<div class="bono-row-body">
+<div class="bono-row-icon">🏺</div>
+<div class="bono-row-texts">
+<div class="bono-row-name">
+<h3>La Vida en Tiempos Bíblicos™</h3>
+<span class="bono-qty">cómo vivían</span>
+</div>
+<p style="color:#CEC2B0;font-size:14px;margin-top:4px;line-height:1.5">Viviendas, alimentos, oficios, bodas, monedas, caminos y mercados. Descubre qué significaba realmente ser pastor, trabajar en un viñedo o viajar durante días.</p>
+<div class="bono-precio-wrap">
+<span class="bono-precio-tach">US$ 4.00</span>
+<span class="bono-precio-gratis">✓ GRATIS HOY</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bono-row">
+<div class="bono-row-img"><img alt="Bono 4 — El Tabernáculo y los Templos de la Biblia en 3D" height="860" loading="lazy" src="images/1787456382861_bonus-4-tabernaculos.webp" width="860"/></div>
+<div class="bono-row-body">
+<div class="bono-row-icon">⛪</div>
+<div class="bono-row-texts">
+<div class="bono-row-name">
+<h3>El Tabernáculo y los Templos de la Biblia en 3D™</h3>
+<span class="bono-qty">espacios sagrados</span>
+</div>
+<p style="color:#CEC2B0;font-size:14px;margin-top:4px;line-height:1.5">Compara los templos de Salomón, Zorobabel y Herodes, junto con el Tabernáculo del desierto. Explora sus patios, dimensiones, el Lugar Santo y el Lugar Santísimo desde el interior. <b style="color:#fff">Este es el tipo de material que otros venden por separado; aquí ya está incluido.</b></p>
+<div class="bono-precio-wrap">
+<span class="bono-precio-tach">US$ 5.00</span>
+<span class="bono-precio-gratis">✓ GRATIS HOY</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bono-row">
+<div class="bono-row-img"><img alt="Bono 5 — 30 Días a Través de la Biblia" height="860" loading="lazy" src="images/1787456385359_bonus-5-30-dias.webp" width="860"/></div>
+<div class="bono-row-body">
+<div class="bono-row-icon">📅</div>
+<div class="bono-row-texts">
+<div class="bono-row-name">
+<h3>30 Días a Través de la Biblia™</h3>
+<span class="bono-qty">cómo comenzar</span>
+</div>
+<p style="color:#CEC2B0;font-size:14px;margin-top:4px;line-height:1.5">Un recorrido guiado de 30 días: lee el pasaje, ubícalo, visualízalo, comprende el contexto y vuelve a leerlo. Un camino sencillo para que siempre sepas por dónde empezar.</p>
+<div class="bono-precio-wrap">
+<span class="bono-precio-tach">US$ 3.00</span>
+<span class="bono-precio-gratis">✓ GRATIS HOY</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bono-row">
+<div class="bono-row-img"><img alt="Bono 6 — Cuaderno de Evaluaciones Bíblicas" height="1254" loading="lazy" src="images/1788384789561_05179da5-aa93-48df-b635-37aa5e507104.webp" width="1254"/></div>
+<div class="bono-row-body">
+<div class="bono-row-icon">✏️</div>
+<div class="bono-row-texts">
+<div class="bono-row-name">
+<h3>Cuaderno de Evaluaciones Bíblicas™</h3>
+<span class="bono-qty">para enseñar</span>
+</div>
+<p style="color:#CEC2B0;font-size:14px;margin-top:4px;line-height:1.5">
+                Veinte páginas listas para imprimir: cuatro evaluaciones con <b style="color:#fff">mapas en blanco</b>, cronologías y actividades, cada una con su hoja para el alumno y su clave de respuestas para el maestro. <b style="color:#fff">Ver un mapa no es lo mismo que aprenderlo</b>— este material convierte el atlas en una herramienta con la que los alumnos pueden practicar y ofrece a los maestros actividades listas para entregar.
+              </p>
+<div class="bono-precio-wrap">
+<span class="bono-precio-tach">US$ 5.00</span>
+<span class="bono-precio-gratis">✓ GRATIS HOY</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bonuses-total">
+<p>Valor de los 6 volúmenes adicionales: <span>US$ 25</span></p>
+<!-- Valores de bonus en la moneda del visitante (26/10): precio de Impul x factor. Solo reescribe los montos de bonus; si algo no coincide, deja el texto original. -->
+
+<span class="gratis-big">🎁 GRATIS HOY</span>
+<span class="hint">· Incluidos con Biblical World 3D™</span>
+</div>
+</div>
+</section>
+<hr class="sep"/>
+<!-- ?????????? URGENCY ?????????? -->
+<div class="urgencia-banner">
+<div class="urgencia-inner">
+<p class="urgencia-label">⚠️ Precio de lanzamiento por tiempo limitado</p>
+<div class="countdown-wrap">
+<div class="countdown-block"><span class="countdown-num" id="cd-min">15</span><span class="countdown-lbl">min</span></div>
+<span class="countdown-sep">:</span>
+<div class="countdown-block"><span class="countdown-num" id="cd-seg">00</span><span class="countdown-lbl">seg</span></div>
+</div>
+<div class="urgencia-aviso"><span>⚡ Después, vuelve a su precio habitual de <strong>US$ 54</strong>.</span></div>
+</div>
+</div>
+<!-- ?????????? 8. PURCHASE BOX ?????????? -->
+<section class="compra-sec" id="comprar">
+<div class="compra-glow"></div>
+<div class="compra-inner">
+<h2>Obtén <span>Biblical World 3D™</span> hoy</h2>
+<div class="price-card">
+<div class="price-card-badge">⭐ OFERTA ESPECIAL DE LANZAMIENTO</div>
+<div class="price-card-img">
+<img alt="Biblical World 3D — sistema completo con mapa interactivo y seis volúmenes adicionales" height="480" loading="lazy" src="images/1788384792380_2480b7cc-cb81-4bda-80ae-87ccb8065074.webp" width="480"/>
+</div>
+<h3>BIBLICAL WORLD 3D™ — SISTEMA COMPLETO</h3>
+<p class="price-sub">9 guías PDF + 6 libros adicionales + 2 aplicaciones web + 18 animaciones 3D</p>
+<div class="price-old">US$ 54</div>
+<div class="price-big">US$ 27</div>
+<div class="price-ahorro">AHORRA US$ 27</div>
+<ul class="inc-lista">
+<li><span class="ck">✓</span> Más de 300 páginas visuales en PDF</li>
+<li><span class="ck">✓</span> Más de 100 mapas, escenarios y rutas</li>
+<li><span class="ck">✓</span> Reconstrucciones 3D de ciudades y templos</li>
+<li><span class="ck">✓</span> Las 9 partes, desde los primeros acontecimientos bíblicos hasta los viajes de Pablo</li>
+<li><span class="ck">✓</span> Referencias bíblicas en cada estudio</li>
+<li><span class="ck">✓</span> <b>Listo para proyectar o imprimir en tus clases</b></li>
+<li><span class="ck">✓</span> App 1: Mapa Bíblico Interactivo con escenas, narración y versículos</li>
+<li><span class="ck">✓</span> App 2: Expediciones 3D: 13 lugares con recorridos guiados y narrados</li>
+<li><span class="ck">✓</span> 18 videos breves de animación 3D</li>
+<li><span class="ck">✓</span> 🎁 Bono n.º 1 — Cronología Bíblica Visual™</li>
+<li><span class="ck">✓</span> 🎁 Bono n.º 2 — Pueblos, Imperios y Civilizaciones de la Biblia™</li>
+<li><span class="ck">✓</span> 🎁 Bono n.º 3 — La Vida en Tiempos Bíblicos™</li>
+<li><span class="ck">✓</span> 🎁 Bono n.º 4 — El Tabernáculo y los Templos de la Biblia en 3D™</li>
+<li><span class="ck">✓</span> 🎁 Bono n.º 5 — 30 Días a Través de la Biblia™</li>
+<li><span class="ck">✓</span> 🎁 Bono n.º 6 — Cuaderno de Evaluaciones Bíblicas™</li>
+</ul>
+<div class="cupos-wrap">
+<div class="cupos-head">
+<span class="cupos-dot">Oferta de lanzamiento activa</span>
+<span class="cupos-badge">Disponibilidad limitada</span>
+</div>
+<div class="cupos-bar-bg"><div class="cupos-bar-fill"></div></div>
+<div class="cupos-footer">
+<span>Disponibilidad limitada</span>
+<strong>73 % reservado</strong>
+</div>
+</div>
+<!-- ?? PURCHASE BUTTON - the script at the end appends UTM parameters to the href.
+           "/checkout" is the fallback if JavaScript does not run. -->
+<a class="btn-pulse" data-mb-buy="" href="#comprar" data-bw3d-checkout><span>📖 QUIERO COMPRENDER MEJOR LA BIBLIA →</span></a>
+<div style="display:flex;align-items:center;justify-content:center;gap:.5rem;margin-bottom:.75rem">
+<span style="width:.5rem;height:.5rem;border-radius:50%;background:#22C55E;animation:blink 1.5s infinite;display:inline-block"></span>
+<p style="color:#D8CCBA;font-size:.75rem">Pago único · <strong style="color:#fff">acceso de por vida</strong></p>
+</div>
+</div>
+<div class="trust-pills" style="margin-bottom:0">
+<div class="trust-pill"><span>🔒</span><span>Pago seguro</span></div>
+<div class="trust-pill"><span>⚡</span><span>Acceso en minutos</span></div>
+<div class="trust-pill"><span>🛡️</span><span>Garantía de 15 días</span></div>
+<div class="trust-pill"><span>📧</span><span>Por correo electrónico</span></div>
+</div>
+</div>
+</section>
+<hr class="sep"/>
+<!-- ?????????? 9. TESTIMONIALS ?????????? -->
+<section class="tests-sec">
+<div class="tests-inner">
+<h2>Lo que dicen los lectores <span>después de usarlo</span></h2>
+<p class="tests-sub">Seis lectores, seis dudas diferentes antes de comenzar</p>
+<div class="tests-grid">
+<div class="test-card">
+<div class="test-card-shine"></div>
+<div class="test-head">
+<div class="test-av-wrap">SM</div>
+<div><div class="test-name">Sarah M.</div><div class="test-stars">★★★★★</div><div class="test-loc">Lectora de la Biblia · Estados Unidos</div></div>
+</div>
+<p class="test-quote">Pensé que sería demasiado técnico para mí porque no sé mucho de historia ni geografía. Pero todo está explicado de una manera muy visual y fácil de seguir. Ahora, cuando leo la Biblia, puedo ubicar los lugares y comprender mucho más rápido lo que está sucediendo.</p>
+<span class="test-chip">✔ No necesitas conocimientos de historia ni geografía</span>
+</div>
+<div class="test-card">
+<div class="test-card-shine"></div>
+<div class="test-head">
+<div class="test-av-wrap">JR</div>
+<div><div class="test-name">James R.</div><div class="test-stars">★★★★★</div><div class="test-loc">Estudiante de la Biblia · Canadá</div></div>
+</div>
+<p class="test-quote">Lo que más me sorprendió es que no se siente como un atlas tradicional. Los mapas, las reconstrucciones y las explicaciones se complementan. No solo veo dónde ocurrió algo: entiendo mucho mejor la escena, las distancias y el contexto.</p>
+<span class="test-chip">✔ Mucho más que una colección de mapas</span>
+</div>
+<div class="test-card">
+<div class="test-card-shine"></div>
+<div class="test-head">
+<div class="test-av-wrap">ET</div>
+<div><div class="test-name">Emily T.</div><div class="test-stars">★★★★★</div><div class="test-loc">Lectora cristiana · Inglaterra</div></div>
+</div>
+<p class="test-quote">Hay pasajes que había leído muchas veces, pero nunca los había visualizado así. Ver Jerusalén, el valle de Ela y las rutas bíblicas me ayudó a comprender detalles que antes pasaba por alto. Le da un escenario real a lo que estás leyendo.</p>
+<span class="test-chip">✔ Ayuda a comprender las Escrituras con mayor claridad</span>
+</div>
+<div class="test-card">
+<div class="test-card-shine"></div>
+<div class="test-head">
+<div class="test-av-wrap">DP</div>
+<div><div class="test-name">Daniel P.</div><div class="test-stars">★★★★★</div><div class="test-loc">Líder de estudio bíblico · Australia</div></div>
+</div>
+<p class="test-quote">Tengo una Biblia de estudio y otros recursos, pero esto me ofrece algo diferente. Las notas explican el texto, mientras que Biblical World 3D me ayuda a visualizarlo. Se complementan especialmente bien en los relatos donde importan el lugar, el terreno o la ruta.</p>
+<span class="test-chip">✔ Complementa tu Biblia de estudio</span>
+</div>
+<div class="test-card">
+<div class="test-card-shine"></div>
+<div class="test-head">
+<div class="test-av-wrap">LS</div>
+<div><div class="test-name">Laura S.</div><div class="test-stars">★★★★★</div><div class="test-loc">Estudio bíblico personal · Sudáfrica</div></div>
+</div>
+<p class="test-quote">Me gustó que no solo te entregan el material y te dejan por tu cuenta. El recorrido de 30 días me ayudó a empezar de inmediato y a saber en qué enfocarme en cada estudio. Terminé usando el contenido mucho más de lo que esperaba porque siempre tenía claro cuál era el siguiente paso.</p>
+<span class="test-chip">✔ Un camino claro para ponerlo en práctica</span>
+</div>
+<div class="test-card">
+<div class="test-card-shine"></div>
+<div class="test-head">
+<div class="test-av-wrap">JT</div>
+<div><div class="test-name">John T.</div><div class="test-stars">★★★★★</div><div class="test-loc">Padre · Estados Unidos</div></div>
+</div>
+<p class="test-quote">Lo compré para mi estudio personal, pero terminé mostrándoles varias páginas a mis hijos. Las imágenes y los escenarios hicieron que se interesaran mucho más por las historias. Ahora solemos leer el pasaje y luego mirar cómo era realmente el lugar.</p>
+<span class="test-chip">✔ También es útil para estudiar en familia</span>
+</div>
+</div>
+</div>
+</section>
+<hr class="sep"/>
+<!-- ?????????? 10. HOW TO USE IT ?????????? -->
+<section class="uso-sec">
+<div class="uso-inner">
+<p class="uso-kicker">CÓMO UTILIZARLO</p>
+<h2>Ábrelo en pantalla, imprímelo o <span>proyéctalo frente a tu clase.</span></h2>
+<p class="uso-sub">El mismo material sirve para tu lectura bíblica de la mañana y para tu clase del domingo.</p>
+<div class="uso-carousel">
+<div class="uso-track" id="uso-track">
+<div class="uso-slide">
+<img alt="Estudio bíblico personal con Biblical World 3D abierto en una computadora" decoding="async" height="1254" loading="lazy" src="images/1788384800342_1787672841549-01-estudio-en-computadora-1x1.webp" width="1254"/>
+</div>
+<div class="uso-slide">
+<img alt="Páginas impresas de Biblical World 3D junto a una Biblia abierta" decoding="async" height="1254" loading="lazy" src="images/1788384793918_4b2940e7-cf52-48b9-9cc2-c48b8c1d8ac9.webp" width="1254"/>
+</div>
+<div class="uso-slide">
+<img alt="Estudio bíblico en casa con un mapa de Biblical World 3D para un grupo pequeño" decoding="async" height="1254" loading="lazy" src="images/1788384797893_1787672831892-02-estudio-biblico-en-casa-1x1.webp" width="1254"/>
+</div>
+<div class="uso-slide">
+<img alt="Clase bíblica intergeneracional con Biblical World 3D proyectado" decoding="async" height="1254" loading="lazy" src="images/1788384799000_1787672832981-03-clase-biblica-intergeneracional-1x1.webp" width="1254"/>
+</div>
+<div class="uso-slide">
+<img alt="Enseñanza bíblica congregacional con un mapa de Biblical World 3D en pantalla grande" decoding="async" height="1254" loading="lazy" src="images/1788384796681_1787672830754-01-ensenanza-congregacional-1x1.webp" width="1254"/>
+</div>
+</div>
+<button aria-label="Ver imagen anterior" class="uso-btn uso-btn--prev" id="uso-prev" type="button">
+<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
+<path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button aria-label="Ver imagen siguiente" class="uso-btn uso-btn--next" id="uso-next" type="button">
+<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+<div aria-hidden="true" class="uso-dots" id="uso-dots"><button aria-label="Ir a la imagen 1" class="uso-dot" type="button"></button><button aria-label="Ir a la imagen 2" class="uso-dot is-active" type="button"></button><button aria-label="Ir a la imagen 3" class="uso-dot" type="button"></button><button aria-label="Ir a la imagen 4" class="uso-dot" type="button"></button><button aria-label="Ir a la imagen 5" class="uso-dot" type="button"></button></div>
+</div>
+</section>
+<hr class="sep"/>
+<!-- ?????????? 12. FINAL CTA ?????????? -->
+<section class="cta-final-sec">
+<div class="cta-final-inner">
+<div class="cta-final-kicker">📖 BIBLICAL WORLD 3D™</div>
+<h2>Puedes seguir leyendo los mismos pasajes e intentando imaginar los lugares desde cero.</h2>
+<p class="gold">O puedes saber exactamente dónde mirar la próxima vez que leas un pasaje.</p>
+<div class="before-after">
+<div class="ba-head">
+<div class="ba-col-head">Sin Biblical World 3D™</div>
+<div class="ba-col-head">Con Biblical World 3D™</div>
+</div>
+<div class="ba-rows">
+<div class="ba-row">
+<div class="ba-cell">❌ Nombres de lugares que no logras ubicar</div>
+<div class="ba-cell">✅ Cada historia ubicada en un mapa</div>
+</div>
+<div class="ba-row">
+<div class="ba-cell">❌ Distancias que no puedes dimensionar</div>
+<div class="ba-cell">✅ Rutas y recorridos claramente señalados</div>
+</div>
+<div class="ba-row">
+<div class="ba-cell">❌ El Templo como una idea vaga</div>
+<div class="ba-cell">✅ Lo ves reconstruido en 3D</div>
+</div>
+<div class="ba-row">
+<div class="ba-cell">❌ Pueblos e imperios sin contexto</div>
+<div class="ba-cell">✅ Quiénes eran y en qué época vivieron</div>
+</div>
+<div class="ba-row">
+<div class="ba-cell">❌ Lo explicas con palabras y esperas que puedan imaginarlo</div>
+<div class="ba-cell">✅ Lo muestras en pantalla y pueden verlo</div>
+</div>
+</div>
+</div>
+<a class="btn-pulse" href="#comprar"><span>📖 QUIERO VER LA BIBLIA EN SU CONTEXTO →</span></a>
+<p class="cta-micro">⚡ Acceso inmediato ·  <span>Más de 300 páginas + 6 libros adicionales + 2 aplicaciones web</span>  · Garantía de 15 días</p>
+<div class="trust-final">
+<div class="trust-f-item"><span>🔒</span><span>Pago 100 % seguro</span></div>
+<div class="trust-f-item"><span>⚡</span><span>Acceso en minutos</span></div>
+<div class="trust-f-item"><span>🛡️</span><span>Garantía de 15 días</span></div>
+<div class="trust-f-item"><span>📧</span><span>Acceso por correo electrónico</span></div>
+</div>
+</div>
+</section>
+<hr class="sep"/>
+<!-- ?????????? 12. FREQUENTLY ASKED QUESTIONS ?????????? -->
+<section class="faq-sec">
+<div class="faq-inner">
+<p class="faq-kicker">Antes de decidir</p>
+<h2>Lo que todos preguntan <span>antes de comprar</span></h2>
+<div class="faq-list">
+<div class="faq-item">
+<button class="faq-btn" onclick="openFaq(this)" type="button">¿Qué recibiré exactamente?<span class="faq-icon">+</span></button>
+<div class="faq-resp">9 guías ilustradas en PDF (desde la Creación hasta los viajes de Pablo), 2 aplicaciones web (Mapa Bíblico Interactivo y Expediciones 3D), 18 videos breves de animación 3D y, como bono, 6 libros adicionales en PDF. Todo el material está en inglés y está incluido en el precio: no hay suscripción ni productos vendidos por separado.</div>
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="openFaq(this)" type="button">¿Cómo obtengo acceso después de comprar?<span class="faq-icon">+</span></button>
+<div class="faq-resp">No se envía ningún producto físico: es un producto digital. En minutos recibirás un correo electrónico con un PDF llamado «Empieza aquí», que contiene un botón para cada parte: las 9 guías, las 2 aplicaciones, las animaciones 3D y los libros adicionales. Toca un botón para abrir el contenido; no necesitas una cuenta de Google. Si no encuentras el correo, revisa las carpetas de spam o promociones.</div>
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="openFaq(this)" type="button">¿Necesito instalar algo?<span class="faq-icon">+</span></button>
+<div class="faq-resp">No. Los PDF y videos se abren en cualquier celular, tableta o computadora, y puedes descargarlos para conservarlos y consultarlos sin conexión. Las 2 aplicaciones se abren mediante un enlace en tu navegador (Chrome, Safari, Edge…), sin instalar nada, y necesitan conexión a internet.</div>
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="openFaq(this)" type="button">¿Es un pago único o me cobrarán todos los meses?<span class="faq-icon">+</span></button>
+<div class="faq-resp">Es un pago único. No hay suscripción, renovación automática ni cargos recurrentes. Pagas una sola vez y conservas el acceso al material.</div>
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="openFaq(this)" type="button">¿Qué pasa si compro y no es lo que esperaba?<span class="faq-icon">+</span></button>
+<div class="faq-resp">Tienes <b>15 días</b>. Si durante ese período decides que no es para ti, contáctanos y podrás solicitar un reembolso completo. Recibes acceso a todo el material desde el principio, así que puedes revisar tu compra durante el período de garantía.</div>
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="openFaq(this)" type="button">Nunca he estudiado historia ni geografía bíblica. ¿Podré seguir el contenido?<span class="faq-icon">+</span></button>
+<div class="faq-resp">Sí. Cada estudio comienza con una historia que ya conoces y después te muestra el lugar, la ruta y el contexto. No usa vocabulario técnico ni supone conocimientos previos. Si sabes quiénes fueron David y Goliat, ya tienes lo necesario para comenzar.</div>
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="openFaq(this)" type="button">Ya tengo una Biblia de estudio con mapas. ¿Qué aporta esto?<span class="faq-icon">+</span></button>
+<div class="faq-resp">Tu Biblia de estudio <b>explica</b> el texto; Biblical World 3D™ te ayuda a <b>visualizar</b>lo. Los mapas de las Biblias de estudio suelen ocupar unas pocas páginas pequeñas al final y no siempre están directamente relacionados con el pasaje que estás leyendo. Aquí, el mapa, la reconstrucción y la explicación se complementan en torno a una misma escena. Ambos recursos se complementan en lugar de reemplazarse.</div>
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="openFaq(this)" type="button">¿Las reconstrucciones 3D son inventadas?<span class="faq-icon">+</span></button>
+<div class="faq-resp">Son representaciones visuales, no fotografías: nadie tiene fotografías del Templo de Salomón. Se elaboraron a partir de las descripciones del propio texto bíblico, incluidas las dimensiones, los materiales y la distribución de los patios, junto con referencias históricas y arqueológicas disponibles. Cuando existen varias reconstrucciones posibles, la imagen busca ayudarte a comprender las proporciones y la distribución, no resolver un debate académico.</div>
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="openFaq(this)" type="button">¿Sirve independientemente de mi iglesia o denominación?<span class="faq-icon">+</span></button>
+<div class="faq-resp">Sí. El contenido es geográfico e histórico: dónde ocurrieron los acontecimientos, cómo eran esos lugares, quiénes eran los pueblos vecinos y cómo vivía la gente en aquella época. No promueve una postura denominacional ni una interpretación doctrinal específica. El contexto histórico y geográfico es útil en distintas tradiciones.</div>
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="openFaq(this)" type="button">Enseño la Biblia. ¿Puedo imprimirlo y usarlo con mi grupo?<span class="faq-icon">+</span></button>
+<div class="faq-resp">Sí. Esa es una de las formas para las que fue diseñado. Puedes imprimir las páginas que necesites, proyectar los mapas para tu grupo y fotocopiar las hojas de trabajo del <b>Cuaderno de Evaluaciones Bíblicas™</b>, incluidos mapas en blanco y actividades con claves de respuestas para el maestro. No está permitido revender el material ni redistribuirlo como si fuera un producto propio.</div>
+</div>
+</div>
+<div style="text-align:center;margin-top:32px">
+<p style="color:#CEC2B0;font-size:15px;margin-bottom:16px">¿Todavía tienes alguna duda? Precisamente para eso existe la garantía de 15 días.</p>
+<a class="btn-pulse" href="#comprar" style="width:100%;max-width:470px"><span>📖 QUIERO ACCEDER A BIBLICAL WORLD 3D →</span></a>
+</div>
+</div>
+</section>
+<!-- ?????????? FOOTER ?????????? -->
+<footer>
+<div class="footer-inner">
+<p class="footer-brand">📖 BIBLICAL WORLD 3D™</p>
+<p class="footer-desc">El sistema visual para comprender la Biblia con mayor claridad: mapas, escenarios, rutas y reconstrucciones 3D.</p>
+<p class="footer-tagline">Cuando comprendes dónde ocurrió, comprendes con mayor claridad lo que sucedió.</p>
+<div class="footer-div"></div>
+<p class="footer-copy">© 2026 — Biblical World 3D™ | Todos los derechos reservados. Producto digital: no se enviará ningún artículo físico. Este material no reemplaza la lectura personal de la Biblia ni el acompañamiento pastoral.</p>
+</div>
+</footer><script>
+(function(){
+  var vids=[].slice.call(document.querySelectorAll('.bw3d-app-video'));
+  if(!vids.length)return;
+  vids.forEach(function(v){v.muted=true;v.defaultMuted=true;});
+  function play(v){if(v.preload==='none'){v.preload='auto';v.load();}var p=v.play();if(p&&p.catch)p.catch(function(){});}
+  function pause(v){if(!v.paused)v.pause();}
+  if('IntersectionObserver' in window){
+    var ob=new IntersectionObserver(function(es){es.forEach(function(e){
+      var v=e.target.querySelector('video');
+      if(e.isIntersecting&&e.intersectionRatio>=0.35)play(v);else pause(v);
+    });},{threshold:[0,.35,.65]});
+    vids.forEach(function(v){ob.observe(v.closest('.app-demo-frame'));});
+  }else{vids.forEach(play);}
+  document.addEventListener('visibilitychange',function(){
+    vids.forEach(function(v){if(document.hidden){pause(v);}else{var r=v.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)play(v);}});
+  });
+})();
+</script><script>
+
+(function(){
+  var track=document.getElementById('uso-track');
+  var prev=document.getElementById('uso-prev');
+  var next=document.getElementById('uso-next');
+  var dotsWrap=document.getElementById('uso-dots');
+  var section=document.querySelector('.uso-sec');
+  if(!track||!prev||!next||!dotsWrap||!section)return;
+
+  var slides=Array.prototype.slice.call(track.querySelectorAll('.uso-slide'));
+  if(!slides.length)return;
+
+  var autoTimer=null;
+  var AUTO_DELAY=3200;
+  var sectionVisible=false;
+  var userInteracting=false;
+
+  slides.forEach(function(_,i){
+    var dot=document.createElement('button');
+    dot.type='button';
+    dot.className='uso-dot'+(i===0?' is-active':'');
+    dot.setAttribute('aria-label','Ir a la imagen '+(i+1));
+    dot.addEventListener('click',function(){
+      goTo(i);
+      restartAuto();
+    });
+    dotsWrap.appendChild(dot);
+  });
+
+  var dots=Array.prototype.slice.call(dotsWrap.querySelectorAll('.uso-dot'));
+
+  function nearestIndex(){
+    var center=track.scrollLeft+(track.clientWidth/2);
+    var best=0,bestDist=Infinity;
+    slides.forEach(function(slide,i){
+      var slideCenter=slide.offsetLeft+(slide.offsetWidth/2);
+      var dist=Math.abs(center-slideCenter);
+      if(dist<bestDist){bestDist=dist;best=i;}
+    });
+    return best;
+  }
+
+  function updateDots(){
+    var idx=nearestIndex();
+    dots.forEach(function(dot,i){
+      dot.classList.toggle('is-active',i===idx);
+    });
+  }
+
+  function targetLeft(index){
+    var slide=slides[index];
+    var left=slide.offsetLeft-(track.clientWidth-slide.offsetWidth)/2;
+    var maxLeft=Math.max(0,track.scrollWidth-track.clientWidth);
+    return Math.max(0,Math.min(maxLeft,left));
+  }
+
+  function goTo(index){
+    var target=((index%slides.length)+slides.length)%slides.length;
+    track.scrollTo({
+      left:targetLeft(target),
+      behavior:'smooth'
+    });
+  }
+
+  function go(delta){
+    var idx=nearestIndex();
+    var target=idx+delta;
+    if(target>=slides.length)target=0;
+    if(target<0)target=slides.length-1;
+    goTo(target);
+  }
+
+  function stopAuto(){
+    if(autoTimer){
+      window.clearInterval(autoTimer);
+      autoTimer=null;
+    }
+  }
+
+  function startAuto(){
+    stopAuto();
+    if(!sectionVisible || userInteracting)return;
+    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+
+    autoTimer=window.setInterval(function(){
+      if(sectionVisible && !userInteracting){
+        go(1);
+      }
+    },AUTO_DELAY);
+  }
+
+  function restartAuto(){
+    stopAuto();
+    if(sectionVisible && !userInteracting){
+      window.setTimeout(startAuto,700);
+    }
+  }
+
+  prev.addEventListener('click',function(){
+    go(-1);
+    restartAuto();
+  });
+
+  next.addEventListener('click',function(){
+    go(1);
+    restartAuto();
+  });
+
+  track.addEventListener('scroll',function(){
+    window.clearTimeout(track._usoTimer);
+    track._usoTimer=window.setTimeout(updateDots,80);
+  },{passive:true});
+
+  track.addEventListener('pointerdown',function(){
+    userInteracting=true;
+    stopAuto();
+  });
+
+  track.addEventListener('pointerup',function(){
+    userInteracting=false;
+    restartAuto();
+  });
+
+  track.addEventListener('pointercancel',function(){
+    userInteracting=false;
+    restartAuto();
+  });
+
+  track.addEventListener('touchstart',function(){
+    userInteracting=true;
+    stopAuto();
+  },{passive:true});
+
+  track.addEventListener('touchend',function(){
+    userInteracting=false;
+    restartAuto();
+  },{passive:true});
+
+  if('IntersectionObserver' in window){
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        sectionVisible=entry.isIntersecting && entry.intersectionRatio>=0.35;
+        if(sectionVisible){
+          startAuto();
+        }else{
+          stopAuto();
+        }
+      });
+    },{
+      threshold:[0,0.35,0.6]
+    });
+    observer.observe(section);
+  }else{
+    sectionVisible=true;
+    startAuto();
+  }
+
+  document.addEventListener('visibilitychange',function(){
+    if(document.hidden){
+      stopAuto();
+    }else if(sectionVisible){
+      startAuto();
+    }
+  });
+
+  updateDots();
+})();
+
+</script>
+<script>
+function openFaq(btn){var it=btn.closest('.faq-item'),was=it.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));if(!was)it.classList.add('open')}
+window.BW3D_CONFIG={currency:'USD',price:27,regularPrice:54,checkoutUrl:''};
+(function(){
+const cfg=window.BW3D_CONFIG,base='https://biblical-world-3d.impultienda.ar/';
+document.querySelectorAll('img[src^="images/"]').forEach(el=>el.addEventListener('error',function(){if(el.dataset.remoteTried)return;el.dataset.remoteTried='1';el.src=base+el.getAttribute('src')},{once:true}));
+document.querySelectorAll('video source[src^="media/"]').forEach(el=>el.src=base+el.getAttribute('src'));
+document.querySelectorAll('[data-bw3d-checkout]').forEach(a=>a.addEventListener('click',function(e){e.preventDefault();if(!cfg.checkoutUrl){alert('El enlace de pago todavía no está configurado.');return}const u=new URL(cfg.checkoutUrl,location.href),q=new URLSearchParams(location.search);['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','fbclid'].forEach(k=>{if(q.has(k))u.searchParams.set(k,q.get(k))});location.href=u.toString()}));
+const min=document.getElementById('cd-min'),sec=document.getElementById('cd-seg');if(min&&sec){const k='bw3d_es_offer_end';let end=0;try{end=Number(sessionStorage.getItem(k))||0}catch(e){}if(!end){end=Date.now()+900000;try{sessionStorage.setItem(k,String(end))}catch(e){}}function tick(){const t=Math.max(0,end-Date.now());min.textContent=String(Math.floor(t/60000)).padStart(2,'0');sec.textContent=String(Math.floor((t%60000)/1000)).padStart(2,'0')}tick();setInterval(tick,1000)}
+const viewing=document.getElementById('viendo-wrap');if(viewing)viewing.remove();
+const els=document.querySelectorAll('section');if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){els.forEach(el=>el.setAttribute('data-reveal',''));const ob=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');ob.unobserve(e.target)}}),{threshold:.06});document.documentElement.classList.add('bw3d-motion');els.forEach(el=>ob.observe(el))}
+})();
+</script></body></html>
