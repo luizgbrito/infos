@@ -1,23 +1,24 @@
-# Activa360 — a360
+# Activa360 — pasta a360
 
-Landing page em espanhol (LATAM) para o Sistema Activa360. Projeto publicado na pasta `a360` do repositório `infos`.
+**Landing page publicada no repositório:** [a360/index.html](https://github.com/luizgbrito/infos/blob/main/a360/index.html)
 
-## Estrutura de publicação
+**Arquivos:** `index.html` + 33 imagens em `assets/`. A página mantém a identidade Activa360, com edição responsiva mobile-first e margem externa de 5px até 690px de largura.
 
-- Site estático: `index.html` e `assets/`, preparado e auditado localmente (ZIP de distribuição separado).
-- Mobile-first: margens externas de 5 px em telas de até 690 px.
-- Ofertas e metadados da Cakto: `cakto/ofertas.json` e `cakto/README.md`.
-- PDFs comercializados: **não devem ser publicados neste repositório público**; entrega condicionada à compra pela Cakto Members.
+**Possível URL pública pelo GitHub Pages:** https://saludbien.site/a360/ — a disponibilidade no domínio depende do GitHub Pages e da propagação; não foi possível validá-la no navegador neste ambiente.
 
-## Estado
+## Configuração pendente antes de vender
 
-Os arquivos completos do site foram preparados em ZIP para envio; ainda precisam ser copiados para esta pasta para ativar a página pública. O checkout requer URL real da Cakto e compra-teste antes de divulgar. Este README não é uma página de vendas.
+1. Criar produtos e entregas na Cakto pela conta autenticada, seguindo `cakto/ofertas.json` e `cakto/README.md`.
+2. Configurar `window.A360_LAUNCH.checkoutUrl` com o link público e testar todos os botões de compra.
+3. Confirmar se a conta aceita vendas em USD nos países LATAM pretendidos.
+4. Fazer compras-testes: produto principal, bumps e upsell. Verificar acesso aos PDFs e política de garantia.
+5. Conferir todas as alegações comerciais e revisões técnicas do conteúdo.
 
-## Estrutura comercial
+**IMPORTANTE:** o repositório `infos` é público. Por isso, os 13 PDFs exclusivos foram organizados em pacote **separado**, para envio apenas à Cakto Members; não estão no GitHub. Os order bumps são propostas Activa360, não identificações verificadas dos bumps da GeriActiva.
 
-- Front-end: Activa360, 6 PDFs + 4 bônus, US$ 17.
-- Bump 1: 100 sessões, US$ 7,90.
-- Bump 2: Kit de acompanhamento, US$ 5,90.
-- Upsell: Programa avançado de 12 semanas, US$ 27.
+## Produtos
 
-Verificar disponibilidade de USD e os países atendidos no painel da Cakto antes da publicação.
+- Front-end: 6 módulos + 4 bônus, USD 17.
+- Bump 1: 100 sessões prontas para adaptar, USD 7,90.
+- Bump 2: Kit profissional de acompanhamento e comunicação, USD 5,90.
+- Upsell: Programa avançado de 12 semanas, USD 27.
