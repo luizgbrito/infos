@@ -1,0 +1,17 @@
+{
+  "produto": {
+    "name": "Biblical World 3D™ — Sistema Completo",
+    "description": "Biblical World 3D™ reúne 9 guías visuales en PDF sobre los escenarios y relatos bíblicos, más de 100 mapas y rutas, reconstrucciones 3D, un mapa bíblico interactivo, expediciones virtuales y seis volúmenes adicionales. Consulta los detalles y el idioma de cada material en la página de ventas.",
+    "price": 27.0,
+    "currency": "USD",
+    "type": "unique"
+  },
+  "precio_referencia_en_pagina_usd": 54.0,
+  "observaciones": [
+    "US$54 es precio tachado de referencia, no una segunda oferta activa.",
+    "No crear order bumps ni upsells sin productos complementarios verificados.",
+    "Los archivos PDF y apps prometidos en la página NO están incluidos en el paquete del sitio web; no activar entrega automática sin comprobarlos.",
+    "No sustituir la URL de checkout por datos de ejemplo.",
+    "Para checkout internacional, Cakto determina los métodos de pago por país."
+  ]
+}
