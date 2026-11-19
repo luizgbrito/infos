@@ -639,6 +639,126 @@ img,video,svg{max-width:100%}
   #resultados .results-metric span { font-size: clamp(10px, 3vw, 13px); }
 }
 </style>
+<style id="a360-retention">
+html:has(#a360-exit[open]) { overflow: hidden; }
+#a360-exit {
+  position: fixed;
+  inset: 0;
+  width: min(35rem, calc(100% - 24px));
+  max-width: none;
+  max-height: calc(100dvh - 24px);
+  margin: auto;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 0;
+  border-top: 5px solid var(--jade);
+  border-radius: 22px;
+  padding: clamp(20px, 5vw, 36px);
+  background: var(--cream);
+  color: var(--ink);
+  box-shadow: 0 24px 80px #052a3860;
+  text-align: center;
+}
+#a360-exit::backdrop { background: rgb(5 31 34 / 68%); }
+.a360-dismiss {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--navy);
+}
+.a360-dismiss:hover { background: #e8f3ec; }
+.a360-dismiss:focus-visible { outline: 2px solid var(--jade); outline-offset: 2px; }
+.a360-dismiss svg { width: 20px; height: 20px; }
+#a360-exit .a360-dismiss { position: absolute; top: 8px; right: 8px; }
+.exit-label {
+  display: inline-block;
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--jade);
+  color: white;
+  font-weight: 800;
+  font-size: .75rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+#a360-exit h2 {
+  margin: 12px 0 16px;
+  color: var(--navy);
+  font: 800 clamp(1.45rem, 5vw, 2.2rem)/1.13 Manrope, system-ui, sans-serif;
+  letter-spacing: -.045em;
+  text-wrap: balance;
+}
+.exit-includes {
+  display: grid;
+  gap: 7px;
+  margin: 0 0 12px;
+  padding: 12px 14px;
+  border: 1px dashed #76b49d;
+  border-radius: 12px;
+  background: #f3f9f3;
+  list-style: none;
+  text-align: left;
+  font-size: .9rem;
+}
+.exit-includes li { display: flex; align-items: flex-start; gap: 8px; }
+.exit-includes svg { flex: 0 0 18px; width: 18px; height: 18px; color: var(--jade); }
+.exit-price {
+  margin: 0 0 14px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  background: #e9f5eb;
+  font-size: .85rem;
+  line-height: 1.35;
+}
+.exit-price strong {
+  display: block;
+  color: #0e6252;
+  font: 800 clamp(2.2rem, 10vw, 3.5rem)/1.08 Manrope, system-ui, sans-serif;
+  letter-spacing: -.06em;
+}
+#a360-exit .button { width: 100%; padding: 12px 14px; min-height: 48px; }
+.exit-decline {
+  display: inline-grid;
+  min-height: 44px;
+  place-items: center;
+  margin: 4px 0 0;
+  padding: 4px 12px;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  font-size: .88rem;
+  text-decoration: underline;
+}
+.exit-note { margin: 0; color: var(--muted); font-size: .73rem; }
+#a360-purchase-notice {
+  position: fixed;
+  z-index: 109;
+  bottom: max(14px, env(safe-area-inset-bottom));
+  left: max(12px, env(safe-area-inset-left));
+  width: min(19rem, calc(100% - 24px));
+  padding: 11px 42px 11px 14px;
+  border: 1px solid #dce8df;
+  border-left: 4px solid var(--jade);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 8px 24px #092e3929;
+}
+#a360-purchase-notice p { margin: 0; font-size: .86rem; line-height: 1.35; }
+#a360-purchase-notice p + p { margin-top: 2px; color: var(--muted); font-size: .76rem; }
+#a360-purchase-notice .a360-dismiss { position: absolute; top: 0; right: 0; }
+@media (max-width: 690px) {
+  body:has(.deferred-mobile-cta.is-visible) #a360-purchase-notice {
+    bottom: calc(86px + env(safe-area-inset-bottom));
+  }
+}
+</style>
 <style id="a360-final-hero-benefits-three-cols">
 @media(max-width:690px){
  .activa-hero-pills{width:100%;max-width:100%;min-width:0}
@@ -724,7 +844,34 @@ img,video,svg{max-width:100%}
 <div class="offer-price-holder"><div class="pricing-card"><div class="price-badge">MÁS ELEGIDO · PAQUETE COMPLETO</div><h3>Colección Completa Activa360</h3><div class="price-note">Todos los módulos y bonos incluidos</div><div class="offer-anchor"><span>Valor de los componentes por separado</span><del>$91 USD</del><div class="offer-today">HOY: COLECCIÓN COMPLETA POR</div></div><div class="price"><sup>$</sup>17<sub> USD</sub></div><div class="savings-copy">Una sola compra · 6 módulos + 4 bonos</div><div class="price-copy">Menos tiempo organizando, más tiempo atendiendo.<br/>Una sola compra. Sin mensualidades.</div><div class="price-includes"><span>6 módulos prácticos</span><span>4 bonos exclusivos</span><span>Archivos digitales</span><span>Fichas imprimibles</span><span>Consulta ilimitada</span><span>Garantía de 7 días</span></div><div class="line"></div><button class="button cta large with-arrow" data-checkout="" type="button"><span>QUIERO ACTIVA360 AHORA</span><svg aria-hidden="true" focusable="false"><use href="#ic-arrow"></use></svg></button><div class="tinytrust">Pago seguro · Acceso digital · Garantía de 7 días</div><div class="guarantee"><svg class="shield"><use href="#ic-shield"></use></svg><div><b>TU COMPRA ESTÁ PROTEGIDA DURANTE 7 DÍAS</b><p>Si el material no cumple con lo ofrecido, podrás solicitar la devolución según la política de garantía de la tienda.</p></div></div></div></div></div></section><!-- VERIFICAR ANTES DE PUBLICAR: 500+ clientes, nota 4.9 e 100% satisfação precisam de suporte documental. --><section class="section white" id="resultados"><div class="wrap"><div class="center"><div class="eyebrow">ACTIVA360 EN LA PRÁCTICA</div><h2 class="section-title">Resultados que se sienten en el día a día</h2><div class="results-metrics"><div class="results-metric"><strong>500+</strong><span>Clientes</span></div><div class="results-metric"><strong>4.9<svg class="rating-yellow-star" aria-hidden="true" focusable="false"><use href="#ic-star"></use></svg></strong><span>Calificación</span></div><div class="results-metric"><strong>100%</strong><span>Satisfacción</span></div></div></div><div class="social-slider-controls"><button aria-label="Foto anterior" id="social-prev" type="button"><svg class="icon-prev" aria-hidden="true" focusable="false"><use href="#ic-arrow"></use></svg></button><span id="social-index">1 / 3</span><button aria-label="Foto siguiente" id="social-next" type="button"><svg aria-hidden="true" focusable="false"><use href="#ic-arrow"></use></svg></button></div><div class="social-slider" id="social-slider"><div class="social-slide"><img alt="Actividad grupal con adultos mayores y material Activa360" decoding="async" height="1200" loading="lazy" src="assets/media_22.webp" width="960"/></div><div class="social-slide"><img alt="Profesionales de salud consultando el material Activa360" decoding="async" height="1200" loading="lazy" src="assets/media_23.webp" width="960"/></div><div class="social-slide"><img alt="Profesional acompañando a una adulta mayor con una ficha Activa360" decoding="async" height="1200" loading="lazy" src="assets/media_24.webp" width="960"/></div></div></div></section><section class="section" id="faq"><div class="narrow"><div class="center"><div class="eyebrow">RESPUESTAS DIRECTAS</div><h2 class="section-title">Preguntas frecuentes</h2><p class="section-sub">Respuestas claras antes de acceder a tu material.</p></div><div class="faq"><details class="faq-item"><summary>¿Cómo recibo el material después de comprar?</summary><p>Recibirás acceso digital a los archivos del sistema según las instrucciones enviadas al finalizar tu compra. Podrás consultarlos desde tus dispositivos y descargar las fichas indicadas como imprimibles.</p></details><details class="faq-item"><summary>¿Activa360 es un libro o un curso?</summary><p>Es un sistema de recursos digitales: guías, bibliotecas ilustradas, plantillas, fichas y herramientas de planificación. No necesitas asistir a clases en vivo para consultar el material.</p></details><details class="faq-item"><summary>¿Sirve para sesiones individuales y grupales?</summary><p>Sí. Incluye recursos que pueden organizarse para ambas modalidades, con alternativas de duración y formatos de planificación adaptables.</p></details><details class="faq-item"><summary>¿Qué pasa si ya tengo una biblioteca de ejercicios?</summary><p>Activa360 complementa otras bibliotecas porque su principal diferencial es la forma de seleccionar, combinar y documentar actividades. No necesitas descartar tu material actual.</p></details><details class="faq-item"><summary>¿Incluye opciones para adultos mayores con movilidad reducida?</summary><p>Sí. El kit incluye una guía extra de alternativas en posición sentada y actividades adaptables. Toda selección debe realizarse según las condiciones y necesidades concretas de la persona atendida.</p></details><details class="faq-item"><summary>¿Tengo que pagar todos los meses?</summary><p>No. El precio de $17 USD corresponde a un pago único por el acceso digital al contenido incluido en la oferta principal.</p></details><details class="faq-item"><summary>¿Funciona en cualquier país de Latinoamérica?</summary><p>El contenido está redactado en español latinoamericano neutro y es digital, por lo que puede consultarse desde los países donde esté disponible la plataforma de pago. La aplicación de las actividades debe respetar las normas y atribuciones profesionales locales.</p></details><details class="faq-item"><summary>¿Y si el contenido no cumple con lo ofrecido?</summary><p>La compra cuenta con garantía de 7 días, de acuerdo con la política de devolución informada en el checkout.</p></details><details class="faq-item"><summary>¿Puedo usarlo en celular, tableta o computadora?</summary><p>Sí. Los archivos se diseñan en formato digital y las fichas imprimibles pueden consultarse en pantalla o imprimirse en tamaño A4.</p></details><details class="faq-item"><summary>¿Tengo que ser especialista para usar los archivos?</summary><p>El sistema incluye instrucciones visuales de consulta. La elección y prescripción de actividades terapéuticas requiere respetar la formación y atribuciones de cada profesional.</p></details><details class="faq-item"><summary>¿Qué incluye exactamente la oferta de $17 USD?</summary><p>Incluye seis módulos digitales y cuatro bonos indicados en la página, en un solo pago y sin mensualidades.</p></details><details class="faq-item"><summary>¿Son ejercicios con o sin equipamiento?</summary><p>El plan de contenidos incluye actividades con y sin equipamiento. La biblioteca y el selector indicarán los recursos necesarios para cada ficha.</p></details><details class="faq-item"><summary>¿Cuánto tiempo tarda en prepararse una sesión?</summary><p>El sistema propone formatos de 15, 30 y 45 minutos y herramientas para acelerar la planificación. El tiempo real de preparación depende del caso y de la evaluación profesional.</p></details></div></div></section></main>
 <footer class="footer"><div class="wrap"><div><div class="logo"><svg><use href="#ic-logo"></use></svg>activa<span style="color:#168b72">360</span></div><p>Recursos educativos para apoyar la planificación profesional de actividades físicas y cognitivas con adultos mayores. Su aplicación requiere adecuación al contexto, a las condiciones de cada persona y al criterio profesional correspondiente.</p></div><div class="footer-links"><a href="#faq">Preguntas frecuentes</a><a href="#oferta">La oferta</a><a href="#metodo">El método</a></div></div></footer>
 <div class="mobile-cta deferred-mobile-cta"><div class="text">KIT DIGITAL ACTIVA360<b>$17 USD</b></div><a class="button cta with-arrow" href="#oferta"><span>QUIERO MI ACCESO</span><svg aria-hidden="true" focusable="false"><use href="#ic-arrow"></use></svg></a></div>
-<div aria-hidden="true" aria-labelledby="modal-title" aria-modal="true" class="modal-overlay" id="checkout-modal" role="dialog"><div class="modal"><button aria-label="Cerrar" class="modal-close" id="modal-close" type="button"><svg aria-hidden="true" focusable="false"><use href="#ic-close"></use></svg></button><h3 id="modal-title">Configura el enlace de compra</h3><p>Esta es una vista previa funcional de la página. Para activar el botón de compra, reemplaza el valor de <strong>CHECKOUT_URL</strong> dentro del archivo HTML por el enlace público de tu checkout.</p><div class="modal-code">const CHECKOUT_URL = window.A360_LAUNCH?.checkoutUrl || ''; // OBLIGATORIO: configurar URL real de Cacto antes de publicar</div><button class="button dark" id="modal-ok" type="button">ENTENDIDO</button></div></div><div class="toast" id="toast"></div>
+<div aria-hidden="true" aria-labelledby="modal-title" aria-modal="true" class="modal-overlay" id="checkout-modal" role="dialog"><div class="modal"><button aria-label="Cerrar" class="modal-close" id="modal-close" type="button"><svg aria-hidden="true" focusable="false"><use href="#ic-close"></use></svg></button><h3 id="modal-title">Configura el enlace de compra</h3><p>Esta es una vista previa funcional de la página. Para activar el botón de compra, reemplaza el valor de <strong>CHECKOUT_URL</strong> dentro del archivo HTML por el enlace público de tu checkout.</p><div class="modal-code">const CHECKOUT_URL = window.A360_LAUNCH?.checkoutUrl || ''; // OBLIGATORIO: configurar URL real de Cacto antes de publicar</div><button class="button dark" id="modal-ok" type="button">ENTENDIDO</button></div></div>
+<dialog id="a360-exit" aria-labelledby="a360-exit-title">
+  <form method="dialog">
+    <button class="a360-dismiss" type="submit" aria-label="Cerrar oferta" autofocus>
+      <svg aria-hidden="true"><use href="#ic-close"></use></svg>
+    </button>
+    <p class="exit-label">Oferta especial</p>
+    <h2 id="a360-exit-title">Antes de irte, llévate Activa360 por US$ 14.90</h2>
+    <ul class="exit-includes">
+      <li><svg aria-hidden="true"><use href="#ic-check"></use></svg><span>6 módulos de actividades físicas y cognitivas</span></li>
+      <li><svg aria-hidden="true"><use href="#ic-check"></use></svg><span>4 bonos digitales con fichas y guías imprimibles</span></li>
+    </ul>
+    <p class="exit-price"><s>US$ 17.00</s><strong>US$ 14.90</strong>Pago único · Acceso digital de por vida</p>
+    <a class="button cta with-arrow" id="a360-exit-checkout" href="https://pay.cakto.com.br/tfpb9ct"><span>Quiero Activa360 por US$ 14.90</span><svg aria-hidden="true"><use href="#ic-arrow"></use></svg></a>
+    <button class="exit-decline" type="submit">Seguir viendo la página</button>
+    <p class="exit-note">El importe final se muestra en el checkout.</p>
+  </form>
+</dialog>
+<aside id="a360-purchase-notice" data-feed="" hidden>
+  <div role="status">
+    <p><strong data-purchase-message></strong></p>
+    <p data-purchase-time></p>
+  </div>
+  <button class="a360-dismiss" type="button" aria-label="Cerrar aviso de compra">
+    <svg aria-hidden="true"><use href="#ic-close"></use></svg>
+  </button>
+</aside>
+
 <script>
 // CONFIGURACIÓN DE LANZAMIENTO: pega aquí tu enlace de checkout de Cacto.
 const CHECKOUT_URL = 'https://pay.cakto.com.br/ctf22cs_1341518';
@@ -783,5 +930,103 @@ let touchStart=0;document.querySelector('.interior-stage').addEventListener('tou
   const observer=new IntersectionObserver(entries=>{for(let e of entries){if(e.isIntersecting){if(!auto)auto=setInterval(()=>{if(!document.hidden && !stage.matches(':hover'))showInterior(interiorIndex+1)},5500)}else{clearInterval(auto);auto=null}}},{threshold:.3});observer.observe(stage);
  }
 })();
-</script></body>
+</script><script>
+(() => {
+  const dialog = document.getElementById('a360-exit');
+  const checkoutLink = document.getElementById('a360-exit-checkout');
+  const notice = document.getElementById('a360-purchase-notice');
+  const seenKey = 'a360.exit-offer.seen';
+  const startedAt = performance.now();
+  let seen = false;
+  let goingToCheckout = false;
+  let deepestScroll = 0;
+
+  try { seen = sessionStorage.getItem(seenKey) === '1'; } catch {}
+  const sourceParams = new URLSearchParams(location.search);
+  const checkout = new URL(checkoutLink.href);
+  for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'src', 'sck']) {
+    const value = sourceParams.get(key);
+    if (value) checkout.searchParams.set(key, value);
+  }
+  checkoutLink.href = checkout.href;
+
+  function showExitOffer() {
+    if (seen || goingToCheckout || document.hidden || performance.now() - startedAt < 4500) return;
+    if (document.querySelector('#checkout-modal.open, #interior-lightbox:not([hidden]), dialog[open]')) return;
+    seen = true;
+    notice.hidden = true;
+    try { sessionStorage.setItem(seenKey, '1'); } catch {}
+    dialog.showModal();
+  }
+
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('[data-checkout], #a360-exit-checkout')) goingToCheckout = true;
+  }, { capture: true });
+  window.addEventListener('pageshow', () => { goingToCheckout = false; });
+  document.addEventListener('mouseout', (event) => {
+    if (matchMedia('(any-hover: hover)').matches && event.relatedTarget === null && event.clientY <= 0) showExitOffer();
+  });
+  window.addEventListener('scroll', () => {
+    if (!matchMedia('(pointer: coarse)').matches) return;
+    const position = Math.max(0, window.scrollY);
+    deepestScroll = Math.max(deepestScroll, position);
+    if (deepestScroll >= window.innerHeight && position <= 32) showExitOffer();
+  }, { passive: true });
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+
+  // The feed must expose only anonymized, approved orders for this product.
+  // Records have the form { country: 'MX', approvedAt: '<ISO 8601 timestamp>' }.
+  if (!notice.dataset.feed) return;
+
+  const regions = new Intl.DisplayNames(['es-419'], { type: 'region' });
+  const countries = new Set('AR BO CL CO CR CU DO EC GT HN MX NI PA PE PR PY SV UY VE'.split(' '));
+  const message = notice.querySelector('[data-purchase-message]');
+  const time = notice.querySelector('[data-purchase-time]');
+  const shown = new Set();
+  const maxAge = 30 * 60 * 1000;
+  let timer;
+  let disabled = false;
+
+  notice.querySelector('button').addEventListener('click', () => {
+    disabled = true;
+    notice.hidden = true;
+    clearInterval(timer);
+  });
+
+  async function checkPurchases() {
+    if (disabled || document.hidden || dialog.open || !notice.hidden) return;
+    try {
+      const response = await fetch(notice.dataset.feed, { cache: 'no-store', credentials: 'omit' });
+      if (!response.ok) return;
+      const purchases = await response.json();
+      if (!Array.isArray(purchases)) return;
+      for (const sale of purchases) {
+        const { country, approvedAt } = sale ?? {};
+        const age = Date.now() - Date.parse(approvedAt);
+        const key = country + ':' + approvedAt;
+        if (!countries.has(country) || !Number.isFinite(age) || age < 0 || age >= maxAge || shown.has(key)) continue;
+        if (disabled || document.hidden || dialog.open) return;
+        shown.add(key);
+        message.textContent = `Alguien de ${regions.of(country)} compró Activa360`;
+        const minutes = Math.floor(age / 60000);
+        time.textContent = minutes === 0 ? 'Hace menos de un minuto' : minutes === 1 ? 'Hace 1 minuto' : `Hace ${minutes} minutos`;
+        notice.hidden = false;
+        window.setTimeout(() => { notice.hidden = true; }, 6500);
+        break;
+      }
+    } catch {
+      // Keep notices hidden if the feed is unavailable.
+    }
+  }
+
+  window.setTimeout(() => {
+    if (disabled) return;
+    checkPurchases();
+    timer = window.setInterval(checkPurchases, 30000);
+  }, 10000);
+})();
+</script>
+</body>
 </html>
