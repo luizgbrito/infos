@@ -727,7 +727,7 @@ img,video,svg{max-width:100%}
 <div aria-hidden="true" aria-labelledby="modal-title" aria-modal="true" class="modal-overlay" id="checkout-modal" role="dialog"><div class="modal"><button aria-label="Cerrar" class="modal-close" id="modal-close" type="button"><svg aria-hidden="true" focusable="false"><use href="#ic-close"></use></svg></button><h3 id="modal-title">Configura el enlace de compra</h3><p>Esta es una vista previa funcional de la página. Para activar el botón de compra, reemplaza el valor de <strong>CHECKOUT_URL</strong> dentro del archivo HTML por el enlace público de tu checkout.</p><div class="modal-code">const CHECKOUT_URL = window.A360_LAUNCH?.checkoutUrl || ''; // OBLIGATORIO: configurar URL real de Cacto antes de publicar</div><button class="button dark" id="modal-ok" type="button">ENTENDIDO</button></div></div><div class="toast" id="toast"></div>
 <script>
 // CONFIGURACIÓN DE LANZAMIENTO: pega aquí tu enlace de checkout de Cacto.
-const CHECKOUT_URL = '';
+const CHECKOUT_URL = 'https://pay.cakto.com.br/ctf22cs_1341518';
 // Opcional: pega una URL de embed de Wistia, Vimeo o YouTube.
 const VSL_EMBED_URL = '';
 if(VSL_EMBED_URL && /^https:\/\//.test(VSL_EMBED_URL) && document.getElementById('vsl-iframe')){document.getElementById('vsl-iframe').src=VSL_EMBED_URL;document.getElementById('video-presentacion').hidden=false;}
