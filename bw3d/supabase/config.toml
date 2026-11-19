@@ -1,0 +1,4 @@
+project_id = "bw3d"
+
+[functions.bw3d-cakto]
+verify_jwt = false

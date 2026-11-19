@@ -26,8 +26,12 @@ O ZIP contém **ativos da landing page** (21 imagens e quatro arquivos de vídeo
 
 ## Rastreamento
 
-Os parâmetros `utm_*`, `fbclid`, `gclid` e `ttclid` são encaminhados pelo código do checkout. Para rastreio server-side, registrar webhook da Cakto para a URL real de Supabase Edge Function. Validar assinatura/origem do evento, implementar idempotência e deduplicar o evento de compra com o Pixel. Nenhuma URL de Supabase ou chave de webhook foi incluída, porque não estão verificadas.
+Os parâmetros `utm_*`, `fbclid`, `gclid` e `ttclid` são encaminhados quando a URL real do checkout está configurada. A pasta `supabase/` contém a migração e a função `bw3d-cakto` para registrar compras aprovadas e UTMs. A função verifica a assinatura da Cakto e a idade da entrega, filtra o produto e a oferta e registra cada pedido uma única vez. Ela descarta o restante do payload, incluindo dados de contato e pagamento.
+
+No projeto Supabase escolhido, aplique a migração e publique a função `bw3d-cakto` com a configuração incluída. A Cakto autentica a chamada com HMAC e não envia JWT do Supabase. No painel Cakto, selecione somente este produto e o evento `purchase_approved`, usando a URL publicada da função. Configure `BW3D_CAKTO_WEBHOOK_SECRET`, `BW3D_CAKTO_PRODUCT_ID` e `BW3D_CAKTO_OFFER_ID` como segredos da função, com os valores da conta. A função usa `SUPABASE_URL` e `SUPABASE_SERVICE_ROLE_KEY` exclusivamente no servidor. Não coloque esses valores no Git ou no JavaScript da página.
+
+Envie o evento de teste do painel Cakto para verificar entrega e assinatura. O exemplo fixo da Cakto não corresponde à oferta real, então deve retornar sucesso sem registrar compra. Para validar a gravação e a atribuição de ponta a ponta, use um pedido autorizado da oferta correta em ambiente de teste e confirme que um reenvio não duplica o registro.
 
 ## Status
 
-O script de criação NÃO foi executado contra a conta real; não há credenciais nesta sessão. Nenhum produto, checkout, order bump, webhook ou entrega foi cadastrado remotamente.
+O produto de US$ 27 foi salvo pela interface da Cakto e está aguardando configuração da entrega. O checkout ainda não foi conectado. A função e a migração Supabase estão preparadas no repositório, aguardando configuração e homologação com a oferta real.
