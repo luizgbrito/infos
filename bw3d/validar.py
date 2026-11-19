@@ -6,8 +6,8 @@ import subprocess, re
 root=Path(__file__).resolve().parent
 soup=BeautifulSoup((root/'index.html').read_text(encoding='utf-8'),'html.parser')
 assets=[]
-for tag in soup.select('[src],link[rel="stylesheet"][href]'):
- u=tag.get('src') or tag.get('href')
+for tag in soup.select('[src],[poster],link[rel="stylesheet"][href]'):
+ u=tag.get('src') or tag.get('poster') or tag.get('href')
  if u and not u.startswith(('http:', 'https:', 'data:', '//')):
   assets.append(u.split('?',1)[0])
 assert all((root/a).is_file() for a in assets),[a for a in assets if not (root/a).is_file()]
@@ -16,8 +16,10 @@ assert len(soup.select('h1'))==1
 assert all(x.get('alt') is not None for x in soup.select('img'))
 assert all(x.get('width') and x.get('height') for x in soup.select('img'))
 assert len(soup.select('img'))==20
-assert len(list((root/'images').iterdir()))==21
-assert len(list((root/'media').iterdir()))==4
+local_images={a for a in assets if a.startswith('images/')}
+assert len(local_images)==21
+assert all(a.startswith('images/es/') for a in local_images)
+assert len([a for a in assets if a.startswith('media/es/')])==4
 assert len(soup.select('[data-bw3d-checkout]'))==2
 assert soup.select_one('#comprar') is not None
 assert (root/'js/config.js').read_text().find('checkoutUrl: ""')>=0
@@ -33,7 +35,7 @@ for i,s in enumerate(soup.find_all('script')):
 assert not any(x in (root/'index.html').read_text().lower() for x in ['impultienda.ar','shopify.com'])
 for p in (root/'js').glob('*.js'):
  subprocess.run(['node','--check',str(p)],check=True)
-for p in (root/'images').iterdir():
- with Image.open(p) as im: im.verify()
+for a in local_images:
+ with Image.open(root/a) as im: im.verify()
 assert all(a.get('href')=='#comprar' for a in soup.select('a[href^="#"]'))
 print('APROVADO: estrutura, imagens, recursos locais, CTAs, sintaxe JS')
