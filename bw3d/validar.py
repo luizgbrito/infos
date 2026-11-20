@@ -22,7 +22,12 @@ assert all(a.startswith('images/es/') for a in local_images)
 assert len([a for a in assets if a.startswith('media/es/')])==4
 assert len(soup.select('[data-bw3d-checkout]'))==2
 assert soup.select_one('#comprar') is not None
-assert (root/'js/config.js').read_text().find('checkoutUrl: ""')>=0
+config=(root/'js/config.js').read_text()
+checkout=re.search(r'checkoutUrl:\s*"([^"]+)"', config)
+assert checkout, 'Falta la URL del checkout'
+payment_url=urlparse(checkout.group(1))
+assert payment_url.scheme=='https' and payment_url.netloc=='pay.cakto.com.br' and payment_url.path.strip('/')
+assert all(a.get('href')==checkout.group(1) for a in soup.select('[data-bw3d-checkout]'))
 # Validate inline JS as well, not only external JS files.
 for i,s in enumerate(soup.find_all('script')):
  if s.get('src') or not s.string or not s.string.strip(): continue

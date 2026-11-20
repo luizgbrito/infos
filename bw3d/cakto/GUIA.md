@@ -34,4 +34,4 @@ Envie o evento de teste do painel Cakto para verificar entrega e assinatura. O e
 
 ## Status
 
-O produto de US$ 27 foi salvo pela interface da Cakto e está aguardando configuração da entrega. O checkout ainda não foi conectado. A função e a migração Supabase estão preparadas no repositório, aguardando configuração e homologação com a oferta real.
+O produto de US$ 27 está ativo na Cakto com a oferta principal e a entrega pela Área de Membros V3. A aula “Empieza aquí · Descarga la colección” foi publicada para membros pagos com o ZIP completo. A prévia da aula mostra o material disponível. O checkout da oferta principal está configurado em `js/config.js`. A função e a migração Supabase estão preparadas no repositório e aguardam a identificação do projeto Supabase de produção.
