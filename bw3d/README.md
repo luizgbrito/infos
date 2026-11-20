@@ -1,13 +1,13 @@
-# Biblical World 3D — Español LATAM (V6)
+# Biblical World 3D — Español LATAM
 
 Página estática para `/bw3d/`. Publicação segura: `bash publicar.sh` em ambiente com GitHub autenticado. Execute `python3 validar.py` nesta pasta para verificar recursos locais, JS e integridade básica.
 
-## Configuração necessária antes da venda
+## Estado atual
 
-- Substitua `checkoutUrl` em `js/config.js` pelo endereço HTTPS **real** da Cakto. Nenhum link de venda foi inventado.
-- Caso use Meta Pixel, configure um único ponto de emissão e deduplicação com CAPI/Supabase para evitar dupla contagem.
-- Verifique todas as mídias: várias capas de livros e páginas ainda exibem títulos em inglês, e o FAQ informa entregáveis em inglês. Não anuncie os entregáveis como traduzidos.
-- Valide a página em navegadores desktop e mobile e realize uma compra de teste antes de começar tráfego.
+- Página publicada em [saludbien.site/bw3d](https://saludbien.site/bw3d/), com artes em espanhol, amostras extraídas dos PDF e duas demonstrações em movimento. Ver `LOCALIZACION-ES.md`.
+- A oferta de US$ 27 está ativa na Cakto. Os dois botões de compra apontam para a oferta principal e preservam as UTMs. Ver `cakto/GUIA.md`.
+- O ZIP da coleção foi anexado à aula de acesso imediato para membros pagos. O repositório público contém a página de vendas e as amostras.
+- A função de webhook continua pendente de vinculação ao projeto Supabase escolhido. Valide o acesso pós-pagamento com uma compra autorizada ou um ambiente de testes da Cakto.
 
 ## Verificações realizadas
 
@@ -18,11 +18,7 @@ Página estática para `/bw3d/`. Publicação segura: `bash publicar.sh` em ambi
 - URL do checkout mantém UTMs e identificadores de cliques.
 - Recursos e auditoria registrados em `AUDITORIA.json`.
 
-## Limites
-
-Sem URL real da Cakto e sem traduções verificadas das artes e entregáveis, esta página ainda não está pronta para campanha paga. Não foi confirmada publicação remota no GitHub.
-
-## Atualizações V5
+## Atualizações V5 — histórico
 
 - Imagens com dimensões intrínsecas, decodificação assíncrona e carregamento progressivo das imagens fora da primeira dobra.
 - Estilos defensivos para mobile e foco visível de navegação por teclado.
@@ -55,4 +51,4 @@ Teste visual offline real de hero e CTAs em 390 px e 1365 px. Ver `QA_VISUAL_V9.
 - `cakto/configuracao.json`: cadastro realista baseado na página, USD 27; US$54 permanece apenas ancoragem visual.
 - `cakto/criar_produto.py`: pré-visualização segura e criação via API **somente** com `--create`, credenciais de ambiente, URL HTTPS real e checagem prévia do catálogo.
 - `cakto/GUIA.md`: sequência de cadastro, checkout, entrega e webhook, com lacunas explicitadas.
-- Sem credenciais/autenticação Cakto nesta sessão, **não houve cadastro remoto**. Os materiais digitais completos anunciados na página não estão neste ZIP de landing page.
+- Nesse pacote inicial, o cadastro remoto e os entregáveis ainda estavam pendentes. Consulte o estado atual no início deste documento.
