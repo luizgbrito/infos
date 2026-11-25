@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>Programa Avanzado de 12 Semanas | Activa360</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#133e35;background:#eef7f1}
+*{box-sizing:border-box}
+body{margin:0}
+main{width:min(100% - 2rem,60rem);margin:clamp(1rem,5vw,4rem) auto}
+article{background:#fff;border:1px solid #dcebe2;border-radius:1.4rem;padding:clamp(1.25rem,4vw,2.75rem);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);align-items:center;gap:clamp(1rem,4vw,3rem)}
+img{display:block;width:min(100%,19rem);height:auto;margin:auto;border-radius:.6rem;box-shadow:0 8px 30px #133e351a}
+h1{font-size:clamp(1.85rem,4vw,3rem);line-height:1.08;margin:.6rem 0 1rem}
+p,li{line-height:1.55}
+ul{padding-left:1.15rem}
+.eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#176047}
+.price{font-size:1.8rem;font-weight:800;margin:1rem 0 0}
+.purchase-note{margin:.1rem 0 1rem}
+cakto-upsell-buttons{display:grid;gap:.75rem;text-align:center}
+cakto-upsell-accept::part(button),cakto-upsell-reject::part(button){width:100%;min-height:44px;white-space:normal;border-radius:.65rem}
+@media(max-width:600px){article{grid-template-columns:1fr}img{width:min(100%,13rem)}}
+</style>
+</head>
+<body>
+<main>
+  <article>
+    <img src="portada.png" width="636" height="900" alt="Portada del Programa Avanzado de Activa360">
+    <div>
+      <p class="eyebrow">Complemento opcional de Activa360</p>
+      <h1>Programa Avanzado de 12 Semanas</h1>
+      <p>Organiza 36 encuentros con adultos mayores siguiendo el método 4D de Activa360.</p>
+      <ul>
+        <li>Objetivos, materiales y secuencias con tiempos para cada sesión.</li>
+        <li>Variantes para ajustar las actividades según la evaluación y las necesidades de cada persona.</li>
+        <li>Espacio para registrar participación, fatiga percibida y ajustes para el siguiente encuentro.</li>
+      </ul>
+      <p class="price">US$ 27,00</p>
+      <p class="purchase-note">Pago único adicional · PDF descargable</p>
+      <cakto-upsell-buttons>
+        <cakto-upsell-accept
+          bg-color="#0f7865"
+          text-color="#ffffff"
+          upsell-accept-url="members_area"
+          offer-id="gqac2qc"
+          app-base-url="https://app.cakto.com.br"
+          offer-type="upsell"
+          upsell-reject-url="members_area"
+        >Sí, añadir el programa por US$ 27,00</cakto-upsell-accept>
+        <cakto-upsell-reject upsell-reject-url="members_area"
+        >Continuar a mi compra sin añadirlo</cakto-upsell-reject>
+      </cakto-upsell-buttons>
+    </div>
+  </article>
+</main>
+<script src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js"></script>
+</body>
+</html>
