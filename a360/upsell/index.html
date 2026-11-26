@@ -15,23 +15,20 @@
     }
     *, *::before, *::after { box-sizing: border-box; }
     body { margin: 0; }
-    h1, h2, p, figure { margin: 0; }
+    h1, h2, h3, p, figure { margin: 0; }
     p { line-height: 1.55; }
     img { display: block; max-width: 100%; height: auto; }
     .wrap { width: min(70rem, calc(100% - 2.5rem)); margin-inline: auto; }
-    .top { background: #103d33; color: #fff; }
-    .top .wrap {
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: .4rem 1.2rem; min-height: 4.1rem; padding-block: .65rem;
-    }
-    .brand { font-size: 1.3rem; font-weight: 800; letter-spacing: -.05em; }
-    .brand span { color: #a9ecd2; }
-    .context { font-size: .85rem; color: #e2f3eb; }
+    .notice { padding: .85rem 0; background: #9e231f; color: #fff; text-align: center; }
+    .notice strong { display: block; font-size: clamp(1rem, 2.4vw, 1.2rem); }
+    .notice p { max-width: 72ch; margin: .25rem auto 0; font-size: .9rem; }
+    a { color: #145c48; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid #155f49; outline-offset: 4px; }
     main { padding-block: clamp(1.8rem, 4vw, 3.8rem) 4rem; }
     .hero {
       display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
-      grid-template-areas: "intro product" "offer product";
-      align-items: start; gap: 1.4rem clamp(1.6rem, 4vw, 4rem);
+      grid-template-areas: "intro product" "action product";
+      align-items: start; align-content: center; gap: 1.4rem clamp(1.6rem, 4vw, 4rem);
     }
     .intro { grid-area: intro; }
     .eyebrow {
@@ -39,7 +36,7 @@
       text-transform: uppercase; color: #17654f;
     }
     h1 {
-      font-size: clamp(2.15rem, 4.55vw, 4.1rem); line-height: 1.015;
+      font-size: clamp(2.15rem, 4.3vw, 4rem); line-height: 1.015;
       letter-spacing: -.058em; text-wrap: balance; margin-block: .65rem .85rem;
     }
     h1 strong { color: #177357; font-weight: inherit; }
@@ -60,13 +57,59 @@
       border-radius: .45rem; box-shadow: 0 12px 27px #1b483440;
     }
     figcaption { margin-top: 2.1rem; text-align: center; font-size: .875rem; color: #355a4c; }
-    .offer {
-      grid-area: offer; background: #fff; border: 1px solid #cde3d6; border-radius: 1.2rem;
-      padding: clamp(1.15rem, 2.7vw, 1.7rem); box-shadow: 0 10px 24px #13382e0a;
+    .hero-action { grid-area: action; display: grid; justify-items: start; gap: .8rem; }
+    .jump {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 3rem; padding: .58rem 1.25rem; border-radius: .6rem;
+      background: #0f6b4e; color: #fff; font-weight: 750; text-align: center; text-decoration: none;
     }
-    .offer h2 { font-size: clamp(1.18rem, 2.2vw, 1.5rem); letter-spacing: -.025em; }
+    .jump:hover { background: #0b503b; }
+    .skip { font-size: .9rem; text-underline-offset: .15em; }
+    .segment { margin-top: clamp(3.2rem, 7vw, 6rem); }
+    .segment h2 { font-size: clamp(1.65rem, 3.5vw, 2.65rem); line-height: 1.13; letter-spacing: -.045em; text-wrap: balance; }
+    .story { max-width: 48rem; margin-inline: auto; }
+    .story p, .section-intro p:not(.eyebrow), .example p:not(.eyebrow) { margin-top: .85rem; color: #39574c; }
+    .section-intro { max-width: 45rem; }
+    .section-intro .eyebrow, .example .eyebrow { margin-bottom: .5rem; }
+    .chapters, .includes {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem;
+      padding: 0; margin: 1.35rem 0 0; list-style: none;
+    }
+    .chapters li, .includes li { padding: 1.15rem; border: 1px solid #cde3d6; border-radius: 1rem; background: #f9fcfa; }
+    .chapters li { display: flex; flex-direction: column; }
+    .chapters h3 { font-size: 1.32rem; line-height: 1.15; }
+    .chapters h3 span { display: block; font-size: .79rem; color: #17654f; margin-bottom: .35rem; }
+    .chapters p, .includes p { margin-top: .55rem; font-size: .95rem; color: #3c594e; }
+    .chapters figure { margin-top: auto; padding-top: 1rem; }
+    .chapters figure img { width: 100%; border: 1px solid #d9e8df; border-radius: .5rem; }
+    .chapters figcaption { text-align: left; margin-top: .55rem; }
+    .example {
+      display: grid; grid-template-columns: 1.06fr 1fr; gap: 1.5rem; align-items: center;
+      padding: clamp(1.3rem, 4vw, 2.75rem); background: #d9eee3; border-radius: 1.25rem;
+    }
+    .schedule { list-style: none; margin: 0; padding: 0; background: #f8fcf9; border-radius: .85rem; }
+    .schedule li { display: grid; grid-template-columns: 3.85rem 1fr; gap: .55rem; padding: .9rem 1rem; }
+    .schedule li + li { border-top: 1px solid #d8e8df; }
+    .schedule strong { color: #17654f; }
+    .next { margin-top: 1.3rem; }
+    .offer {
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: 1.2rem; align-items: center;
+      padding: clamp(1.15rem, 3.6vw, 2.5rem); border-radius: 1.3rem; background: #133f34; color: #fff;
+    }
+    .offer .eyebrow { color: #a9ecd2; }
+    .offer .section-intro p:not(.eyebrow) { color: #edf8f2; }
+    .price-box {
+      color: #13382e; background: #fff; border: 1px solid #cde3d6; border-radius: 1rem;
+      padding: clamp(1rem, 3vw, 1.5rem);
+    }
+    .fee { margin-top: .5rem; color: #52695e; font-size: .8rem; }
+    .faq { max-width: 48rem; margin-inline: auto; }
+    .faq details { border-bottom: 1px solid #cde3d6; padding: .85rem 0; }
+    .faq summary { cursor: pointer; font-weight: 750; }
+    .faq details p { margin-top: .6rem; color: #39574c; }
+    .footer { padding: 1.1rem 0 1.8rem; border-top: 1px solid #cde3d6; color: #39574c; font-size: .875rem; }
     .summary { margin-top: .45rem; font-size: .95rem; color: #3c594e; }
-    .cost { margin-top: .85rem; display: flex; align-items: baseline; flex-wrap: wrap; gap: .05rem .65rem; }
+    .cost { margin-top: 0; display: flex; align-items: baseline; flex-wrap: wrap; gap: .05rem .65rem; }
     .price { font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.18; font-weight: 850; letter-spacing: -.06em; }
     .cost span:last-child { font-size: .85rem; color: #39574c; }
     cakto-upsell-buttons, cakto-upsell-accept, cakto-upsell-reject { display: block; }
@@ -80,25 +123,18 @@
       font: inherit; font-size: .9rem; min-height: 2.75rem; max-width: 100%;
       white-space: normal; text-decoration: underline; color: #35584b; padding-inline: .3rem;
     }
-    .details { margin-top: clamp(2.1rem, 5vw, 3.7rem); }
-    .details h2 { font-size: clamp(1.5rem, 3vw, 2.05rem); letter-spacing: -.045em; }
-    .details ul {
-      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem;
-      padding: 0; margin: 1rem 0 0; list-style: none;
-    }
-    .details li { padding: 1.05rem 1.15rem; border: 1px solid #cde3d6; border-radius: .85rem; background: #f8fcf9; }
-    .details li strong { display: block; margin-bottom: .35rem; }
-    .details li p { color: #3c594e; font-size: .9rem; }
     @media (max-width: 760px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
-        grid-template-areas: "intro" "product" "offer";
+        grid-template-areas: "intro" "product" "action";
         gap: 1.05rem;
       }
       .product { min-height: 0; padding: 1.35rem 1.4rem .9rem; }
       .product-art { width: min(100%, 12.25rem); }
       figcaption { margin-top: 1.12rem; }
-      .details ul { grid-template-columns: minmax(0, 1fr); }
+      .chapters, .includes, .example, .offer { grid-template-columns: minmax(0, 1fr); }
+      .hero-action { justify-items: stretch; text-align: center; }
+      .example { gap: 1rem; }
     }
     @media (max-width: 360px) {
       .wrap { width: calc(100% - 1.6rem); }
@@ -107,30 +143,112 @@
   </style>
 </head>
 <body>
-  <header class="top">
+  <header class="notice">
     <div class="wrap">
-      <p class="brand">activa<span>360</span></p>
-      <p class="context">Oferta opcional antes de ir a tus materiales</p>
+      <strong>Espera. Aún estás en el proceso de compra.</strong>
+      <p>Mantén esta página abierta y evita actualizarla. Si sales, podrías perder la opción de añadir el programa a tu pedido en este paso.</p>
     </div>
   </header>
   <main class="wrap">
     <section class="hero" aria-labelledby="programa">
       <div class="intro">
         <p class="eyebrow">Programa Avanzado Activa360</p>
-        <h1 id="programa">Planifica tus próximas <strong>12 semanas</strong> de sesiones</h1>
-        <p>Añade 36 sesiones ya estructuradas para adultos mayores. Cada una incluye objetivo, tiempos y opciones para adaptar las actividades.</p>
+        <h1 id="programa">Felicidades por elegir Activa360. <strong>¿Ya sabes qué vas a trabajar en las próximas 12 semanas?</strong></h1>
+        <p>Con tu kit ya tienes actividades, herramientas de selección y planes para organizar tus encuentros. Ahora puedes añadir 36 sesiones completas, ordenadas por semana y listas para revisar y adaptar.</p>
       </div>
       <figure class="product">
         <div class="product-art">
           <img class="cover" src="portada.png" width="636" height="900" alt="Portada del Programa Avanzado de 12 Semanas">
-          <img class="sample" src="muestra-sesion.webp" width="636" height="455" alt="Vista parcial de una ficha de sesión, con objetivo, etapas y registro">
+          <img class="sample" src="muestra-sesion.webp" width="636" height="455" alt="Vista parcial de la primera sesión, con su objetivo y etapas">
         </div>
-        <figcaption>Portada y muestra del programa</figcaption>
+        <figcaption>Portada y ficha de muestra del programa</figcaption>
       </figure>
-      <div class="offer">
-        <h2>Añade el programa a tu pedido</h2>
-        <p class="summary">PDF descargable de 37 páginas</p>
+      <div class="hero-action">
+        <a class="jump" href="#oferta">Ver la oferta de US$ 27,00</a>
+        <a class="skip" href="#decision">Ir a las opciones para continuar</a>
+      </div>
+    </section>
+
+    <section class="segment" aria-labelledby="problema">
+      <div class="story">
+        <h2 id="problema">Tienes con qué trabajar. Ahora toca decidir qué va primero y qué viene después.</h2>
+        <p>Imagina que mañana tienes sesión. Abres Activa360, eliges algunas fichas y armas el encuentro. Cuando llega la siguiente cita, tienes que decidir qué retomar, qué variar y qué anotar para la próxima.</p>
+        <p>Si prefieres partir de un plan ya armado, el Programa Avanzado propone tres encuentros por semana. Cada ficha pone el objetivo, los materiales, los tiempos, una opción de adaptación y el espacio de registro en la misma página. Tú ajustas la propuesta según la persona y lo que observas en cada encuentro.</p>
+      </div>
+    </section>
+
+    <section class="segment" aria-labelledby="mecanismo">
+      <div class="section-intro">
+        <p class="eyebrow">Cómo se organiza el programa</p>
+        <h2 id="mecanismo">12 semanas en tres bloques. Tres encuentros por semana.</h2>
+        <p>Cada ficha te lleva por cuatro momentos: explorar, elegir, practicar y revisar. Estas son tres muestras del PDF para que compruebes cómo cambia el objetivo entre bloques.</p>
+      </div>
+      <ol class="chapters">
+        <li>
+          <h3><span>Semanas 1 a 4</span>Base</h3>
+          <p>Empieza con propuestas que te ayudan a observar cómo participa la persona y qué apoyos necesita.</p>
+          <figure>
+            <img src="muestra-sesion.webp" width="636" height="455" loading="lazy" alt="Ficha 1, semana 1, con el objetivo de movilidad y despertar corporal">
+            <figcaption>Sesión 01 · Movilidad y despertar corporal</figcaption>
+          </figure>
+        </li>
+        <li>
+          <h3><span>Semanas 5 a 8</span>Variación</h3>
+          <p>Cambia actividades y apoyos según lo observado. La ficha 14 propone opciones para ajustar la participación y los desplazamientos.</p>
+          <figure>
+            <img src="muestra-sesion-14.webp" width="636" height="455" loading="lazy" alt="Ficha 14, semana 5, con el objetivo de coordinación y alcance">
+            <figcaption>Sesión 14 · Coordinación y alcance</figcaption>
+          </figure>
+        </li>
+        <li>
+          <h3><span>Semanas 9 a 12</span>Consolidación</h3>
+          <p>Retoma lo que funcionó, combina actividades cuando corresponda y registra qué ajustes conviene mantener.</p>
+          <figure>
+            <img src="muestra-sesion-27.webp" width="636" height="455" loading="lazy" alt="Ficha 27, semana 9, con el objetivo de foco y movimiento">
+            <figcaption>Sesión 27 · Foco y movimiento</figcaption>
+          </figure>
+        </li>
+      </ol>
+    </section>
+
+    <section class="segment example" aria-labelledby="ejemplo">
+      <div>
+        <p class="eyebrow">Ejemplo del PDF · Sesión 14</p>
+        <h2 id="ejemplo">Así se ve un encuentro de 30 minutos</h2>
+        <p>La ficha propone trabajar coordinación y alcance. Trae una secuencia con tiempos, variantes para ajustar el movimiento y un espacio para registrar participación y fatiga percibida.</p>
+        <p>Al preparar la siguiente sesión puedes partir de ese registro y decidir qué repetir, acortar o adaptar.</p>
+      </div>
+      <ol class="schedule">
+        <li><strong>4 min</strong><span>Bienvenida y chequeo de comodidad</span></li>
+        <li><strong>9 min</strong><span>Alcance frontal y traslado lateral de un objeto</span></li>
+        <li><strong>9 min</strong><span>Oposición de dedos y apertura de brazos</span></li>
+        <li><strong>8 min</strong><span>Cierre del encuentro</span></li>
+      </ol>
+    </section>
+
+    <section class="segment" aria-labelledby="entrega">
+      <div class="section-intro">
+        <h2 id="entrega">Qué recibes al añadir el Programa Avanzado</h2>
+        <p>Un PDF de 37 páginas para consultar, descargar o imprimir desde el material que se habilita tras la aprobación del pago adicional.</p>
+      </div>
+      <ul class="includes">
+        <li><strong>36 fichas de sesión</strong><p>Objetivo, materiales y una secuencia con inicio, bloques de actividad y cierre.</p></li>
+        <li><strong>Un plan de 12 semanas</strong><p>Una referencia para decidir qué encuentro preparar y cómo dar continuidad al anterior.</p></li>
+        <li><strong>Adaptación y seguimiento</strong><p>En cada ficha encuentras variantes y un espacio para anotar participación, fatiga y cambios.</p></li>
+      </ul>
+      <p class="next"><a class="jump" href="#oferta">Ver cómo añadir el programa</a></p>
+    </section>
+
+    <section class="segment offer" id="oferta" aria-labelledby="total">
+      <div class="section-intro">
+        <p class="eyebrow">Oferta de este paso de la compra</p>
+        <h2 id="total">Añade el Programa Avanzado Activa360</h2>
+        <p>Si quieres usar la planificación de 12 semanas como punto de partida, puedes añadirla aquí en un clic. También puedes seguir directamente al material de tu compra original.</p>
+      </div>
+      <div class="price-box" id="decision">
         <p class="cost"><strong class="price">US$ 27,00</strong><span>Pago único adicional</span></p>
+        <p class="summary">36 sesiones · PDF descargable de 37 páginas</p>
+        <p class="fee">Cakto puede aplicar una tarifa de servicio.</p>
         <cakto-upsell-buttons>
           <cakto-upsell-accept
             bg-color="#0f6b4e"
@@ -140,20 +258,30 @@
             app-base-url="https://app.cakto.com.br"
             offer-type="upsell"
             upsell-reject-url="members_area"
-          >Sí, quiero añadirlo por US$ 27,00</cakto-upsell-accept>
+          >Sí, añadir el programa por US$ 27,00</cakto-upsell-accept>
           <cakto-upsell-reject upsell-reject-url="members_area">Continuar solo con mi compra original</cakto-upsell-reject>
         </cakto-upsell-buttons>
       </div>
     </section>
-    <section class="details" aria-labelledby="dentro">
-      <h2 id="dentro">Qué encontrarás en cada sesión</h2>
-      <ul>
-        <li><strong>Un plan para el encuentro</strong><p>Objetivo, materiales, inicio, actividades principales y cierre, con tiempos orientativos.</p></li>
-        <li><strong>Opciones para adaptar</strong><p>Alternativas para ajustar la participación, el apoyo y la dificultad según tu evaluación.</p></li>
-        <li><strong>Un registro para la próxima sesión</strong><p>Espacio para anotar participación, fatiga percibida y ajustes que quieras probar.</p></li>
-      </ul>
+
+    <section class="segment faq" aria-labelledby="dudas">
+      <h2 id="dudas">Preguntas antes de decidir</h2>
+      <details>
+        <summary>¿Qué pasa si decido seguir con mi compra original?</summary>
+        <p>El programa adicional es opcional. La opción de continuar te lleva al acceso de la compra original, con tus 6 módulos y 4 bonos.</p>
+      </details>
+      <details>
+        <summary>¿Cómo recibo el programa si lo añado?</summary>
+        <p>Tras aprobarse el pago adicional, el PDF se habilita en Cakto Members para que puedas consultarlo y descargarlo.</p>
+      </details>
+      <details>
+        <summary>¿Las 12 semanas se aplican igual para todas las personas?</summary>
+        <p>El orden sirve de referencia. Ajusta las actividades y los apoyos según la evaluación, las condiciones y la participación de cada persona.</p>
+      </details>
+      <p class="next"><a class="jump" href="#decision">Volver a las opciones de compra</a></p>
     </section>
   </main>
+  <footer class="wrap footer">Activa360 · Recursos para profesionales que planifican sesiones con adultos mayores.</footer>
   <script src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js"></script>
 </body>
 </html>
