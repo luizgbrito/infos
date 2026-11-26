@@ -1,60 +1,159 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-419">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-<meta name="referrer" content="no-referrer">
-<title>Programa Avanzado de 12 Semanas | Activa360</title>
-<style>
-:root{font-family:system-ui,sans-serif;color:#133e35;background:#eef7f1}
-*{box-sizing:border-box}
-body{margin:0}
-main{width:min(100% - 2rem,60rem);margin:clamp(1rem,5vw,4rem) auto}
-article{background:#fff;border:1px solid #dcebe2;border-radius:1.4rem;padding:clamp(1.25rem,4vw,2.75rem);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);align-items:center;gap:clamp(1rem,4vw,3rem)}
-img{display:block;width:min(100%,19rem);height:auto;margin:auto;border-radius:.6rem;box-shadow:0 8px 30px #133e351a}
-h1{font-size:clamp(1.85rem,4vw,3rem);line-height:1.08;margin:.6rem 0 1rem}
-p,li{line-height:1.55}
-ul{padding-left:1.15rem}
-.eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#176047}
-.price{font-size:1.8rem;font-weight:800;margin:1rem 0 0}
-.purchase-note{margin:.1rem 0 1rem}
-cakto-upsell-buttons{display:grid;gap:.75rem;text-align:center}
-cakto-upsell-accept::part(button),cakto-upsell-reject::part(button){width:100%;min-height:44px;white-space:normal;border-radius:.65rem}
-@media(max-width:600px){article{grid-template-columns:1fr}img{width:min(100%,13rem)}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="referrer" content="no-referrer">
+  <title>Programa Avanzado de 12 Semanas | Activa360</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Avenir Next", Avenir, system-ui, sans-serif;
+      background: #eef6f1;
+      color: #13382e;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; }
+    h1, h2, p, figure { margin: 0; }
+    p { line-height: 1.55; }
+    img { display: block; max-width: 100%; height: auto; }
+    .wrap { width: min(70rem, calc(100% - 2.5rem)); margin-inline: auto; }
+    .top { background: #103d33; color: #fff; }
+    .top .wrap {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: .4rem 1.2rem; min-height: 4.1rem; padding-block: .65rem;
+    }
+    .brand { font-size: 1.3rem; font-weight: 800; letter-spacing: -.05em; }
+    .brand span { color: #a9ecd2; }
+    .context { font-size: .85rem; color: #e2f3eb; }
+    main { padding-block: clamp(1.8rem, 4vw, 3.8rem) 4rem; }
+    .hero {
+      display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+      grid-template-areas: "intro product" "offer product";
+      align-items: start; gap: 1.4rem clamp(1.6rem, 4vw, 4rem);
+    }
+    .intro { grid-area: intro; }
+    .eyebrow {
+      font-size: .8rem; font-weight: 800; letter-spacing: .095em;
+      text-transform: uppercase; color: #17654f;
+    }
+    h1 {
+      font-size: clamp(2.15rem, 4.55vw, 4.1rem); line-height: 1.015;
+      letter-spacing: -.058em; text-wrap: balance; margin-block: .65rem .85rem;
+    }
+    h1 strong { color: #177357; font-weight: inherit; }
+    .intro > p:last-child { max-width: 43ch; color: #39574c; font-size: clamp(1rem, 1.65vw, 1.18rem); }
+    .product {
+      grid-area: product; display: grid; align-content: center; align-self: stretch;
+      min-width: 0; min-height: 26rem; padding: clamp(1.2rem, 3vw, 2.7rem);
+      border-radius: 1.6rem; background: radial-gradient(ellipse at 50% 38%, #f4fff7, #d0eadb);
+      border: 1px solid #c5e1d1; isolation: isolate;
+    }
+    .product-art { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: center; margin: 0 auto; width: min(100%, 27rem); }
+    .cover {
+      z-index: 1; border-radius: 4px 10px 10px 4px; transform: rotate(-6deg);
+      box-shadow: 1px 2px 0 #246554, 5px 7px 0 #afcabb, 11px 17px 27px #1b483438;
+    }
+    .sample {
+      width: 120%; max-width: none; margin-left: -20%; transform: translateY(26%) rotate(9deg);
+      border-radius: .45rem; box-shadow: 0 12px 27px #1b483440;
+    }
+    figcaption { margin-top: 2.1rem; text-align: center; font-size: .875rem; color: #355a4c; }
+    .offer {
+      grid-area: offer; background: #fff; border: 1px solid #cde3d6; border-radius: 1.2rem;
+      padding: clamp(1.15rem, 2.7vw, 1.7rem); box-shadow: 0 10px 24px #13382e0a;
+    }
+    .offer h2 { font-size: clamp(1.18rem, 2.2vw, 1.5rem); letter-spacing: -.025em; }
+    .summary { margin-top: .45rem; font-size: .95rem; color: #3c594e; }
+    .cost { margin-top: .85rem; display: flex; align-items: baseline; flex-wrap: wrap; gap: .05rem .65rem; }
+    .price { font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.18; font-weight: 850; letter-spacing: -.06em; }
+    .cost span:last-child { font-size: .85rem; color: #39574c; }
+    cakto-upsell-buttons, cakto-upsell-accept, cakto-upsell-reject { display: block; }
+    cakto-upsell-buttons { margin-top: .9rem; text-align: center; }
+    cakto-upsell-accept::part(button) {
+      font: inherit; font-weight: 800; width: 100%; min-height: 3.35rem;
+      border-radius: .65rem; white-space: normal; padding: .7rem .9rem;
+    }
+    cakto-upsell-reject { margin-top: .45rem; }
+    cakto-upsell-reject::part(button) {
+      font: inherit; font-size: .9rem; min-height: 2.75rem; max-width: 100%;
+      white-space: normal; text-decoration: underline; color: #35584b; padding-inline: .3rem;
+    }
+    .details { margin-top: clamp(2.1rem, 5vw, 3.7rem); }
+    .details h2 { font-size: clamp(1.5rem, 3vw, 2.05rem); letter-spacing: -.045em; }
+    .details ul {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem;
+      padding: 0; margin: 1rem 0 0; list-style: none;
+    }
+    .details li { padding: 1.05rem 1.15rem; border: 1px solid #cde3d6; border-radius: .85rem; background: #f8fcf9; }
+    .details li strong { display: block; margin-bottom: .35rem; }
+    .details li p { color: #3c594e; font-size: .9rem; }
+    @media (max-width: 760px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas: "intro" "product" "offer";
+        gap: 1.05rem;
+      }
+      .product { min-height: 0; padding: 1.35rem 1.4rem .9rem; }
+      .product-art { width: min(100%, 12.25rem); }
+      figcaption { margin-top: 1.12rem; }
+      .details ul { grid-template-columns: minmax(0, 1fr); }
+    }
+    @media (max-width: 360px) {
+      .wrap { width: calc(100% - 1.6rem); }
+      h1 { font-size: 2rem; }
+    }
+  </style>
 </head>
 <body>
-<main>
-  <article>
-    <img src="portada.png" width="636" height="900" alt="Portada del Programa Avanzado de Activa360">
-    <div>
-      <p class="eyebrow">Complemento opcional de Activa360</p>
-      <h1>Programa Avanzado de 12 Semanas</h1>
-      <p>Organiza 36 encuentros con adultos mayores siguiendo el método 4D de Activa360.</p>
-      <ul>
-        <li>Objetivos, materiales y secuencias con tiempos para cada sesión.</li>
-        <li>Variantes para ajustar las actividades según la evaluación y las necesidades de cada persona.</li>
-        <li>Espacio para registrar participación, fatiga percibida y ajustes para el siguiente encuentro.</li>
-      </ul>
-      <p class="price">US$ 27,00</p>
-      <p class="purchase-note">Pago único adicional · PDF descargable</p>
-      <cakto-upsell-buttons>
-        <cakto-upsell-accept
-          bg-color="#0f7865"
-          text-color="#ffffff"
-          upsell-accept-url="members_area"
-          offer-id="gqac2qc"
-          app-base-url="https://app.cakto.com.br"
-          offer-type="upsell"
-          upsell-reject-url="members_area"
-        >Sí, añadir el programa por US$ 27,00</cakto-upsell-accept>
-        <cakto-upsell-reject upsell-reject-url="members_area"
-        >Continuar a mi compra sin añadirlo</cakto-upsell-reject>
-      </cakto-upsell-buttons>
+  <header class="top">
+    <div class="wrap">
+      <p class="brand">activa<span>360</span></p>
+      <p class="context">Oferta opcional antes de ir a tus materiales</p>
     </div>
-  </article>
-</main>
-<script src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js"></script>
+  </header>
+  <main class="wrap">
+    <section class="hero" aria-labelledby="programa">
+      <div class="intro">
+        <p class="eyebrow">Programa Avanzado Activa360</p>
+        <h1 id="programa">Planifica tus próximas <strong>12 semanas</strong> de sesiones</h1>
+        <p>Añade 36 sesiones ya estructuradas para adultos mayores. Cada una incluye objetivo, tiempos y opciones para adaptar las actividades.</p>
+      </div>
+      <figure class="product">
+        <div class="product-art">
+          <img class="cover" src="portada.png" width="636" height="900" alt="Portada del Programa Avanzado de 12 Semanas">
+          <img class="sample" src="muestra-sesion.webp" width="636" height="455" alt="Vista parcial de una ficha de sesión, con objetivo, etapas y registro">
+        </div>
+        <figcaption>Portada y muestra del programa</figcaption>
+      </figure>
+      <div class="offer">
+        <h2>Añade el programa a tu pedido</h2>
+        <p class="summary">PDF descargable de 37 páginas</p>
+        <p class="cost"><strong class="price">US$ 27,00</strong><span>Pago único adicional</span></p>
+        <cakto-upsell-buttons>
+          <cakto-upsell-accept
+            bg-color="#0f6b4e"
+            text-color="#ffffff"
+            upsell-accept-url="members_area"
+            offer-id="gqac2qc"
+            app-base-url="https://app.cakto.com.br"
+            offer-type="upsell"
+            upsell-reject-url="members_area"
+          >Sí, quiero añadirlo por US$ 27,00</cakto-upsell-accept>
+          <cakto-upsell-reject upsell-reject-url="members_area">Continuar solo con mi compra original</cakto-upsell-reject>
+        </cakto-upsell-buttons>
+      </div>
+    </section>
+    <section class="details" aria-labelledby="dentro">
+      <h2 id="dentro">Qué encontrarás en cada sesión</h2>
+      <ul>
+        <li><strong>Un plan para el encuentro</strong><p>Objetivo, materiales, inicio, actividades principales y cierre, con tiempos orientativos.</p></li>
+        <li><strong>Opciones para adaptar</strong><p>Alternativas para ajustar la participación, el apoyo y la dificultad según tu evaluación.</p></li>
+        <li><strong>Un registro para la próxima sesión</strong><p>Espacio para anotar participación, fatiga percibida y ajustes que quieras probar.</p></li>
+      </ul>
+    </section>
+  </main>
+  <script src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js"></script>
 </body>
 </html>
