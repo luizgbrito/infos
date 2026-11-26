@@ -2,7 +2,7 @@
 
 ## Dados fiéis à página de vendas
 
-- Produto: **Biblical World 3D™ — Sistema Completo**
+- Produto: **Biblical World 3D — Sistema Completo**
 - Oferta efetiva: **US$ 27,00**, pagamento único, moeda `USD`.
 - **US$ 54,00 é apenas preço de referência tachado** na página; não é uma segunda oferta.
 - Descrição pronta em `configuracao.json`, acima de 100 caracteres.
