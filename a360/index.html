@@ -871,12 +871,21 @@ html:has(#a360-exit[open]) { overflow: hidden; }
 <script>
 // CONFIGURACIÓN DE LANZAMIENTO: pega aquí tu enlace de checkout de Cacto.
 const CHECKOUT_URL = 'https://pay.cakto.com.br/ctf22cs_1341518';
+function checkoutWithCampaign(url) {
+  const checkout = new URL(url);
+  const campaign = new URLSearchParams(window.location.search);
+  for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_id', 'src', 'sck']) {
+    const value = campaign.get(key);
+    if (value) checkout.searchParams.set(key, value);
+  }
+  return checkout.href;
+}
 // Opcional: pega una URL de embed de Wistia, Vimeo o YouTube.
 const VSL_EMBED_URL = '';
 if(VSL_EMBED_URL && /^https:\/\//.test(VSL_EMBED_URL) && document.getElementById('vsl-iframe')){document.getElementById('vsl-iframe').src=VSL_EMBED_URL;document.getElementById('video-presentacion').hidden=false;}
 const overlay=document.getElementById('checkout-modal');
 function closeModal(){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true')}
-document.querySelectorAll('[data-checkout]').forEach(b=>b.addEventListener('click',()=>{if(CHECKOUT_URL&&/^https:\/\//.test(CHECKOUT_URL)){window.location.href=CHECKOUT_URL}else{overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');document.getElementById('modal-close').focus()}}));
+document.querySelectorAll('[data-checkout]').forEach(b=>b.addEventListener('click',()=>{if(CHECKOUT_URL&&/^https:\/\//.test(CHECKOUT_URL)){window.location.href=checkoutWithCampaign(CHECKOUT_URL)}else{overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');document.getElementById('modal-close').focus()}}));
 document.getElementById('modal-close').addEventListener('click',closeModal);
 document.getElementById('modal-ok').addEventListener('click',closeModal);
 overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal()});
@@ -933,13 +942,7 @@ let touchStart=0;document.querySelector('.interior-stage').addEventListener('tou
   let deepestScroll = 0;
 
   try { seen = sessionStorage.getItem(seenKey) === '1'; } catch {}
-  const sourceParams = new URLSearchParams(location.search);
-  const checkout = new URL(checkoutLink.href);
-  for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'src', 'sck']) {
-    const value = sourceParams.get(key);
-    if (value) checkout.searchParams.set(key, value);
-  }
-  checkoutLink.href = checkout.href;
+  checkoutLink.href = checkoutWithCampaign(checkoutLink.href);
 
   function showExitOffer() {
     if (seen || goingToCheckout || document.hidden || performance.now() - startedAt < 4500) return;
